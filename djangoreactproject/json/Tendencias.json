@@ -1,0 +1,2405 @@
+[
+    {
+        "ID": 1,
+        "Semestre": "2021-2",
+        "Inscrito": 9.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": 1.0,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 2,
+        "Semestre": "2021-1",
+        "Inscrito": 9.0,
+        "Primer curso": 2.0,
+        "Matriculado": 32.0,
+        "Graduado": 1.0,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 3,
+        "Semestre": "2020-2",
+        "Inscrito": 29.0,
+        "Primer curso": 3.0,
+        "Matriculado": 32.0,
+        "Graduado": 6.0,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 4,
+        "Semestre": "2020-1",
+        "Inscrito": 10.0,
+        "Primer curso": 5.0,
+        "Matriculado": 32.0,
+        "Graduado": 2.0,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 5,
+        "Semestre": "2019-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 34.0,
+        "Graduado": 5.0,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 6,
+        "Semestre": "2019-1",
+        "Inscrito": 5.0,
+        "Primer curso": 4.0,
+        "Matriculado": 36.0,
+        "Graduado": 3.0,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 7,
+        "Semestre": "2018-2",
+        "Inscrito": 5.0,
+        "Primer curso": 4.0,
+        "Matriculado": 35.0,
+        "Graduado": 5.0,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 8,
+        "Semestre": "2018-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 37.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 9,
+        "Semestre": "2017-2",
+        "Inscrito": 2.0,
+        "Primer curso": 2.0,
+        "Matriculado": 37.0,
+        "Graduado": 4.0,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 10,
+        "Semestre": "2017-1",
+        "Inscrito": 7.0,
+        "Primer curso": 4.0,
+        "Matriculado": 39.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 11,
+        "Semestre": "2016-2",
+        "Inscrito": 5.0,
+        "Primer curso": 4.0,
+        "Matriculado": 36.0,
+        "Graduado": 1.0,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 12,
+        "Semestre": "2016-1",
+        "Inscrito": 10.0,
+        "Primer curso": 10.0,
+        "Matriculado": 34.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 13,
+        "Semestre": "2015-2",
+        "Inscrito": 3.0,
+        "Primer curso": 2.0,
+        "Matriculado": 26.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 14,
+        "Semestre": "2015-1",
+        "Inscrito": 6.0,
+        "Primer curso": 4.0,
+        "Matriculado": 26.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 15,
+        "Semestre": "2014-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 23.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 16,
+        "Semestre": "2014-1",
+        "Inscrito": 6.0,
+        "Primer curso": 6.0,
+        "Matriculado": 24.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 17,
+        "Semestre": "2013-2",
+        "Inscrito": 6.0,
+        "Primer curso": 2.0,
+        "Matriculado": 18.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 18,
+        "Semestre": "2013-1",
+        "Inscrito": 4.0,
+        "Primer curso": 3.0,
+        "Matriculado": 15.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 19,
+        "Semestre": "2012-2",
+        "Inscrito": 9.0,
+        "Primer curso": 5.0,
+        "Matriculado": 12.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 20,
+        "Semestre": "2012-1",
+        "Inscrito": 2.0,
+        "Primer curso": 1.0,
+        "Matriculado": 7.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 21,
+        "Semestre": "2011-2",
+        "Inscrito": 10.0,
+        "Primer curso": 6.0,
+        "Matriculado": 6.0,
+        "Graduado": null,
+        "Programa ": "Doctorado en Ingeniería"
+    },
+    {
+        "ID": 22,
+        "Semestre": "2021-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": 1.0,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 23,
+        "Semestre": "2020-2",
+        "Inscrito": 8.0,
+        "Primer curso": 5.0,
+        "Matriculado": 10.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 24,
+        "Semestre": "2020-1",
+        "Inscrito": 4.0,
+        "Primer curso": null,
+        "Matriculado": 5.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 25,
+        "Semestre": "2019-2",
+        "Inscrito": 11.0,
+        "Primer curso": 5.0,
+        "Matriculado": 5.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 26,
+        "Semestre": "2014-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": 1.0,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 27,
+        "Semestre": "2013-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": 5.0,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 28,
+        "Semestre": "2013-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 6.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 29,
+        "Semestre": "2012-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 6.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 30,
+        "Semestre": "2011-1",
+        "Inscrito": 2.0,
+        "Primer curso": null,
+        "Matriculado": 6.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 31,
+        "Semestre": "2010-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 7.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 32,
+        "Semestre": "2010-1",
+        "Inscrito": 1.0,
+        "Primer curso": 1.0,
+        "Matriculado": 7.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Electrónica Digital"
+    },
+    {
+        "ID": 33,
+        "Semestre": "2021-2",
+        "Inscrito": 21.0,
+        "Primer curso": 3.0,
+        "Matriculado": 4.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 34,
+        "Semestre": "2021-1",
+        "Inscrito": 3.0,
+        "Primer curso": null,
+        "Matriculado": 6.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 35,
+        "Semestre": "2020-2",
+        "Inscrito": 14.0,
+        "Primer curso": 6.0,
+        "Matriculado": 6.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 36,
+        "Semestre": "2020-1",
+        "Inscrito": 1.0,
+        "Primer curso": 1.0,
+        "Matriculado": 1.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 37,
+        "Semestre": "2019-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 9.0,
+        "Graduado": 9.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 38,
+        "Semestre": "2019-1",
+        "Inscrito": 28.0,
+        "Primer curso": 8.0,
+        "Matriculado": 8.0,
+        "Graduado": 1.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 39,
+        "Semestre": "2018-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 4.0,
+        "Graduado": 1.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 40,
+        "Semestre": "2017-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 6.0,
+        "Graduado": 4.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 41,
+        "Semestre": "2016-2",
+        "Inscrito": 1.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 42,
+        "Semestre": "2015-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": 7.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 43,
+        "Semestre": "2015-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 7.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 44,
+        "Semestre": "2014-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 10.0,
+        "Graduado": 2.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 45,
+        "Semestre": "2014-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 9.0,
+        "Graduado": 4.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 46,
+        "Semestre": "2013-2",
+        "Inscrito": 16.0,
+        "Primer curso": 7.0,
+        "Matriculado": 10.0,
+        "Graduado": 4.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 47,
+        "Semestre": "2013-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 7.0,
+        "Graduado": 2.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 48,
+        "Semestre": "2012-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 2.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 49,
+        "Semestre": "2012-1",
+        "Inscrito": 1.0,
+        "Primer curso": null,
+        "Matriculado": 18.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 50,
+        "Semestre": "2011-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 27.0,
+        "Graduado": 3.0,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 51,
+        "Semestre": "2011-1",
+        "Inscrito": 10.0,
+        "Primer curso": 1.0,
+        "Matriculado": 18.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 52,
+        "Semestre": "2010-2",
+        "Inscrito": 13.0,
+        "Primer curso": 11.0,
+        "Matriculado": 17.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 53,
+        "Semestre": "2010-1",
+        "Inscrito": 2.0,
+        "Primer curso": null,
+        "Matriculado": 15.0,
+        "Graduado": null,
+        "Programa ": "Especialización en Redes de Datos"
+    },
+    {
+        "ID": 54,
+        "Semestre": "2021-2",
+        "Inscrito": 51.0,
+        "Primer curso": 15.0,
+        "Matriculado": 72.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 55,
+        "Semestre": "2021-1",
+        "Inscrito": 100.0,
+        "Primer curso": 75.0,
+        "Matriculado": 289.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 56,
+        "Semestre": "2020-2",
+        "Inscrito": 84.0,
+        "Primer curso": 35.0,
+        "Matriculado": 246.0,
+        "Graduado": 2.0,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 57,
+        "Semestre": "2020-1",
+        "Inscrito": 67.0,
+        "Primer curso": 59.0,
+        "Matriculado": 225.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 58,
+        "Semestre": "2019-2",
+        "Inscrito": 44.0,
+        "Primer curso": 27.0,
+        "Matriculado": 172.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 59,
+        "Semestre": "2019-1",
+        "Inscrito": 85.0,
+        "Primer curso": 80.0,
+        "Matriculado": 178.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 60,
+        "Semestre": "2018-2",
+        "Inscrito": 46.0,
+        "Primer curso": 28.0,
+        "Matriculado": 125.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 61,
+        "Semestre": "2018-1",
+        "Inscrito": 110.0,
+        "Primer curso": 59.0,
+        "Matriculado": 121.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 62,
+        "Semestre": "2017-2",
+        "Inscrito": 48.0,
+        "Primer curso": 29.0,
+        "Matriculado": 77.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 63,
+        "Semestre": "2017-1",
+        "Inscrito": 114.0,
+        "Primer curso": 53.0,
+        "Matriculado": 68.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 64,
+        "Semestre": "2016-2",
+        "Inscrito": 28.0,
+        "Primer curso": 23.0,
+        "Matriculado": 23.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Electrónica (Diurna)"
+    },
+    {
+        "ID": 65,
+        "Semestre": "2021-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 14.0,
+        "Graduado": 17.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 66,
+        "Semestre": "2021-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 47.0,
+        "Graduado": 3.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 67,
+        "Semestre": "2020-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 56.0,
+        "Graduado": 19.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 68,
+        "Semestre": "2020-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 75.0,
+        "Graduado": 6.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 69,
+        "Semestre": "2019-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 88.0,
+        "Graduado": 8.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 70,
+        "Semestre": "2019-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 100.0,
+        "Graduado": 10.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 71,
+        "Semestre": "2018-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 120.0,
+        "Graduado": 19.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 72,
+        "Semestre": "2018-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 140.0,
+        "Graduado": 9.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 73,
+        "Semestre": "2017-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 164.0,
+        "Graduado": 19.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 74,
+        "Semestre": "2017-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 197.0,
+        "Graduado": 12.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 75,
+        "Semestre": "2016-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 226.0,
+        "Graduado": 22.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 76,
+        "Semestre": "2016-1",
+        "Inscrito": 80.0,
+        "Primer curso": 54.0,
+        "Matriculado": 291.0,
+        "Graduado": 11.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 77,
+        "Semestre": "2015-2",
+        "Inscrito": 41.0,
+        "Primer curso": 35.0,
+        "Matriculado": 283.0,
+        "Graduado": 26.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 78,
+        "Semestre": "2015-1",
+        "Inscrito": 95.0,
+        "Primer curso": 77.0,
+        "Matriculado": 302.0,
+        "Graduado": 9.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 79,
+        "Semestre": "2014-2",
+        "Inscrito": 40.0,
+        "Primer curso": 27.0,
+        "Matriculado": 237.0,
+        "Graduado": 9.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 80,
+        "Semestre": "2014-1",
+        "Inscrito": 47.0,
+        "Primer curso": 38.0,
+        "Matriculado": 292.0,
+        "Graduado": 19.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 81,
+        "Semestre": "2013-2",
+        "Inscrito": 49.0,
+        "Primer curso": 22.0,
+        "Matriculado": 264.0,
+        "Graduado": 25.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 82,
+        "Semestre": "2013-1",
+        "Inscrito": 60.0,
+        "Primer curso": 46.0,
+        "Matriculado": 290.0,
+        "Graduado": 4.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 83,
+        "Semestre": "2012-2",
+        "Inscrito": 60.0,
+        "Primer curso": 44.0,
+        "Matriculado": 292.0,
+        "Graduado": 25.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 84,
+        "Semestre": "2012-1",
+        "Inscrito": 96.0,
+        "Primer curso": 65.0,
+        "Matriculado": 299.0,
+        "Graduado": 17.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 85,
+        "Semestre": "2011-2",
+        "Inscrito": 61.0,
+        "Primer curso": 50.0,
+        "Matriculado": 328.0,
+        "Graduado": 22.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 86,
+        "Semestre": "2011-1",
+        "Inscrito": 79.0,
+        "Primer curso": 55.0,
+        "Matriculado": 323.0,
+        "Graduado": 3.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 87,
+        "Semestre": "2010-2",
+        "Inscrito": 69.0,
+        "Primer curso": 48.0,
+        "Matriculado": 331.0,
+        "Graduado": 5.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 88,
+        "Semestre": "2010-1",
+        "Inscrito": 88.0,
+        "Primer curso": 63.0,
+        "Matriculado": 339.0,
+        "Graduado": 4.0,
+        "Programa ": "Ingeniería Electrónica (Nocturno)"
+    },
+    {
+        "ID": 89,
+        "Semestre": "2021-2",
+        "Inscrito": 102.0,
+        "Primer curso": 31.0,
+        "Matriculado": 278.0,
+        "Graduado": 16.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 90,
+        "Semestre": "2021-1",
+        "Inscrito": 205.0,
+        "Primer curso": 86.0,
+        "Matriculado": 949.0,
+        "Graduado": 26.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 91,
+        "Semestre": "2020-2",
+        "Inscrito": 93.0,
+        "Primer curso": 79.0,
+        "Matriculado": 999.0,
+        "Graduado": 92.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 92,
+        "Semestre": "2020-1",
+        "Inscrito": 184.0,
+        "Primer curso": 78.0,
+        "Matriculado": 935.0,
+        "Graduado": 25.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 93,
+        "Semestre": "2019-2",
+        "Inscrito": 95.0,
+        "Primer curso": 77.0,
+        "Matriculado": 930.0,
+        "Graduado": 104.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 94,
+        "Semestre": "2019-1",
+        "Inscrito": 174.0,
+        "Primer curso": 79.0,
+        "Matriculado": 962.0,
+        "Graduado": 68.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 95,
+        "Semestre": "2018-2",
+        "Inscrito": 103.0,
+        "Primer curso": 85.0,
+        "Matriculado": 970.0,
+        "Graduado": 79.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 96,
+        "Semestre": "2018-1",
+        "Inscrito": 212.0,
+        "Primer curso": 83.0,
+        "Matriculado": 999.0,
+        "Graduado": 36.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 97,
+        "Semestre": "2017-2",
+        "Inscrito": 98.0,
+        "Primer curso": 82.0,
+        "Matriculado": 1.018,
+        "Graduado": 76.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 98,
+        "Semestre": "2017-1",
+        "Inscrito": 250.0,
+        "Primer curso": 84.0,
+        "Matriculado": 994.0,
+        "Graduado": 22.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 99,
+        "Semestre": "2016-2",
+        "Inscrito": 127.0,
+        "Primer curso": 90.0,
+        "Matriculado": 979.0,
+        "Graduado": 75.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 100,
+        "Semestre": "2016-1",
+        "Inscrito": 250.0,
+        "Primer curso": 75.0,
+        "Matriculado": 1.007,
+        "Graduado": 39.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 101,
+        "Semestre": "2015-2",
+        "Inscrito": 114.0,
+        "Primer curso": 79.0,
+        "Matriculado": 997.0,
+        "Graduado": 58.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 102,
+        "Semestre": "2015-1",
+        "Inscrito": 186.0,
+        "Primer curso": 73.0,
+        "Matriculado": 991.0,
+        "Graduado": 19.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 103,
+        "Semestre": "2014-2",
+        "Inscrito": 119.0,
+        "Primer curso": 80.0,
+        "Matriculado": 979.0,
+        "Graduado": 13.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 104,
+        "Semestre": "2014-1",
+        "Inscrito": 165.0,
+        "Primer curso": 86.0,
+        "Matriculado": 1.013,
+        "Graduado": 30.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 105,
+        "Semestre": "2013-2",
+        "Inscrito": 124.0,
+        "Primer curso": 53.0,
+        "Matriculado": 915.0,
+        "Graduado": 47.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 106,
+        "Semestre": "2013-1",
+        "Inscrito": 200.0,
+        "Primer curso": 81.0,
+        "Matriculado": 902.0,
+        "Graduado": 10.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 107,
+        "Semestre": "2012-2",
+        "Inscrito": 125.0,
+        "Primer curso": 89.0,
+        "Matriculado": 869.0,
+        "Graduado": 35.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 108,
+        "Semestre": "2012-1",
+        "Inscrito": 152.0,
+        "Primer curso": 85.0,
+        "Matriculado": 801.0,
+        "Graduado": 26.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 109,
+        "Semestre": "2011-2",
+        "Inscrito": 128.0,
+        "Primer curso": 84.0,
+        "Matriculado": 808.0,
+        "Graduado": 45.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 110,
+        "Semestre": "2011-1",
+        "Inscrito": 155.0,
+        "Primer curso": 82.0,
+        "Matriculado": 768.0,
+        "Graduado": 14.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 111,
+        "Semestre": "2010-2",
+        "Inscrito": 105.0,
+        "Primer curso": 81.0,
+        "Matriculado": 758.0,
+        "Graduado": 63.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 112,
+        "Semestre": "2010-1",
+        "Inscrito": 142.0,
+        "Primer curso": 83.0,
+        "Matriculado": 758.0,
+        "Graduado": 21.0,
+        "Programa ": "Ingeniería Eléctrica"
+    },
+    {
+        "ID": 113,
+        "Semestre": "2018-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 18.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Eléctrica (Básicos ingeniería)"
+    },
+    {
+        "ID": 114,
+        "Semestre": "2018-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 18.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Eléctrica (Básicos ingeniería)"
+    },
+    {
+        "ID": 115,
+        "Semestre": "2017-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 20.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Eléctrica (Básicos ingeniería)"
+    },
+    {
+        "ID": 116,
+        "Semestre": "2017-1",
+        "Inscrito": 27.0,
+        "Primer curso": 16.0,
+        "Matriculado": 22.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Eléctrica (Básicos ingeniería)"
+    },
+    {
+        "ID": 117,
+        "Semestre": "2016-2",
+        "Inscrito": 12.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Ingeniería Eléctrica (Básicos ingeniería)"
+    },
+    {
+        "ID": 118,
+        "Semestre": "2021-2",
+        "Inscrito": 53.0,
+        "Primer curso": 24.0,
+        "Matriculado": 107.0,
+        "Graduado": 5.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 119,
+        "Semestre": "2021-1",
+        "Inscrito": 139.0,
+        "Primer curso": 42.0,
+        "Matriculado": 347.0,
+        "Graduado": 7.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 120,
+        "Semestre": "2020-2",
+        "Inscrito": 58.0,
+        "Primer curso": 38.0,
+        "Matriculado": 372.0,
+        "Graduado": 51.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 121,
+        "Semestre": "2020-1",
+        "Inscrito": 78.0,
+        "Primer curso": 46.0,
+        "Matriculado": 359.0,
+        "Graduado": 13.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 122,
+        "Semestre": "2019-2",
+        "Inscrito": 57.0,
+        "Primer curso": 40.0,
+        "Matriculado": 348.0,
+        "Graduado": 17.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 123,
+        "Semestre": "2019-1",
+        "Inscrito": 104.0,
+        "Primer curso": 41.0,
+        "Matriculado": 347.0,
+        "Graduado": 13.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 124,
+        "Semestre": "2018-2",
+        "Inscrito": 49.0,
+        "Primer curso": 40.0,
+        "Matriculado": 351.0,
+        "Graduado": 24.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 125,
+        "Semestre": "2018-1",
+        "Inscrito": 115.0,
+        "Primer curso": 48.0,
+        "Matriculado": 360.0,
+        "Graduado": 8.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 126,
+        "Semestre": "2017-2",
+        "Inscrito": 56.0,
+        "Primer curso": 40.0,
+        "Matriculado": 350.0,
+        "Graduado": 26.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 127,
+        "Semestre": "2017-1",
+        "Inscrito": 135.0,
+        "Primer curso": 80.0,
+        "Matriculado": 372.0,
+        "Graduado": 11.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 128,
+        "Semestre": "2016-2",
+        "Inscrito": 66.0,
+        "Primer curso": 63.0,
+        "Matriculado": 352.0,
+        "Graduado": 23.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 129,
+        "Semestre": "2016-1",
+        "Inscrito": 121.0,
+        "Primer curso": 97.0,
+        "Matriculado": 351.0,
+        "Graduado": 7.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 130,
+        "Semestre": "2015-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 300.0,
+        "Graduado": 30.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 131,
+        "Semestre": "2015-1",
+        "Inscrito": 75.0,
+        "Primer curso": 78.0,
+        "Matriculado": 323.0,
+        "Graduado": 6.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 132,
+        "Semestre": "2014-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 280.0,
+        "Graduado": 11.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 133,
+        "Semestre": "2014-1",
+        "Inscrito": 76.0,
+        "Primer curso": 80.0,
+        "Matriculado": 333.0,
+        "Graduado": 13.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 134,
+        "Semestre": "2013-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 248.0,
+        "Graduado": 12.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 135,
+        "Semestre": "2013-1",
+        "Inscrito": 78.0,
+        "Primer curso": 89.0,
+        "Matriculado": 303.0,
+        "Graduado": 3.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 136,
+        "Semestre": "2012-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 246.0,
+        "Graduado": 13.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 137,
+        "Semestre": "2012-1",
+        "Inscrito": 88.0,
+        "Primer curso": 86.0,
+        "Matriculado": 297.0,
+        "Graduado": 6.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 138,
+        "Semestre": "2011-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 228.0,
+        "Graduado": 8.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 139,
+        "Semestre": "2011-1",
+        "Inscrito": 87.0,
+        "Primer curso": 82.0,
+        "Matriculado": 274.0,
+        "Graduado": 7.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 140,
+        "Semestre": "2010-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 220.0,
+        "Graduado": 22.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 141,
+        "Semestre": "2010-1",
+        "Inscrito": 93.0,
+        "Primer curso": 74.0,
+        "Matriculado": 264.0,
+        "Graduado": 7.0,
+        "Programa ": "Ingeniería Física"
+    },
+    {
+        "ID": 142,
+        "Semestre": "2018-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 13.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Física (Básicos ingenieria)"
+    },
+    {
+        "ID": 143,
+        "Semestre": "2018-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 14.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Física (Básicos ingenieria)"
+    },
+    {
+        "ID": 144,
+        "Semestre": "2017-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 15.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Física (Básicos ingenieria)"
+    },
+    {
+        "ID": 145,
+        "Semestre": "2017-1",
+        "Inscrito": 19.0,
+        "Primer curso": 14.0,
+        "Matriculado": 17.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería Física (Básicos ingenieria)"
+    },
+    {
+        "ID": 146,
+        "Semestre": "2016-2",
+        "Inscrito": 9.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Ingeniería Física (Básicos ingenieria)"
+    },
+    {
+        "ID": 147,
+        "Semestre": "2021-2",
+        "Inscrito": 309.0,
+        "Primer curso": 61.0,
+        "Matriculado": 261.0,
+        "Graduado": 28.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 148,
+        "Semestre": "2021-1",
+        "Inscrito": 690.0,
+        "Primer curso": 94.0,
+        "Matriculado": 799.0,
+        "Graduado": 8.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 149,
+        "Semestre": "2020-2",
+        "Inscrito": 224.0,
+        "Primer curso": 89.0,
+        "Matriculado": 813.0,
+        "Graduado": 73.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 150,
+        "Semestre": "2020-1",
+        "Inscrito": 276.0,
+        "Primer curso": 97.0,
+        "Matriculado": 770.0,
+        "Graduado": 22.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 151,
+        "Semestre": "2019-2",
+        "Inscrito": 156.0,
+        "Primer curso": 85.0,
+        "Matriculado": 742.0,
+        "Graduado": 63.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 152,
+        "Semestre": "2019-1",
+        "Inscrito": 292.0,
+        "Primer curso": 84.0,
+        "Matriculado": 751.0,
+        "Graduado": 17.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 153,
+        "Semestre": "2018-2",
+        "Inscrito": 172.0,
+        "Primer curso": 89.0,
+        "Matriculado": 753.0,
+        "Graduado": 64.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 154,
+        "Semestre": "2018-1",
+        "Inscrito": 395.0,
+        "Primer curso": 93.0,
+        "Matriculado": 759.0,
+        "Graduado": 26.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 155,
+        "Semestre": "2017-2",
+        "Inscrito": 169.0,
+        "Primer curso": 83.0,
+        "Matriculado": 756.0,
+        "Graduado": 54.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 156,
+        "Semestre": "2017-1",
+        "Inscrito": 389.0,
+        "Primer curso": 99.0,
+        "Matriculado": 756.0,
+        "Graduado": 16.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 157,
+        "Semestre": "2016-2",
+        "Inscrito": 146.0,
+        "Primer curso": 87.0,
+        "Matriculado": 740.0,
+        "Graduado": 61.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 158,
+        "Semestre": "2016-1",
+        "Inscrito": 347.0,
+        "Primer curso": 113.0,
+        "Matriculado": 747.0,
+        "Graduado": 20.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 159,
+        "Semestre": "2015-2",
+        "Inscrito": 153.0,
+        "Primer curso": 82.0,
+        "Matriculado": 710.0,
+        "Graduado": 68.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 160,
+        "Semestre": "2015-1",
+        "Inscrito": 293.0,
+        "Primer curso": 71.0,
+        "Matriculado": 715.0,
+        "Graduado": 23.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 161,
+        "Semestre": "2014-2",
+        "Inscrito": 136.0,
+        "Primer curso": 78.0,
+        "Matriculado": 712.0,
+        "Graduado": 29.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 162,
+        "Semestre": "2014-1",
+        "Inscrito": 176.0,
+        "Primer curso": 84.0,
+        "Matriculado": 737.0,
+        "Graduado": 29.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 163,
+        "Semestre": "2013-2",
+        "Inscrito": 144.0,
+        "Primer curso": 41.0,
+        "Matriculado": 683.0,
+        "Graduado": 61.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 164,
+        "Semestre": "2013-1",
+        "Inscrito": 209.0,
+        "Primer curso": 87.0,
+        "Matriculado": 689.0,
+        "Graduado": 15.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 165,
+        "Semestre": "2012-2",
+        "Inscrito": 139.0,
+        "Primer curso": 81.0,
+        "Matriculado": 659.0,
+        "Graduado": 62.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 166,
+        "Semestre": "2012-1",
+        "Inscrito": 192.0,
+        "Primer curso": 83.0,
+        "Matriculado": 657.0,
+        "Graduado": 19.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 167,
+        "Semestre": "2011-2",
+        "Inscrito": 188.0,
+        "Primer curso": 87.0,
+        "Matriculado": 707.0,
+        "Graduado": 81.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 168,
+        "Semestre": "2011-1",
+        "Inscrito": 283.0,
+        "Primer curso": 81.0,
+        "Matriculado": 697.0,
+        "Graduado": 14.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 169,
+        "Semestre": "2010-2",
+        "Inscrito": 173.0,
+        "Primer curso": 81.0,
+        "Matriculado": 662.0,
+        "Graduado": 44.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 170,
+        "Semestre": "2010-1",
+        "Inscrito": 231.0,
+        "Primer curso": 82.0,
+        "Matriculado": 684.0,
+        "Graduado": 22.0,
+        "Programa ": "Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 171,
+        "Semestre": "2018-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 22.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Básicos ingeniería)"
+    },
+    {
+        "ID": 172,
+        "Semestre": "2018-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 24.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Básicos ingeniería)"
+    },
+    {
+        "ID": 173,
+        "Semestre": "2017-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 28.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Básicos ingeniería)"
+    },
+    {
+        "ID": 174,
+        "Semestre": "2017-1",
+        "Inscrito": 48.0,
+        "Primer curso": 16.0,
+        "Matriculado": 31.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Básicos ingeniería)"
+    },
+    {
+        "ID": 175,
+        "Semestre": "2016-2",
+        "Inscrito": 25.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Básicos ingeniería)"
+    },
+    {
+        "ID": 176,
+        "Semestre": "2021-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 30.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 177,
+        "Semestre": "2020-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 31.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 178,
+        "Semestre": "2020-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 31.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 179,
+        "Semestre": "2019-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 34.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 180,
+        "Semestre": "2019-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 37.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 181,
+        "Semestre": "2018-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 37.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 182,
+        "Semestre": "2018-1",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 40.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 183,
+        "Semestre": "2017-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 41.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 184,
+        "Semestre": "2017-1",
+        "Inscrito": 67.0,
+        "Primer curso": 35.0,
+        "Matriculado": 46.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 185,
+        "Semestre": "2016-2",
+        "Inscrito": 39.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Convenio Cuba)"
+    },
+    {
+        "ID": 186,
+        "Semestre": "2021-2",
+        "Inscrito": 65.0,
+        "Primer curso": 43.0,
+        "Matriculado": 140.0,
+        "Graduado": 3.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 187,
+        "Semestre": "2021-1",
+        "Inscrito": 86.0,
+        "Primer curso": 63.0,
+        "Matriculado": 333.0,
+        "Graduado": 3.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 188,
+        "Semestre": "2020-2",
+        "Inscrito": 89.0,
+        "Primer curso": 50.0,
+        "Matriculado": 345.0,
+        "Graduado": 23.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 189,
+        "Semestre": "2020-1",
+        "Inscrito": 74.0,
+        "Primer curso": 67.0,
+        "Matriculado": 318.0,
+        "Graduado": 3.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 190,
+        "Semestre": "2019-2",
+        "Inscrito": 61.0,
+        "Primer curso": 51.0,
+        "Matriculado": 280.0,
+        "Graduado": 15.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 191,
+        "Semestre": "2019-1",
+        "Inscrito": 76.0,
+        "Primer curso": 79.0,
+        "Matriculado": 285.0,
+        "Graduado": 5.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 192,
+        "Semestre": "2018-2",
+        "Inscrito": 21.0,
+        "Primer curso": 5.0,
+        "Matriculado": 231.0,
+        "Graduado": 12.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 193,
+        "Semestre": "2018-1",
+        "Inscrito": 57.0,
+        "Primer curso": 45.0,
+        "Matriculado": 277.0,
+        "Graduado": 4.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 194,
+        "Semestre": "2017-2",
+        "Inscrito": 57.0,
+        "Primer curso": 48.0,
+        "Matriculado": 278.0,
+        "Graduado": 13.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 195,
+        "Semestre": "2017-1",
+        "Inscrito": 83.0,
+        "Primer curso": 65.0,
+        "Matriculado": 290.0,
+        "Graduado": 3.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 196,
+        "Semestre": "2016-2",
+        "Inscrito": 106.0,
+        "Primer curso": 67.0,
+        "Matriculado": 299.0,
+        "Graduado": 12.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 197,
+        "Semestre": "2016-1",
+        "Inscrito": 99.0,
+        "Primer curso": 75.0,
+        "Matriculado": 298.0,
+        "Graduado": 10.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 198,
+        "Semestre": "2015-2",
+        "Inscrito": 61.0,
+        "Primer curso": 46.0,
+        "Matriculado": 293.0,
+        "Graduado": 18.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 199,
+        "Semestre": "2015-1",
+        "Inscrito": 96.0,
+        "Primer curso": 81.0,
+        "Matriculado": 304.0,
+        "Graduado": 6.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 200,
+        "Semestre": "2014-2",
+        "Inscrito": 61.0,
+        "Primer curso": 51.0,
+        "Matriculado": 256.0,
+        "Graduado": 15.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 201,
+        "Semestre": "2014-1",
+        "Inscrito": 75.0,
+        "Primer curso": 47.0,
+        "Matriculado": 290.0,
+        "Graduado": 17.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 202,
+        "Semestre": "2013-2",
+        "Inscrito": 50.0,
+        "Primer curso": 37.0,
+        "Matriculado": 276.0,
+        "Graduado": 13.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 203,
+        "Semestre": "2013-1",
+        "Inscrito": 71.0,
+        "Primer curso": 56.0,
+        "Matriculado": 285.0,
+        "Graduado": 7.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 204,
+        "Semestre": "2012-2",
+        "Inscrito": 78.0,
+        "Primer curso": 59.0,
+        "Matriculado": 279.0,
+        "Graduado": 20.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 205,
+        "Semestre": "2012-1",
+        "Inscrito": 94.0,
+        "Primer curso": 74.0,
+        "Matriculado": 281.0,
+        "Graduado": 2.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 206,
+        "Semestre": "2011-2",
+        "Inscrito": 85.0,
+        "Primer curso": 65.0,
+        "Matriculado": 303.0,
+        "Graduado": 25.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 207,
+        "Semestre": "2011-1",
+        "Inscrito": 90.0,
+        "Primer curso": 78.0,
+        "Matriculado": 309.0,
+        "Graduado": 1.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 208,
+        "Semestre": "2010-2",
+        "Inscrito": 68.0,
+        "Primer curso": 62.0,
+        "Matriculado": 286.0,
+        "Graduado": 2.0,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 209,
+        "Semestre": "2010-1",
+        "Inscrito": 108.0,
+        "Primer curso": 76.0,
+        "Matriculado": 298.0,
+        "Graduado": null,
+        "Programa ": "Ingeniería de Sistemas y Computación (Nocturno)"
+    },
+    {
+        "ID": 210,
+        "Semestre": "2020-2",
+        "Inscrito": 1.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Maestría en Ciencias Física"
+    },
+    {
+        "ID": 211,
+        "Semestre": "2020-1",
+        "Inscrito": 1.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Maestría en Ciencias Física"
+    },
+    {
+        "ID": 212,
+        "Semestre": "2019-2",
+        "Inscrito": 2.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Maestría en Ciencias Física"
+    },
+    {
+        "ID": 213,
+        "Semestre": "2019-1",
+        "Inscrito": 1.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Maestría en Ciencias Física"
+    },
+    {
+        "ID": 214,
+        "Semestre": "2018-2",
+        "Inscrito": 1.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Maestría en Ciencias Física"
+    },
+    {
+        "ID": 215,
+        "Semestre": "2021-2",
+        "Inscrito": 18.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": 4.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 216,
+        "Semestre": "2021-1",
+        "Inscrito": 24.0,
+        "Primer curso": 18.0,
+        "Matriculado": 101.0,
+        "Graduado": 7.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 217,
+        "Semestre": "2020-2",
+        "Inscrito": 46.0,
+        "Primer curso": 39.0,
+        "Matriculado": 106.0,
+        "Graduado": 19.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 218,
+        "Semestre": "2020-1",
+        "Inscrito": 25.0,
+        "Primer curso": 24.0,
+        "Matriculado": 71.0,
+        "Graduado": 1.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 219,
+        "Semestre": "2019-2",
+        "Inscrito": 7.0,
+        "Primer curso": 6.0,
+        "Matriculado": 56.0,
+        "Graduado": 17.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 220,
+        "Semestre": "2019-1",
+        "Inscrito": 20.0,
+        "Primer curso": 17.0,
+        "Matriculado": 74.0,
+        "Graduado": 10.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 221,
+        "Semestre": "2018-2",
+        "Inscrito": 10.0,
+        "Primer curso": 9.0,
+        "Matriculado": 71.0,
+        "Graduado": 14.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 222,
+        "Semestre": "2018-1",
+        "Inscrito": 30.0,
+        "Primer curso": 28.0,
+        "Matriculado": 75.0,
+        "Graduado": 4.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 223,
+        "Semestre": "2017-2",
+        "Inscrito": 19.0,
+        "Primer curso": 16.0,
+        "Matriculado": 68.0,
+        "Graduado": 11.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 224,
+        "Semestre": "2017-1",
+        "Inscrito": 24.0,
+        "Primer curso": 19.0,
+        "Matriculado": 57.0,
+        "Graduado": 3.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 225,
+        "Semestre": "2016-2",
+        "Inscrito": 17.0,
+        "Primer curso": 16.0,
+        "Matriculado": 47.0,
+        "Graduado": 10.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 226,
+        "Semestre": "2016-1",
+        "Inscrito": 12.0,
+        "Primer curso": 11.0,
+        "Matriculado": 42.0,
+        "Graduado": 4.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 227,
+        "Semestre": "2015-2",
+        "Inscrito": 8.0,
+        "Primer curso": 7.0,
+        "Matriculado": 48.0,
+        "Graduado": 21.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 228,
+        "Semestre": "2015-1",
+        "Inscrito": 10.0,
+        "Primer curso": 7.0,
+        "Matriculado": 50.0,
+        "Graduado": 3.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 229,
+        "Semestre": "2014-2",
+        "Inscrito": 10.0,
+        "Primer curso": 10.0,
+        "Matriculado": 57.0,
+        "Graduado": 13.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 230,
+        "Semestre": "2014-1",
+        "Inscrito": 9.0,
+        "Primer curso": 8.0,
+        "Matriculado": 56.0,
+        "Graduado": 10.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 231,
+        "Semestre": "2013-2",
+        "Inscrito": 21.0,
+        "Primer curso": 19.0,
+        "Matriculado": 56.0,
+        "Graduado": 18.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 232,
+        "Semestre": "2013-1",
+        "Inscrito": 15.0,
+        "Primer curso": 11.0,
+        "Matriculado": 53.0,
+        "Graduado": 6.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 233,
+        "Semestre": "2012-2",
+        "Inscrito": 13.0,
+        "Primer curso": 11.0,
+        "Matriculado": 45.0,
+        "Graduado": 9.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 234,
+        "Semestre": "2012-1",
+        "Inscrito": 8.0,
+        "Primer curso": 7.0,
+        "Matriculado": 45.0,
+        "Graduado": 2.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 235,
+        "Semestre": "2011-2",
+        "Inscrito": 9.0,
+        "Primer curso": 7.0,
+        "Matriculado": 55.0,
+        "Graduado": 6.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 236,
+        "Semestre": "2011-1",
+        "Inscrito": 22.0,
+        "Primer curso": 18.0,
+        "Matriculado": 73.0,
+        "Graduado": null,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 237,
+        "Semestre": "2010-2",
+        "Inscrito": 20.0,
+        "Primer curso": 14.0,
+        "Matriculado": 61.0,
+        "Graduado": 2.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 238,
+        "Semestre": "2010-1",
+        "Inscrito": 20.0,
+        "Primer curso": 18.0,
+        "Matriculado": 58.0,
+        "Graduado": 6.0,
+        "Programa ": "Maestría en Ingeniería Eléctrica"
+    },
+    {
+        "ID": 239,
+        "Semestre": "2021-2",
+        "Inscrito": 2.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": 4.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 240,
+        "Semestre": "2021-1",
+        "Inscrito": 13.0,
+        "Primer curso": 4.0,
+        "Matriculado": 61.0,
+        "Graduado": 5.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 241,
+        "Semestre": "2020-2",
+        "Inscrito": 14.0,
+        "Primer curso": 10.0,
+        "Matriculado": 64.0,
+        "Graduado": 2.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 242,
+        "Semestre": "2020-1",
+        "Inscrito": 28.0,
+        "Primer curso": 22.0,
+        "Matriculado": 85.0,
+        "Graduado": 7.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 243,
+        "Semestre": "2019-2",
+        "Inscrito": 22.0,
+        "Primer curso": 21.0,
+        "Matriculado": 79.0,
+        "Graduado": 1.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 244,
+        "Semestre": "2019-1",
+        "Inscrito": 19.0,
+        "Primer curso": 13.0,
+        "Matriculado": 77.0,
+        "Graduado": 10.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 245,
+        "Semestre": "2018-2",
+        "Inscrito": 23.0,
+        "Primer curso": 15.0,
+        "Matriculado": 71.0,
+        "Graduado": 9.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 246,
+        "Semestre": "2018-1",
+        "Inscrito": 22.0,
+        "Primer curso": 19.0,
+        "Matriculado": 65.0,
+        "Graduado": 9.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 247,
+        "Semestre": "2017-2",
+        "Inscrito": 15.0,
+        "Primer curso": 10.0,
+        "Matriculado": 57.0,
+        "Graduado": 12.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 248,
+        "Semestre": "2017-1",
+        "Inscrito": 26.0,
+        "Primer curso": 16.0,
+        "Matriculado": 60.0,
+        "Graduado": 5.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 249,
+        "Semestre": "2016-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 39.0,
+        "Graduado": 3.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 250,
+        "Semestre": "2016-1",
+        "Inscrito": 25.0,
+        "Primer curso": 17.0,
+        "Matriculado": 36.0,
+        "Graduado": null,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 251,
+        "Semestre": "2015-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 63.0,
+        "Graduado": 7.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 252,
+        "Semestre": "2015-1",
+        "Inscrito": 24.0,
+        "Primer curso": 19.0,
+        "Matriculado": 73.0,
+        "Graduado": 2.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 253,
+        "Semestre": "2014-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 60.0,
+        "Graduado": 2.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 254,
+        "Semestre": "2014-1",
+        "Inscrito": 27.0,
+        "Primer curso": 22.0,
+        "Matriculado": 67.0,
+        "Graduado": 3.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 255,
+        "Semestre": "2013-2",
+        "Inscrito": null,
+        "Primer curso": null,
+        "Matriculado": 46.0,
+        "Graduado": 3.0,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 256,
+        "Semestre": "2013-1",
+        "Inscrito": 26.0,
+        "Primer curso": 13.0,
+        "Matriculado": 39.0,
+        "Graduado": null,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 257,
+        "Semestre": "2012-2",
+        "Inscrito": 18.0,
+        "Primer curso": 13.0,
+        "Matriculado": 51.0,
+        "Graduado": null,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 258,
+        "Semestre": "2011-2",
+        "Inscrito": 21.0,
+        "Primer curso": 16.0,
+        "Matriculado": 40.0,
+        "Graduado": null,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 259,
+        "Semestre": "2011-1",
+        "Inscrito": 9.0,
+        "Primer curso": null,
+        "Matriculado": 25.0,
+        "Graduado": null,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 260,
+        "Semestre": "2010-2",
+        "Inscrito": 34.0,
+        "Primer curso": 25.0,
+        "Matriculado": 25.0,
+        "Graduado": null,
+        "Programa ": "Maestría en Ingeniería de Sistemas y Computación"
+    },
+    {
+        "ID": 261,
+        "Semestre": "2021-2",
+        "Inscrito": 44.0,
+        "Primer curso": 13.0,
+        "Matriculado": 22.0,
+        "Graduado": null,
+        "Programa ": "Tecnología en Desarrollo de Software"
+    },
+    {
+        "ID": 262,
+        "Semestre": "2021-1",
+        "Inscrito": 54.0,
+        "Primer curso": null,
+        "Matriculado": 28.0,
+        "Graduado": null,
+        "Programa ": "Tecnología en Desarrollo de Software"
+    },
+    {
+        "ID": 263,
+        "Semestre": "2020-2",
+        "Inscrito": 57.0,
+        "Primer curso": 3.0,
+        "Matriculado": 40.0,
+        "Graduado": null,
+        "Programa ": "Tecnología en Desarrollo de Software"
+    },
+    {
+        "ID": 264,
+        "Semestre": "2020-1",
+        "Inscrito": 43.0,
+        "Primer curso": 34.0,
+        "Matriculado": 50.0,
+        "Graduado": null,
+        "Programa ": "Tecnología en Desarrollo de Software"
+    },
+    {
+        "ID": 265,
+        "Semestre": "2019-2",
+        "Inscrito": 18.0,
+        "Primer curso": 3.0,
+        "Matriculado": 23.0,
+        "Graduado": null,
+        "Programa ": "Tecnología en Desarrollo de Software"
+    },
+    {
+        "ID": 266,
+        "Semestre": "2019-1",
+        "Inscrito": 32.0,
+        "Primer curso": 32.0,
+        "Matriculado": 32.0,
+        "Graduado": null,
+        "Programa ": "Tecnología en Desarrollo de Software"
+    },
+    {
+        "ID": 267,
+        "Semestre": "2018-1",
+        "Inscrito": 56.0,
+        "Primer curso": null,
+        "Matriculado": null,
+        "Graduado": null,
+        "Programa ": "Tecnología en Desarrollo de Software"
+    }
+]
