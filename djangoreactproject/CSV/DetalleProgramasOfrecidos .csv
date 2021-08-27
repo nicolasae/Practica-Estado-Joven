@@ -1,0 +1,70 @@
+ID,Nombre del Programa Académico,Código SNIES,Duración en semestres,Resolución Registro Calificado (RC),Fecha Inicio (RC),Duración (RC) Años,Fecha Finalizacion (RC),Acreditable,Acreditado Alta Calidad (AC),Resolución (AC),Duración (AC) Años,Acreditación Internacional (AI),Fecha Inicio (AI),Duración (AI) Años,Año
+1,Doctorado en Ingeniería,90949,7,012606 DEL 03-AGO-2018,8/08/18,7,9/08/25,No,No,,,No,,,2021
+2,Especialización en Redes de Datos,54220,2,7437 DEL 14-JUN-2013 (RC con fecha de finalización extendida por decreto 1330 de 2019),14/06/13,"8,5",15/12/21,No,No,,,No,,,2021
+3,Maestría en Ingeniería Eléctrica,5329,4,009944 DEL 17-JUN-2020,17/06/20,7,18/06/27,Si,Si,003146 DEL 01-MAR-2021,8,EUR-ACE,20-dic-18,4,2021
+4,Maestría en Ingeniería de Sistemas y Computación,54928,4,08435 DEL 28-ABR-2016,28/04/16,7,29/04/23,Si,No,,,EUR-ACE,20-dic-18,3,2021
+5,Ingeniería Electrónica (Diurna),13090,10,04841 DEL 14-MAR-2016,14/03/16,7,15/03/23,Si,No,,,No,,,2021
+6,Ingeniería Eléctrica,270,10,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),16/06/16,7,17/06/23,Si,Si,11956 DEL 16-JUN-2016,6,EUR-ACE,20-dic-18,4,2021
+7,Ingeniería Física,4093,10,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),13/09/17,7,14/09/24,Si,Si,18212 DEL 13-SEP-2017,6,No,,,2021
+8,Ingeniería de Sistemas y Computación,269,10,29805 DEL 29-DIC-2017,29/12/17,7,30/12/24,Si,Si,16816 DEL 19-AGO-2016 (,5,No,,,2021
+9,Tecnología en Desarrollo de Software,106090,6,149 DEL 16-ENE-2017,16/01/17,7,17/01/24,No,No,,,No,,,2021
+10,Doctorado en Ingeniería,90949,7,012606 DEL 03-AGO-2018,8/08/18,7,9/08/25,No,No,,,No,,,2020
+11,Especialización en Electrónica Digital,54219,2,7436 DEL 14-JUN-2013 (RC con fecha de finalización extendida por decreto 1330 de 2019),14/06/13,"8,5",15/12/21,No,No,,,No,,,2020
+12,Especialización en Redes de Datos,54220,2,7437 DEL 14-JUN-2013 (RC con fecha de finalización extendida por decreto 1330 de 2019),14/06/13,"8,5",15/12/21,No,No,,,No,,,2020
+13,Maestría en Ingeniería Eléctrica,5329,4,009944 DEL 17-JUN-2020,17/06/20,7,18/06/27,Si,Vencido,3229 DEL 05-ABR-2013,6,EUR-ACE,20-dic-18,4,2020
+14,Maestría en Ingeniería de Sistemas y Computación,54928,4,08435 DEL 28-ABR-2016,28/04/16,7,29/04/23,Si,No,,,EUR-ACE,20-dic-18,3,2020
+15,Ingeniería Electrónica (Diurna),13090,10,04841 DEL 14-MAR-2016,14/03/16,7,15/03/23,Si,No,,,No,,,2020
+16,Ingeniería Eléctrica,270,10,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),16/06/16,7,17/06/23,Si,Si,11956 DEL 16-JUN-2016,6,EUR-ACE,20-dic-18,4,2020
+17,Ingeniería Física,4093,10,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),13/09/17,7,14/09/24,Si,Si,18212 DEL 13-SEP-2017,6,No,,,2020
+18,Ingeniería de Sistemas y Computación,269,10,29805 DEL 29-DIC-2017,29/12/17,7,30/12/24,Si,Si,16816 DEL 19-AGO-2016 (,5,No,,,2020
+19,Tecnología en Desarrollo de Software,106090,6,149 DEL 16-ENE-2017,16/01/17,7,17/01/24,No,No,,,No,,,2020
+20,Doctorado en Ingeniería,90949,7,012606 DEL 03-AGO-2018,8/08/18,7,9/08/25,No,No,,,No,,,2019
+21,Especialización en Electrónica Digital,54219,2,7436 DEL 14-JUN-2013,14/06/13,7,15/06/20,No,No,,,No,,,2019
+22,Especialización en Redes de Datos,54220,2,7437 DEL 14-JUN-2013,14/06/13,7,15/06/20,No,No,,,No,,,2019
+23,Maestría en Ingeniería Eléctrica,5329,4,5348 DEL 10-MAY-2013,10/05/13,7,11/05/20,Si,Vencido,3229 DEL 05-ABR-2013,6,EUR-ACE,20-dic-18,4,2019
+24,Maestría en Ingeniería de Sistemas y Computación,54928,4,08435 DEL 28-ABR-2016,28/04/16,7,29/04/23,No,No,,,EUR-ACE,20-dic-18,3,2019
+25,Ingeniería Electrónica (Diurna),13090,10,04841 DEL 14-MAR-2016,14/03/16,7,15/03/23,Si,No,,,No,,,2019
+26,Ingeniería Eléctrica,270,10,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),16/06/16,7,17/06/23,Si,Si,11956 DEL 16-JUN-2016,6,EUR-ACE,20-dic-18,4,2019
+27,Ingeniería Física,4093,10,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),13/09/17,7,14/09/24,Si,Si,18212 DEL 13-SEP-2017,6,No,,,2019
+28,Ingeniería de Sistemas y Computación,269,10,29805 DEL 29-DIC-2017,29/12/17,7,30/12/24,Si,Si,16816 DEL 19-AGO-2016,4,No,,,2019
+29,Tecnología en Desarrollo de Software,106090,6,149 DEL 16-ENE-2017,16/01/17,7,17/01/24,No,No,,,No,,,2019
+30,Doctorado en Ingeniería,90949,7,012606 DEL 03-AGO-2018,8/08/18,7,9/08/25,No,No,,,No,,,2018
+31,Especialización en Redes de Datos,54220,2,7437 DEL 14-JUN-2013,14/06/13,7,15/06/20,No,No,,,No,,,2018
+32,Maestría en Ingeniería Eléctrica,5329,4,5348 DEL 10-MAY-2013,10/05/13,7,11/05/20,Si,Si,3229 DEL 05-ABR-2013,6,No,,,2018
+33,Maestría en Ingeniería de Sistemas y Computación,54928,4,08435 DEL 28-ABR-2016,28/04/16,7,29/04/23,No,No,,,No,,,2018
+34,Ingeniería Electrónica (Diurna),13090,10,04841 DEL 14-MAR-2016,14/03/16,7,15/03/23,Si,No,,,No,,,2018
+35,Ingeniería Eléctrica,270,10,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),16/06/16,7,17/06/23,Si,Si,11956 DEL 16-JUN-2016,6,No,,,2018
+36,Ingeniería Física,4093,10,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),13/09/17,7,14/09/24,Si,Si,18212 DEL 13-SEP-2017,6,No,,,2018
+37,Ingeniería de Sistemas y Computación,269,10,29805 DEL 29-DIC-2017,29/12/17,7,30/12/24,Si,Si,16816 DEL 19-AGO-2016,4,No,,,2018
+38,Doctorado en Ingeniería,90949,7,11169 DEL 20-DIC-2010,20/12/10,7,21/12/17,No,No,,,No,,,2017
+39,Especialización en Redes de Datos,54220,2,7437 DEL 14-JUN-2013,14/06/13,7,15/06/20,No,No,,,No,,,2017
+40,Maestría en Ingeniería Eléctrica,5329,4,5348 DEL 10-MAY-2013,10/05/13,7,11/05/20,Si,Si,3229 DEL 05-ABR-2013,6,No,,,2017
+41,Maestría en Ingeniería de Sistemas y Computación,54928,4,08435 DEL 28-ABR-2016,28/04/16,7,29/04/23,No,No,,,No,,,2017
+42,Ingeniería Electrónica (Diurna),13090,10,04841 DEL 14-MAR-2016,14/03/16,7,15/03/23,Si,No,,,No,,,2017
+43,Ingeniería Eléctrica,270,10,11109 DEL 11-SEPT-2012,11/09/12,7,12/09/19,Si,Si,11956 DEL 16-JUN-2016,6,No,,,2017
+44,Ingeniería Física,4093,10,10959 DEL 11-SEP-2012,11/09/12,7,12/09/19,Si,Si,18212 DEL 13-SEP-2017,6,No,,,2017
+45,Ingeniería de Sistemas y Computación,269,10,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",22/12/10,7,23/12/17,Si,Si,16816 DEL 19-AGO-2016,4,No,,,2017
+46,Doctorado en Ingeniería,90949,7,11169 DEL 20-DIC-2010,20/12/10,7,21/12/17,No,No,,,No,,,2016
+47,Maestría en Ingeniería Eléctrica,5329,4,5348 DEL 10-MAY-2013,10/05/13,7,11/05/20,Si,Si,3229 DEL 05-ABR-2013,6,No,,,2016
+48,Maestría en Ingeniería de Sistemas y Computación,54928,4,08435 DEL 28-ABR-2016,28/04/16,7,29/04/23,No,No,,,No,,,2016
+49,Ingeniería Electrónica (Diurna),13090,10,04841 DEL 14-MAR-2016,14/03/16,7,15/03/23,Si,No,,,No,,,2016
+50,Ingeniería Eléctrica,270,10,11109 DEL 11-SEP-2012,11/09/12,7,12/09/19,Si,Si,11956 DEL 16-JUN-2016,6,No,,,2016
+51,Ingeniería Física,4093,10,5733 DEL 13-JUL-2011,13/07/11,7,14/07/18,Si,Si,9886 DEL 22-AGO-2012,4,No,,,2016
+52,Ingeniería de Sistemas y Computación,269,10,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",22/12/10,7,23/12/17,Si,Si,16816 DEL 19-AGO-2016,4,No,,,2016
+53,Doctorado en Ingeniería,90949,7,11169 DEL 20-DIC-2010,20/12/10,7,21/12/17,No,No,,,No,,,2015
+54,Especialización en Redes de Datos,54220,2,7437 DEL 14-JUN-2013,14/06/13,7,15/06/20,No,No,,,No,,,2015
+55,Maestría en Ingeniería Eléctrica,5329,4,5348 DEL 10-MAY-2013,10/05/13,7,11/05/20,Si,Si,3229 DEL 05-ABR-2013,6,No,,,2015
+56,Maestría en Ingeniería de Sistemas y Computación,54928,4,7520 DEL 16-OCT-2009,16/10/09,7,17/10/16,No,No,,,No,,,2015
+57,Ingeniería Electrónica (Nocturno),13090,12,8460 DEL 28-OCT-2009 ,26/11/09,7,27/11/16,Si,No,,,No,,,2015
+58,,,,"(La vigencia de la resolución cuenta a partir del ""26-NOV-2009"")",,,,,,,,,,,2015
+59,Ingeniería Eléctrica,270,10,11109 DEL 11-SEP-2012,11/09/12,7,12/09/19,Si,No,,,No,,,2015
+60,Ingeniería Física,4093,10,5733 DEL 13-JUL-2011,13/07/11,7,14/07/18,Si,Si,9886 DEL 22-AGO-2012,4,No,,,2015
+61,Ingeniería de Sistemas y Computación,269,10,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",22/12/10,7,23/12/17,Si,No,,,No,,,2015
+62,Doctorado en Ingeniería,90949,7,11169 DEL 20-DIC-2010,20/12/10,7,21/12/17,No,No,,,No,,,2014
+63,Especialización en Redes de Datos,54220,2,7437 DEL 14-JUN-2013,14/06/13,7,15/06/20,No,No,,,No,,,2014
+64,Maestría en Ingeniería Eléctrica,5329,4,5348 DEL 10-MAY-2013,10/05/13,7,11/05/20,Si,Si,3229 DEL 05-ABR-2013,6,No,,,2014
+65,Maestría en Ingeniería de Sistemas y Computación,54928,4,7520 DEL 16-OCT-2009,16/10/09,7,17/10/16,No,No,,,No,,,2014
+66,Ingeniería Electrónica (Nocturno),13090,12,"8460 DEL 28-OCT-2009 (La vigencia de la resolución cuenta a partir del ""26-NOV-2009"")",26/11/09,7,27/11/16,Si,No,,,No,,,2014
+67,Ingeniería Eléctrica,270,10,11109 DEL 11-SEP-2012,11/09/12,7,12/09/19,Si,No,,,No,,,2014
+68,Ingeniería Física,4093,10,5733 DEL 13-JUL-2011,13/07/11,7,14/07/18,Si,Si,9886 DEL 22-AGO-2012,4,No,,,2014
+69,Ingeniería de Sistemas y Computación,269,10,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",22/12/10,7,23/12/17,Si,Si,12268 DEL 22-DIC-2010,4,No,,,2014

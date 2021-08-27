@@ -1,0 +1,159 @@
+ID,PROGRAMA,Femenino,Masculino,AÑO
+1,Ingeniería Electrónica (Nocturno),49,290,2010-1
+2,Ingeniería Eléctrica,129,629,2010-1
+3,Ingeniería Física,112,152,2010-1
+4,Ingeniería de Sistemas y Computación,129,555,2010-1
+5,Ingeniería de Sistemas y Computación (Nocturno),70,228,2010-1
+6,Ingeniería Electrónica (Nocturno),50,281,2010-2
+7,Ingeniería Eléctrica,126,632,2010-2
+8,Ingeniería Física,96,124,2010-2
+9,Ingeniería de Sistemas y Computación,128,534,2010-2
+10,Ingeniería de Sistemas y Computación (Nocturno),72,214,2010-2
+11,Ingeniería Electrónica (Nocturno),42,281,2011-1
+12,Ingeniería Eléctrica,129,639,2011-1
+13,Ingeniería Física,113,161,2011-1
+14,Ingeniería de Sistemas y Computación,121,576,2011-1
+15,Ingeniería de Sistemas y Computación (Nocturno),77,232,2011-1
+16,Ingeniería Electrónica (Nocturno),52,276,2011-2
+17,Ingeniería Eléctrica,132,676,2011-2
+18,Ingeniería Física,93,135,2011-2
+19,Ingeniería de Sistemas y Computación,131,576,2011-2
+20,Ingeniería de Sistemas y Computación (Nocturno),72,231,2011-2
+21,Ingeniería Electrónica (Nocturno),40,259,2012-1
+22,Ingeniería Eléctrica,142,659,2012-1
+23,Ingeniería Física,127,170,2012-1
+24,Ingeniería de Sistemas y Computación,114,543,2012-1
+25,Ingeniería de Sistemas y Computación (Nocturno),63,218,2012-1
+26,Ingeniería Electrónica (Nocturno),42,250,2012-2
+27,Ingeniería Eléctrica,154,715,2012-2
+28,Ingeniería Física,103,143,2012-2
+29,Ingeniería de Sistemas y Computación,111,548,2012-2
+30,Ingeniería de Sistemas y Computación (Nocturno),63,216,2012-2
+31,Ingeniería Electrónica (Nocturno),44,246,2013-1
+32,Ingeniería Eléctrica,164,738,2013-1
+33,Ingeniería Física,134,169,2013-1
+34,Ingeniería de Sistemas y Computación,109,580,2013-1
+35,Ingeniería de Sistemas y Computación (Nocturno),65,220,2013-1
+36,Ingeniería Electrónica (Nocturno),44,220,2013-2
+37,Ingeniería Eléctrica,169,746,2013-2
+38,Ingeniería Física,108,140,2013-2
+39,Ingeniería de Sistemas y Computación,102,581,2013-2
+40,Ingeniería de Sistemas y Computación (Nocturno),70,206,2013-2
+41,Ingeniería Electrónica (Nocturno),45,247,2014-1
+42,Ingeniería Eléctrica,186,827,2014-1
+43,Ingeniería Física,131,202,2014-1
+44,Ingeniería de Sistemas y Computación,107,630,2014-1
+45,Ingeniería de Sistemas y Computación (Nocturno),71,219,2014-1
+46,Ingeniería Electrónica (Nocturno),33,204,2014-2
+47,Ingeniería Eléctrica,173,806,2014-2
+48,Ingeniería Física,113,167,2014-2
+49,Ingeniería de Sistemas y Computación,101,611,2014-2
+50,Ingeniería de Sistemas y Computación (Nocturno),63,193,2014-2
+51,Ingeniería Electrónica (Nocturno),47,255,2015-1
+52,Ingeniería Eléctrica,186,805,2015-1
+53,Ingeniería Física,115,208,2015-1
+54,Ingeniería de Sistemas y Computación,103,612,2015-1
+55,Ingeniería de Sistemas y Computación (Nocturno),66,238,2015-1
+56,Ingeniería Electrónica (Nocturno),37,246,2015-2
+57,Ingeniería Eléctrica,180,817,2015-2
+58,Ingeniería Física,109,191,2015-2
+59,Ingeniería de Sistemas y Computación,96,614,2015-2
+60,Ingeniería de Sistemas y Computación (Nocturno),62,231,2015-2
+61,Ingeniería Electrónica (Nocturno),36,255,2016-1
+62,Ingeniería Eléctrica,191,816,2016-1
+63,Ingeniería Física,138,213,2016-1
+64,Ingeniería de Sistemas y Computación,91,656,2016-1
+65,Ingeniería de Sistemas y Computación (Nocturno),52,246,2016-1
+66,Ingeniería Electrónica (Diurna),7,16,2016-2
+67,Ingeniería Electrónica (Nocturno),27,199,2016-2
+68,Ingeniería Eléctrica,185,794,2016-2
+69,Ingeniería Física,140,212,2016-2
+70,Ingeniería de Sistemas y Computación,91,649,2016-2
+71,Ingeniería de Sistemas y Computación (Nocturno),49,250,2016-2
+72,Ingeniería Electrónica (Diurna),15,53,2017-1
+73,Ingeniería Electrónica (Nocturno),22,175,2017-1
+74,Ingeniería Eléctrica,192,802,2017-1
+75,Ingeniería Eléctrica (Básicos ingeniería),5,17,2017-1
+76,Ingeniería Física,144,228,2017-1
+77,Ingeniería Física (Básicos ingenieria),8,9,2017-1
+78,Ingeniería de Sistemas y Computación,91,665,2017-1
+79,Ingeniería de Sistemas y Computación (Básicos ingeniería),15,16,2017-1
+80,Ingeniería de Sistemas y Computación (Convenio Cuba),14,32,2017-1
+81,Ingeniería de Sistemas y Computación (Nocturno),53,237,2017-1
+82,Ingeniería Electrónica (Diurna),16,61,2017-2
+83,Ingeniería Electrónica (Nocturno),16,148,2017-2
+84,Ingeniería Eléctrica,188,830,2017-2
+85,Ingeniería Eléctrica (Básicos ingeniería),4,16,2017-2
+86,Ingeniería Física,140,210,2017-2
+87,Ingeniería Física (Básicos ingenieria),7,8,2017-2
+88,Ingeniería de Sistemas y Computación,89,667,2017-2
+89,Ingeniería de Sistemas y Computación (Básicos ingeniería),13,15,2017-2
+90,Ingeniería de Sistemas y Computación (Convenio Cuba),12,29,2017-2
+91,Ingeniería de Sistemas y Computación (Nocturno),47,231,2017-2
+92,Ingeniería Electrónica (Diurna),21,100,2018-1
+93,Ingeniería Electrónica (Nocturno),14,126,2018-1
+94,Ingeniería Eléctrica,185,814,2018-1
+95,Ingeniería Eléctrica (Básicos ingeniería),4,14,2018-1
+96,Ingeniería Física,132,228,2018-1
+97,Ingeniería Física (Básicos ingenieria),7,7,2018-1
+98,Ingeniería de Sistemas y Computación,92,667,2018-1
+99,Ingeniería de Sistemas y Computación (Básicos ingeniería),13,11,2018-1
+100,Ingeniería de Sistemas y Computación (Convenio Cuba),11,29,2018-1
+101,Ingeniería de Sistemas y Computación (Nocturno),48,229,2018-1
+102,Ingeniería Electrónica (Diurna),21,104,2018-2
+103,Ingeniería Electrónica (Nocturno),13,107,2018-2
+104,Ingeniería Eléctrica,178,792,2018-2
+105,Ingeniería Eléctrica (Básicos ingeniería),4,14,2018-2
+106,Ingeniería Física,133,218,2018-2
+107,Ingeniería Física (Básicos ingenieria),7,6,2018-2
+108,Ingeniería de Sistemas y Computación,85,668,2018-2
+109,Ingeniería de Sistemas y Computación (Básicos ingeniería),12,10,2018-2
+110,Ingeniería de Sistemas y Computación (Convenio Cuba),10,27,2018-2
+111,Ingeniería de Sistemas y Computación (Nocturno),41,190,2018-2
+112,Ingeniería Electrónica (Diurna),34,144,2019-1
+113,Ingeniería Electrónica (Nocturno),4,96,2019-1
+114,Ingeniería Eléctrica,164,798,2019-1
+115,Ingeniería Física,132,215,2019-1
+116,Ingeniería de Sistemas y Computación,93,658,2019-1
+117,Ingeniería de Sistemas y Computación (Convenio Cuba),9,28,2019-1
+118,Ingeniería de Sistemas y Computación (Nocturno),43,242,2019-1
+119,Tecnología en Desarrollo de Software,2,30,2019-1
+120,Ingeniería Electrónica (Diurna),33,139,2019-2
+121,Ingeniería Electrónica (Nocturno),1,87,2019-2
+122,Ingeniería Eléctrica,159,771,2019-2
+123,Ingeniería Física,129,219,2019-2
+124,Ingeniería de Sistemas y Computación,94,648,2019-2
+125,Ingeniería de Sistemas y Computación (Convenio Cuba),9,25,2019-2
+126,Ingeniería de Sistemas y Computación (Nocturno),44,236,2019-2
+127,Tecnología en Desarrollo de Software,2,21,2019-2
+128,Ingeniería Electrónica (Diurna),34,191,2020-1
+129,Ingeniería Electrónica (Nocturno),1,74,2020-1
+130,Ingeniería Eléctrica,160,775,2020-1
+131,Ingeniería Física,131,228,2020-1
+132,Ingeniería de Sistemas y Computación,102,668,2020-1
+133,Ingeniería de Sistemas y Computación (Convenio Cuba),8,23,2020-1
+134,Ingeniería de Sistemas y Computación (Nocturno),51,267,2020-1
+135,Tecnología en Desarrollo de Software,5,45,2020-1
+136,Ingeniería Electrónica (Diurna),38,208,2020-2
+137,Ingeniería Electrónica (Nocturno),1,55,2020-2
+138,Ingeniería Eléctrica,164,835,2020-2
+139,Ingeniería Física,142,230,2020-2
+140,Ingeniería de Sistemas y Computación,113,700,2020-2
+141,Ingeniería de Sistemas y Computación (Convenio Cuba),8,23,2020-2
+142,Ingeniería de Sistemas y Computación (Nocturno),61,284,2020-2
+143,Tecnología en Desarrollo de Software,4,36,2020-2
+144,Ingeniería Electrónica (Diurna),44,245,2021-1
+145,Ingeniería Electrónica (Nocturno),1,46,2021-1
+146,Ingeniería Eléctrica,160,789,2021-1
+147,Ingeniería Física,136,211,2021-1
+148,Ingeniería de Sistemas y Computación,110,689,2021-1
+149,Ingeniería de Sistemas y Computación (Convenio Cuba),8,22,2021-1
+150,Ingeniería de Sistemas y Computación (Nocturno),60,273,2021-1
+151,Tecnología en Desarrollo de Software,3,25,2021-1
+152,Ingeniería Electrónica (Diurna),41,258,2021-2
+153,Ingeniería Electrónica (Nocturno),1,34,2021-2
+154,Ingeniería Eléctrica,164,792,2021-2
+155,Ingeniería Física,128,213,2021-2
+156,Ingeniería de Sistemas y Computación,108,719,2021-2
+157,Ingeniería de Sistemas y Computación (Nocturno),69,313,2021-2
+158,Tecnología en Desarrollo de Software,6,58,2021-2

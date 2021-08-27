@@ -1,0 +1,141 @@
+ID,PROGRAMA ACADEMICO,1. Inscrito,2. Primer curso,3. Matriculado,4. Graduado,AÑO
+1,Especialización en Electrónica Digital,1,1,14,,2010
+2,Especialización en Redes de Datos,15,11,32,,2010
+3,Ingeniería Electrónica (Nocturno),157,111,670,9,2010
+4,Ingeniería Eléctrica,247,164,1.516,84,2010
+5,Ingeniería Física,93,74,484,29,2010
+6,Ingeniería de Sistemas y Computación,404,163,1.346,66,2010
+7,Ingeniería de Sistemas y Computación (Nocturno),176,138,584,2,2010
+8,Maestría en Ingeniería Eléctrica,40,32,119,8,2010
+9,Maestría en Ingeniería de Sistemas y Computación,34,25,25,,2010
+10,Doctorado en Ingeniería,10,6,6,,2011
+11,Especialización en Electrónica Digital,2,,6,,2011
+12,Especialización en Redes de Datos,10,1,45,3,2011
+13,Ingeniería Electrónica (Nocturno),140,105,651,25,2011
+14,Ingeniería Eléctrica,283,166,1.576,59,2011
+15,Ingeniería Física,87,82,502,15,2011
+16,Ingeniería de Sistemas y Computación,471,168,1.404,95,2011
+17,Ingeniería de Sistemas y Computación (Nocturno),175,143,612,26,2011
+18,Maestría en Ingeniería Eléctrica,31,25,128,6,2011
+19,Maestría en Ingeniería de Sistemas y Computación,30,16,65,,2011
+20,Doctorado en Ingeniería,11,6,19,,2012
+21,Especialización en Electrónica Digital,,,6,,2012
+22,Especialización en Redes de Datos,1,,20,,2012
+23,Ingeniería Electrónica (Nocturno),156,109,591,42,2012
+24,Ingeniería Eléctrica,277,174,1.670,61,2012
+25,Ingeniería Física,88,86,543,19,2012
+26,Ingeniería de Sistemas y Computación,331,164,1.316,81,2012
+27,Ingeniería de Sistemas y Computación (Nocturno),172,133,560,22,2012
+28,Maestría en Ingeniería Eléctrica,21,18,90,11,2012
+29,Maestría en Ingeniería de Sistemas y Computación,18,13,51,,2012
+30,Doctorado en Ingeniería,10,5,33,,2013
+31,Especialización en Electrónica Digital,,,6,5,2013
+32,Especialización en Redes de Datos,16,7,17,6,2013
+33,Ingeniería Electrónica (Nocturno),109,68,554,29,2013
+34,Ingeniería Eléctrica,324,134,1.817,57,2013
+35,Ingeniería Física,78,89,551,15,2013
+36,Ingeniería de Sistemas y Computación,353,128,1.372,76,2013
+37,Ingeniería de Sistemas y Computación (Nocturno),121,93,561,20,2013
+38,Maestría en Ingeniería Eléctrica,36,30,109,24,2013
+39,Maestría en Ingeniería de Sistemas y Computación,26,13,85,3,2013
+40,Doctorado en Ingeniería,6,6,47,,2014
+41,Especialización en Electrónica Digital,,,,1,2014
+42,Especialización en Redes de Datos,,,19,6,2014
+43,Ingeniería Electrónica (Nocturno),87,65,529,28,2014
+44,Ingeniería Eléctrica,284,166,1.992,43,2014
+45,Ingeniería Física,76,80,613,24,2014
+46,Ingeniería de Sistemas y Computación,312,162,1.449,58,2014
+47,Ingeniería de Sistemas y Computación (Nocturno),136,98,546,32,2014
+48,Maestría en Ingeniería Eléctrica,19,18,113,23,2014
+49,Maestría en Ingeniería de Sistemas y Computación,27,22,127,5,2014
+50,Doctorado en Ingeniería,9,6,52,,2015
+51,Especialización en Redes de Datos,,,7,7,2015
+52,Ingeniería Electrónica (Nocturno),136,112,585,35,2015
+53,Ingeniería Eléctrica,300,152,1.988,77,2015
+54,Ingeniería Física,75,78,623,36,2015
+55,Ingeniería de Sistemas y Computación,446,153,1.425,91,2015
+56,Ingeniería de Sistemas y Computación (Nocturno),157,127,597,24,2015
+57,Maestría en Ingeniería Eléctrica,18,14,98,24,2015
+58,Maestría en Ingeniería de Sistemas y Computación,24,19,136,9,2015
+59,Doctorado en Ingeniería,15,14,70,1,2016
+60,Especialización en Redes de Datos,1,,,,2016
+61,Ingeniería Electrónica (Diurna),28,23,23,,2016
+62,Ingeniería Electrónica (Nocturno),80,54,517,33,2016
+63,Ingeniería Eléctrica,377,165,1.986,114,2016
+64,Ingeniería Eléctrica (Básicos ingeniería),12,,,,2016
+65,Ingeniería Física,187,160,703,30,2016
+66,Ingeniería Física (Básicos ingenieria),9,,,,2016
+67,Ingeniería de Sistemas y Computación,493,200,1.487,81,2016
+68,Ingeniería de Sistemas y Computación (Básicos ingeniería),25,,,,2016
+69,Ingeniería de Sistemas y Computación (Convenio Cuba),39,,,,2016
+70,Ingeniería de Sistemas y Computación (Nocturno),205,142,597,22,2016
+71,Maestría en Ingeniería Eléctrica,29,27,89,14,2016
+72,Maestría en Ingeniería de Sistemas y Computación,25,17,75,3,2016
+73,Doctorado en Ingeniería,9,6,76,4,2017
+74,Especialización en Redes de Datos,,,6,4,2017
+75,Ingeniería Electrónica (Diurna),162,82,145,,2017
+76,Ingeniería Electrónica (Nocturno),,,361,31,2017
+77,Ingeniería Eléctrica,348,166,2.012,98,2017
+78,Ingeniería Eléctrica (Básicos ingeniería),27,16,42,,2017
+79,Ingeniería Física,191,120,722,37,2017
+80,Ingeniería Física (Básicos ingenieria),19,14,32,,2017
+81,Ingeniería de Sistemas y Computación,558,182,1.512,70,2017
+82,Ingeniería de Sistemas y Computación (Básicos ingeniería),48,16,59,,2017
+83,Ingeniería de Sistemas y Computación (Convenio Cuba),67,35,87,,2017
+84,Ingeniería de Sistemas y Computación (Nocturno),140,113,568,16,2017
+85,Maestría en Ingeniería Eléctrica,43,35,125,14,2017
+86,Maestría en Ingeniería de Sistemas y Computación,41,26,117,17,2017
+87,Doctorado en Ingeniería,5,4,72,5,2018
+88,Especialización en Redes de Datos,,,4,1,2018
+89,Ingeniería Electrónica (Diurna),156,87,246,,2018
+90,Ingeniería Electrónica (Nocturno),,,260,28,2018
+91,Ingeniería Eléctrica,315,168,1.969,115,2018
+92,Ingeniería Eléctrica (Básicos ingeniería),,,36,,2018
+93,Ingeniería Física,164,88,711,32,2018
+94,Ingeniería Física (Básicos ingenieria),,,27,,2018
+95,Ingeniería de Sistemas y Computación,567,182,1.512,90,2018
+96,Ingeniería de Sistemas y Computación (Básicos ingeniería),,,46,,2018
+97,Ingeniería de Sistemas y Computación (Convenio Cuba),,,77,,2018
+98,Ingeniería de Sistemas y Computación (Nocturno),78,50,508,16,2018
+99,Maestría en Ingeniería Eléctrica,40,37,146,18,2018
+100,Maestría en Ingeniería de Sistemas y Computación,45,34,136,18,2018
+101,Tecnología en Desarrollo de Software,56,,,,2018
+102,Doctorado en Ingeniería,5,4,70,8,2019
+103,Especialización en Electrónica Digital,11,5,5,,2019
+104,Especialización en Redes de Datos,28,8,17,10,2019
+105,Ingeniería Electrónica (Diurna),129,107,350,,2019
+106,Ingeniería Electrónica (Nocturno),,,188,18,2019
+107,Ingeniería Eléctrica,269,156,1.892,172,2019
+108,Ingeniería Física,161,81,695,30,2019
+109,Ingeniería de Sistemas y Computación,448,169,1.493,80,2019
+110,Ingeniería de Sistemas y Computación (Convenio Cuba),,,71,,2019
+111,Ingeniería de Sistemas y Computación (Nocturno),137,130,565,20,2019
+112,Maestría en Ingeniería Eléctrica,27,23,130,27,2019
+113,Maestría en Ingeniería de Sistemas y Computación,41,34,156,11,2019
+114,Tecnología en Desarrollo de Software,50,35,55,,2019
+115,Doctorado en Ingeniería,39,8,64,8,2020
+116,Especialización en Electrónica Digital,12,5,15,,2020
+117,Especialización en Redes de Datos,15,7,7,,2020
+118,Ingeniería Electrónica (Diurna),151,94,471,2,2020
+119,Ingeniería Electrónica (Nocturno),,,131,25,2020
+120,Ingeniería Eléctrica,277,157,1.934,117,2020
+121,Ingeniería Física,136,84,731,64,2020
+122,Ingeniería de Sistemas y Computación,500,186,1.583,95,2020
+123,Ingeniería de Sistemas y Computación (Convenio Cuba),,,62,,2020
+124,Ingeniería de Sistemas y Computación (Nocturno),163,117,663,26,2020
+125,Maestría en Ingeniería Eléctrica,71,63,177,20,2020
+126,Maestría en Ingeniería de Sistemas y Computación,42,32,149,9,2020
+127,Tecnología en Desarrollo de Software,100,37,90,,2020
+128,Doctorado en Ingeniería,19,2,32,2,2021
+129,Especialización en Electrónica Digital,,,,1,2021
+130,Especialización en Redes de Datos,25,9,15,,2021
+131,Ingeniería Electrónica (Diurna),157,108,588,,2021
+132,Ingeniería Electrónica (Nocturno),,,82,20,2021
+133,Ingeniería Eléctrica,307,158,1.905,43,2021
+134,Ingeniería Física,192,82,688,12,2021
+135,Ingeniería de Sistemas y Computación,999,190,1.626,36,2021
+136,Ingeniería de Sistemas y Computación (Convenio Cuba),,,30,,2021
+137,Ingeniería de Sistemas y Computación (Nocturno),158,134,715,6,2021
+138,Maestría en Ingeniería Eléctrica,42,18,105,11,2021
+139,Maestría en Ingeniería de Sistemas y Computación,16,4,61,9,2021
+140,Tecnología en Desarrollo de Software,98,37,92,,2021
