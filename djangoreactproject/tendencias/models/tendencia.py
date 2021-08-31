@@ -45,7 +45,26 @@ PROGRAMASOFRECIDOS_FIELDS = [
     'Año',
 ]
 
+MATRICULADOSEGUNCOLEGIO_FIELDS = [
+    'Programa',
+    'Oficial',
+    'Privado',
+    'SinInformacion',
+    'Semestre',
+]
 
+MATRICULADOSEGUNEDAD_FIELDS = [
+    'Programa',
+    'Menor17',
+    'Mayor17Menor22',
+    'Edad22',
+    'Edad23',
+    'Edad24',
+    'Edad25',
+    'Entre26Y30',
+    'Mayor31',
+    'Año',
+]
 # Create your models here.
 
 # Modelo Tendencia
@@ -102,3 +121,30 @@ class ProgramasOfrecidos(models.Model):
 
      def __str__(self):
         return f'{self.NombreProgramaAcademico}- {self.CodigoSNIES} - {self.Año}'
+
+# Modelo Matriculado Segun Colegio
+class MatriculadoSegunColegio(models.Model):
+    Programa = models.CharField('Programa Académico',max_length=255,null=True)
+    Oficial = models.IntegerField('Oficial',null=True)
+    Privado = models.IntegerField('Privado',null=True)
+    SinInformacion = models.IntegerField('Sin Información',null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+    
+    def __str__(self):
+        return f'{self.Programa}-  - {self.Semestre}'
+
+# Modelo Matriculado Segun Edad
+class MatriculadoSegunEdad(models.Model):
+    Programa = models.CharField('Programa Académico',max_length=255,null=True)
+    Menor17 = models.IntegerField('Menor a 17 años',null=True)
+    Mayor17Menor22 = models.IntegerField('Mayor a 17 años y Menor a 22 años',null=True)
+    Edad22 = models.IntegerField('Edad 22 años',null=True)
+    Edad23 = models.IntegerField('Edad 23 años',null=True)
+    Edad24 = models.IntegerField('Edad 24 años',null=True)
+    Edad25 = models.IntegerField('Edad 25 años',null=True)
+    Entre26Y30 = models.IntegerField('Entre 26 y 30 años',null=True)
+    Mayor31 = models.IntegerField('Mayor a 31 años',null=True)
+    Año = models.CharField('Año',max_length=255,null=True)
+
+    def __str__(self):
+        return f'{self.Programa}-  - {self.Año}'
