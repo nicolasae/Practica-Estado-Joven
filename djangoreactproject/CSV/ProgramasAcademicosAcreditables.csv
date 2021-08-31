@@ -1,38 +1,38 @@
-ID,Nombre del Programa Académico,Código SNIES,Estado del programa,Resolución Registro Calificado (RC),Duración (RC) Años,Acreditado Alta Calidad (AC),Resolución (AC),Duración (AC) Años,Año
-1,Maestría en Ingeniería Eléctrica,5329,Ofrecido,009944 DEL 17-JUN-2020,7,Si,003146 DEL 01-MAR-2021,8,2021
-2,Maestría en Ingeniería de Sistemas y Computación,54928,Ofrecido,08435 DEL 28-ABR-2016,7,No,,,2021
-3,Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2021
-4,Ingeniería Eléctrica,270,Ofrecido,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),7,Si,11956 DEL 16-JUN-2016,6,2021
-5,Ingeniería Física,4093,Ofrecido,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),7,Si,18212 DEL 13-SEP-2017,6,2021
-6,Ingeniería de Sistemas y Computación,269,Ofrecido,29805 DEL 29-DIC-2017,7,Si,16816 DEL 19-AGO-2016 (,5,2021
-7,Maestría en Ingeniería Eléctrica,5329,Ofrecido,009944 DEL 17-JUN-2020,7,Vencido,3229 DEL 05-ABR-2013,6,2020
-8,Maestría en Ingeniería de Sistemas y Computación,54928,Ofrecido,08435 DEL 28-ABR-2016,7,No,,,2020
-9,Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2020
-10,Ingeniería Eléctrica,270,Ofrecido,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),7,Si,11956 DEL 16-JUN-2016,6,2020
-11,Ingeniería Física,4093,Ofrecido,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),7,Si,18212 DEL 13-SEP-2017,6,2020
-12,Ingeniería de Sistemas y Computación,269,Ofrecido,29805 DEL 29-DIC-2017,7,Si,16816 DEL 19-AGO-2016 (,5,2020
-13,Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Vencido,3229 DEL 05-ABR-2013,6,2019
-14,Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2019
-15,Ingeniería Eléctrica,270,Ofrecido,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),7,Si,11956 DEL 16-JUN-2016,6,2019
-16,Ingeniería Física,4093,Ofrecido,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),7,Si,18212 DEL 13-SEP-2017,6,2019
-17,Ingeniería de Sistemas y Computación,269,Ofrecido,29805 DEL 29-DIC-2017,7,Si,16816 DEL 19-AGO-2016,4,2019
-18,Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Si,3229 DEL 05-ABR-2013,6,2018
-19,Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2018
-20,Ingeniería Eléctrica,270,Ofrecido,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),7,Si,11956 DEL 16-JUN-2016,6,2018
-21,Ingeniería Física,4093,Ofrecido,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),7,Si,18212 DEL 13-SEP-2017,6,2018
-22,Ingeniería de Sistemas y Computación,269,Ofrecido,29805 DEL 29-DIC-2017,7,Si,16816 DEL 19-AGO-2016,4,2018
-23,Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Si,3229 DEL 05-ABR-2013,6,2017
-24,Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2017
-25,Ingeniería Eléctrica,270,Ofrecido,11109 DEL 11-SEPT-2012,7,Si,11956 DEL 16-JUN-2016,6,2017
-26,Ingeniería Física,4093,Ofrecido,10959 DEL 11-SEP-2012,7,Si,18212 DEL 13-SEP-2017,6,2017
-27,Ingeniería de Sistemas y Computación,269,Ofrecido,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",7,Si,16816 DEL 19-AGO-2016,4,2017
-28,Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Si,3229 DEL 05-ABR-2013,6,2015
-29,Ingeniería Electrónica (Nocturno),13090,Ofrecido,"8460 DEL 28-OCT-2009 (La vigencia de la resolución cuenta a partir del ""26-NOV-2009"")",7,No,,,2015
-30,Ingeniería Eléctrica,270,Ofrecido,11109 DEL 11-SEP-2012,7,No,,,2015
-31,Ingeniería Física,4093,Ofrecido,5733 DEL 13-JUL-2011,7,Si,9886 DEL 22-AGO-2012,4,2015
-32,Ingeniería de Sistemas y Computación,269,Ofrecido,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",7,No,,,2015
-33,Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Si,3229 DEL 05-ABR-2013,6,2014
-34,Ingeniería Electrónica (Nocturno),13090,Ofrecido,"8460 DEL 28-OCT-2009 (La vigencia de la resolución cuenta a partir del ""26-NOV-2009"")",7,No,,,2014
-35,Ingeniería Eléctrica,270,Ofrecido,11109 DEL 11-SEP-2012,7,No,,,2014
-36,Ingeniería Física,4093,Ofrecido,5733 DEL 13-JUL-2011,7,Si,9886 DEL 22-AGO-2012,4,2014
-37,Ingeniería de Sistemas y Computación,269,Ofrecido,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",7,Si,12268 DEL 22-DIC-2010,4,2014
+NombreProgramaAcademico,CodigoSNIES,EstadDelPrograma,ResolucionRegistroCalificadoRC,DuraciónRCAños,AcreditadoAltaCalidadAC,ResoluciónAC,DuraciónACAños,Año
+Maestría en Ingeniería Eléctrica,5329,Ofrecido,009944 DEL 17-JUN-2020,7,Si,003146 DEL 01-MAR-2021,8,2021
+Maestría en Ingeniería de Sistemas y Computación,54928,Ofrecido,08435 DEL 28-ABR-2016,7,No,,,2021
+Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2021
+Ingeniería Eléctrica,270,Ofrecido,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),7,Si,11956 DEL 16-JUN-2016,6,2021
+Ingeniería Física,4093,Ofrecido,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),7,Si,18212 DEL 13-SEP-2017,6,2021
+Ingeniería de Sistemas y Computación,269,Ofrecido,29805 DEL 29-DIC-2017,7,Si,16816 DEL 19-AGO-2016 (,5,2021
+Maestría en Ingeniería Eléctrica,5329,Ofrecido,009944 DEL 17-JUN-2020,7,Vencido,3229 DEL 05-ABR-2013,6,2020
+Maestría en Ingeniería de Sistemas y Computación,54928,Ofrecido,08435 DEL 28-ABR-2016,7,No,,,2020
+Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2020
+Ingeniería Eléctrica,270,Ofrecido,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),7,Si,11956 DEL 16-JUN-2016,6,2020
+Ingeniería Física,4093,Ofrecido,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),7,Si,18212 DEL 13-SEP-2017,6,2020
+Ingeniería de Sistemas y Computación,269,Ofrecido,29805 DEL 29-DIC-2017,7,Si,16816 DEL 19-AGO-2016 (,5,2020
+Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Vencido,3229 DEL 05-ABR-2013,6,2019
+Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2019
+Ingeniería Eléctrica,270,Ofrecido,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),7,Si,11956 DEL 16-JUN-2016,6,2019
+Ingeniería Física,4093,Ofrecido,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),7,Si,18212 DEL 13-SEP-2017,6,2019
+Ingeniería de Sistemas y Computación,269,Ofrecido,29805 DEL 29-DIC-2017,7,Si,16816 DEL 19-AGO-2016,4,2019
+Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Si,3229 DEL 05-ABR-2013,6,2018
+Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2018
+Ingeniería Eléctrica,270,Ofrecido,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),7,Si,11956 DEL 16-JUN-2016,6,2018
+Ingeniería Física,4093,Ofrecido,08054 DEL 17-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 18212 del 13-SEP-2017),7,Si,18212 DEL 13-SEP-2017,6,2018
+Ingeniería de Sistemas y Computación,269,Ofrecido,29805 DEL 29-DIC-2017,7,Si,16816 DEL 19-AGO-2016,4,2018
+Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Si,3229 DEL 05-ABR-2013,6,2017
+Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2017
+Ingeniería Eléctrica,270,Ofrecido,11109 DEL 11-SEPT-2012,7,Si,11956 DEL 16-JUN-2016,6,2017
+Ingeniería Física,4093,Ofrecido,10959 DEL 11-SEP-2012,7,Si,18212 DEL 13-SEP-2017,6,2017
+Ingeniería de Sistemas y Computación,269,Ofrecido,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",7,Si,16816 DEL 19-AGO-2016,4,2017
+Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Si,3229 DEL 05-ABR-2013,6,2015
+Ingeniería Electrónica (Nocturno),13090,Ofrecido,"8460 DEL 28-OCT-2009 (La vigencia de la resolución cuenta a partir del ""26-NOV-2009"")",7,No,,,2015
+Ingeniería Eléctrica,270,Ofrecido,11109 DEL 11-SEP-2012,7,No,,,2015
+Ingeniería Física,4093,Ofrecido,5733 DEL 13-JUL-2011,7,Si,9886 DEL 22-AGO-2012,4,2015
+Ingeniería de Sistemas y Computación,269,Ofrecido,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",7,No,,,2015
+Maestría en Ingeniería Eléctrica,5329,Ofrecido,5348 DEL 10-MAY-2013,7,Si,3229 DEL 05-ABR-2013,6,2014
+Ingeniería Electrónica (Nocturno),13090,Ofrecido,"8460 DEL 28-OCT-2009 (La vigencia de la resolución cuenta a partir del ""26-NOV-2009"")",7,No,,,2014
+Ingeniería Eléctrica,270,Ofrecido,11109 DEL 11-SEP-2012,7,No,,,2014
+Ingeniería Física,4093,Ofrecido,5733 DEL 13-JUL-2011,7,Si,9886 DEL 22-AGO-2012,4,2014
+Ingeniería de Sistemas y Computación,269,Ofrecido,"7903 DEL 16-JUL-2012 (La vigencia de la resolución cuenta a partir del ""22-DIC-2010"")",7,Si,12268 DEL 22-DIC-2010,4,2014
