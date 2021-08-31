@@ -5,6 +5,11 @@ from ..models.tendencia import ProgramasNoOfrecidos
 from ..models.tendencia import ProgramasOfrecidos
 from ..models.tendencia import MatriculadoSegunColegio
 from ..models.tendencia import MatriculadoSegunEdad
+from ..models.tendencia import MatriculadoSegunSexo
+from ..models.tendencia import DocentesPorDependencia
+from ..models.tendencia import DocentesPorFormacion
+from ..models.tendencia import DocentesPorSexo
+
 
 class TendenciaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,4 +34,24 @@ class MatriculadoSegunColegioSerializer(serializers.ModelSerializer):
 class MatriculadoSegunEdadSerializer(serializers.ModelSerializer):
     class Meta:
         model = MatriculadoSegunEdad
+        exclude = ['id']
+
+class MatriculadoSegunSexoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MatriculadoSegunSexo
+        exclude = ['id']
+
+class DocentesPorDependenciaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DocentesPorDependencia
+        exclude = ['id']
+
+class DocentesPorFormacionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DocentesPorFormacion
+        exclude = ['id']
+
+class DocentesPorSexoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DocentesPorSexo
         exclude = ['id']

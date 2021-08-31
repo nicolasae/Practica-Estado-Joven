@@ -65,6 +65,35 @@ MATRICULADOSEGUNEDAD_FIELDS = [
     'Mayor31',
     'Año',
 ]
+
+MATRICULADOSEGUNSEXO_FIELDS = [
+    'Programa',
+    'Femenino',
+    'Masculino',
+    'Año'
+]
+
+DOCENTESPORDEPENDENCIA_FIELDS =[
+    'Programa',
+    'CantidadDocentes',
+    'Semestre',
+]
+
+DOCENTESPORFORMACION_FIELDS =[
+    'TipoDeVinculacion',
+    'Semestre',
+    'NivelDeFormacion',
+    'CantidadDeDocentes',
+]
+
+DOCENTESPORSEXO_FIELDS =[
+    'TipoDeVinculacion',
+    'Sexo',
+    'CantidadDeDocentes',
+    'Semestre',
+]
+
+
 # Create your models here.
 
 # Modelo Tendencia
@@ -148,3 +177,43 @@ class MatriculadoSegunEdad(models.Model):
 
     def __str__(self):
         return f'{self.Programa}-  - {self.Año}'
+
+# Modelo Matriculado Segun Sexo
+class MatriculadoSegunSexo(models.Model):
+    Programa = models.CharField('Programa Académico',max_length=255,null=True)
+    Femenino = models.IntegerField('Femenino',null=True)
+    Masculino = models.IntegerField('Masculino',null=True)
+    Año = models.CharField('Año',max_length=255,null=True)
+
+    def __str__(self):
+        return f'{self.Programa}-  - {self.Año}'
+
+# Modelo Personal Docente por Dependencia
+class DocentesPorDependencia(models.Model):
+    Programa = models.CharField('Programa Académico',max_length=255,null=True)
+    CantidadDeDocentes = models.IntegerField('Cantidad de Docentes',null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+
+    def __str__(self):
+        return f'{self.Programa}-  - {self.Semestre}'
+
+# Modelo Personal Docente por Nivel de Formación 
+class DocentesPorFormacion(models.Model):
+    TipoDeVinculacion = models.CharField('Tipo De Vinculación',max_length=255,null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+    NivelDeFormacion = models.CharField('Nivel De Formación',max_length=255,null=True)
+    CantidadDeDocentes = models.IntegerField('Cantidad de Docentes',null=True)
+    
+    def __str__(self):
+        return f'{self.TipoDeVinculacion}- {self.Semestre}'
+
+# Modelo Personal Docente por Sexo 
+class DocentesPorSexo(models.Model):
+    TipoDeVinculacion = models.CharField('Tipo De Vinculación',max_length=255,null=True)
+    Sexo = models.CharField('Sexo',max_length=255,null=True)
+    CantidadDeDocentes = models.IntegerField('Cantidad de Docentes',null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+
+    def __str__(self):
+        return f'{self.TipoDeVinculacion}- {self.Semestre}'
+

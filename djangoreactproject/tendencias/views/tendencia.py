@@ -5,7 +5,7 @@ from cerberus import Validator
 
 # Tendencias imports 
 from ..serializers.tendencia import TendenciaSerializer
-from ..models.tendencia import Tendencia
+from ..models.tendencia import DocentesPorFormacion, Tendencia
 from ..models.tendencia import TENDENCIA_FIELDS
 # Programas No Ofrecidos imports 
 from ..serializers.tendencia import ProgramasNoOfrecidosSerializer
@@ -23,7 +23,22 @@ from ..models.tendencia import MATRICULADOSEGUNCOLEGIO_FIELDS
 from ..serializers.tendencia import MatriculadoSegunEdadSerializer
 from ..models.tendencia import MatriculadoSegunEdad
 from ..models.tendencia import MATRICULADOSEGUNEDAD_FIELDS
-
+# Matriculado Segun Sexo imports 
+from ..serializers.tendencia import MatriculadoSegunSexoSerializer
+from ..models.tendencia import MatriculadoSegunSexo
+from ..models.tendencia import MATRICULADOSEGUNSEXO_FIELDS
+# Docentes por Dependencia imports 
+from ..serializers.tendencia import DocentesPorDependenciaSerializer
+from ..models.tendencia import DocentesPorDependencia
+from ..models.tendencia import DOCENTESPORDEPENDENCIA_FIELDS
+# Docentes por Formación imports 
+from ..serializers.tendencia import DocentesPorFormacionSerializer
+from ..models.tendencia import DocentesPorFormacion
+from ..models.tendencia import DOCENTESPORFORMACION_FIELDS
+# Docentes por Sexo imports 
+from ..serializers.tendencia import DocentesPorSexoSerializer
+from ..models.tendencia import DocentesPorSexo
+from ..models.tendencia import DOCENTESPORSEXO_FIELDS
 
 class TendenciaView(APIView):
     def get(self,request):
@@ -154,4 +169,111 @@ class MatriculadoSegunEdadView(APIView):
             return Response({
                 'data': MatriculadoSegunEdadSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
+
+class MatriculadoSegunSexoView(APIView):
+    def get(self,request):
+        if not request.GET:
+            matriculados = MatriculadoSegunSexo.objects.all()
+            if not matriculados:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': MatriculadoSegunSexoSerializer(matriculados,many=True).data
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in MATRICULADOSEGUNSEXO_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            matriculados = MatriculadoSegunSexo.objects.filter(**request.GET.dict())
+            if not matriculados:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': MatriculadoSegunSexoSerializer(matriculados,many=True).data
+            },status=status.HTTP_200_OK)
+
+class DocentesPorDependenciaView(APIView):
+    def get(self,request):
+        if not request.GET:
+            docentes = DocentesPorDependencia.objects.all()
+            if not docentes:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': DocentesPorDependenciaSerializer(docentes,many=True).data
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in DOCENTESPORDEPENDENCIA_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            docentes = DocentesPorDependencia.objects.filter(**request.GET.dict())
+            if not docentes:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': DocentesPorDependenciaSerializer(docentes,many=True).data
+            },status=status.HTTP_200_OK)
+
+class DocentesPorFormacionView(APIView):
+    def get(self,request):
+        if not request.GET:
+            docentes = DocentesPorFormacion.objects.all()
+            if not docentes:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': DocentesPorFormacionSerializer(docentes,many=True).data
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in DOCENTESPORFORMACION_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            docentes = DocentesPorFormacion.objects.filter(**request.GET.dict())
+            if not docentes:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': DocentesPorFormacionSerializer(docentes,many=True).data
+            },status=status.HTTP_200_OK)
+
+class DocentesPorSexoView(APIView):
+    def get(self,request):
+        if not request.GET:
+            docentes = DocentesPorSexo.objects.all()
+            if not docentes:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': DocentesPorSexoSerializer(docentes,many=True).data
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in DOCENTESPORSEXO_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            docentes = DocentesPorSexo.objects.filter(**request.GET.dict())
+            if not docentes:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': DocentesPorSexoSerializer(docentes,many=True).data
+            },status=status.HTTP_200_OK)
+
+
+
 
