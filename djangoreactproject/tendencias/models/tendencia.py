@@ -93,6 +93,56 @@ DOCENTESPORSEXO_FIELDS =[
     'Semestre',
 ]
 
+POBLACIONPORPROGRAMA_FIELDS = [
+    'ProgramaAcademico',
+    'Inscrito',
+    'PrimerCurso',
+    'Matriculado',
+    'Graduado',
+    'Año',
+]
+
+POBLACIONPORSEXO_FIELDS = [
+    'Nivel',
+    'Femenino',
+    'Masculino',
+    'Posgrado',
+    'Pregrado',
+    'Semestre',
+]
+
+PROGRAMASACADEMICOS_FIELDS = [
+    'Nivel',
+    'ProgramaAcademico',
+    'Estado',
+    'EstadoRegistroCalificado',
+    'ResolucionRegistroCalificado',
+    'Año',
+]
+
+PROGRAMASACADEMICOSACREDITABLES_FIELDS = [
+    'ProgramaAcademico',
+    'CodigoSNIES',
+    'EstadoDelPrograma',
+    'ResolucionRegistroCalificadoRC',
+    'DuracionRCAños',
+    'AcreditadoAltaCalidadAC',
+    'ResolucionAC',
+    'DuracionACAños',
+    'Año',
+]
+
+PROGRAMASACADEMICOSACREDITADOS_FIELDS = [
+    'ProgramaAcademico',
+    'CodigoSNIES',
+    'EstadoDelPrograma',
+    'ResolucionRegistroCalificadoRC',
+    'DuracionRCAños',
+    'AcreditadoAltaCalidadAC',
+    'ResolucionAC',
+    'DuracionACAños',
+    'Año',
+]
 
 # Create your models here.
 
@@ -217,3 +267,60 @@ class DocentesPorSexo(models.Model):
     def __str__(self):
         return f'{self.TipoDeVinculacion}- {self.Semestre}'
 
+#Modelo Población Estudiantil por Programa Academico
+class PoblacionPorPrograma(models.Model):
+    ProgramaAcademico = models.CharField('Programa Académico',max_length=255,null=True)
+    Inscrito = models.IntegerField('Inscrito',null=True)
+    PrimerCurso = models.IntegerField('Primer Curso',null=True)
+    Matriculado = models.IntegerField('Matriculado',null=True)
+    Graduado = models.IntegerField('Graduado',null=True)
+    Año = models.CharField('Año',max_length=255,null=True)
+
+    def __str__(self):
+        return f'{self.ProgramaAcademico} {self.Año}'
+
+#Modelo Población Estudiantil por Programa Sexo
+class PoblacionPorSexo(models.Model):
+    Nivel = models.CharField('Nivel',max_length=255,null=True)
+    Femenino = models.IntegerField('Femenino',null=True)
+    Masculino = models.IntegerField('Masculino',null=True)
+    Posgrado = models.IntegerField('Posgrado',null=True)
+    Pregrado = models.IntegerField('Pregrado',null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+
+    def __str__(self):
+        return f'{self.Nivel} {self.Semestre}'
+
+
+# Modelo Programas Academicos 
+class ProgramasAcademicos(models.Model):
+    Nivel = models.CharField('Nivel',max_length=255,null=True)
+    ProgramaAcademico = models.CharField('ProgramaAcademico',max_length=255,null=True)
+    Estado = models.CharField('Estado',max_length=255,null=True)
+    EstadoRegistroCalificado = models.CharField('Estado',max_length=255,null=True)
+    ResolucionRegistroCalificado = models.CharField('ResolucioRegistroCalificado',max_length=255,null=True)
+    Año = models.CharField('Año',max_length=255,null=True)
+
+# Modelo Programas Academicos Acreditables
+class ProgramasAcademicosAcreditables(models.Model):
+    ProgramaAcademico = models.CharField('Programa Academico',max_length=255,null=True)
+    CodigoSNIES = models.CharField('Código SNIES',max_length=255,null=True)
+    EstadoDelPrograma = models.CharField('Estado del Programa',max_length=255,null=True)
+    ResolucionRegistroCalificadoRC = models.CharField('Resolución Registro Calificado',max_length=255,null=True)
+    DuracionRCAños = models.IntegerField('Duración (RC) Años',null=True)
+    AcreditadoAltaCalidadAC = models.CharField('Acreditado Alta Calidad(AC)',max_length=255,null=True)
+    ResolucionAC = models.CharField('Resolución (AC)',max_length=255,null=True)
+    DuracionACAños = models.IntegerField('Duración (AC) Años',null=True)
+    Año = models.CharField('Año',max_length=255,null=True)
+
+# Modelo Programas Academicos Acreditados
+class ProgramasAcademicosAcreditados(models.Model):
+    ProgramaAcademico = models.CharField('Programa Academico',max_length=255,null=True)
+    CodigoSNIES = models.CharField('Código SNIES',max_length=255,null=True)
+    EstadoDelPrograma = models.CharField('Estado del Programa',max_length=255,null=True)
+    ResolucionRegistroCalificadoRC = models.CharField('Resolución Registro Calificado',max_length=255,null=True)
+    DuracionRCAños = models.IntegerField('Duración (RC) Años',null=True)
+    AcreditadoAltaCalidadAC = models.CharField('Acreditado Alta Calidad(AC)',max_length=255,null=True)
+    ResolucionAC = models.CharField('Resolución (AC)',max_length=255,null=True)
+    DuracionACAños = models.IntegerField('Duración (AC) Años',null=True)
+    Año = models.CharField('Año',max_length=255,null=True)

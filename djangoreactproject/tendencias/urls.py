@@ -8,6 +8,12 @@ from .views.tendencia import MatriculadoSegunSexoView
 from .views.tendencia import DocentesPorDependenciaView
 from .views.tendencia import DocentesPorFormacionView
 from .views.tendencia import DocentesPorSexoView
+from .views.tendencia import PoblacionPorProgramaView
+from .views.tendencia import PoblacionPorSexoView
+from .views.tendencia import ProgramasAcademicosView
+from .views.tendencia import ProgramasAcademicosAcreditablesView
+from .views.tendencia import ProgramasAcademicosAcreditadosView
+
 
 
 urlpatterns = [
@@ -20,6 +26,12 @@ urlpatterns = [
     path('docentespordependencia', DocentesPorDependenciaView.as_view()),
     path('docentesporformacion', DocentesPorFormacionView.as_view()),
     path('docentesporsexo', DocentesPorSexoView.as_view()),
+    path('poblacionporprograma', PoblacionPorProgramaView.as_view()),
+    path('poblacionporsexo', PoblacionPorSexoView.as_view()),
+    path('programasacademicos', ProgramasAcademicosView.as_view()),
+    path('programasacademicosacreditables', ProgramasAcademicosAcreditablesView.as_view()),
+    path('programasacademicosacreditados', ProgramasAcademicosAcreditadosView.as_view()),
+
 
 
 

@@ -1,4 +1,4 @@
-Nivel,NombreProgramaAcademico,Estado Programa,EstadoRegistroCalificado,ResoluciónRegistroCalificado,Año
+Nivel,ProgramaAcademico,Estado,EstadoRegistroCalificado,ResolucionRegistroCalificado,Año
 Pregrado,Ingeniería de Sistemas y Computación,Ofrecido,Activo,29805 DEL 29-DIC-2017,2021
 Pregrado,Ingeniería Electrónica (Diurna),Ofrecido,Activo,04841 DEL 14-MAR-2016,2021
 Pregrado,Ingeniería Eléctrica,Ofrecido,Activo,08083 DEL 07-MAY-2018  (La fecha de inicio empieza a partir de la Resolución 11956 del 16-JUN-2016),2021

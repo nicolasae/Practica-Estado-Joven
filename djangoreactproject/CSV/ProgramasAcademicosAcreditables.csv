@@ -1,4 +1,4 @@
-NombreProgramaAcademico,CodigoSNIES,EstadDelPrograma,ResolucionRegistroCalificadoRC,DuraciónRCAños,AcreditadoAltaCalidadAC,ResoluciónAC,DuraciónACAños,Año
+ProgramaAcademico,CodigoSNIES,EstadoDelPrograma,ResolucionRegistroCalificadoRC,DuracionRCAños,AcreditadoAltaCalidadAC,ResolucionAC,DuracionACAños,Año
 Maestría en Ingeniería Eléctrica,5329,Ofrecido,009944 DEL 17-JUN-2020,7,Si,003146 DEL 01-MAR-2021,8,2021
 Maestría en Ingeniería de Sistemas y Computación,54928,Ofrecido,08435 DEL 28-ABR-2016,7,No,,,2021
 Ingeniería Electrónica (Diurna),13090,Ofrecido,04841 DEL 14-MAR-2016,7,No,,,2021
