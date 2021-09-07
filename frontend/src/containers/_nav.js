@@ -2,19 +2,16 @@ import React from 'react'
 import CIcon from '@coreui/icons-react'
 
 const _nav =  [
-  // Navbar Dashboard
-  // Tendencia Poblacional
-  {
-    _tag: 'CSidebarNavTitle',
-    _children: ['Tendencia']
-  },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Tendencia Poblacional',
-    to: '/tendencia/tendenciapoblacional',
-    // icon: 'cil-drop',
+    name: 'Dashboard',
+    to: '/dashboard',
+    icon: <CIcon name="cil-speedometer" customClasses="c-sidebar-nav-icon"/>,
+    badge: {
+      color: 'info',
+      text: 'NEW',
+    }
   },
-  // NAVBAR PLANTILLA 
   {
     _tag: 'CSidebarNavTitle',
     _children: ['Theme']
@@ -31,7 +28,6 @@ const _nav =  [
     to: '/theme/typography',
     icon: 'cil-pencil',
   },
-  
   {
     _tag: 'CSidebarNavTitle',
     _children: ['Components']

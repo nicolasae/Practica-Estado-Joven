@@ -38,12 +38,7 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 
-// Constantes dashboards para redireccionamiento por nombre de
-const Tendencias = React.lazy(() => import('./views/tendencias/Tendencias.js'))
-
-
 const routes = [
-  // Rutas Plantilla 
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
@@ -83,11 +78,7 @@ const routes = [
   { path: '/notifications/toaster', name: 'Toaster', component: Toaster },
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/users', exact: true,  name: 'Users', component: Users },
-  { path: '/users/:id', exact: true, name: 'User Details', component: User },
-
-  // Rutas Dashboard
-  { path: '/tendencia', name: 'Tendencia', component: Tendencias, exact: true },
-  { path: '/tendencia/tendenciapoblacional', name: 'Tendencia', component: Tendencias },
+  { path: '/users/:id', exact: true, name: 'User Details', component: User }
 ];
 
 export default routes;
