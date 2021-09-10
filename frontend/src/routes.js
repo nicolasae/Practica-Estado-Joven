@@ -39,12 +39,24 @@ const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 
 // Imports Dashboards 
+// Deserción
 const Intersemestral = React.lazy(() => import('./views/historico/intersemestral/Intersemestral.js'));
 const Interanual = React.lazy(() => import('./views/historico/interanual/Interanual.js'))
 const Cohorte = React.lazy(() => import('./views/tablero/cohorte/Cohorte.js'))
 const CohorteCambio = React.lazy(() => import('./views/tablero/cohortecambio/CohorteCambioPrograma.js'))
 const CohorteCompleta = React.lazy(() => import('./views/tablero/cohortecompleta/CohorteCompleta.js'))
 const GraduadosCohorte = React.lazy(() => import('./views/tablero/graduadoscohorte/GraduadosCohorte.js'))
+// Tendencia Poblacional
+const GraduadosPregrado = React.lazy(() => import('./views/graduados/pregrado/pregrado.js'))
+const GraduadosPosgrado = React.lazy(() => import('./views/graduados/posgrado/posgrado.js'))
+const InscritosPregrado = React.lazy(() => import('./views/inscritos/pregrado/pregrado.js'))
+const InscritosPosgrado = React.lazy(() => import('./views/inscritos/posgrado/posgrado.js'))
+const MatriculadosPregrado = React.lazy(() => import('./views/matriculados/pregrado/pregrado.js'))
+const MatriculadosPosgrado = React.lazy(() => import('./views/matriculados/posgrado/posgrado.js'))
+
+
+
+
 
 
 const routes = [
@@ -107,7 +119,16 @@ const routes = [
   { path: '/desercion/tablero/cohortecambio', name: 'Cohorte con Cambios', component: CohorteCambio },
   { path: '/desercion/tablero/cohortecompleta', name: 'Cohortes Completas', component: CohorteCompleta },
   { path: '/desercion/tablero/graduadoscohorte', name: 'Graduados por Cohorte', component: GraduadosCohorte },
-
+  // TENDENCIA POBLACIONAL 
+  { path: '/tendencia/inscrito', name: 'Inscritos', component: InscritosPregrado, exact: true },
+  { path: '/tendencia/inscrito/pregrado', name: 'Pregrado', component: InscritosPregrado },
+  { path: '/tendencia/inscrito/posgrado', name: 'Posgrado', component: InscritosPosgrado },
+  { path: '/tendencia/matriculado', name: 'Matriculado', component: MatriculadosPregrado, exact: true },
+  { path: '/tendencia/matriculado/pregrado', name: 'Pregrado', component: MatriculadosPregrado },
+  { path: '/tendencia/matriculado/posgrado', name: 'Posgrado', component: MatriculadosPosgrado },
+  { path: '/tendencia/graduado', name: 'Graduados', component: GraduadosPregrado, exact: true },
+  { path: '/tendencia/graduado/pregrado', name: 'Pregrado', component: GraduadosPregrado },
+  { path: '/tendencia/graduado/posgrado', name: 'Posgrado', component: GraduadosPosgrado },
 
 ];
 

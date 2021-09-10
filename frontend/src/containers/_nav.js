@@ -285,6 +285,65 @@ const _nav =  [
   // }
 
   // MENU DE NAVEGACIÓN DASHBOARD
+  //TENDENCIA POBLACIONAL
+  {
+    _tag: 'CSidebarNavTitle',
+    _children: ['Tendencia Poblacional']
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Inscritos',
+    route: '/tendencia/inscrito',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Inscritos Pregrado',
+        to: '/tendencia/inscrito/pregrado',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Inscritos Posgrado',
+        to: '/tendencia/inscrito/posgrado',
+      },
+    ],
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Matriculados',
+    route: '/tendencia/matriculado',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Matriculados Pregrado',
+        to: '/tendencia/matriculado/pregrado',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Matriculados Posgrado',
+        to: '/tendencia/matriculado/posgrado',
+      },
+    ],
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Graduados',
+    route: '/tendencia/graduado',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Graduados Pregrado',
+        to: '/tendencia/graduado/pregrado',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Graduados Posgrado',
+        to: '/tendencia/graduado/posgrado',
+      },
+    ],
+  },
   // DESERCION
   {
     _tag: 'CSidebarNavTitle',
