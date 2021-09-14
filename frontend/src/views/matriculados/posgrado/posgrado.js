@@ -13,11 +13,15 @@ import {
 import { DocsLink } from 'src/reusable'
 import routes from '../../../routes'
 
-
-export default class MatriculadosPosgrado extends React.Component{
-    render() {
-        return(
-            <h1>MatriculadosPosgrado</h1>
-        )
-    }
+const MatriculadosPosgrado = () => {
+    
+    return(
+        <>
+            <h1>Matricula Posgrado</h1>
+        </>
+    )
 }
+
+
+
+export default MatriculadosPosgrado 

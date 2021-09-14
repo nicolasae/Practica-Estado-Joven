@@ -33,18 +33,31 @@ export default class MatriculadosPregrado extends React.Component {
             this.state = {
                 matriculadoSegunSexo: [],
                 matriculadoSegunSexoPrograma: [],
+                matriculadosLineChart:[],
                 fields : ['Programa','Femenino', 'Masculino', 'Año'],
                 collapseTable: false,
                 collapseTablePrograma: false,
+                collapseLineChartPrograma:false,
+                fieldsLineChart:[],
+                dataLineChartMasculino:[],
+                dataLineChartFemenino:[],
                 programa:'Ingeniería de Sistemas y Computación',
+                programaLineChart: 'Ingeniería de Sistemas y Computación',
             }
             this.handleChange = this.handleChange.bind(this);
+            this.handleChangeLineChart = this.handleChangeLineChart.bind(this);
+
             this.getData()
     }
     
     handleChange(event) {
         this.setState({programa: event.target.value});
         console.log(this.state.programa)
+    }
+
+    handleChangeLineChart(event) {
+        this.setState({programaLineChart: event.target.value});
+        // console.log(this.state.programaLineChart)
     }
 
     getData = async () => {
@@ -83,7 +96,30 @@ export default class MatriculadosPregrado extends React.Component {
         .catch(function (error) {
         console.log(error);
         });
-        console.log(this.state.matriculadoSegunSexoPrograma)
+        // console.log(this.state.matriculadoSegunSexoPrograma[0]['Programa'])
+    }
+    getDataLineChart = async () =>{
+        var axios = require('axios');
+        var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/v1/matriculadosegunsexo?Programa='+ this.state.programaLineChart,
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        };
+        await axios(config)
+        .then( response => {
+            this.setState({matriculadosLineChart:response.data.data})
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
+
+        for (var i=0; i < this.state.matriculadosLineChart.length; i++){
+            this.state.fieldsLineChart.push(this.state.matriculadosLineChart[i]['Año'])
+            this.state.dataLineChartMasculino.push(this.state.matriculadosLineChart[i]['Masculino'])
+            this.state.dataLineChartFemenino.push(this.state.matriculadosLineChart[i]['Femenino'])
+        }       
     }
 
     toggleTablaGeneral = () => {
@@ -92,7 +128,16 @@ export default class MatriculadosPregrado extends React.Component {
     toggleTablaPrograma = () => {
         this.getDataPrograma()
         this.setState({collapseTablePrograma:!this.state.collapseTablePrograma})
-    }  
+    }
+    toggleLineChartPrograma = () => {
+        this.getDataLineChart()
+        this.setState({collapseLineChartPrograma:!this.state.collapseLineChartPrograma})
+        // Reestablece los valores 
+        this.setState({dataLineChartMasculino:[]})
+        this.setState({dataLineChartFemenino:[]})
+    }    
+
+    
 
     render() {
         return (           
@@ -189,32 +234,69 @@ export default class MatriculadosPregrado extends React.Component {
                     </CCol>
                 </CRow>
 
-                {/* <CRow>
+                <CRow>
                     <CCol xs="12" lg="12">
                         <CCard>
                             <CCardHeader>
-                                Grafico de barras
+                                Line Chart
                             </CCardHeader>
-                            <CCardBody>
-                                <CChartBar 
+                            <CCollapse show={this.state.collapseLineChartPrograma}>  
+                                <CCardBody>    
+                                <CChartLine
                                     datasets={[
-                                        {
-                                        label: 'GitHub Commits',
-                                        backgroundColor: '#f87979',
-                                        data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
-                                        }
+                                    {
+                                        label: 'Masculino',
+                                        backgroundColor: 'rgb(228,102,81,0.9)',
+                                        data: [30, 39, 10, 50, 30, 70, 35]
+                                    },
+                                    {
+                                        label: 'Femenino',
+                                        backgroundColor: 'rgb(0,216,255,0.9)',
+                                        data: [39, 80, 40, 35, 40, 20, 45]
+                                    }
                                     ]}
-                                    labels={this.state.matriculadoSegunSexo.Masculino}
                                     options={{
-                                        tooltips: {
+                                    tooltips: {
                                         enabled: true
-                                        }
+                                    }
                                     }}
+                                    labels={this.state.fieldsLineChart}
                                 />
-                            </CCardBody>
+                                </CCardBody>
+                            </CCollapse>
+                            <CCardFooter>
+                                <CLabel htmlFor="ccmonth">Programa Académico</CLabel>
+                                    <CFormGroup row>    
+                                        <CCol md="3">
+                                            <CSelect custom name="ccmonth" id="ccmonth" value={this.state.programaLineChart} onChange={this.handleChangeLineChart}>
+                                                <option value="Ingeniería Electrónica (Nocturno)" >Ingeniería Electrónica (Nocturno)</option>
+                                                <option value="Ingeniería Eléctrica">Ingeniería Eléctrica</option>
+                                                <option value="Ingeniería Física">Ingeniería Física</option>
+                                                <option value="Ingeniería de Sistemas y Computación">Ingeniería de Sistemas y Computación</option>
+                                                <option value="Ingeniería de Sistemas y Computación (Nocturno)">Ingeniería de Sistemas y Computación (Nocturno)</option>
+                                            </CSelect>
+                                        </CCol>
+                                        {/* <CCol md="3">
+                                            <CSelect custom name="ccmonth" id="ccmonth" value={this.state.programa} onChange={this.handleChange}>
+                                                <option value="Ingeniería Electrónica (Nocturno)" >Ingeniería Electrónica (Nocturno)</option>
+                                                <option value="Ingeniería Eléctrica">Ingeniería Eléctrica</option>
+                                                <option value="Ingeniería Física">Ingeniería Física</option>
+                                                <option value="Ingeniería de Sistemas y Computación">Ingeniería de Sistemas y Computación</option>
+                                                <option value="Ingeniería de Sistemas y Computación (Nocturno)">Ingeniería de Sistemas y Computación (Nocturno)</option>
+                                            </CSelect>
+                                        </CCol> */}
+                                        <CCol md="4">
+                                        <CButton
+                                        color="primary"
+                                        onClick={this.toggleLineChartPrograma}
+                                        className={'mb-1'}
+                                        >Mostrar Gráfico</CButton>
+                                        </CCol>
+                                    </CFormGroup>
+                            </CCardFooter>
                         </CCard>
                     </CCol>
-                </CRow> */}
+                </CRow>
 
 
             </div>
