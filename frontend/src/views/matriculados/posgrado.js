@@ -18,7 +18,6 @@ import {
   CFormGroup,
   CSelect,
 } from '@coreui/react'
-import routes from '../../../routes'
 
 // hook personalizado
 const useSingleton = (callBack = () => { }) => {     const hasBeenCalled = React.useRef(false);     if (hasBeenCalled.current) return;     callBack();     hasBeenCalled.current = true; }
@@ -112,17 +111,10 @@ const MatriculadosPosgrado = () => {
                     Para tener en cuenta:
                     </p>
                     <p className="muted">
-                    Tight pants next level keffiyeh
-                    <CTooltip content="Tooltip text">
-                        <CLink> you probably </CLink>
-                    </CTooltip>
-                    haven't heard of them. Photo booth beard raw denim letterpress vegan
-                    messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie
-                    sustainable quinoa 8-bit american apparel terry richardson vinyl chambray.
-                    Beard stumptown, cardigans banh mi lomo thundercats.
-                    Tofu biodiesel williamsburg marfa, four loko mcsweeney''s cleanse vegan chambray.
-                    A really ironic artisan scenester farm-to-table banksy Austin freegan cred raw 
-                    denim single-origin coffee viral.
+                        La matrícula es el acto que formaliza la vinculación del estudiante al servicio educativo, el cual se renueva cada periodo académico.
+                    </p> 
+                    <p className="muted">
+                        El posgrado hace referencia al nivel educativo que forma parte del tipo superior o de tercer ciclo; es la última fase de la educación formal, tiene como antecedente obligatorio la licenciatura o pregrado y comprende los subniveles de estudios de especialización, maestría o magíster y doctorado.
                     </p>
                 </CCardBody>
             </CCard>
