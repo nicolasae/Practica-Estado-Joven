@@ -7,14 +7,6 @@ from cerberus import Validator
 from ..serializers.tendencia import TendenciaSerializer
 from ..models.tendencia import DocentesPorFormacion, Tendencia
 from ..models.tendencia import TENDENCIA_FIELDS
-# Programas No Ofrecidos imports 
-from ..serializers.tendencia import ProgramasNoOfrecidosSerializer
-from ..models.tendencia import ProgramasNoOfrecidos
-from ..models.tendencia import PROGRAMASNOOFRECIDOS_FIELDS
-# Programas Ofrecidos imports 
-from ..serializers.tendencia import ProgramasOfrecidosSerializer
-from ..models.tendencia import ProgramasOfrecidos
-from ..models.tendencia import PROGRAMASOFRECIDOS_FIELDS
 # Matriculado Segun Colegio imports 
 from ..serializers.tendencia import MatriculadoSegunColegioSerializer
 from ..models.tendencia import MatriculadoSegunColegio
@@ -47,18 +39,7 @@ from ..models.tendencia import POBLACIONPORPROGRAMA_FIELDS
 from ..serializers.tendencia import PoblacionPorSexoSerializer
 from ..models.tendencia import PoblacionPorSexo
 from ..models.tendencia import POBLACIONPORSEXO_FIELDS
-# Programas Academicos imports 
-from ..serializers.tendencia import ProgramasAcademicosSerializer
-from ..models.tendencia import ProgramasAcademicos
-from ..models.tendencia import PROGRAMASACADEMICOS_FIELDS
-# Programas Academicos Acreditables imports 
-from ..serializers.tendencia import ProgramasAcademicosAcreditablesSerializer
-from ..models.tendencia import ProgramasAcademicosAcreditables
-from ..models.tendencia import PROGRAMASACADEMICOSACREDITABLES_FIELDS
-# Programas Academicos Acreditados imports 
-from ..serializers.tendencia import ProgramasAcademicosAcreditadosSerializer
-from ..models.tendencia import ProgramasAcademicosAcreditados
-from ..models.tendencia import PROGRAMASACADEMICOSACREDITADOS_FIELDS
+
 
 class TendenciaView(APIView):
     def get(self,request):
@@ -84,58 +65,6 @@ class TendenciaView(APIView):
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
                 'data': TendenciaSerializer(tendencias,many=True).data
-            },status=status.HTTP_200_OK)
-
-class ProgramasNoOfrecidosView(APIView):
-    def get(self,request):
-        if not request.GET:
-            programas = ProgramasNoOfrecidos.objects.all()
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND)   
-            return Response({
-                'data': ProgramasNoOfrecidosSerializer(programas,many=True).data
-            },status=status.HTTP_200_OK)
-        else:
-            for key,value in request.GET.items():
-                if key not in PROGRAMASNOOFRECIDOS_FIELDS:
-                    return Response({
-                        'data': f'El filtro {key} no está disponible'
-                    },status=status.HTTP_409_CONFLICT)
-            programas = ProgramasNoOfrecidos.objects.filter(**request.GET.dict())
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND) 
-            return Response({
-                'data': ProgramasNoOfrecidosSerializer(programas,many=True).data
-            },status=status.HTTP_200_OK)
-
-class ProgramasOfrecidosView(APIView):
-    def get(self,request):
-        if not request.GET:
-            programas = ProgramasOfrecidos.objects.all()
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND)   
-            return Response({
-                'data': ProgramasOfrecidosSerializer(programas,many=True).data
-            },status=status.HTTP_200_OK)
-        else:
-            for key,value in request.GET.items():
-                if key not in PROGRAMASOFRECIDOS_FIELDS:
-                    return Response({
-                        'data': f'El filtro {key} no está disponible'
-                    },status=status.HTTP_409_CONFLICT)
-            programas = ProgramasOfrecidos.objects.filter(**request.GET.dict())
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND) 
-            return Response({
-                'data': ProgramasOfrecidosSerializer(programas,many=True).data
             },status=status.HTTP_200_OK)
 
 class MatriculadoSegunColegioView(APIView):
@@ -346,80 +275,3 @@ class PoblacionPorSexoView(APIView):
                 'data': PoblacionPorSexoSerializer(programas,many=True).data
             },status=status.HTTP_200_OK)
 
-class ProgramasAcademicosView(APIView):
-    def get(self,request):
-        if not request.GET:
-            programas = ProgramasAcademicos.objects.all()
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND)   
-            return Response({
-                'data': ProgramasAcademicosSerializer(programas,many=True).data
-            },status=status.HTTP_200_OK)
-        else:
-            for key,value in request.GET.items():
-                if key not in PROGRAMASACADEMICOS_FIELDS:
-                    return Response({
-                        'data': f'El filtro {key} no está disponible'
-                    },status=status.HTTP_409_CONFLICT)
-            programas = ProgramasAcademicos.objects.filter(**request.GET.dict())
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND) 
-            return Response({
-                'data': ProgramasAcademicosSerializer(programas,many=True).data
-            },status=status.HTTP_200_OK)
-
-class ProgramasAcademicosAcreditablesView(APIView):
-    def get(self,request):
-        if not request.GET:
-            programas = ProgramasAcademicosAcreditables.objects.all()
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND)   
-            return Response({
-                'data': ProgramasAcademicosAcreditablesSerializer(programas,many=True).data
-            },status=status.HTTP_200_OK)
-        else:
-            for key,value in request.GET.items():
-                if key not in PROGRAMASACADEMICOSACREDITABLES_FIELDS:
-                    return Response({
-                        'data': f'El filtro {key} no está disponible'
-                    },status=status.HTTP_409_CONFLICT)
-            programas = ProgramasAcademicosAcreditables.objects.filter(**request.GET.dict())
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND) 
-            return Response({
-                'data': ProgramasAcademicosAcreditablesSerializer(programas,many=True).data
-            },status=status.HTTP_200_OK)
-
-class ProgramasAcademicosAcreditadosView(APIView):
-    def get(self,request):
-        if not request.GET:
-            programas = ProgramasAcademicosAcreditados.objects.all()
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND)   
-            return Response({
-                'data': ProgramasAcademicosAcreditadosSerializer(programas,many=True).data
-            },status=status.HTTP_200_OK)
-        else:
-            for key,value in request.GET.items():
-                if key not in PROGRAMASACADEMICOSACREDITADOS_FIELDS:
-                    return Response({
-                        'data': f'El filtro {key} no está disponible'
-                    },status=status.HTTP_409_CONFLICT)
-            programas = ProgramasAcademicosAcreditados.objects.filter(**request.GET.dict())
-            if not programas:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND) 
-            return Response({
-                'data': ProgramasAcademicosAcreditadosSerializer(programas,many=True).data
-            },status=status.HTTP_200_OK)

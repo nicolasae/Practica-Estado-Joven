@@ -1,15 +1,10 @@
 import React,{useState} from 'react'
 import {
-  CBreadcrumb,
-  CBreadcrumbItem,
-  CBreadcrumbRouter,
   CCard,
   CCardBody,
   CCardHeader,
-  CLink,
   CCol,
   CRow,
-  CTooltip,
   CCollapse,
   CDataTable,
   CCardFooter,
@@ -39,7 +34,7 @@ const MatriculadosPosgrado = () => {
         var axios = require('axios');
         var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/v1/matriculadosegunsexo',
+        url: 'http://localhost:8000/api/matriculadosegunsexo',
         headers: { 
             'Content-Type': 'application/json'
         },
@@ -59,7 +54,7 @@ const MatriculadosPosgrado = () => {
         var axios = require('axios');
         var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/v1/matriculadosegunsexo?Programa='+ programa,
+        url: 'http://localhost:8000/api/matriculadosegunsexo?Programa='+ programa,
         headers: { 
             'Content-Type': 'application/json'
         },
@@ -75,7 +70,6 @@ const MatriculadosPosgrado = () => {
     }
 
     const handleChange = async (event) =>  {
-
         await setPrograma(event.target.value);
         console.log(programa)
     }
@@ -92,7 +86,6 @@ const MatriculadosPosgrado = () => {
         e.preventDefault();
       }
 
-    
 
     // despues de definir las constantes 
     useSingleton(async () => {

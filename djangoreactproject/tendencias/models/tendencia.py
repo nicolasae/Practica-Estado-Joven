@@ -9,42 +9,6 @@ TENDENCIA_FIELDS = [
     'Programa',
 ]
 
-PROGRAMASNOOFRECIDOS_FIELDS = [
-    'NombreProgramaAcademico',
-    'CodigoSNIES',
-    'DuracionEnSemestres',
-    'ResolucionRegistroCalificado',
-    'FechaInicioRC',
-    'DuracionRCAños',
-    'FechaFinalizacionRC',
-    'Acreditable',
-    'AcreditadoAltaCalidad',
-    'ResolucionAC',
-    'DuracionACAños',
-    'AcreditacionInternacionalAI',
-    'FechaInicioAI',
-    'DuracionAIAños',
-    'Año',
-]
-
-PROGRAMASOFRECIDOS_FIELDS = [
-    'NombreProgramaAcademico',
-    'CodigoSNIES',
-    'DuracionEnSemestres',
-    'ResolucionRegistroCalificado',
-    'FechaInicioRC',
-    'DuracionRCAños',
-    'FechaFinalizacionRC',
-    'Acreditable',
-    'AcreditadoAltaCalidad',
-    'ResolucionAC',
-    'DuracionACAños',
-    'AcreditacionInternacionalAI',
-    'FechaInicioAI',
-    'DuracionAIAños',
-    'Año',
-]
-
 MATRICULADOSEGUNCOLEGIO_FIELDS = [
     'Programa',
     'Oficial',
@@ -111,39 +75,6 @@ POBLACIONPORSEXO_FIELDS = [
     'Semestre',
 ]
 
-PROGRAMASACADEMICOS_FIELDS = [
-    'Nivel',
-    'ProgramaAcademico',
-    'Estado',
-    'EstadoRegistroCalificado',
-    'ResolucionRegistroCalificado',
-    'Año',
-]
-
-PROGRAMASACADEMICOSACREDITABLES_FIELDS = [
-    'ProgramaAcademico',
-    'CodigoSNIES',
-    'EstadoDelPrograma',
-    'ResolucionRegistroCalificadoRC',
-    'DuracionRCAños',
-    'AcreditadoAltaCalidadAC',
-    'ResolucionAC',
-    'DuracionACAños',
-    'Año',
-]
-
-PROGRAMASACADEMICOSACREDITADOS_FIELDS = [
-    'ProgramaAcademico',
-    'CodigoSNIES',
-    'EstadoDelPrograma',
-    'ResolucionRegistroCalificadoRC',
-    'DuracionRCAños',
-    'AcreditadoAltaCalidadAC',
-    'ResolucionAC',
-    'DuracionACAños',
-    'Año',
-]
-
 # Create your models here.
 
 # Modelo Tendencia
@@ -158,48 +89,6 @@ class Tendencia(models.Model):
     def __str__(self):
         return f'{self.Semestre}- {self.Programa}'
 
-# Modelo Detalle Programas No Ofrecidos
-class ProgramasNoOfrecidos(models.Model):
-     NombreProgramaAcademico = models.CharField('Nombre del Programa Academico',max_length=255,null=True)
-     CodigoSNIES = models.CharField('Código SNIES',max_length=255,null=True)
-     DuracionEnSemestres = models.IntegerField('Duración en Semestres',null=True)
-     ResolucionRegistroCalificado = models.CharField('Resolución Registro Calificado',max_length=255,null=True)
-     FechaInicioRC = models.CharField('Fecha de Inicio (RC)',max_length=255,null=True)
-     DuracionRCAños = models.FloatField('Duración (RC) Años',null=True)
-     FechaFinalizacionRC = models.CharField('Fechas Finalización (RC)',max_length=255,null=True)
-     Acreditable = models.CharField('Acreditable',max_length=255,null=True)
-     AcreditadoAltaCalidad = models.CharField('Acreditado Alta Calidad',max_length=255,null=True)
-     ResolucionAC = models.CharField('Resolución (AC)',max_length=255,null=True)
-     DuracionACAños = models.FloatField('Duración (AC) Años',null=True)
-     AcreditacionInternacionalAI = models.CharField('Acreditación Internacional (AI)',max_length=255,null=True)
-     FechaInicioAI = models.CharField('Fechas de Inicio (AI)',max_length=255,null=True)
-     DuracionAIAños = models.IntegerField('Duración (AI) Años',null=True)
-     Año = models.CharField('Año',max_length=255,null=True)
-
-     def __str__(self):
-        return f'{self.NombreProgramaAcademico}- {self.CodigoSNIES} - {self.Año}'
-
-
-# Modelo Detalle Programas Ofrecidos
-class ProgramasOfrecidos(models.Model):
-     NombreProgramaAcademico = models.CharField('Nombre del Programa Académico',max_length=255,null=True)
-     CodigoSNIES = models.CharField('Código SNIES',max_length=255,null=True)
-     DuracionEnSemestres = models.IntegerField('Duración en Semestres',null=True)
-     ResolucionRegistroCalificado = models.CharField('Resolución Registro Calificado',max_length=255,null=True)
-     FechaInicioRC = models.CharField('Fecha de Inicio (RC)',max_length=255,null=True)
-     DuracionRCAños = models.FloatField('Duración (RC) Años',null=True)
-     FechaFinalizacionRC = models.CharField('Fechas Finalización (RC)',max_length=255,null=True)
-     Acreditable = models.CharField('Acreditable',max_length=255,null=True)
-     AcreditadoAltaCalidad = models.CharField('Acreditado Alta Calidad',max_length=255,null=True)
-     ResolucionAC = models.CharField('Resolución (AC)',max_length=255,null=True)
-     DuracionACAños = models.FloatField('Duración (AC) Años',null=True)
-     AcreditacionInternacionalAI = models.CharField('Acreditación Internacional (AI)',max_length=255,null=True)
-     FechaInicioAI = models.CharField('Fechas de Inicio (AI)',max_length=255,null=True)
-     DuracionAIAños = models.IntegerField('Duración (AI) Años',null=True)
-     Año = models.CharField('Año',max_length=255,null=True)
-
-     def __str__(self):
-        return f'{self.NombreProgramaAcademico}- {self.CodigoSNIES} - {self.Año}'
 
 # Modelo Matriculado Segun Colegio
 class MatriculadoSegunColegio(models.Model):
@@ -291,36 +180,3 @@ class PoblacionPorSexo(models.Model):
     def __str__(self):
         return f'{self.Nivel} {self.Semestre}'
 
-
-# Modelo Programas Academicos 
-class ProgramasAcademicos(models.Model):
-    Nivel = models.CharField('Nivel',max_length=255,null=True)
-    ProgramaAcademico = models.CharField('ProgramaAcademico',max_length=255,null=True)
-    Estado = models.CharField('Estado',max_length=255,null=True)
-    EstadoRegistroCalificado = models.CharField('Estado',max_length=255,null=True)
-    ResolucionRegistroCalificado = models.CharField('ResolucioRegistroCalificado',max_length=255,null=True)
-    Año = models.CharField('Año',max_length=255,null=True)
-
-# Modelo Programas Academicos Acreditables
-class ProgramasAcademicosAcreditables(models.Model):
-    ProgramaAcademico = models.CharField('Programa Academico',max_length=255,null=True)
-    CodigoSNIES = models.CharField('Código SNIES',max_length=255,null=True)
-    EstadoDelPrograma = models.CharField('Estado del Programa',max_length=255,null=True)
-    ResolucionRegistroCalificadoRC = models.CharField('Resolución Registro Calificado',max_length=255,null=True)
-    DuracionRCAños = models.IntegerField('Duración (RC) Años',null=True)
-    AcreditadoAltaCalidadAC = models.CharField('Acreditado Alta Calidad(AC)',max_length=255,null=True)
-    ResolucionAC = models.CharField('Resolución (AC)',max_length=255,null=True)
-    DuracionACAños = models.IntegerField('Duración (AC) Años',null=True)
-    Año = models.CharField('Año',max_length=255,null=True)
-
-# Modelo Programas Academicos Acreditados
-class ProgramasAcademicosAcreditados(models.Model):
-    ProgramaAcademico = models.CharField('Programa Academico',max_length=255,null=True)
-    CodigoSNIES = models.CharField('Código SNIES',max_length=255,null=True)
-    EstadoDelPrograma = models.CharField('Estado del Programa',max_length=255,null=True)
-    ResolucionRegistroCalificadoRC = models.CharField('Resolución Registro Calificado',max_length=255,null=True)
-    DuracionRCAños = models.IntegerField('Duración (RC) Años',null=True)
-    AcreditadoAltaCalidadAC = models.CharField('Acreditado Alta Calidad(AC)',max_length=255,null=True)
-    ResolucionAC = models.CharField('Resolución (AC)',max_length=255,null=True)
-    DuracionACAños = models.IntegerField('Duración (AC) Años',null=True)
-    Año = models.CharField('Año',max_length=255,null=True)
