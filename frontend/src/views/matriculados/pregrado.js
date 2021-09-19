@@ -34,7 +34,7 @@ const useSingleton = (callBack = () => { }) => { const hasBeenCalled = React.use
 const MatriculadosPregrado = () =>{
     // constantes
     const actualYear = new Date().getFullYear()
-    const yearsData = []
+    const [yearsData,setYearsData] = React.useState([])
     // Constantes para matriculados segun sexo filtro
     const [yearSelected, setYearSelected] = React.useState(new Date().getFullYear())
     const [sexoPrimer, setSexoPrimer] = React.useState([])
@@ -50,7 +50,7 @@ const MatriculadosPregrado = () =>{
         for (var i=actualYear;i>= 2010; i--){
             yearsData.push(i)
         }
-        console.log(yearsData)
+        setYearsData(yearsData)
     }
 
     const getDataSexoPrimerSemestre = async () => {
@@ -97,6 +97,10 @@ const MatriculadosPregrado = () =>{
         console.log(yearSelected)
     }
 
+    React.useEffect(async () => { await getDataSexoPrimerSemestre()}, [yearSelected])
+    React.useEffect(async () => { await getDataSexoSegundoSemestre()}, [yearSelected])
+
+
 
     const toggleTablaSexoPrimer = (e)=>{
         setCollapseTablaSexoSegundo(false);
@@ -113,14 +117,15 @@ const MatriculadosPregrado = () =>{
 
     // despues de definir las constantes 
     useSingleton(async () => {
+        await getYears();
         await getDataSexoPrimerSemestre()
         await getDataSexoSegundoSemestre()
-        await getYears();
+        
     });
 
     return(
         <>
-        <h1>Matriculados en Pregrado</h1>  
+        <h1>Matriculados Pregrado</h1>  
         <CCard>
             <CCardBody>
                 <p className="text-muted">
@@ -137,42 +142,46 @@ const MatriculadosPregrado = () =>{
                 </p>
             </CCardBody>
         </CCard>
-            <CRow >
-                <CCol lg="12" >
-                    <CCard>
-                        <h3 style={{textAlign: 'center'}}>Tabla de Matriculados en pregrado según programa académico y sexo</h3>
-                        <CCol md="1">
-                            <h4>Año</h4>
-                            <CSelect value={yearSelected} onChange={handleChangeYear}>
-                                {yearsData.map(item => {
-                                    return (<option key={item} value={item}>{item}</option>);
-                                })}
-                            </CSelect>
-                        </CCol>
-                        <CCollapse show={collapseTablaSexoPrimer}>  
-                            <CCardBody>
-                                <CDataTable
-                                    items={sexoPrimer}
-                                    fields={fieldsSexo}
-                                    itemsPerPage={5}
-                                    pagination
-                                    columnFilter
-                                />
-                            </CCardBody>
-                        </CCollapse>
-                        <CCollapse show={collapseTablaSexoSegundo}>  
-                            <CCardBody>
-                                <CDataTable
-                                    items={sexoSegundo}
-                                    fields={fieldsSexo}
-                                    itemsPerPage={5}
-                                    pagination
-                                    columnFilter
-                                />
-                            </CCardBody>
-                        </CCollapse>
-                        <CCol sm="13" className="d-none d-md-block">
-                            <CButtonGroup className="float-right mr-5">
+
+        <CRow>
+            <CCol xs="12" lg="12">
+                <CCard>
+                    <CCardHeader>
+                        Tabla de Matriculados en pregrado según programa académico y sexo
+                    </CCardHeader>
+                    <CCollapse show={collapseTablaSexoPrimer}>  
+                        <CCardBody>
+                            <CDataTable
+                                items={sexoPrimer}
+                                fields={fieldsSexo}
+                                itemsPerPage={5}
+                                pagination
+                                columnFilter
+                            />
+                        </CCardBody>
+                    </CCollapse>
+                    <CCollapse show={collapseTablaSexoSegundo}>  
+                        <CCardBody>
+                            <CDataTable
+                                items={sexoSegundo}
+                                fields={fieldsSexo}
+                                itemsPerPage={5}
+                                pagination
+                                columnFilter
+                            />
+                        </CCardBody>
+                    </CCollapse>
+                    <CCardFooter>
+                        <CLabel>Año:</CLabel>
+                        <CFormGroup row>
+                            <CCol md="3">
+                                <CSelect value={yearSelected} onChange={handleChangeYear}>
+                                    {yearsData.map(item => {
+                                        return (<option key={item} value={item}>{item}</option>);
+                                    })}
+                                </CSelect>
+                            </CCol>
+                            <CCol md="2">
                                 <CButton
                                     color="outline-primary"
                                     onClick={toggleTablaSexoPrimer} 
@@ -185,14 +194,25 @@ const MatriculadosPregrado = () =>{
                                     className={'mb-1'}
                                 >{yearSelected + '-2'}
                                 </CButton>
-                                
-                            </CButtonGroup>
+                            </CCol>
+                            <CCol md="2">      
+                                <CButton
+                                    color="primary"
+                                    // onClick={toggleTablaSexoSegundo} 
+                                    className={'mb-1'}
+                                >Grafico de Líneas 
+                                </CButton>
+                            </CCol>
+                            
+                        </CFormGroup>  
+                        
+                    </CCardFooter>
+                </CCard>
+            </CCol>
+        </CRow>
 
-                        </CCol>
-                    </CCard>
-                </CCol>
-            </CRow>
 
+       
         </>
     )
 }
