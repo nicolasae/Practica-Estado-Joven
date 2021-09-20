@@ -42,6 +42,10 @@ const MatriculadosPregrado = () =>{
     const [sexoSegundo, setSexoSegundo] = React.useState([])
     const [collapseTablaSexoSegundo, setCollapseTablaSexoSegundo] = useState(false)
     const fieldsSexo = ['Programa','Femenino', 'Masculino', 'Año']
+    const [collapseGraficoLineaSexo, setCollapseGraficoLineaSexo] = useState(false)
+    const [programasGraficoLineaSexoPrimer, setProgramasGraficoLineaSexoPrimer] = React.useState([])
+    const [masculinoGraficoLineaSexoPrimer, setMasculinoGraficoLineaSexoPrimer] = React.useState([])
+    const [femeninoGraficoLineaSexoPrimer, setFemeninoGraficoLineaSexoPrimer] = React.useState([])
 
 
 
@@ -68,8 +72,16 @@ const MatriculadosPregrado = () =>{
             console.log(error);
             return error.response
         });
-        console.log(yearsData)
         await setSexoPrimer(matriculadosquery)
+        console.log(matriculadosquery.length)
+        for(var i=0; i < matriculadosquery.length;i++){ 
+            programasGraficoLineaSexoPrimer.push(matriculadosquery[i]['Programa'])
+            masculinoGraficoLineaSexoPrimer.push(matriculadosquery[i]['Masculino'])
+            femeninoGraficoLineaSexoPrimer.push(matriculadosquery[i]['Femenino'])
+        }
+        setProgramasGraficoLineaSexoPrimer(programasGraficoLineaSexoPrimer)
+        setMasculinoGraficoLineaSexoPrimer(masculinoGraficoLineaSexoPrimer)
+        setFemeninoGraficoLineaSexoPrimer(femeninoGraficoLineaSexoPrimer)
     }
 
     const getDataSexoSegundoSemestre = async () => {
@@ -90,11 +102,12 @@ const MatriculadosPregrado = () =>{
         await setSexoSegundo(matriculadosquery)
     }
 
-
-
     const handleChangeYear = async (event) =>  {
         setYearSelected(event.target.value);
-        console.log(yearSelected)
+        setProgramasGraficoLineaSexoPrimer([])
+        setMasculinoGraficoLineaSexoPrimer([])
+        setFemeninoGraficoLineaSexoPrimer([])
+
     }
 
     React.useEffect(async () => { await getDataSexoPrimerSemestre()}, [yearSelected])
@@ -104,15 +117,26 @@ const MatriculadosPregrado = () =>{
 
     const toggleTablaSexoPrimer = (e)=>{
         setCollapseTablaSexoSegundo(false);
+        setCollapseGraficoLineaSexo(false)
         setCollapseTablaSexoPrimer(!collapseTablaSexoPrimer);
         e.preventDefault();
     }
 
     const toggleTablaSexoSegundo = (e)=>{
         setCollapseTablaSexoPrimer(false);
+        setCollapseGraficoLineaSexo(false)
         setCollapseTablaSexoSegundo(!collapseTablaSexoSegundo);
         e.preventDefault();
     }
+
+    const toggleGraficoLineaSexo = (e)=>{
+        setCollapseTablaSexoPrimer(false);
+        setCollapseTablaSexoSegundo(false);
+        setCollapseGraficoLineaSexo(!collapseGraficoLineaSexo);
+        e.preventDefault();
+    }
+
+
 
 
     // despues de definir las constantes 
@@ -171,6 +195,33 @@ const MatriculadosPregrado = () =>{
                             />
                         </CCardBody>
                     </CCollapse>
+                    <CCollapse show={collapseGraficoLineaSexo}>  
+                        <CCardBody>
+                            <h5 style={{textAlign:'center'}}> Cantidad de matriculados por programa académico {yearSelected + '-1'}</h5>
+                            <CChartBar
+
+                                datasets={[
+                                {
+                                    label: 'Masculino',
+                                    backgroundColor: '#00D8FF',
+                                    data: masculinoGraficoLineaSexoPrimer
+                                },
+                                {
+                                    label: 'Femenino',
+                                    backgroundColor: '#E46651',
+                                    data: femeninoGraficoLineaSexoPrimer
+                                }
+                                ]}
+                                labels= {programasGraficoLineaSexoPrimer}
+                                options={{
+                                tooltips: {
+                                    enabled: true
+                                }
+                                }}
+                            />
+                        </CCardBody>
+                    </CCollapse>
+                    
                     <CCardFooter>
                         <CLabel>Año:</CLabel>
                         <CFormGroup row>
@@ -198,14 +249,12 @@ const MatriculadosPregrado = () =>{
                             <CCol md="2">      
                                 <CButton
                                     color="primary"
-                                    // onClick={toggleTablaSexoSegundo} 
+                                    onClick={toggleGraficoLineaSexo} 
                                     className={'mb-1'}
-                                >Grafico de Líneas 
+                                >Grafico de Líneas {yearSelected + '-1'}
                                 </CButton>
                             </CCol>
-                            
                         </CFormGroup>  
-                        
                     </CCardFooter>
                 </CCard>
             </CCol>
