@@ -1,27 +1,34 @@
 from django.urls import path
-from .views.tendencia import TendenciaView
-from .views.tendencia import MatriculadoSegunColegioView
-from .views.tendencia import MatriculadoSegunEdadView
-from .views.tendencia import MatriculadoSegunSexoView
-from .views.tendencia import DocentesPorDependenciaView
-from .views.tendencia import DocentesPorFormacionView
-from .views.tendencia import DocentesPorSexoView
-from .views.tendencia import PoblacionPorProgramaView
-from .views.tendencia import PoblacionPorSexoView
+# Tendencia Poblacional
 
+# ************************************************************************************************
+# MATRICULADOS 
+from .views.tendencia import MatriculadosNivelFormacionView
+from .views.tendencia import MatriculadosCategoriaInscripcionView
+from .views.tendencia import MatriculadosEstratoView
+from .views.tendencia import MatriculadosSexoView
+from .views.tendencia import MatriculadosPregradoSexoView
+from .views.tendencia import MatriculadosPregradoEstratoView
+from .views.tendencia import MatriculadosPregradoEdadView
+from .views.tendencia import MatriculadosPregradoColegioView
+from .views.tendencia import MatriculadosPosgradoSexoView
+from .views.tendencia import MatriculadosPosgradoEstratoView
+from .views.tendencia import MatriculadosPosgradoEdadView
 
 
 
 urlpatterns = [
-    path('tendencia',TendenciaView.as_view()),
-    path('matriculadoseguncolegio', MatriculadoSegunColegioView.as_view()),
-    path('matriculadosegunedad', MatriculadoSegunEdadView.as_view()),
-    path('matriculadosegunsexo', MatriculadoSegunSexoView.as_view()),
-    path('docentespordependencia', DocentesPorDependenciaView.as_view()),
-    path('docentesporformacion', DocentesPorFormacionView.as_view()),
-    path('docentesporsexo', DocentesPorSexoView.as_view()),
-    path('poblacionporprograma', PoblacionPorProgramaView.as_view()),
-    path('poblacionporsexo', PoblacionPorSexoView.as_view()),
-
+    # MATRICULADOS 
+    path('matriculadosnivelformacion', MatriculadosNivelFormacionView.as_view()),
+    path('matriculadoscategoriainscripcion', MatriculadosCategoriaInscripcionView.as_view()),
+    path('matriculadosestrato', MatriculadosEstratoView.as_view()),
+    path('matriculadossexo', MatriculadosSexoView.as_view()),
+    path('matriculadospregradosexo', MatriculadosPregradoSexoView.as_view()),
+    path('matriculadospregradoedad', MatriculadosPregradoEdadView.as_view()),
+    path('matriculadospregradoestrato', MatriculadosPregradoEstratoView.as_view()),
+    path('matriculadospregradocolegio', MatriculadosPregradoColegioView.as_view()),
+    path('matriculadosposgradosexo', MatriculadosPosgradoSexoView.as_view()),
+    path('matriculadosposgradoedad', MatriculadosPosgradoEdadView.as_view()),
+    path('matriculadosposgradoestrato', MatriculadosPosgradoEstratoView.as_view()),
 
 ]

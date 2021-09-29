@@ -1,0 +1,160 @@
+Programa,Semestre,Estrato0,EstratoI,EstratoII,EstratoIII,EstratoIV,EstratoV,EstratoVI,Total
+Ingeniería Electrónica (Nocturno),2010-1,1,20,69,141,87,18,3,339
+Ingeniería Eléctrica,2010-1,0,105,265,256,107,21,4,758
+Ingeniería Física,2010-1,0,53,88,81,27,13,2,264
+Ingeniería de Sistemas y Computación,2010-1,0,79,250,241,90,18,6,684
+Ingeniería de Sistemas y Computación (Nocturno),2010-1,1,23,77,112,68,16,1,298
+Ingeniería Electrónica (Nocturno),2010-2,1,23,72,129,89,15,2,331
+Ingeniería Eléctrica,2010-2,0,121,265,249,97,22,4,758
+Ingeniería Física,2010-2,0,40,78,64,25,11,2,220
+Ingeniería de Sistemas y Computación,2010-2,0,77,249,221,87,21,7,662
+Ingeniería de Sistemas y Computación (Nocturno),2010-2,1,25,79,96,65,18,2,286
+Ingeniería Electrónica (Nocturno),2011-1,1,24,73,115,90,18,2,323
+Ingeniería Eléctrica,2011-1,0,133,280,237,96,20,2,768
+Ingeniería Física,2011-1,0,50,102,81,27,12,2,274
+Ingeniería de Sistemas y Computación,2011-1,1,91,276,213,84,23,9,697
+Ingeniería de Sistemas y Computación (Nocturno),2011-1,1,19,97,102,67,19,4,309
+Ingeniería Electrónica (Nocturno),2011-2,1,25,79,123,82,17,1,328
+Ingeniería Eléctrica,2011-2,0,159,297,243,90,17,2,808
+Ingeniería Física,2011-2,0,45,89,67,17,8,2,228
+Ingeniería de Sistemas y Computación,2011-2,0,104,297,205,74,20,7,707
+Ingeniería de Sistemas y Computación (Nocturno),2011-2,1,25,88,100,68,17,4,303
+Ingeniería Electrónica (Nocturno),2012-1,1,24,79,99,77,17,2,299
+Ingeniería Eléctrica,2012-1,0,161,301,242,76,17,4,801
+Ingeniería Física,2012-1,0,55,125,85,21,10,1,297
+Ingeniería de Sistemas y Computación,2012-1,0,105,276,186,68,18,4,657
+Ingeniería de Sistemas y Computación (Nocturno),2012-1,1,22,90,93,56,15,4,281
+Ingeniería Electrónica (Nocturno),2012-2,1,18,87,92,77,16,1,292
+Ingeniería Eléctrica,2012-2,0,183,339,240,84,18,5,869
+Ingeniería Física,2012-2,0,45,99,72,18,11,1,246
+Ingeniería de Sistemas y Computación,2012-2,0,119,291,163,62,18,6,659
+Ingeniería de Sistemas y Computación (Nocturno),2012-2,1,21,98,87,58,13,1,279
+Ingeniería Electrónica (Nocturno),2013-1,1,16,88,95,77,11,2,290
+Ingeniería Eléctrica,2013-1,0,183,365,244,85,19,6,902
+Ingeniería Física,2013-1,0,54,128,87,24,10,0,303
+Ingeniería de Sistemas y Computación,2013-1,0,118,300,180,68,19,4,689
+Ingeniería de Sistemas y Computación (Nocturno),2013-1,1,27,100,86,59,12,0,285
+Ingeniería Electrónica (Nocturno),2013-2,1,16,73,85,75,11,3,264
+Ingeniería Eléctrica,2013-2,0,189,386,243,75,17,5,915
+Ingeniería Física,2013-2,0,49,103,72,16,8,0,248
+Ingeniería de Sistemas y Computación,2013-2,0,124,301,171,65,17,5,683
+Ingeniería de Sistemas y Computación (Nocturno),2013-2,1,25,97,88,54,11,0,276
+Ingeniería Electrónica (Nocturno),2014-1,1,15,94,89,78,12,3,292
+Ingeniería Eléctrica,2014-1,0,222,426,262,80,17,6,1013
+Ingeniería Física,2014-1,0,73,147,84,22,7,0,333
+Ingeniería de Sistemas y Computación,2014-1,0,136,338,188,56,16,3,737
+Ingeniería de Sistemas y Computación (Nocturno),2014-1,1,28,106,90,55,10,0,290
+Ingeniería Electrónica (Nocturno),2014-2,1,11,89,65,62,8,1,237
+Ingeniería Eléctrica,2014-2,0,224,418,255,65,12,5,979
+Ingeniería Física,2014-2,0,59,127,71,16,7,0,280
+Ingeniería de Sistemas y Computación,2014-2,0,124,329,184,56,16,3,712
+Ingeniería de Sistemas y Computación (Nocturno),2014-2,1,22,104,77,47,5,0,256
+Ingeniería Electrónica (Nocturno),2015-1,1,21,114,80,75,9,2,302
+Ingeniería Eléctrica,2015-1,0,230,431,237,76,13,4,991
+Ingeniería Física,2015-1,0,64,159,74,18,7,1,323
+Ingeniería de Sistemas y Computación,2015-1,0,135,336,179,51,12,2,715
+Ingeniería de Sistemas y Computación (Nocturno),2015-1,1,29,121,90,56,7,0,304
+Ingeniería Electrónica (Nocturno),2015-2,0,23,110,70,72,7,1,283
+Ingeniería Eléctrica,2015-2,0,242,448,225,66,11,5,997
+Ingeniería Física,2015-2,0,63,149,69,13,5,1,300
+Ingeniería de Sistemas y Computación,2015-2,0,149,333,165,49,12,2,710
+Ingeniería de Sistemas y Computación (Nocturno),2015-2,1,30,111,91,50,8,2,293
+Ingeniería Electrónica (Nocturno),2016-1,0,30,115,74,67,3,2,291
+Ingeniería Eléctrica,2016-1,1,250,451,230,61,11,3,1.007
+Ingeniería Física,2016-1,0,89,168,72,13,8,1,351
+Ingeniería de Sistemas y Computación,2016-1,0,154,356,167,52,14,4,747
+Ingeniería de Sistemas y Computación (Nocturno),2016-1,0,37,103,91,52,8,7,298
+Ingeniería Electrónica (Diurna),2016-2,0,4,8,3,7,1,0,23
+Ingeniería Electrónica (Nocturno),2016-2,0,21,88,54,59,2,2,226
+Ingeniería Eléctrica,2016-2,1,261,446,204,51,12,4,979
+Ingeniería Física,2016-2,0,97,170,66,11,7,1,352
+Ingeniería de Sistemas y Computación,2016-2,0,160,348,160,53,13,6,740
+Ingeniería de Sistemas y Computación (Nocturno),2016-2,0,42,116,79,53,6,3,299
+Ingeniería Electrónica (Diurna),2017-1,0,12,23,18,13,2,0,68
+Ingeniería Electrónica (Nocturno),2017-1,0,18,76,49,50,2,2,197
+Ingeniería Eléctrica,2017-1,1,268,441,214,55,11,4,994
+Ingeniería Eléctrica (Básicos ingeniería),2017-1,0,6,15,1,0,0,0,22
+Ingeniería Física,2017-1,0,96,182,74,14,5,1,372
+Ingeniería Física (Básicos ingenieria),2017-1,0,6,8,2,1,0,0,17
+Ingeniería de Sistemas y Computación,2017-1,0,165,352,159,59,14,7,756
+Ingeniería de Sistemas y Computación (Básicos ingeniería),2017-1,0,10,19,1,0,0,1,31
+Ingeniería de Sistemas y Computación (Convenio Cuba),2017-1,0,12,22,7,4,1,0,46
+Ingeniería de Sistemas y Computación (Nocturno),2017-1,2,40,119,76,41,7,5,290
+Ingeniería Electrónica (Diurna),2017-2,0,18,27,19,10,2,1,77
+Ingeniería Electrónica (Nocturno),2017-2,0,14,66,41,40,1,2,164
+Ingeniería Eléctrica,2017-2,1,289,446,218,50,10,4,1.018
+Ingeniería Eléctrica (Básicos ingeniería),2017-2,0,7,13,0,0,0,0,20
+Ingeniería Física,2017-2,0,90,165,78,11,5,1,350
+Ingeniería Física (Básicos ingenieria),2017-2,0,6,7,1,1,0,0,15
+Ingeniería de Sistemas y Computación,2017-2,0,171,352,149,64,13,7,756
+Ingeniería de Sistemas y Computación (Básicos ingeniería),2017-2,0,9,17,1,0,0,1,28
+Ingeniería de Sistemas y Computación (Convenio Cuba),2017-2,0,11,19,6,4,1,0,41
+Ingeniería de Sistemas y Computación (Nocturno),2017-2,1,41,108,77,44,5,2,278
+Ingeniería Electrónica (Diurna),2018-1,0,30,45,30,12,3,1,121
+Ingeniería Electrónica (Nocturno),2018-1,0,12,56,34,35,1,2,140
+Ingeniería Eléctrica,2018-1,1,300,431,210,43,10,4,999
+Ingeniería Eléctrica (Básicos ingeniería),2018-1,0,7,11,0,0,0,0,18
+Ingeniería Física,2018-1,0,100,166,82,8,3,1,360
+Ingeniería Física (Básicos ingenieria),2018-1,0,5,7,1,1,0,0,14
+Ingeniería de Sistemas y Computación,2018-1,0,177,353,156,55,11,7,759
+Ingeniería de Sistemas y Computación (Básicos ingeniería),2018-1,0,9,13,1,0,0,1,24
+Ingeniería de Sistemas y Computación (Convenio Cuba),2018-1,0,11,18,6,4,1,0,40
+Ingeniería de Sistemas y Computación (Nocturno),2018-1,0,41,105,81,40,7,3,277
+Ingeniería Electrónica (Diurna),2018-2,0,31,47,30,11,5,1,125
+Ingeniería Electrónica (Nocturno),2018-2,0,8,48,31,30,1,2,120
+Ingeniería Eléctrica,2018-2,1,299,424,192,43,10,1,970
+Ingeniería Eléctrica (Básicos ingeniería),2018-2,0,7,11,0,0,0,0,18
+Ingeniería Física,2018-2,0,94,159,80,13,3,2,351
+Ingeniería Física (Básicos ingenieria),2018-2,0,5,6,1,1,0,0,13
+Ingeniería de Sistemas y Computación,2018-2,0,174,354,158,47,13,7,753
+Ingeniería de Sistemas y Computación (Básicos ingeniería),2018-2,0,8,12,1,0,0,1,22
+Ingeniería de Sistemas y Computación (Convenio Cuba),2018-2,0,11,15,6,4,1,0,37
+Ingeniería de Sistemas y Computación (Nocturno),2018-2,0,37,81,70,36,5,2,231
+Ingeniería Electrónica (Diurna),2019-1,0,54,70,34,13,6,1,178
+Ingeniería Electrónica (Nocturno),2019-1,0,10,43,22,23,0,2,100
+Ingeniería Eléctrica,2019-1,1,295,428,184,41,12,1,962
+Ingeniería Física,2019-1,0,104,160,66,12,2,3,347
+Ingeniería de Sistemas y Computación,2019-1,0,173,355,151,52,15,5,751
+Ingeniería de Sistemas y Computación (Convenio Cuba),2019-1,0,11,17,5,3,1,0,37
+Ingeniería de Sistemas y Computación (Nocturno),2019-1,0,50,111,83,33,7,1,285
+Tecnología en Desarrollo de Software,2019-1,0,11,14,6,1,0,0,32
+Ingeniería Electrónica (Diurna),2019-2,0,47,71,29,16,7,2,172
+Ingeniería Electrónica (Nocturno),2019-2,0,7,37,19,23,1,1,88
+Ingeniería Eléctrica,2019-2,1,303,410,166,38,11,1,930
+Ingeniería Física,2019-2,0,104,160,65,14,2,3,348
+Ingeniería de Sistemas y Computación,2019-2,0,184,339,147,52,15,5,742
+Ingeniería de Sistemas y Computación (Convenio Cuba),2019-2,0,10,15,5,3,1,0,34
+Ingeniería de Sistemas y Computación (Nocturno),2019-2,0,51,112,71,39,6,1,280
+Tecnología en Desarrollo de Software,2019-2,0,8,10,5,0,0,0,23
+Ingeniería Electrónica (Diurna),2020-1,0,61,88,47,19,8,2,225
+Ingeniería Electrónica (Nocturno),2020-1,0,7,31,15,20,1,1,75
+Ingeniería Eléctrica,2020-1,1,308,416,167,32,10,1,935
+Ingeniería Física,2020-1,0,109,164,64,17,2,3,359
+Ingeniería de Sistemas y Computación,2020-1,0,192,345,157,58,12,6,770
+Ingeniería de Sistemas y Computación (Convenio Cuba),2020-1,0,10,13,4,3,1,0,31
+Ingeniería de Sistemas y Computación (Nocturno),2020-1,0,61,126,77,48,4,2,318
+Tecnología en Desarrollo de Software,2020-1,0,11,23,15,1,0,0,50
+Ingeniería Electrónica (Diurna),2020-2,0,72,96,51,17,8,2,246
+Ingeniería Electrónica (Nocturno),2020-2,0,6,25,10,13,1,1,56
+Ingeniería Eléctrica,2020-2,1,353,435,160,38,11,1,999
+Ingeniería Física,2020-2,0,112,165,70,20,2,3,372
+Ingeniería de Sistemas y Computación,2020-2,0,209,358,170,53,16,7,813
+Ingeniería de Sistemas y Computación (Convenio Cuba),2020-2,0,10,13,4,3,1,0,31
+Ingeniería de Sistemas y Computación (Nocturno),2020-2,0,76,142,77,41,6,3,345
+Tecnología en Desarrollo de Software,2020-2,0,9,17,14,0,0,0,40
+Ingeniería Electrónica (Diurna),2021-1,0,92,111,54,21,9,2,289
+Ingeniería Electrónica (Nocturno),2021-1,0,4,21,10,10,1,1,47
+Ingeniería Eléctrica,2021-1,1,347,415,144,32,9,1,949
+Ingeniería Física,2021-1,0,103,157,67,15,3,2,347
+Ingeniería de Sistemas y Computación,2021-1,0,199,354,167,56,16,7,799
+Ingeniería de Sistemas y Computación (Convenio Cuba),2021-1,0,10,13,3,3,1,0,30
+Ingeniería de Sistemas y Computación (Nocturno),2021-1,0,78,148,70,32,3,2,333
+Tecnología en Desarrollo de Software,2021-1,0,6,11,11,0,0,0,28
+Ingeniería Electrónica (Diurna),2021-2,1,92,115,62,20,9,3,302
+Ingeniería Electrónica (Nocturno),2021-2,0,4,20,6,5,0,0,35
+Ingeniería Eléctrica,2021-2,0,355,424,144,33,9,1,966
+Ingeniería Física,2021-2,0,99,157,66,18,2,2,344
+Ingeniería de Sistemas y Computación,2021-2,0,202,373,179,51,16,7,828
+Ingeniería de Sistemas y Computación (Convenio Cuba),2021-2,0,10,12,3,3,1,0,29
+Ingeniería de Sistemas y Computación (Nocturno),2021-2,0,89,172,88,35,5,2,391
+Tecnología en Desarrollo de Software,2021-2,0,19,28,17,2,0,0,66

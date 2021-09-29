@@ -1,58 +1,73 @@
+from django.db.models.base import Model
 from rest_framework import serializers
 
-from ..models.tendencia import Tendencia
-from ..models.tendencia import MatriculadoSegunColegio
-from ..models.tendencia import MatriculadoSegunEdad
-from ..models.tendencia import MatriculadoSegunSexo
-from ..models.tendencia import DocentesPorDependencia
-from ..models.tendencia import DocentesPorFormacion
-from ..models.tendencia import DocentesPorSexo
-from ..models.tendencia import PoblacionPorPrograma
-from ..models.tendencia import PoblacionPorSexo
+# MATRICULADOS
+from ..models.tendencia import MatriculadosNivelFormacion
+from ..models.tendencia import MatriculadosCategoriaInscripcion
+from ..models.tendencia import MatriculadosSexo
+from ..models.tendencia import MatriculadosEstrato
+from ..models.tendencia import MatriculadosPregradoSexo
+from ..models.tendencia import MatriculadosPregradoEdad
+from ..models.tendencia import MatriculadosPregradoEstrato
+from ..models.tendencia import MatriculadosPregradoColegio
+from ..models.tendencia import MatriculadosPosgradoSexo
+from ..models.tendencia import MatriculadosPosgradoEdad
+from ..models.tendencia import MatriculadosPosgradoEstrato
 
-
-
-class TendenciaSerializer(serializers.ModelSerializer):
+# MATRICULADOS
+class MatriculadosNivelFormacionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Tendencia
+        model = MatriculadosNivelFormacion
         exclude = ['id']
 
-class MatriculadoSegunColegioSerializer(serializers.ModelSerializer):
+class MatriculadosCategoriaInscripcionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MatriculadoSegunColegio
+        model = MatriculadosCategoriaInscripcion
         exclude = ['id']
 
-class MatriculadoSegunEdadSerializer(serializers.ModelSerializer):
+class MatriculadosSexoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MatriculadoSegunEdad
+        model = MatriculadosSexo
         exclude = ['id']
 
-class MatriculadoSegunSexoSerializer(serializers.ModelSerializer):
+class MatriculadosEstratoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MatriculadoSegunSexo
+        model = MatriculadosEstrato
         exclude = ['id']
 
-class DocentesPorDependenciaSerializer(serializers.ModelSerializer):
+# MATRICULADOS PREGRADO
+class MatriculadosPregradoSexoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = DocentesPorDependencia
+        model = MatriculadosPregradoSexo
         exclude = ['id']
 
-class DocentesPorFormacionSerializer(serializers.ModelSerializer):
+class MatriculadosPregradoEdadSerializer(serializers.ModelSerializer):
     class Meta:
-        model = DocentesPorFormacion
+        model = MatriculadosPregradoEdad
         exclude = ['id']
 
-class DocentesPorSexoSerializer(serializers.ModelSerializer):
+class MatriculadosPregradoEstratoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = DocentesPorSexo
+        model = MatriculadosPregradoEstrato
+        exclude = ['id']        
+
+class MatriculadosPregradoColegioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MatriculadosPregradoColegio
         exclude = ['id']
 
-class PoblacionPorProgramaSerializer(serializers.ModelSerializer): 
+# MATRICULADOS POSGRADO
+class MatriculadosPosgradoSexoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PoblacionPorPrograma
+        model = MatriculadosPosgradoSexo
         exclude = ['id']
 
-class PoblacionPorSexoSerializer(serializers.ModelSerializer): 
+class MatriculadosPosgradoEdadSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PoblacionPorSexo
+        model = MatriculadosPosgradoEdad
         exclude = ['id']
+
+class MatriculadosPosgradoEstratoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MatriculadosPosgradoEstrato
+        exclude = ['id']  

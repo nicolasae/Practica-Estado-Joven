@@ -1,182 +1,261 @@
 from django.db import models
 
-TENDENCIA_FIELDS = [
-    'Semestre',
-    'Inscrito',
-    'PrimerCurso',
-    'Matriculado',
-    'Graduado',
-    'Programa',
-]
+# -----------------------------------------------------------------------------------------------
+# TENDENCIA POBLACIONAL FIELDS
 
-MATRICULADOSEGUNCOLEGIO_FIELDS = [
+# ***********************************************************************************
+# MATRICULADOS
+MATRICULADOS_NIVEL_FORMACION_FIELDS=[
+    'Semestre',
+    'Posgrado',
+    'Pregrado',
+    'Total',
+]
+MATRICULADOS_CATEGORIA_INSCRIPCION_FIELDS=[
+    'Semestre',
+    'General',
+    'RestoRisaralda',
+    'RegimenEspecial',
+    'Total',
+]
+MATRICULADOS_SEXO_FIELDS=[
+    'Semestre',
+    'Masculino',
+    'Femenino',
+    'Total',
+]
+MATRICULADOS_ESTRATO_FIELDS=[
+    'Semestre',
+    'Estrato0',
+    'EstratoI',
+    'EstratoII',
+    'EstratoIII',
+    'EstratoIV',
+    'EstratoV',
+    'EstratoVI',
+    'Total',
+]
+# MATRICULADOS PREGRADO
+MATRICULADOS_PREGRADO_SEXO_FIELDS=[
     'Programa',
+    'Semestre',
+    'Masculino',
+    'Femenino',
+    'Total',
+]
+MATRICULADOS_PREGRADO_COLEGIO_FIELDS=[
+    'Programa',
+    'Semestre',
     'Oficial',
     'Privado',
-    'SinInformacion',
-    'Semestre',
+    'Na',
+    'Total',
 ]
-
-MATRICULADOSEGUNEDAD_FIELDS = [
+MATRICULADOS_PREGRADO_ESTRATO_FIELDS=[
     'Programa',
-    'Menor17',
-    'Mayor17Menor22',
+    'Semestre',
+    'Estrato0',
+    'EstratoI',
+    'EstratoII',
+    'EstratoIII',
+    'EstratoIV',
+    'EstratoV',
+    'EstratoVI',
+    'Total',
+]
+MATRICULADOS_PREGRADO_EDAD_FIELDS = [
+    'Programa',
+    'Semestre',
+    'MenorA17',
+    'MayorA17MenorA22',
     'Edad22',
     'Edad23',
     'Edad24',
     'Edad25',
-    'Entre26Y30',
-    'Mayor31',
-    'Año',
+    'MayorA26MenorA31',
+    'MayorA31',
+    'Total',
 ]
 
-MATRICULADOSEGUNSEXO_FIELDS = [
+# MATRICULADOS POSGRADO
+MATRICULADOS_POSGRADO_SEXO_FIELDS=[
     'Programa',
-    'Femenino',
+    'Semestre',
     'Masculino',
-    'Año'
+    'Femenino',
+    'Total',
 ]
-
-DOCENTESPORDEPENDENCIA_FIELDS =[
+MATRICULADOS_POSGRADO_ESTRATO_FIELDS=[
     'Programa',
-    'CantidadDocentes',
     'Semestre',
+    'Estrato0',
+    'EstratoI',
+    'EstratoII',
+    'EstratoIII',
+    'EstratoIV',
+    'EstratoV',
+    'EstratoVI',
+    'Total',
 ]
-
-DOCENTESPORFORMACION_FIELDS =[
-    'TipoDeVinculacion',
+MATRICULADOS_POSGRADO_EDAD_FIELDS = [
+    'Programa',
     'Semestre',
-    'NivelDeFormacion',
-    'CantidadDeDocentes',
+    'MenorA17',
+    'MayorA17MenorA22',
+    'Edad22',
+    'Edad23',
+    'Edad24',
+    'Edad25',
+    'MayorA26MenorA31',
+    'MayorA31',
+    'Total',
 ]
 
-DOCENTESPORSEXO_FIELDS =[
-    'TipoDeVinculacion',
-    'Sexo',
-    'CantidadDeDocentes',
-    'Semestre',
-]
+# ----------------------------------------------------------------------------------------------
 
-POBLACIONPORPROGRAMA_FIELDS = [
-    'ProgramaAcademico',
-    'Inscrito',
-    'PrimerCurso',
-    'Matriculado',
-    'Graduado',
-    'Año',
-]
 
-POBLACIONPORSEXO_FIELDS = [
-    'Nivel',
-    'Femenino',
-    'Masculino',
-    'Posgrado',
-    'Pregrado',
-    'Semestre',
-]
-
-# Create your models here.
-
-# Modelo Tendencia
-class Tendencia(models.Model):
+# -----------------------------------------------------------------------------------------------
+# MODELO TENDENCIA POBLACIONAL
+# ********************************************************************************************************************************
+# MATRICULADOS
+class MatriculadosNivelFormacion(models.Model):
     Semestre = models.CharField('Semestre',max_length=255,null=True)
-    Inscrito = models.IntegerField('Inscrito',null=True)
-    PrimerCurso = models.IntegerField('Primer Curso',null=True)
-    Matriculado = models.IntegerField('Matriculado',null=True)
-    Graduado = models.IntegerField('Graduado',null=True)
-    Programa = models.CharField('Programa Academico',max_length=255,null=True)
+    Posgrado = models.IntegerField('Posgrado',null=True)
+    Pregrado = models.IntegerField('Pregrado',null=True)
+    Total = models.IntegerField('Total',null=True)
+
+    def __str__(self):
+        return f'{self.Semestre}- {self.Total}'
+
+class MatriculadosCategoriaInscripcion(models.Model):
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+    General = models.IntegerField('General',null=True)
+    RestoRisaralda = models.IntegerField('Resto de Risaralda',null=True)
+    RegimenEspecial = models.IntegerField('Regimen Especial',null=True)
+    Total = models.IntegerField('Total',null=True)
+
+    def __str__(self):
+        return f'{self.Semestre}- {self.Total}'
+
+class MatriculadosSexo(models.Model):
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+    Femenino = models.IntegerField('Femenino',null=True)
+    Masculino = models.IntegerField('Masculino',null=True)
+    Total = models.IntegerField('Total',null=True)
+
+    def __str__(self):
+        return f'{self.Semestre}- {self.Total}'
+
+class MatriculadosEstrato(models.Model):
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+    Estrato0 = models.IntegerField('Estrato0',null=True)
+    EstratoI = models.IntegerField('EstratoI',null=True)
+    EstratoII = models.IntegerField('EstratoII',null=True)
+    EstratoIII = models.IntegerField('EstratoIII',null=True)
+    EstratoIV = models.IntegerField('EstratoIV',null=True)
+    EstratoV = models.IntegerField('EstratoV',null=True)
+    EstratoVI = models.IntegerField('EstratoVI',null=True)
+    Total = models.IntegerField('Total',null=True)
+
+    def __str__(self):
+        return f'{self.Semestre}- {self.Total}'
+
+# MATRICULADOS PREGRADO
+class MatriculadosPregradoSexo(models.Model):
+    Programa = models.CharField('Programa Académico',max_length=255,null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+    Masculino = models.IntegerField('Masculino',null=True)
+    Femenino = models.IntegerField('Femenino',null=True)
+    Total = models.IntegerField('Total',null=True)
     
     def __str__(self):
         return f'{self.Semestre}- {self.Programa}'
 
-
-# Modelo Matriculado Segun Colegio
-class MatriculadoSegunColegio(models.Model):
+class MatriculadosPregradoColegio(models.Model):
     Programa = models.CharField('Programa Académico',max_length=255,null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
     Oficial = models.IntegerField('Oficial',null=True)
     Privado = models.IntegerField('Privado',null=True)
-    SinInformacion = models.IntegerField('Sin Información',null=True)
+    Na = models.IntegerField('Na',null=True)
+    Total = models.IntegerField('Total',null=True)
+
+    def __str__(self):
+        return f'{self.Semestre}- {self.Programa}'
+
+class MatriculadosPregradoEstrato(models.Model):
+    Programa = models.CharField('Programa Académico',max_length=255,null=True)
     Semestre = models.CharField('Semestre',max_length=255,null=True)
+    Estrato0 = models.IntegerField('Estrato0',null=True)
+    EstratoI = models.IntegerField('EstratoI',null=True)
+    EstratoII = models.IntegerField('EstratoII',null=True)
+    EstratoIII = models.IntegerField('EstratoIII',null=True)
+    EstratoIV = models.IntegerField('EstratoIV',null=True)
+    EstratoV = models.IntegerField('EstratoV',null=True)
+    EstratoVI = models.IntegerField('EstratoVI',null=True)
+    Total = models.IntegerField('Total',null=True)
+
+    def __str__(self):
+        return f'{self.Semestre}- {self.Programa}'
+
+class MatriculadosPregradoEdad(models.Model):
+    Programa = models.CharField('Programa Académico',max_length=255,null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+    MenorA17 = models.IntegerField('MenorA17',null=True)
+    MayorA17MenorA22 = models.IntegerField('MayorA17MenorA22',null=True)
+    Edad22 = models.IntegerField('Edad22',null=True)
+    Edad23 = models.IntegerField('Edad23',null=True)
+    Edad24 = models.IntegerField('Edad24',null=True)
+    Edad25 = models.IntegerField('Edad25',null=True)
+    MayorA26MenorA31 = models.IntegerField('MayorA26MenorA31',null=True)
+    MayorA31 = models.IntegerField('MayorA31',null=True)
+    Total = models.IntegerField('Total',null=True)
+
+    def __str__(self):
+        return f'{self.Semestre}- {self.Programa}'
+
+# MATRICULADOS Posgrado
+class MatriculadosPosgradoSexo(models.Model):
+    Programa = models.CharField('Programa Académico',max_length=255,null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+    Masculino = models.IntegerField('Masculino',null=True)
+    Femenino = models.IntegerField('Femenino',null=True)
+    Total = models.IntegerField('Total',null=True)
     
     def __str__(self):
-        return f'{self.Programa}-  - {self.Semestre}'
+        return f'{self.Semestre}- {self.Programa}'
 
-# Modelo Matriculado Segun Edad
-class MatriculadoSegunEdad(models.Model):
+class MatriculadosPosgradoEstrato(models.Model):
     Programa = models.CharField('Programa Académico',max_length=255,null=True)
-    Menor17 = models.IntegerField('Menor a 17 años',null=True)
-    Mayor17Menor22 = models.IntegerField('Mayor a 17 años y Menor a 22 años',null=True)
-    Edad22 = models.IntegerField('Edad 22 años',null=True)
-    Edad23 = models.IntegerField('Edad 23 años',null=True)
-    Edad24 = models.IntegerField('Edad 24 años',null=True)
-    Edad25 = models.IntegerField('Edad 25 años',null=True)
-    Entre26Y30 = models.IntegerField('Entre 26 y 30 años',null=True)
-    Mayor31 = models.IntegerField('Mayor a 31 años',null=True)
-    Año = models.CharField('Año',max_length=255,null=True)
+    Semestre = models.CharField('Semestre',max_length=255,null=True)
+    Estrato0 = models.IntegerField('Estrato0',null=True)
+    EstratoI = models.IntegerField('EstratoI',null=True)
+    EstratoII = models.IntegerField('EstratoII',null=True)
+    EstratoIII = models.IntegerField('EstratoIII',null=True)
+    EstratoIV = models.IntegerField('EstratoIV',null=True)
+    EstratoV = models.IntegerField('EstratoV',null=True)
+    EstratoVI = models.IntegerField('EstratoVI',null=True)
+    Total = models.IntegerField('Total',null=True)
 
     def __str__(self):
-        return f'{self.Programa}-  - {self.Año}'
+        return f'{self.Semestre}- {self.Programa}'
 
-# Modelo Matriculado Segun Sexo
-class MatriculadoSegunSexo(models.Model):
+class MatriculadosPosgradoEdad(models.Model):
     Programa = models.CharField('Programa Académico',max_length=255,null=True)
-    Femenino = models.IntegerField('Femenino',null=True)
-    Masculino = models.IntegerField('Masculino',null=True)
-    Año = models.CharField('Año',max_length=255,null=True)
-
-    def __str__(self):
-        return f'{self.Programa}-  - {self.Año}'
-
-# Modelo Personal Docente por Dependencia
-class DocentesPorDependencia(models.Model):
-    Programa = models.CharField('Programa Académico',max_length=255,null=True)
-    CantidadDeDocentes = models.IntegerField('Cantidad de Docentes',null=True)
     Semestre = models.CharField('Semestre',max_length=255,null=True)
+    MenorA17 = models.IntegerField('MenorA17',null=True)
+    MayorA17MenorA22 = models.IntegerField('MayorA17MenorA22',null=True)
+    Edad22 = models.IntegerField('Edad22',null=True)
+    Edad23 = models.IntegerField('Edad23',null=True)
+    Edad24 = models.IntegerField('Edad24',null=True)
+    Edad25 = models.IntegerField('Edad25',null=True)
+    MayorA26MenorA31 = models.IntegerField('MayorA26MenorA31',null=True)
+    MayorA31 = models.IntegerField('MayorA31',null=True)
+    Total = models.IntegerField('Total',null=True)
 
     def __str__(self):
-        return f'{self.Programa}-  - {self.Semestre}'
+        return f'{self.Semestre}- {self.Programa}'
 
-# Modelo Personal Docente por Nivel de Formación 
-class DocentesPorFormacion(models.Model):
-    TipoDeVinculacion = models.CharField('Tipo De Vinculación',max_length=255,null=True)
-    Semestre = models.CharField('Semestre',max_length=255,null=True)
-    NivelDeFormacion = models.CharField('Nivel De Formación',max_length=255,null=True)
-    CantidadDeDocentes = models.IntegerField('Cantidad de Docentes',null=True)
-    
-    def __str__(self):
-        return f'{self.TipoDeVinculacion}- {self.Semestre}'
 
-# Modelo Personal Docente por Sexo 
-class DocentesPorSexo(models.Model):
-    TipoDeVinculacion = models.CharField('Tipo De Vinculación',max_length=255,null=True)
-    Sexo = models.CharField('Sexo',max_length=255,null=True)
-    CantidadDeDocentes = models.IntegerField('Cantidad de Docentes',null=True)
-    Semestre = models.CharField('Semestre',max_length=255,null=True)
+# ----------------------------------------------------------------------------------------------
 
-    def __str__(self):
-        return f'{self.TipoDeVinculacion}- {self.Semestre}'
-
-#Modelo Población Estudiantil por Programa Academico
-class PoblacionPorPrograma(models.Model):
-    ProgramaAcademico = models.CharField('Programa Académico',max_length=255,null=True)
-    Inscrito = models.IntegerField('Inscrito',null=True)
-    PrimerCurso = models.IntegerField('Primer Curso',null=True)
-    Matriculado = models.IntegerField('Matriculado',null=True)
-    Graduado = models.IntegerField('Graduado',null=True)
-    Año = models.CharField('Año',max_length=255,null=True)
-
-    def __str__(self):
-        return f'{self.ProgramaAcademico} {self.Año}'
-
-#Modelo Población Estudiantil por Programa Sexo
-class PoblacionPorSexo(models.Model):
-    Nivel = models.CharField('Nivel',max_length=255,null=True)
-    Femenino = models.IntegerField('Femenino',null=True)
-    Masculino = models.IntegerField('Masculino',null=True)
-    Posgrado = models.IntegerField('Posgrado',null=True)
-    Pregrado = models.IntegerField('Pregrado',null=True)
-    Semestre = models.CharField('Semestre',max_length=255,null=True)
-
-    def __str__(self):
-        return f'{self.Nivel} {self.Semestre}'
 

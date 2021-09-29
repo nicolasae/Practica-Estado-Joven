@@ -3,275 +3,334 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from cerberus import Validator
 
-# Tendencias imports 
-from ..serializers.tendencia import TendenciaSerializer
-from ..models.tendencia import DocentesPorFormacion, Tendencia
-from ..models.tendencia import TENDENCIA_FIELDS
-# Matriculado Segun Colegio imports 
-from ..serializers.tendencia import MatriculadoSegunColegioSerializer
-from ..models.tendencia import MatriculadoSegunColegio
-from ..models.tendencia import MATRICULADOSEGUNCOLEGIO_FIELDS
-# Matriculado Segun Edad imports 
-from ..serializers.tendencia import MatriculadoSegunEdadSerializer
-from ..models.tendencia import MatriculadoSegunEdad
-from ..models.tendencia import MATRICULADOSEGUNEDAD_FIELDS
-# Matriculado Segun Sexo imports 
-from ..serializers.tendencia import MatriculadoSegunSexoSerializer
-from ..models.tendencia import MatriculadoSegunSexo
-from ..models.tendencia import MATRICULADOSEGUNSEXO_FIELDS
-# Docentes por Dependencia imports 
-from ..serializers.tendencia import DocentesPorDependenciaSerializer
-from ..models.tendencia import DocentesPorDependencia
-from ..models.tendencia import DOCENTESPORDEPENDENCIA_FIELDS
-# Docentes por Formación imports 
-from ..serializers.tendencia import DocentesPorFormacionSerializer
-from ..models.tendencia import DocentesPorFormacion
-from ..models.tendencia import DOCENTESPORFORMACION_FIELDS
-# Docentes por Sexo imports 
-from ..serializers.tendencia import DocentesPorSexoSerializer
-from ..models.tendencia import DocentesPorSexo
-from ..models.tendencia import DOCENTESPORSEXO_FIELDS
-# Población estudiantil por programas imports 
-from ..serializers.tendencia import PoblacionPorProgramaSerializer
-from ..models.tendencia import PoblacionPorPrograma
-from ..models.tendencia import POBLACIONPORPROGRAMA_FIELDS
-# Población estudiantil por sexo imports 
-from ..serializers.tendencia import PoblacionPorSexoSerializer
-from ..models.tendencia import PoblacionPorSexo
-from ..models.tendencia import POBLACIONPORSEXO_FIELDS
+# --------------------------------------------------------------------------------
+# Tendencia Poblacional imports
+# #####################################################################################################################
+# MATRICULADOS 
+from ..serializers.tendencia import MatriculadosNivelFormacionSerializer
+from ..serializers.tendencia import MatriculadosCategoriaInscripcionSerializer
+from ..serializers.tendencia import MatriculadosSexoSerializer
+from ..serializers.tendencia import MatriculadosEstratoSerializer
+from ..models.tendencia import MatriculadosNivelFormacion
+from ..models.tendencia import MatriculadosCategoriaInscripcion
+from ..models.tendencia import MatriculadosEstrato
+from ..models.tendencia import MatriculadosSexo
+from ..models.tendencia import MATRICULADOS_NIVEL_FORMACION_FIELDS
+from ..models.tendencia import MATRICULADOS_CATEGORIA_INSCRIPCION_FIELDS
+from ..models.tendencia import MATRICULADOS_ESTRATO_FIELDS
+from ..models.tendencia import MATRICULADOS_SEXO_FIELDS
+# MATRICULADOS PREGRADO
+from ..serializers.tendencia import MatriculadosPregradoSexoSerializer
+from ..serializers.tendencia import MatriculadosPregradoEdadSerializer
+from ..serializers.tendencia import MatriculadosPregradoEstratoSerializer
+from ..serializers.tendencia import MatriculadosPregradoColegioSerializer
+from ..models.tendencia import MatriculadosPregradoSexo
+from ..models.tendencia import MatriculadosPregradoEdad
+from ..models.tendencia import MatriculadosPregradoEstrato
+from ..models.tendencia import MatriculadosPregradoColegio
+from ..models.tendencia import MATRICULADOS_PREGRADO_SEXO_FIELDS
+from ..models.tendencia import MATRICULADOS_PREGRADO_ESTRATO_FIELDS
+from ..models.tendencia import MATRICULADOS_PREGRADO_EDAD_FIELDS
+from ..models.tendencia import MATRICULADOS_PREGRADO_COLEGIO_FIELDS
+# MATRICULADOS PREGRADO
+from ..serializers.tendencia import MatriculadosPosgradoSexoSerializer
+from ..serializers.tendencia import MatriculadosPosgradoEdadSerializer
+from ..serializers.tendencia import MatriculadosPosgradoEstratoSerializer
+from ..models.tendencia import MatriculadosPosgradoSexo
+from ..models.tendencia import MatriculadosPosgradoEdad
+from ..models.tendencia import MatriculadosPosgradoEstrato
+from ..models.tendencia import MATRICULADOS_POSGRADO_SEXO_FIELDS
+from ..models.tendencia import MATRICULADOS_POSGRADO_ESTRATO_FIELDS
+from ..models.tendencia import MATRICULADOS_POSGRADO_EDAD_FIELDS
+# ################################################################################################################################
 
 
-class TendenciaView(APIView):
+# --------------------------------------------------------------------------------
+# MATRICULADOS 
+class MatriculadosNivelFormacionView(APIView):
     def get(self,request):
         if not request.GET:
-            tendencias = Tendencia.objects.all()
-            if not tendencias:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND)   
-            return Response({
-                'data': TendenciaSerializer(tendencias,many=True).data
-            },status=status.HTTP_200_OK)
-        else:
-            for key,value in request.GET.items():
-                if key not in TENDENCIA_FIELDS:
-                    return Response({
-                        'data': f'El filtro {key} no está disponible'
-                    },status=status.HTTP_409_CONFLICT)
-            tendencias = Tendencia.objects.filter(**request.GET.dict())
-            if not tendencias:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND) 
-            return Response({
-                'data': TendenciaSerializer(tendencias,many=True).data
-            },status=status.HTTP_200_OK)
-
-class MatriculadoSegunColegioView(APIView):
-    def get(self,request):
-        if not request.GET:
-            matriculados = MatriculadoSegunColegio.objects.all()
+            matriculados = MatriculadosNivelFormacion.objects.all()
             if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND)   
             return Response({
-                'data': MatriculadoSegunColegioSerializer(matriculados,many=True).data
+                'data': MatriculadosNivelFormacionSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
         else:
             for key,value in request.GET.items():
-                if key not in MATRICULADOSEGUNCOLEGIO_FIELDS:
+                if key not in MATRICULADOS_NIVEL_FORMACION_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            matriculados = MatriculadoSegunColegio.objects.filter(**request.GET.dict())
+            matriculados = MatriculadosNivelFormacion.objects.filter(**request.GET.dict())
             if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
-                'data': MatriculadoSegunColegioSerializer(matriculados,many=True).data
+                'data': MatriculadosNivelFormacionSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
 
-class MatriculadoSegunEdadView(APIView):
+class MatriculadosCategoriaInscripcionView(APIView):
     def get(self,request):
         if not request.GET:
-            matriculados = MatriculadoSegunEdad.objects.all()
+            matriculados = MatriculadosCategoriaInscripcion.objects.all()
             if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND)   
             return Response({
-                'data': MatriculadoSegunEdadSerializer(matriculados,many=True).data
+                'data': MatriculadosCategoriaInscripcionSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
         else:
             for key,value in request.GET.items():
-                if key not in MATRICULADOSEGUNEDAD_FIELDS:
+                if key not in MATRICULADOS_CATEGORIA_INSCRIPCION_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            matriculados = MatriculadoSegunEdad.objects.filter(**request.GET.dict())
+            matriculados = MatriculadosCategoriaInscripcion.objects.filter(**request.GET.dict())
             if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
-                'data': MatriculadoSegunEdadSerializer(matriculados,many=True).data
+                'data': MatriculadosCategoriaInscripcionSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
 
-class MatriculadoSegunSexoView(APIView):
+class MatriculadosSexoView(APIView):
     def get(self,request):
         if not request.GET:
-            matriculados = MatriculadoSegunSexo.objects.all()
+            matriculados = MatriculadosSexo.objects.all()
             if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND)   
             return Response({
-                'data': MatriculadoSegunSexoSerializer(matriculados,many=True).data
+                'data': MatriculadosSexoSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
         else:
             for key,value in request.GET.items():
-                if key not in MATRICULADOSEGUNSEXO_FIELDS:
+                if key not in MATRICULADOS_SEXO_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            matriculados = MatriculadoSegunSexo.objects.filter(**request.GET.dict())
+            matriculados = MatriculadosSexo.objects.filter(**request.GET.dict())
             if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
-                'data': MatriculadoSegunSexoSerializer(matriculados,many=True).data
+                'data': MatriculadosSexoSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
 
-class DocentesPorDependenciaView(APIView):
+class MatriculadosEstratoView(APIView):
     def get(self,request):
         if not request.GET:
-            docentes = DocentesPorDependencia.objects.all()
-            if not docentes:  
+            matriculados = MatriculadosEstrato.objects.all()
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND)   
             return Response({
-                'data': DocentesPorDependenciaSerializer(docentes,many=True).data
+                'data': MatriculadosEstratoSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
         else:
             for key,value in request.GET.items():
-                if key not in DOCENTESPORDEPENDENCIA_FIELDS:
+                if key not in MATRICULADOS_ESTRATO_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            docentes = DocentesPorDependencia.objects.filter(**request.GET.dict())
-            if not docentes:  
+            matriculados = MatriculadosEstrato.objects.filter(**request.GET.dict())
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
-                'data': DocentesPorDependenciaSerializer(docentes,many=True).data
+                'data': MatriculadosEstratoSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
 
-class DocentesPorFormacionView(APIView):
+# MATRICULADOS PREGRADO
+class MatriculadosPregradoSexoView(APIView):
     def get(self,request):
         if not request.GET:
-            docentes = DocentesPorFormacion.objects.all()
-            if not docentes:  
+            matriculados = MatriculadosPregradoSexo.objects.all()
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND)   
             return Response({
-                'data': DocentesPorFormacionSerializer(docentes,many=True).data
+                'data': MatriculadosPregradoSexoSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
         else:
             for key,value in request.GET.items():
-                if key not in DOCENTESPORFORMACION_FIELDS:
+                if key not in MATRICULADOS_PREGRADO_SEXO_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            docentes = DocentesPorFormacion.objects.filter(**request.GET.dict())
-            if not docentes:  
+            matriculados = MatriculadosPregradoSexo.objects.filter(**request.GET.dict())
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
-                'data': DocentesPorFormacionSerializer(docentes,many=True).data
+                'data': MatriculadosPregradoSexoSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
 
-class DocentesPorSexoView(APIView):
+class MatriculadosPregradoEdadView(APIView):
     def get(self,request):
         if not request.GET:
-            docentes = DocentesPorSexo.objects.all()
-            if not docentes:  
+            matriculados = MatriculadosPregradoEdad.objects.all()
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND)   
             return Response({
-                'data': DocentesPorSexoSerializer(docentes,many=True).data
+                'data': MatriculadosPregradoEdadSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
         else:
             for key,value in request.GET.items():
-                if key not in DOCENTESPORSEXO_FIELDS:
+                if key not in MATRICULADOS_PREGRADO_EDAD_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            docentes = DocentesPorSexo.objects.filter(**request.GET.dict())
-            if not docentes:  
+            matriculados = MatriculadosPregradoEdad.objects.filter(**request.GET.dict())
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
-                'data': DocentesPorSexoSerializer(docentes,many=True).data
+                'data': MatriculadosPregradoEdadSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
 
-class PoblacionPorProgramaView(APIView):
+class MatriculadosPregradoEstratoView(APIView):
     def get(self,request):
         if not request.GET:
-            programas = PoblacionPorPrograma.objects.all()
-            if not programas:  
+            matriculados = MatriculadosPregradoEstrato.objects.all()
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND)   
             return Response({
-                'data': PoblacionPorProgramaSerializer(programas,many=True).data
+                'data': MatriculadosPregradoEstratoSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
         else:
             for key,value in request.GET.items():
-                if key not in POBLACIONPORPROGRAMA_FIELDS:
+                if key not in MATRICULADOS_PREGRADO_ESTRATO_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            programas = PoblacionPorPrograma.objects.filter(**request.GET.dict())
-            if not programas:  
+            matriculados = MatriculadosPregradoEstrato.objects.filter(**request.GET.dict())
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
-                'data': PoblacionPorProgramaSerializer(programas,many=True).data
+                'data': MatriculadosPregradoEstratoSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
 
-class PoblacionPorSexoView(APIView):
+class MatriculadosPregradoColegioView(APIView):
     def get(self,request):
         if not request.GET:
-            programas = PoblacionPorSexo.objects.all()
-            if not programas:  
+            matriculados = MatriculadosPregradoColegio.objects.all()
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND)   
             return Response({
-                'data': PoblacionPorSexoSerializer(programas,many=True).data
+                'data': MatriculadosPregradoColegioSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
         else:
             for key,value in request.GET.items():
-                if key not in POBLACIONPORSEXO_FIELDS:
+                if key not in MATRICULADOS_PREGRADO_COLEGIO_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            programas = PoblacionPorSexo.objects.filter(**request.GET.dict())
-            if not programas:  
+            matriculados = MatriculadosPregradoColegio.objects.filter(**request.GET.dict())
+            if not matriculados:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
-                'data': PoblacionPorSexoSerializer(programas,many=True).data
+                'data': MatriculadosPregradoColegioSerializer(matriculados,many=True).data
+            },status=status.HTTP_200_OK)
+# ------------------------------------------------------------------------------
+# MATRICULADOS POSGRADO
+class MatriculadosPosgradoSexoView(APIView):
+    def get(self,request):
+        if not request.GET:
+            matriculados = MatriculadosPosgradoSexo.objects.all()
+            if not matriculados:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': MatriculadosPosgradoSexoSerializer(matriculados,many=True).data
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in MATRICULADOS_POSGRADO_SEXO_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            matriculados = MatriculadosPosgradoSexo.objects.filter(**request.GET.dict())
+            if not matriculados:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': MatriculadosPosgradoSexoSerializer(matriculados,many=True).data
             },status=status.HTTP_200_OK)
 
+class MatriculadosPosgradoEdadView(APIView):
+    def get(self,request):
+        if not request.GET:
+            matriculados = MatriculadosPosgradoEdad.objects.all()
+            if not matriculados:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': MatriculadosPosgradoEdadSerializer(matriculados,many=True).data
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in MATRICULADOS_POSGRADO_EDAD_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            matriculados = MatriculadosPosgradoEdad.objects.filter(**request.GET.dict())
+            if not matriculados:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': MatriculadosPosgradoEdadSerializer(matriculados,many=True).data
+            },status=status.HTTP_200_OK)
+
+class MatriculadosPosgradoEstratoView(APIView):
+    def get(self,request):
+        if not request.GET:
+            matriculados = MatriculadosPosgradoEstrato.objects.all()
+            if not matriculados:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': MatriculadosPosgradoEstratoSerializer(matriculados,many=True).data
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in MATRICULADOS_POSGRADO_ESTRATO_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            matriculados = MatriculadosPosgradoEstrato.objects.filter(**request.GET.dict())
+            if not matriculados:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': MatriculadosPosgradoEstratoSerializer(matriculados,many=True).data
+            },status=status.HTTP_200_OK)
