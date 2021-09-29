@@ -1,0 +1,907 @@
+CANTIDAD,ESTADO,PERBASE,COD_PERIODO,COD_UTP,NIVEL,SUBNIVEL,FACULTAD,NOMBRE,DURACION_SEMESTRES,PERIODOS
+19,3. Cambio de programa,15,2013-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,131 a 141
+26,4. Graduado,16,2013-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,132 a 142
+28,4. Graduado,18,2014-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,142 a 152
+218,2. Permanece programa,19,2015-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,151 a 161
+17,3. Cambio de programa,20,2015-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,152 a 162
+32,2. Permanece programa,21,2016-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,161 a 171
+134,4. Graduado,22,2016-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,162 a 172
+13,2. Permanece programa,25,2018-1,FV34,Pregrado,Profesional,Ingeniería,Ingeniería Física (Básicos ingenieria),10,181 a 191
+86,2. Permanece programa,26,2018-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,182 a 192
+608,2. Permanece programa,27,2019-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,191 a 201
+23,1. No matriculado,27,2019-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,191 a 201
+17,2. Permanece programa,28,2019-2,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,192 a 202
+2,4. Graduado,28,2019-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,192 a 202
+278,2. Permanece programa,30,2020-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,202 a 212
+218,2. Permanece programa,24,2017-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,172 a 182
+2,3. Cambio de programa,24,2017-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,172 a 182
+18,2. Permanece programa,24,2017-2,FV12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica (Básicos ingeniería),10,172 a 182
+228,2. Permanece programa,25,2018-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,181 a 191
+150,4. Graduado,25,2018-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,181 a 191
+13,4. Graduado,26,2018-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,182 a 192
+44,1. No matriculado,8,2009-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,092 a 102
+9,4. Graduado,8,2009-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,092 a 102
+211,2. Permanece programa,12,2011-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,112 a 122
+194,2. Permanece programa,15,2013-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,131 a 141
+77,4. Graduado,30,2020-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,202 a 212
+527,2. Permanece programa,1,2006-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,061 a 071
+245,2. Permanece programa,4,2007-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,072 a 082
+596,2. Permanece programa,5,2008-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,081 a 091
+202,2. Permanece programa,5,2008-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,081 a 091
+52,1. No matriculado,5,2008-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,081 a 091
+13,4. Graduado,6,2008-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,082 a 092
+206,2. Permanece programa,6,2008-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,082 a 092
+55,1. No matriculado,2,2006-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,062 a 072
+7,3. Cambio de programa,3,2007-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,071 a 081
+73,4. Graduado,5,2008-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,081 a 091
+29,1. No matriculado,5,2008-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,081 a 091
+24,3. Cambio de programa,5,2008-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,081 a 091
+63,4. Graduado,6,2008-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,082 a 092
+19,3. Cambio de programa,7,2009-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,091 a 101
+34,4. Graduado,11,2011-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,111 a 121
+19,3. Cambio de programa,11,2011-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,111 a 121
+20,2. Permanece programa,12,2011-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,112 a 122
+30,2. Permanece programa,12,2011-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,112 a 122
+193,2. Permanece programa,14,2012-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,122 a 132
+587,2. Permanece programa,16,2013-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,132 a 142
+58,1. No matriculado,21,2016-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,161 a 171
+25,2. Permanece programa,21,2016-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,161 a 171
+34,2. Permanece programa,23,2017-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,171 a 181
+15,3. Cambio de programa,23,2017-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,171 a 181
+60,2. Permanece programa,24,2017-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,172 a 182
+22,3. Cambio de programa,25,2018-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,181 a 191
+39,1. No matriculado,27,2019-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,191 a 201
+55,2. Permanece programa,27,2019-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,191 a 201
+77,2. Permanece programa,27,2019-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,191 a 201
+161,2. Permanece programa,28,2019-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,192 a 202
+8,1. No matriculado,28,2019-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,192 a 202
+66,1. No matriculado,30,2020-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,202 a 212
+8,1. No matriculado,30,2020-2,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,202 a 212
+22,3. Cambio de programa,5,2008-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,081 a 091
+154,2. Permanece programa,6,2008-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,082 a 092
+230,2. Permanece programa,9,2010-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,101 a 111
+98,4. Graduado,10,2010-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,102 a 112
+39,1. No matriculado,10,2010-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,102 a 112
+20,4. Graduado,12,2011-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,112 a 122
+41,4. Graduado,13,2012-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,121 a 131
+38,1. No matriculado,14,2012-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,122 a 132
+57,1. No matriculado,15,2013-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,131 a 141
+37,1. No matriculado,19,2015-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,151 a 161
+10,3. Cambio de programa,20,2015-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,152 a 162
+39,4. Graduado,20,2015-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,152 a 162
+220,2. Permanece programa,21,2016-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,161 a 171
+591,2. Permanece programa,22,2016-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,162 a 172
+26,4. Graduado,22,2016-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,162 a 172
+7,1. No matriculado,22,2016-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,162 a 172
+58,1. No matriculado,22,2016-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,162 a 172
+8,1. No matriculado,22,2016-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,162 a 172
+10,1. No matriculado,23,2017-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,171 a 181
+45,1. No matriculado,23,2017-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,171 a 181
+45,2. Permanece programa,23,2017-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,171 a 181
+50,4. Graduado,24,2017-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,172 a 182
+12,1. No matriculado,24,2017-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,172 a 182
+16,3. Cambio de programa,25,2018-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,181 a 191
+55,2. Permanece programa,17,2014-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,141 a 151
+57,4. Graduado,17,2014-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,141 a 151
+261,2. Permanece programa,17,2014-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,141 a 151
+186,2. Permanece programa,18,2014-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,142 a 152
+34,4. Graduado,18,2014-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,142 a 152
+19,1. No matriculado,18,2014-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,142 a 152
+21,2. Permanece programa,20,2015-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,152 a 162
+38,4. Graduado,21,2016-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,161 a 171
+2,4. Graduado,15,2013-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,131 a 141
+22,2. Permanece programa,18,2014-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,142 a 152
+41,1. No matriculado,18,2014-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,142 a 152
+97,4. Graduado,19,2015-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,151 a 161
+807,2. Permanece programa,21,2016-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,161 a 171
+119,4. Graduado,21,2016-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,161 a 171
+789,2. Permanece programa,22,2016-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,162 a 172
+30,4. Graduado,23,2017-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,171 a 181
+2,1. No matriculado,24,2017-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,172 a 182
+774,2. Permanece programa,25,2018-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,181 a 191
+29,1. No matriculado,25,2018-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,181 a 191
+2,3. Cambio de programa,25,2018-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,181 a 191
+36,2. Permanece programa,26,2018-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,182 a 192
+52,2. Permanece programa,26,2018-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,182 a 192
+25,4. Graduado,26,2018-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,182 a 192
+10,3. Cambio de programa,26,2018-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,182 a 192
+9,4. Graduado,28,2019-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,192 a 202
+16,1. No matriculado,28,2019-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,192 a 202
+7,3. Cambio de programa,28,2019-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,192 a 202
+4,3. Cambio de programa,28,2019-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,192 a 202
+21,1. No matriculado,29,2020-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,201 a 211
+810,2. Permanece programa,30,2020-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,202 a 212
+2,3. Cambio de programa,1,2006-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,061 a 071
+161,2. Permanece programa,2,2006-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,062 a 072
+53,2. Permanece programa,3,2007-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,071 a 081
+199,2. Permanece programa,4,2007-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,072 a 082
+254,2. Permanece programa,6,2008-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,082 a 092
+20,3. Cambio de programa,7,2009-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,091 a 101
+4,4. Graduado,10,2010-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,102 a 112
+41,2. Permanece programa,10,2010-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,102 a 112
+18,2. Permanece programa,11,2011-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,111 a 121
+742,2. Permanece programa,14,2012-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,122 a 132
+31,2. Permanece programa,14,2012-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,122 a 132
+12,2. Permanece programa,14,2012-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,122 a 132
+1,1. No matriculado,15,2013-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,131 a 141
+26,4. Graduado,15,2013-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,131 a 141
+31,4. Graduado,16,2013-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,132 a 142
+590,2. Permanece programa,17,2014-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,141 a 151
+136,4. Graduado,20,2015-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,152 a 162
+32,2. Permanece programa,21,2016-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,161 a 171
+84,4. Graduado,23,2017-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,171 a 181
+6,3. Cambio de programa,23,2017-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,171 a 181
+14,4. Graduado,23,2017-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,171 a 181
+10,1. No matriculado,25,2018-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,181 a 191
+18,2. Permanece programa,25,2018-1,FV12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica (Básicos ingeniería),10,181 a 191
+2,1. No matriculado,25,2018-1,FV28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Básicos ingeniería),10,181 a 191
+99,2. Permanece programa,26,2018-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,182 a 192
+2,1. No matriculado,26,2018-2,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,182 a 192
+228,2. Permanece programa,27,2019-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,191 a 201
+586,2. Permanece programa,28,2019-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,192 a 202
+1,1. No matriculado,28,2019-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,192 a 202
+211,2. Permanece programa,29,2020-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,201 a 211
+43,2. Permanece programa,29,2020-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,201 a 211
+16,1. No matriculado,29,2020-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,201 a 211
+1,1. No matriculado,29,2020-1,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,201 a 211
+7,4. Graduado,30,2020-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,202 a 212
+30,1. No matriculado,30,2020-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,202 a 212
+2,4. Graduado,30,2020-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,202 a 212
+25,1. No matriculado,3,2007-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,071 a 081
+575,2. Permanece programa,4,2007-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,072 a 082
+45,1. No matriculado,4,2007-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,072 a 082
+10,3. Cambio de programa,4,2007-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,072 a 082
+47,1. No matriculado,5,2008-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,081 a 091
+596,2. Permanece programa,8,2009-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,092 a 102
+8,1. No matriculado,8,2009-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,092 a 102
+38,1. No matriculado,9,2010-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,101 a 111
+618,2. Permanece programa,10,2010-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,102 a 112
+216,2. Permanece programa,11,2011-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,111 a 121
+20,1. No matriculado,11,2011-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,111 a 121
+40,1. No matriculado,11,2011-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,111 a 121
+663,2. Permanece programa,12,2011-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,112 a 122
+40,1. No matriculado,14,2012-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,122 a 132
+11,1. No matriculado,15,2013-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,131 a 141
+55,1. No matriculado,17,2014-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,141 a 151
+28,4. Graduado,17,2014-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,141 a 151
+213,2. Permanece programa,18,2014-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,142 a 152
+6,3. Cambio de programa,18,2014-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,142 a 152
+1,1. No matriculado,18,2014-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,142 a 152
+564,2. Permanece programa,19,2015-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,151 a 161
+39,4. Graduado,19,2015-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,151 a 161
+48,1. No matriculado,23,2017-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,171 a 181
+5,3. Cambio de programa,23,2017-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,171 a 181
+2,1. No matriculado,23,2017-1,FV34,Pregrado,Profesional,Ingeniería,Ingeniería Física (Básicos ingenieria),10,171 a 181
+3,1. No matriculado,23,2017-1,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,171 a 181
+28,2. Permanece programa,25,2018-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,181 a 191
+8,4. Graduado,25,2018-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,181 a 191
+12,2. Permanece programa,26,2018-2,FV12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica (Básicos ingeniería),10,182 a 192
+6,3. Cambio de programa,27,2019-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,191 a 201
+15,1. No matriculado,29,2020-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,201 a 211
+37,2. Permanece programa,29,2020-1,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,201 a 211
+4,3. Cambio de programa,29,2020-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,201 a 211
+62,1. No matriculado,30,2020-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,202 a 212
+2,1. No matriculado,30,2020-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,202 a 212
+44,1. No matriculado,2,2006-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,062 a 072
+38,2. Permanece programa,2,2006-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,062 a 072
+11,3. Cambio de programa,6,2008-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,082 a 092
+40,1. No matriculado,7,2009-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,091 a 101
+39,1. No matriculado,7,2009-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,091 a 101
+7,2. Permanece programa,9,2010-1,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,101 a 111
+5,4. Graduado,9,2010-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,101 a 111
+211,2. Permanece programa,10,2010-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,102 a 112
+26,4. Graduado,10,2010-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,102 a 112
+103,4. Graduado,11,2011-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,111 a 121
+18,4. Graduado,13,2012-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,121 a 131
+14,4. Graduado,13,2012-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,121 a 131
+22,2. Permanece programa,25,2018-1,FV28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Básicos ingeniería),10,181 a 191
+8,4. Graduado,26,2018-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,182 a 192
+1,3. Cambio de programa,26,2018-2,FV28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Básicos ingeniería),10,182 a 192
+771,2. Permanece programa,27,2019-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,191 a 201
+27,1. No matriculado,28,2019-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,192 a 202
+54,2. Permanece programa,28,2019-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,192 a 202
+30,2. Permanece programa,29,2020-1,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,201 a 211
+30,2. Permanece programa,30,2020-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,202 a 212
+5,4. Graduado,22,2016-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,162 a 172
+21,1. No matriculado,22,2016-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,162 a 172
+29,2. Permanece programa,24,2017-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,172 a 182
+4,3. Cambio de programa,24,2017-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,172 a 182
+17,1. No matriculado,25,2018-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,181 a 191
+7,1. No matriculado,27,2019-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,191 a 201
+9,3. Cambio de programa,27,2019-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,191 a 201
+286,2. Permanece programa,30,2020-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,202 a 212
+5,3. Cambio de programa,1,2006-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,061 a 071
+66,4. Graduado,4,2007-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,072 a 082
+6,3. Cambio de programa,8,2009-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,092 a 102
+11,3. Cambio de programa,9,2010-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,101 a 111
+1,3. Cambio de programa,10,2010-2,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,102 a 112
+49,1. No matriculado,11,2011-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,111 a 121
+8,4. Graduado,11,2011-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,111 a 121
+12,3. Cambio de programa,14,2012-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,122 a 132
+76,4. Graduado,15,2013-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,131 a 141
+43,1. No matriculado,15,2013-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,131 a 141
+20,2. Permanece programa,15,2013-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,131 a 141
+18,2. Permanece programa,16,2013-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,132 a 142
+33,2. Permanece programa,17,2014-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,141 a 151
+9,4. Graduado,18,2014-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,142 a 152
+5,1. No matriculado,18,2014-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,142 a 152
+35,4. Graduado,19,2015-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,151 a 161
+9,3. Cambio de programa,19,2015-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,151 a 161
+98,2. Permanece programa,25,2018-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,181 a 191
+85,4. Graduado,27,2019-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,191 a 201
+11,4. Graduado,28,2019-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,192 a 202
+51,2. Permanece programa,28,2019-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,192 a 202
+31,2. Permanece programa,28,2019-2,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,192 a 202
+4,3. Cambio de programa,28,2019-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,192 a 202
+6,2. Permanece programa,30,2020-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,202 a 212
+6,4. Graduado,2,2006-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,062 a 072
+4,3. Cambio de programa,2,2006-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,062 a 072
+15,3. Cambio de programa,3,2007-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,071 a 081
+40,2. Permanece programa,5,2008-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,081 a 091
+4,2. Permanece programa,7,2009-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,091 a 101
+17,2. Permanece programa,10,2010-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,102 a 112
+25,2. Permanece programa,10,2010-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,102 a 112
+19,4. Graduado,11,2011-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,111 a 121
+7,3. Cambio de programa,12,2011-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,112 a 122
+65,4. Graduado,13,2012-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,121 a 131
+6,3. Cambio de programa,14,2012-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,122 a 132
+14,2. Permanece programa,15,2013-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,131 a 141
+7,3. Cambio de programa,16,2013-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,132 a 142
+11,1. No matriculado,19,2015-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,151 a 161
+24,2. Permanece programa,20,2015-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,152 a 162
+50,4. Graduado,20,2015-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,152 a 162
+10,4. Graduado,22,2016-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,162 a 172
+35,1. No matriculado,22,2016-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,162 a 172
+17,3. Cambio de programa,22,2016-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,162 a 172
+144,2. Permanece programa,23,2017-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,171 a 181
+17,1. No matriculado,23,2017-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,171 a 181
+36,2. Permanece programa,24,2017-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,172 a 182
+19,4. Graduado,24,2017-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,172 a 182
+570,2. Permanece programa,26,2018-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,182 a 192
+8,3. Cambio de programa,26,2018-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,182 a 192
+151,4. Graduado,28,2019-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,192 a 202
+33,1. No matriculado,28,2019-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,192 a 202
+27,4. Graduado,28,2019-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,192 a 202
+16,1. No matriculado,29,2020-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,201 a 211
+7,3. Cambio de programa,29,2020-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,201 a 211
+10,1. No matriculado,30,2020-2,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,202 a 212
+12,4. Graduado,3,2007-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,071 a 081
+610,2. Permanece programa,7,2009-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,091 a 101
+8,1. No matriculado,9,2010-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,101 a 111
+18,3. Cambio de programa,9,2010-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,101 a 111
+6,3. Cambio de programa,11,2011-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,111 a 121
+10,4. Graduado,12,2011-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,112 a 122
+539,2. Permanece programa,13,2012-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,121 a 131
+14,4. Graduado,14,2012-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,122 a 132
+13,3. Cambio de programa,15,2013-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,131 a 141
+853,2. Permanece programa,16,2013-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,132 a 142
+22,4. Graduado,16,2013-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,132 a 142
+2,3. Cambio de programa,16,2013-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,132 a 142
+24,2. Permanece programa,17,2014-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,141 a 151
+14,3. Cambio de programa,17,2014-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,141 a 151
+103,4. Graduado,18,2014-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,142 a 152
+7,4. Graduado,19,2015-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,151 a 161
+24,2. Permanece programa,19,2015-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,151 a 161
+1,4. Graduado,20,2015-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,152 a 162
+30,1. No matriculado,21,2016-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,161 a 171
+42,1. No matriculado,22,2016-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,162 a 172
+286,2. Permanece programa,23,2017-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,171 a 181
+35,4. Graduado,23,2017-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,171 a 181
+4,1. No matriculado,23,2017-1,FV28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Básicos ingeniería),10,171 a 181
+59,1. No matriculado,25,2018-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,181 a 191
+34,2. Permanece programa,8,2009-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,092 a 102
+57,1. No matriculado,9,2010-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,101 a 111
+646,2. Permanece programa,11,2011-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,111 a 121
+28,1. No matriculado,11,2011-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,111 a 121
+33,1. No matriculado,13,2012-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,121 a 131
+33,4. Graduado,3,2007-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,071 a 081
+7,4. Graduado,3,2007-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,071 a 081
+16,3. Cambio de programa,3,2007-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,071 a 081
+186,2. Permanece programa,5,2008-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,081 a 091
+32,1. No matriculado,5,2008-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,081 a 091
+15,2. Permanece programa,8,2009-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,092 a 102
+67,4. Graduado,9,2010-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,101 a 111
+31,4. Graduado,9,2010-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,101 a 111
+10,3. Cambio de programa,9,2010-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,101 a 111
+527,2. Permanece programa,11,2011-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,111 a 121
+30,2. Permanece programa,16,2013-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,132 a 142
+2,4. Graduado,17,2014-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,141 a 151
+116,4. Graduado,23,2017-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,171 a 181
+8,4. Graduado,24,2017-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,172 a 182
+39,2. Permanece programa,24,2017-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,172 a 182
+43,2. Permanece programa,25,2018-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,181 a 191
+1,1. No matriculado,25,2018-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,181 a 191
+27,4. Graduado,26,2018-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,182 a 192
+5,1. No matriculado,26,2018-2,FV12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica (Básicos ingeniería),10,182 a 192
+1,3. Cambio de programa,26,2018-2,FV12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica (Básicos ingeniería),10,182 a 192
+3,3. Cambio de programa,27,2019-1,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,191 a 201
+23,2. Permanece programa,30,2020-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,202 a 212
+18,4. Graduado,30,2020-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,202 a 212
+523,2. Permanece programa,2,2006-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,062 a 072
+101,4. Graduado,4,2007-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,072 a 082
+148,2. Permanece programa,4,2007-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,072 a 082
+16,3. Cambio de programa,5,2008-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,081 a 091
+124,4. Graduado,6,2008-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,082 a 092
+4,3. Cambio de programa,10,2010-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,102 a 112
+6,2. Permanece programa,10,2010-2,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,102 a 112
+3,2. Permanece programa,13,2012-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,121 a 131
+35,1. No matriculado,13,2012-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,121 a 131
+24,4. Graduado,13,2012-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,121 a 131
+32,1. No matriculado,14,2012-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,122 a 132
+7,3. Cambio de programa,14,2012-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,122 a 132
+8,3. Cambio de programa,19,2015-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,151 a 161
+15,3. Cambio de programa,21,2016-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,161 a 171
+15,3. Cambio de programa,23,2017-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,171 a 181
+8,3. Cambio de programa,23,2017-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,171 a 181
+2,3. Cambio de programa,23,2017-1,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,171 a 181
+3,3. Cambio de programa,24,2017-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,172 a 182
+31,4. Graduado,25,2018-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,181 a 191
+724,2. Permanece programa,26,2018-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,182 a 192
+49,1. No matriculado,27,2019-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,191 a 201
+290,2. Permanece programa,29,2020-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,201 a 211
+9,1. No matriculado,29,2020-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,201 a 211
+1,1. No matriculado,29,2020-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,201 a 211
+24,4. Graduado,30,2020-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,202 a 212
+18,1. No matriculado,1,2006-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,061 a 071
+55,4. Graduado,1,2006-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,061 a 071
+33,1. No matriculado,2,2006-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,062 a 072
+595,2. Permanece programa,3,2007-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,071 a 081
+27,1. No matriculado,6,2008-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,082 a 092
+542,2. Permanece programa,9,2010-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,101 a 111
+601,2. Permanece programa,9,2010-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,101 a 111
+36,1. No matriculado,10,2010-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,102 a 112
+6,2. Permanece programa,12,2011-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,112 a 122
+15,3. Cambio de programa,12,2011-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,112 a 122
+14,1. No matriculado,12,2011-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,112 a 122
+715,2. Permanece programa,13,2012-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,121 a 131
+2,3. Cambio de programa,13,2012-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,121 a 131
+10,1. No matriculado,14,2012-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,122 a 132
+53,1. No matriculado,15,2013-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,131 a 141
+1,1. No matriculado,15,2013-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,131 a 141
+46,2. Permanece programa,18,2014-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,142 a 152
+6,1. No matriculado,20,2015-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,152 a 162
+268,2. Permanece programa,21,2016-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,161 a 171
+12,4. Graduado,21,2016-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,161 a 171
+1,4. Graduado,21,2016-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,161 a 171
+3,4. Graduado,21,2016-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,161 a 171
+609,2. Permanece programa,23,2017-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,171 a 181
+11,4. Graduado,23,2017-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,171 a 181
+41,2. Permanece programa,23,2017-1,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,171 a 181
+118,2. Permanece programa,24,2017-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,172 a 182
+34,4. Graduado,24,2017-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,172 a 182
+606,2. Permanece programa,25,2018-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,181 a 191
+15,4. Graduado,27,2019-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,191 a 201
+8,4. Graduado,27,2019-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,191 a 201
+20,2. Permanece programa,27,2019-1,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,191 a 201
+7,3. Cambio de programa,28,2019-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,192 a 202
+3,1. No matriculado,28,2019-2,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,192 a 202
+1,4. Graduado,30,2020-2,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,202 a 212
+14,3. Cambio de programa,1,2006-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,061 a 071
+39,1. No matriculado,1,2006-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,061 a 071
+570,2. Permanece programa,6,2008-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,082 a 092
+1,4. Graduado,6,2008-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,082 a 092
+2,4. Graduado,6,2008-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,082 a 092
+14,1. No matriculado,6,2008-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,082 a 092
+207,2. Permanece programa,7,2009-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,091 a 101
+37,2. Permanece programa,7,2009-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,091 a 101
+42,1. No matriculado,3,2007-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,071 a 081
+52,1. No matriculado,4,2007-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,072 a 082
+195,2. Permanece programa,7,2009-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,091 a 101
+46,1. No matriculado,8,2009-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,092 a 102
+39,1. No matriculado,1,2006-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,061 a 071
+11,1. No matriculado,2,2006-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,062 a 072
+11,3. Cambio de programa,6,2008-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,082 a 092
+534,2. Permanece programa,7,2009-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,091 a 101
+62,1. No matriculado,7,2009-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,091 a 101
+24,3. Cambio de programa,9,2010-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,101 a 111
+176,2. Permanece programa,10,2010-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,102 a 112
+47,1. No matriculado,10,2010-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,102 a 112
+76,4. Graduado,11,2011-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,111 a 121
+38,2. Permanece programa,12,2011-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,112 a 122
+229,2. Permanece programa,13,2012-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,121 a 131
+19,4. Graduado,14,2012-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,122 a 132
+36,2. Permanece programa,15,2013-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,131 a 141
+1,3. Cambio de programa,16,2013-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,132 a 142
+17,4. Graduado,17,2014-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,141 a 151
+17,1. No matriculado,18,2014-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,142 a 152
+42,1. No matriculado,18,2014-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,142 a 152
+24,2. Permanece programa,18,2014-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,142 a 152
+36,1. No matriculado,19,2015-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,151 a 161
+17,3. Cambio de programa,19,2015-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,151 a 161
+37,4. Graduado,21,2016-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,161 a 171
+263,2. Permanece programa,22,2016-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,162 a 172
+37,1. No matriculado,23,2017-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,171 a 181
+107,4. Graduado,24,2017-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,172 a 182
+9,1. No matriculado,24,2017-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,172 a 182
+6,1. No matriculado,25,2018-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,181 a 191
+660,2. Permanece programa,29,2020-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,201 a 211
+4,2. Permanece programa,29,2020-1,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,201 a 211
+3,3. Cambio de programa,29,2020-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,201 a 211
+48,4. Graduado,30,2020-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,202 a 212
+20,1. No matriculado,30,2020-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,202 a 212
+544,2. Permanece programa,1,2006-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,061 a 071
+25,1. No matriculado,1,2006-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,061 a 071
+60,4. Graduado,2,2006-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,062 a 072
+505,2. Permanece programa,4,2007-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,072 a 082
+49,1. No matriculado,5,2008-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,081 a 091
+2,4. Graduado,8,2009-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,092 a 102
+214,2. Permanece programa,11,2011-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,111 a 121
+2,1. No matriculado,12,2011-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,112 a 122
+20,3. Cambio de programa,13,2012-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,121 a 131
+7,2. Permanece programa,13,2012-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,121 a 131
+24,2. Permanece programa,13,2012-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,121 a 131
+12,3. Cambio de programa,13,2012-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,121 a 131
+1,1. No matriculado,15,2013-1,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,131 a 141
+210,2. Permanece programa,18,2014-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,142 a 152
+59,2. Permanece programa,19,2015-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,151 a 161
+37,1. No matriculado,20,2015-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,152 a 162
+8,3. Cambio de programa,20,2015-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,152 a 162
+15,3. Cambio de programa,21,2016-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,161 a 171
+7,3. Cambio de programa,21,2016-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,161 a 171
+7,3. Cambio de programa,22,2016-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,162 a 172
+12,3. Cambio de programa,23,2017-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,171 a 181
+27,2. Permanece programa,23,2017-1,FV28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Básicos ingeniería),10,171 a 181
+279,2. Permanece programa,24,2017-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,172 a 182
+24,2. Permanece programa,24,2017-2,FV28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Básicos ingeniería),10,172 a 182
+1,1. No matriculado,24,2017-2,FV34,Pregrado,Profesional,Ingeniería,Ingeniería Física (Básicos ingenieria),10,172 a 182
+12,3. Cambio de programa,27,2019-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,191 a 201
+30,1. No matriculado,28,2019-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,192 a 202
+7,4. Graduado,29,2020-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,201 a 211
+8,3. Cambio de programa,29,2020-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,201 a 211
+1,3. Cambio de programa,30,2020-2,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,202 a 212
+10,3. Cambio de programa,3,2007-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,071 a 081
+19,4. Graduado,5,2008-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,081 a 091
+125,4. Graduado,8,2009-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,092 a 102
+28,4. Graduado,10,2010-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,102 a 112
+20,4. Graduado,11,2011-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,111 a 121
+210,2. Permanece programa,13,2012-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,121 a 131
+41,1. No matriculado,13,2012-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,121 a 131
+20,3. Cambio de programa,17,2014-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,141 a 151
+2,3. Cambio de programa,18,2014-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,142 a 152
+24,4. Graduado,20,2015-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,152 a 162
+173,2. Permanece programa,22,2016-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,162 a 172
+50,1. No matriculado,22,2016-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,162 a 172
+18,4. Graduado,25,2018-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,181 a 191
+40,1. No matriculado,25,2018-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,181 a 191
+13,3. Cambio de programa,27,2019-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,191 a 201
+17,3. Cambio de programa,1,2006-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,061 a 071
+15,3. Cambio de programa,2,2006-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,062 a 072
+188,2. Permanece programa,3,2007-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,071 a 081
+6,3. Cambio de programa,22,2016-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,162 a 172
+11,4. Graduado,22,2016-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,162 a 172
+14,4. Graduado,23,2017-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,171 a 181
+19,2. Permanece programa,23,2017-1,FV12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica (Básicos ingeniería),10,171 a 181
+8,1. No matriculado,25,2018-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,181 a 191
+27,2. Permanece programa,26,2018-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,182 a 192
+35,2. Permanece programa,26,2018-2,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,182 a 192
+287,2. Permanece programa,27,2019-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,191 a 201
+28,2. Permanece programa,27,2019-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,191 a 201
+3,3. Cambio de programa,27,2019-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,191 a 201
+1,3. Cambio de programa,28,2019-2,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,192 a 202
+1,1. No matriculado,29,2020-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,201 a 211
+40,2. Permanece programa,30,2020-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,202 a 212
+23,1. No matriculado,30,2020-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,202 a 212
+1,1. No matriculado,30,2020-2,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,202 a 212
+52,4. Graduado,2,2006-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,062 a 072
+22,4. Graduado,4,2007-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,072 a 082
+49,4. Graduado,7,2009-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,091 a 101
+9,3. Cambio de programa,9,2010-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,101 a 111
+11,4. Graduado,13,2012-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,121 a 131
+16,3. Cambio de programa,14,2012-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,122 a 132
+539,2. Permanece programa,15,2013-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,131 a 141
+21,4. Graduado,15,2013-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,131 a 141
+7,2. Permanece programa,16,2013-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,132 a 142
+23,4. Graduado,17,2014-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,141 a 151
+837,2. Permanece programa,18,2014-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,142 a 152
+22,4. Graduado,18,2014-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,142 a 152
+5,4. Graduado,20,2015-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,152 a 162
+12,3. Cambio de programa,20,2015-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,152 a 162
+83,4. Graduado,21,2016-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,161 a 171
+1,3. Cambio de programa,22,2016-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,162 a 172
+15,1. No matriculado,23,2017-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,171 a 181
+19,4. Graduado,26,2018-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,182 a 192
+6,1. No matriculado,26,2018-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,182 a 192
+4,3. Cambio de programa,26,2018-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,182 a 192
+22,4. Graduado,29,2020-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,201 a 211
+1,4. Graduado,29,2020-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,201 a 211
+218,2. Permanece programa,30,2020-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,202 a 212
+39,1. No matriculado,30,2020-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,202 a 212
+8,3. Cambio de programa,30,2020-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,202 a 212
+3,4. Graduado,12,2011-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,112 a 122
+11,3. Cambio de programa,12,2011-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,112 a 122
+73,4. Graduado,14,2012-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,122 a 132
+21,2. Permanece programa,14,2012-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,122 a 132
+14,3. Cambio de programa,14,2012-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,122 a 132
+200,2. Permanece programa,15,2013-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,131 a 141
+26,3. Cambio de programa,17,2014-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,141 a 151
+8,4. Graduado,18,2014-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,142 a 152
+556,2. Permanece programa,18,2014-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,142 a 152
+25,4. Graduado,30,2020-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,202 a 212
+27,2. Permanece programa,30,2020-2,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,202 a 212
+32,1. No matriculado,1,2006-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,061 a 071
+184,2. Permanece programa,1,2006-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,061 a 071
+4,4. Graduado,7,2009-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,091 a 101
+6,2. Permanece programa,9,2010-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,101 a 111
+833,2. Permanece programa,19,2015-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,151 a 161
+202,2. Permanece programa,20,2015-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,152 a 162
+19,1. No matriculado,20,2015-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,152 a 162
+7,3. Cambio de programa,22,2016-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,162 a 172
+15,2. Permanece programa,22,2016-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,162 a 172
+790,2. Permanece programa,29,2020-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,201 a 211
+7,1. No matriculado,29,2020-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,201 a 211
+66,2. Permanece programa,30,2020-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,202 a 212
+12,3. Cambio de programa,30,2020-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,202 a 212
+8,3. Cambio de programa,2,2006-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,062 a 072
+5,3. Cambio de programa,4,2007-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,072 a 082
+13,4. Graduado,5,2008-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,081 a 091
+265,2. Permanece programa,19,2015-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,151 a 161
+23,2. Permanece programa,19,2015-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,151 a 161
+16,4. Graduado,21,2016-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,161 a 171
+23,3. Cambio de programa,21,2016-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,161 a 171
+34,1. No matriculado,13,2012-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,121 a 131
+88,4. Graduado,15,2013-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,131 a 141
+1,1. No matriculado,24,2017-2,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,172 a 182
+99,2. Permanece programa,25,2018-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,181 a 191
+91,4. Graduado,25,2018-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,181 a 191
+51,2. Permanece programa,25,2018-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,181 a 191
+277,2. Permanece programa,26,2018-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,182 a 192
+9,1. No matriculado,27,2019-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,191 a 201
+1,1. No matriculado,27,2019-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,191 a 201
+4,3. Cambio de programa,27,2019-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,191 a 201
+5,1. No matriculado,28,2019-2,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,192 a 202
+5,1. No matriculado,28,2019-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,192 a 202
+74,4. Graduado,8,2009-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,092 a 102
+37,1. No matriculado,9,2010-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,101 a 111
+16,3. Cambio de programa,10,2010-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,102 a 112
+515,2. Permanece programa,12,2011-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,112 a 122
+187,2. Permanece programa,12,2011-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,112 a 122
+10,1. No matriculado,13,2012-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,121 a 131
+14,4. Graduado,25,2018-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,181 a 191
+8,1. No matriculado,26,2018-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,182 a 192
+27,1. No matriculado,26,2018-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,182 a 192
+15,2. Permanece programa,26,2018-2,FV28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Básicos ingeniería),10,182 a 192
+3,1. No matriculado,27,2019-1,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,191 a 201
+62,2. Permanece programa,29,2020-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,201 a 211
+122,4. Graduado,29,2020-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,201 a 211
+3,3. Cambio de programa,29,2020-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,201 a 211
+14,3. Cambio de programa,17,2014-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,141 a 151
+5,1. No matriculado,19,2015-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,151 a 161
+214,2. Permanece programa,22,2016-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,162 a 172
+20,4. Graduado,22,2016-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,162 a 172
+2,1. No matriculado,30,2020-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,202 a 212
+23,2. Permanece programa,1,2006-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,061 a 071
+8,4. Graduado,1,2006-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,061 a 071
+15,1. No matriculado,4,2007-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,072 a 082
+52,1. No matriculado,6,2008-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,082 a 092
+1,1. No matriculado,15,2013-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,131 a 141
+222,2. Permanece programa,16,2013-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,132 a 142
+3,1. No matriculado,16,2013-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,132 a 142
+40,1. No matriculado,19,2015-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,151 a 161
+23,4. Graduado,19,2015-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,151 a 161
+2,1. No matriculado,19,2015-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,151 a 161
+185,2. Permanece programa,3,2007-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,071 a 081
+53,1. No matriculado,3,2007-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,071 a 081
+38,1. No matriculado,6,2008-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,082 a 092
+10,1. No matriculado,6,2008-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,082 a 092
+158,2. Permanece programa,8,2009-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,092 a 102
+17,1. No matriculado,24,2017-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,172 a 182
+40,2. Permanece programa,24,2017-2,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,172 a 182
+28,1. No matriculado,25,2018-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,181 a 191
+4,1. No matriculado,25,2018-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,181 a 191
+39,2. Permanece programa,25,2018-1,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,181 a 191
+7,1. No matriculado,7,2009-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,091 a 101
+9,3. Cambio de programa,8,2009-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,092 a 102
+3,1. No matriculado,8,2009-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,092 a 102
+5,3. Cambio de programa,8,2009-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,092 a 102
+45,2. Permanece programa,11,2011-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,111 a 121
+45,1. No matriculado,12,2011-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,112 a 122
+125,4. Graduado,12,2011-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,112 a 122
+11,1. No matriculado,13,2012-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,121 a 131
+11,3. Cambio de programa,13,2012-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,121 a 131
+2,3. Cambio de programa,14,2012-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,122 a 132
+5,1. No matriculado,21,2016-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,161 a 171
+826,2. Permanece programa,23,2017-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,171 a 181
+1,1. No matriculado,23,2017-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,171 a 181
+15,3. Cambio de programa,24,2017-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,172 a 182
+28,1. No matriculado,11,2011-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,111 a 121
+4,3. Cambio de programa,12,2011-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,112 a 122
+54,4. Graduado,12,2011-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,112 a 122
+37,4. Graduado,12,2011-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,112 a 122
+9,3. Cambio de programa,12,2011-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,112 a 122
+15,1. No matriculado,14,2012-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,122 a 132
+22,4. Graduado,14,2012-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,122 a 132
+5,4. Graduado,15,2013-1,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,131 a 141
+7,1. No matriculado,16,2013-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,132 a 142
+60,1. No matriculado,17,2014-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,141 a 151
+42,4. Graduado,18,2014-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,142 a 152
+553,2. Permanece programa,20,2015-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,152 a 162
+220,2. Permanece programa,16,2013-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,132 a 142
+3,4. Graduado,16,2013-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,132 a 142
+5,3. Cambio de programa,17,2014-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,141 a 151
+12,3. Cambio de programa,18,2014-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,142 a 152
+47,2. Permanece programa,27,2019-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,191 a 201
+222,2. Permanece programa,28,2019-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,192 a 202
+22,2. Permanece programa,28,2019-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,192 a 202
+81,4. Graduado,29,2020-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,201 a 211
+22,1. No matriculado,30,2020-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,202 a 212
+6,3. Cambio de programa,1,2006-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,061 a 071
+227,2. Permanece programa,16,2013-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,132 a 142
+33,4. Graduado,16,2013-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,132 a 142
+57,4. Graduado,16,2013-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,132 a 142
+28,4. Graduado,17,2014-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,141 a 151
+15,1. No matriculado,18,2014-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,142 a 152
+55,1. No matriculado,21,2016-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,161 a 171
+606,2. Permanece programa,21,2016-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,161 a 171
+7,3. Cambio de programa,21,2016-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,161 a 171
+5,2. Permanece programa,28,2019-2,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,192 a 202
+25,2. Permanece programa,29,2020-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,201 a 211
+248,2. Permanece programa,5,2008-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,081 a 091
+79,4. Graduado,5,2008-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,081 a 091
+53,1. No matriculado,5,2008-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,081 a 091
+29,2. Permanece programa,6,2008-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,082 a 092
+219,2. Permanece programa,20,2015-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,152 a 162
+26,4. Graduado,20,2015-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,152 a 162
+40,1. No matriculado,21,2016-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,161 a 171
+10,1. No matriculado,24,2017-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,172 a 182
+3,3. Cambio de programa,25,2018-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,181 a 191
+227,2. Permanece programa,3,2007-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,071 a 081
+40,2. Permanece programa,4,2007-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,072 a 082
+19,1. No matriculado,4,2007-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,072 a 082
+40,1. No matriculado,4,2007-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,072 a 082
+3,3. Cambio de programa,4,2007-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,072 a 082
+38,1. No matriculado,6,2008-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,082 a 092
+1,4. Graduado,7,2009-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,091 a 101
+20,3. Cambio de programa,7,2009-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,091 a 101
+44,1. No matriculado,8,2009-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,092 a 102
+29,2. Permanece programa,22,2016-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,162 a 172
+3,1. No matriculado,22,2016-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,162 a 172
+226,2. Permanece programa,23,2017-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,171 a 181
+5,4. Graduado,23,2017-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,171 a 181
+4,4. Graduado,23,2017-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,171 a 181
+21,4. Graduado,24,2017-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,172 a 182
+20,4. Graduado,24,2017-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,172 a 182
+16,4. Graduado,25,2018-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,181 a 191
+3,1. No matriculado,26,2018-2,FV34,Pregrado,Profesional,Ingeniería,Ingeniería Física (Básicos ingenieria),10,182 a 192
+146,2. Permanece programa,27,2019-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,191 a 201
+49,1. No matriculado,27,2019-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,191 a 201
+4,4. Graduado,28,2019-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,192 a 202
+29,4. Graduado,28,2019-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,192 a 202
+16,3. Cambio de programa,7,2009-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,091 a 101
+8,3. Cambio de programa,8,2009-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,092 a 102
+51,1. No matriculado,8,2009-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,092 a 102
+55,1. No matriculado,9,2010-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,101 a 111
+242,2. Permanece programa,10,2010-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,102 a 112
+6,3. Cambio de programa,10,2010-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,102 a 112
+22,3. Cambio de programa,11,2011-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,111 a 121
+53,1. No matriculado,12,2011-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,112 a 122
+9,2. Permanece programa,26,2018-2,FV34,Pregrado,Profesional,Ingeniería,Ingeniería Física (Básicos ingenieria),10,182 a 192
+4,3. Cambio de programa,26,2018-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,182 a 192
+19,1. No matriculado,27,2019-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,191 a 201
+15,3. Cambio de programa,30,2020-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,202 a 212
+12,3. Cambio de programa,2,2006-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,062 a 072
+221,2. Permanece programa,14,2012-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,122 a 132
+43,1. No matriculado,14,2012-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,122 a 132
+2,4. Graduado,14,2012-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,122 a 132
+41,1. No matriculado,15,2013-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,131 a 141
+1,3. Cambio de programa,16,2013-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,132 a 142
+8,4. Graduado,29,2020-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,201 a 211
+30,2. Permanece programa,30,2020-2,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,202 a 212
+66,4. Graduado,1,2006-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,061 a 071
+571,2. Permanece programa,2,2006-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,062 a 072
+511,2. Permanece programa,6,2008-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,082 a 092
+1,1. No matriculado,11,2011-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,111 a 121
+42,1. No matriculado,4,2007-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,072 a 082
+9,3. Cambio de programa,6,2008-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,082 a 092
+523,2. Permanece programa,8,2009-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,092 a 102
+499,2. Permanece programa,10,2010-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,102 a 112
+44,1. No matriculado,19,2015-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,151 a 161
+7,1. No matriculado,19,2015-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,151 a 161
+47,4. Graduado,22,2016-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,162 a 172
+1,1. No matriculado,23,2017-1,FV12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica (Básicos ingeniería),10,171 a 181
+12,3. Cambio de programa,6,2008-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,082 a 092
+19,4. Graduado,7,2009-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,091 a 101
+6,4. Graduado,7,2009-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,091 a 101
+17,3. Cambio de programa,8,2009-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,092 a 102
+10,4. Graduado,8,2009-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,092 a 102
+196,2. Permanece programa,9,2010-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,101 a 111
+45,2. Permanece programa,9,2010-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,101 a 111
+56,1. No matriculado,12,2011-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,112 a 122
+534,2. Permanece programa,14,2012-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,122 a 132
+1,1. No matriculado,23,2017-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,171 a 181
+39,1. No matriculado,23,2017-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,171 a 181
+282,2. Permanece programa,25,2018-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,181 a 191
+8,3. Cambio de programa,25,2018-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,181 a 191
+111,4. Graduado,26,2018-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,182 a 192
+204,2. Permanece programa,12,2011-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,112 a 122
+18,3. Cambio de programa,12,2011-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,112 a 122
+15,1. No matriculado,12,2011-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,112 a 122
+580,2. Permanece programa,24,2017-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,172 a 182
+56,1. No matriculado,24,2017-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,172 a 182
+46,1. No matriculado,26,2018-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,182 a 192
+62,1. No matriculado,26,2018-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,182 a 192
+31,4. Graduado,27,2019-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,191 a 201
+275,2. Permanece programa,29,2020-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,201 a 211
+2,3. Cambio de programa,29,2020-1,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,201 a 211
+82,4. Graduado,16,2013-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,132 a 142
+202,2. Permanece programa,17,2014-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,141 a 151
+854,2. Permanece programa,17,2014-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,141 a 151
+82,4. Graduado,18,2014-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,142 a 152
+7,3. Cambio de programa,18,2014-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,142 a 152
+232,2. Permanece programa,19,2015-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,151 a 161
+6,4. Graduado,19,2015-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,151 a 161
+5,3. Cambio de programa,19,2015-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,151 a 161
+21,1. No matriculado,28,2019-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,192 a 202
+3,3. Cambio de programa,30,2020-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,202 a 212
+502,2. Permanece programa,3,2007-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,071 a 081
+88,4. Graduado,3,2007-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,071 a 081
+238,2. Permanece programa,15,2013-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,131 a 141
+4,1. No matriculado,16,2013-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,132 a 142
+76,1. No matriculado,17,2014-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,141 a 151
+63,1. No matriculado,17,2014-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,141 a 151
+6,1. No matriculado,17,2014-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,141 a 151
+18,3. Cambio de programa,18,2014-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,142 a 152
+45,1. No matriculado,20,2015-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,152 a 162
+32,1. No matriculado,20,2015-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,152 a 162
+11,3. Cambio de programa,20,2015-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,152 a 162
+658,2. Permanece programa,30,2020-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,202 a 212
+3,3. Cambio de programa,30,2020-2,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,202 a 212
+35,1. No matriculado,2,2006-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,062 a 072
+41,1. No matriculado,3,2007-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,071 a 081
+11,3. Cambio de programa,4,2007-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,072 a 082
+18,2. Permanece programa,20,2015-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,152 a 162
+82,4. Graduado,22,2016-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,162 a 172
+8,1. No matriculado,23,2017-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,171 a 181
+809,2. Permanece programa,24,2017-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,172 a 182
+1,1. No matriculado,25,2018-1,FV34,Pregrado,Profesional,Ingeniería,Ingeniería Física (Básicos ingenieria),10,181 a 191
+11,3. Cambio de programa,6,2008-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,082 a 092
+273,2. Permanece programa,7,2009-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,091 a 101
+42,1. No matriculado,7,2009-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,091 a 101
+11,1. No matriculado,8,2009-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,092 a 102
+26,1. No matriculado,9,2010-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,101 a 111
+26,2. Permanece programa,22,2016-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,162 a 172
+15,2. Permanece programa,23,2017-1,FV34,Pregrado,Profesional,Ingeniería,Ingeniería Física (Básicos ingenieria),10,171 a 181
+1,3. Cambio de programa,26,2018-2,FV34,Pregrado,Profesional,Ingeniería,Ingeniería Física (Básicos ingenieria),10,182 a 192
+15,4. Graduado,27,2019-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,191 a 201
+731,2. Permanece programa,28,2019-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,192 a 202
+59,4. Graduado,29,2020-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,201 a 211
+12,4. Graduado,9,2010-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,101 a 111
+43,1. No matriculado,10,2010-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,102 a 112
+24,4. Graduado,10,2010-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,102 a 112
+12,1. No matriculado,10,2010-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,102 a 112
+24,2. Permanece programa,11,2011-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,111 a 121
+26,3. Cambio de programa,11,2011-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,111 a 121
+81,4. Graduado,12,2011-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,112 a 122
+235,2. Permanece programa,13,2012-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,121 a 131
+20,3. Cambio de programa,15,2013-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,131 a 141
+24,1. No matriculado,26,2018-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,182 a 192
+43,4. Graduado,26,2018-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,182 a 192
+18,4. Graduado,27,2019-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,191 a 201
+12,4. Graduado,27,2019-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,191 a 201
+7,4. Graduado,27,2019-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,191 a 201
+67,4. Graduado,28,2019-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,192 a 202
+11,1. No matriculado,29,2020-1,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,201 a 211
+112,4. Graduado,30,2020-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,202 a 212
+6,3. Cambio de programa,30,2020-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,202 a 212
+6,2. Permanece programa,11,2011-1,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,111 a 121
+6,2. Permanece programa,13,2012-1,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,121 a 131
+26,3. Cambio de programa,13,2012-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,121 a 131
+219,2. Permanece programa,14,2012-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,122 a 132
+70,4. Graduado,14,2012-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,122 a 132
+7,1. No matriculado,16,2013-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,132 a 142
+64,4. Graduado,17,2014-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,141 a 151
+30,1. No matriculado,17,2014-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,141 a 151
+168,2. Permanece programa,1,2006-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,061 a 071
+186,2. Permanece programa,2,2006-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,062 a 072
+3,1. No matriculado,2,2006-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,062 a 072
+495,2. Permanece programa,5,2008-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,081 a 091
+19,3. Cambio de programa,5,2008-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,081 a 091
+24,1. No matriculado,7,2009-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,091 a 101
+215,2. Permanece programa,8,2009-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,092 a 102
+266,2. Permanece programa,8,2009-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,092 a 102
+5,4. Graduado,16,2013-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,132 a 142
+1,3. Cambio de programa,16,2013-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,132 a 142
+4,3. Cambio de programa,16,2013-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,132 a 142
+6,1. No matriculado,17,2014-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,141 a 151
+6,4. Graduado,17,2014-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,141 a 151
+14,3. Cambio de programa,19,2015-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,151 a 161
+801,2. Permanece programa,20,2015-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,152 a 162
+12,3. Cambio de programa,3,2007-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,071 a 081
+8,1. No matriculado,3,2007-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,071 a 081
+13,4. Graduado,6,2008-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,082 a 092
+16,1. No matriculado,10,2010-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,102 a 112
+1,1. No matriculado,18,2014-2,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,142 a 152
+15,3. Cambio de programa,22,2016-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,162 a 172
+36,2. Permanece programa,23,2017-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,171 a 181
+2,3. Cambio de programa,23,2017-1,FV12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica (Básicos ingeniería),10,171 a 181
+37,4. Graduado,8,2009-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,092 a 102
+88,4. Graduado,9,2010-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,101 a 111
+31,3. Cambio de programa,9,2010-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,101 a 111
+3,4. Graduado,9,2010-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,101 a 111
+242,2. Permanece programa,11,2011-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,111 a 121
+11,3. Cambio de programa,11,2011-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,111 a 121
+36,4. Graduado,15,2013-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,131 a 141
+750,2. Permanece programa,15,2013-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,131 a 141
+19,1. No matriculado,15,2013-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,131 a 141
+36,2. Permanece programa,16,2013-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,132 a 142
+2,1. No matriculado,22,2016-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,162 a 172
+145,4. Graduado,24,2017-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,172 a 182
+36,1. No matriculado,24,2017-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,172 a 182
+49,1. No matriculado,24,2017-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,172 a 182
+14,2. Permanece programa,24,2017-2,FV34,Pregrado,Profesional,Ingeniería,Ingeniería Física (Básicos ingenieria),10,172 a 182
+2,1. No matriculado,24,2017-2,FV12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica (Básicos ingeniería),10,172 a 182
+4,1. No matriculado,24,2017-2,FV28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Básicos ingeniería),10,172 a 182
+41,4. Graduado,25,2018-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,181 a 191
+184,2. Permanece programa,26,2018-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,182 a 192
+17,1. No matriculado,26,2018-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,182 a 192
+1,3. Cambio de programa,26,2018-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,182 a 192
+22,1. No matriculado,13,2012-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,121 a 131
+2,4. Graduado,13,2012-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,121 a 131
+29,4. Graduado,14,2012-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,122 a 132
+1,3. Cambio de programa,15,2013-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,131 a 141
+6,3. Cambio de programa,25,2018-1,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,181 a 191
+1,1. No matriculado,25,2018-1,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,181 a 191
+15,3. Cambio de programa,28,2019-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,192 a 202
+24,4. Graduado,29,2020-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,201 a 211
+6,1. No matriculado,29,2020-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,201 a 211
+1,4. Graduado,30,2020-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,202 a 212
+5,1. No matriculado,16,2013-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,132 a 142
+15,1. No matriculado,16,2013-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,132 a 142
+195,2. Permanece programa,17,2014-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,141 a 151
+7,2. Permanece programa,17,2014-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,141 a 151
+108,4. Graduado,19,2015-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,151 a 161
+107,4. Graduado,20,2015-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,152 a 162
+1,1. No matriculado,20,2015-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,152 a 162
+1,1. No matriculado,21,2016-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,161 a 171
+1,1. No matriculado,21,2016-1,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,161 a 171
+9,3. Cambio de programa,26,2018-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,182 a 192
+9,1. No matriculado,27,2019-1,TS,Pregrado,Tecnológica,Ingeniería,Tecnología en Desarrollo de Software,6,191 a 201
+9,1. No matriculado,28,2019-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,192 a 202
+119,4. Graduado,28,2019-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,192 a 202
+25,4. Graduado,29,2020-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,201 a 211
+1,4. Graduado,29,2020-1,AT,Posgrado,Especialización,Ingeniería,Especialización en Electrónica Digital,2,201 a 211
+153,2. Permanece programa,1,2006-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,061 a 071
+3,1. No matriculado,1,2006-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,061 a 071
+31,1. No matriculado,3,2007-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,071 a 081
+6,1. No matriculado,18,2014-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,142 a 152
+1,3. Cambio de programa,19,2015-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,151 a 161
+21,4. Graduado,19,2015-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,151 a 161
+1,3. Cambio de programa,19,2015-1,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,151 a 161
+214,2. Permanece programa,20,2015-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,152 a 162
+39,1. No matriculado,20,2015-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,152 a 162
+43,1. No matriculado,20,2015-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,152 a 162
+207,2. Permanece programa,21,2016-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,161 a 171
+43,1. No matriculado,21,2016-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,161 a 171
+155,2. Permanece programa,2,2006-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,062 a 072
+11,3. Cambio de programa,2,2006-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,062 a 072
+15,4. Graduado,4,2007-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,072 a 082
+10,3. Cambio de programa,4,2007-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,072 a 082
+21,3. Cambio de programa,5,2008-1,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,081 a 091
+104,4. Graduado,7,2009-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,091 a 101
+115,4. Graduado,10,2010-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,102 a 112
+9,3. Cambio de programa,10,2010-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,102 a 112
+8,3. Cambio de programa,10,2010-2,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,102 a 112
+28,2. Permanece programa,22,2016-2,DV,Posgrado,Doctorado,Ingeniería,Doctorado en Ingeniería,7,162 a 172
+38,2. Permanece programa,23,2017-1,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,171 a 181
+34,2. Permanece programa,27,2019-1,28C,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Convenio Cuba),10,191 a 201
+17,4. Graduado,28,2019-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,192 a 202
+30,2. Permanece programa,28,2019-2,47,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería Eléctrica,4,192 a 202
+19,3. Cambio de programa,7,2009-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,091 a 101
+266,2. Permanece programa,9,2010-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,101 a 111
+13,3. Cambio de programa,24,2017-2,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,172 a 182
+5,3. Cambio de programa,24,2017-2,FI,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Diurna),10,172 a 182
+192,4. Graduado,26,2018-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,182 a 192
+8,1. No matriculado,26,2018-2,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,182 a 192
+6,1. No matriculado,26,2018-2,FV28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Básicos ingeniería),10,182 a 192
+130,4. Graduado,27,2019-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,191 a 201
+7,1. No matriculado,27,2019-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,191 a 201
+258,2. Permanece programa,28,2019-2,34,Pregrado,Profesional,Ingeniería,Ingeniería Física,10,192 a 202
+49,2. Permanece programa,29,2020-1,36,Pregrado,Profesional,Ingeniería,Ingeniería Electrónica (Nocturno),10,201 a 211
+45,1. No matriculado,11,2011-1,28,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación,10,111 a 121
+49,1. No matriculado,12,2011-2,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,112 a 122
+11,3. Cambio de programa,13,2012-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,121 a 131
+15,1. No matriculado,14,2012-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,122 a 132
+3,4. Graduado,14,2012-2,AY,Posgrado,Maestría,Ingeniería,Maestría en Ingeniería de Sistemas y Computación,4,122 a 132
+6,4. Graduado,15,2013-1,AZ,Posgrado,Especialización,Ingeniería,Especialización en Redes de Datos,2,131 a 141
+24,4. Graduado,15,2013-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,131 a 141
+23,3. Cambio de programa,15,2013-1,12,Pregrado,Profesional,Ingeniería,Ingeniería Eléctrica,10,131 a 141
+10,3. Cambio de programa,15,2013-1,37,Pregrado,Profesional,Ingeniería,Ingeniería de Sistemas y Computación (Nocturno),12,131 a 141
