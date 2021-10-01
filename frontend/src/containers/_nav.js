@@ -16,18 +16,6 @@ const _nav =  [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Bienestar',
-    to: '/dashboardporfacultad/bienestar',
-    icon: 'cil-drop',
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Investigación',
-    to: '/dashboardporfacultad/investigacion',
-    icon: 'cil-drop',
-  },
-  {
-    _tag: 'CSidebarNavItem',
     name: 'Personal Docentes',
     to: '/dashboardporfacultad/personaldocente',
     icon: 'cil-drop',

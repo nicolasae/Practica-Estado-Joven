@@ -4,8 +4,6 @@ import React from 'react';
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 // Dashboard por Facultad 
 const PoblacionEstudiantil = React.lazy(() => import('./views/poblacionestudiantil/PoblacionEstudiantil.js'));
-const Bienestar = React.lazy(() => import('./views/bienestar/Bienestar.js'));
-const Investigacion = React.lazy(() => import('./views/investigacion/Investigacion.js'));
 const PersonalDocente = React.lazy(() => import('./views/personaldocente/PersonalDocente.js'));
 
 // Tendencia Poblacional
@@ -36,8 +34,6 @@ const routes = [
   // DASHBOARD POR FACULTAD 
   { path: '/dashboardporfacultad', name: 'Dashboard por Facultad', component:PoblacionEstudiantil , exact: true },
   { path: '/dashboardporfacultad/poblacionestudiantil', name: 'Población Estudiantil', component: PoblacionEstudiantil,exact: true},
-  { path: '/dashboardporfacultad/bienestar', name: 'Bienestar', component: Bienestar,exact: true},
-  { path: '/dashboardporfacultad/investigacion', name: 'Investigación', component: Investigacion,exact: true},
   { path: '/dashboardporfacultad/personaldocente', name: 'Personal Docente', component: PersonalDocente,exact: true},
 
   // TENDENCIA POBLACIONAL 

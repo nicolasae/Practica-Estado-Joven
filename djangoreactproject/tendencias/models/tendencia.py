@@ -47,10 +47,11 @@ ANALISIS_COHORTE_FIELDS = [
 ]
 
 
+
+
 # ********************************************************************************************************************************
 class Tendencia(models.Model):
     COD_PERIODO = models.CharField('Semestre',max_length=255,null=True)
-    COD_UTP = models.CharField('Código UTP',max_length=255,null=True)
     ESTUDIANTES = models.IntegerField('Estudiantes',null=True)
     ESTRATO = models.CharField('Estrato',max_length=255,null=True)
     SEXO = models.CharField('Sexo',max_length=255,null=True)
@@ -59,7 +60,7 @@ class Tendencia(models.Model):
     VAR = models.CharField('Nivel de Formación',max_length=255,null=True) 
 
     def __str__(self):
-        return f'Semestre: {self.COD_PERIODO}-Codigo: {self.COD_UTP}- Estudiantes: {self.ESTUDIANTES}'
+        return f'Semestre: {self.COD_PERIODO}- Estudiantes: {self.ESTUDIANTES}-Estrato:{self.ESTRATO}-Sexo:{self.SEXO}'
 
 class DesercionInterAnual(models.Model):
     CANTIDAD = models.IntegerField('Cantidad',null=True)
@@ -101,4 +102,5 @@ class AnalisisCohorte(models.Model):
 
     def __str__(self):
         return f'Semestre: {self.COD_PERIODO}-Codigo: {self.COD_UTP}- Estudiantes: {self.CANTIDAD}'
-    
+
+

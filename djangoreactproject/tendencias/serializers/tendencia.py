@@ -7,6 +7,7 @@ from ..models.tendencia import DesercionInterAnual
 from ..models.tendencia import DesercionInterSemestral
 from ..models.tendencia import AnalisisCohorte
 
+
 class TendenciaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tendencia
@@ -26,3 +27,5 @@ class AnalisisCohorteSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnalisisCohorte
         exclude = ['id']
+
+

@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from cerberus import Validator
+from django.db.models import Sum
 
 
 # #####################################################################################################################
@@ -22,6 +23,8 @@ from ..serializers.tendencia import AnalisisCohorteSerializer
 from ..models.tendencia import ANALISIS_COHORTE_FIELDS
 from ..models.tendencia import AnalisisCohorte
 
+
+
 # ################################################################################################################################
 
 
@@ -36,6 +39,7 @@ class TendenciaView(APIView):
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND)   
             return Response({
+                'count': tendencia.count(),
                 'data': TendenciaSerializer(tendencia,many=True).data
             },status=status.HTTP_200_OK)
         else:
@@ -50,7 +54,35 @@ class TendenciaView(APIView):
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
+                'count': tendencia.count(),
                 'data': TendenciaSerializer(tendencia,many=True).data
+            },status=status.HTTP_200_OK)
+
+# INDICADORES DE TENDENCIA
+class TendenciaCountView(APIView):
+    def get(self,request):
+        if not request.GET:
+            tendencia = Tendencia.objects.all()
+            if not tendencia:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': tendencia.aggregate(Sum('ESTUDIANTES'))
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in TENDENCIA_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            tendencia = Tendencia.objects.filter(**request.GET.dict())
+            if not tendencia:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': tendencia.aggregate(Sum('ESTUDIANTES'))
             },status=status.HTTP_200_OK)
 
 # DESERCION INTERANUAL
@@ -133,3 +165,4 @@ class AnalisisCohorteView(APIView):
             return Response({
                 'data': AnalisisCohorteSerializer(analisis,many=True).data
             },status=status.HTTP_200_OK)
+

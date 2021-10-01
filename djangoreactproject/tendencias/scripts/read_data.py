@@ -15,6 +15,8 @@ def run():
     # Eliminar columnas innecesarias
     dataTendencia.drop('FACULTAD',inplace=True, axis=1)
     dataTendencia.drop('FECHA_ACTUALIZACION',inplace=True, axis=1)
+    dataTendencia.drop('COD_UTP',inplace=True, axis=1)
+
     dataTendencia = dataTendencia.to_json(orient = 'records',force_ascii=False)
     # Se transforma de json a dict de python 
     dataTendencia = json.loads(dataTendencia)
