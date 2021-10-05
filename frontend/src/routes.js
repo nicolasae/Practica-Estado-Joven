@@ -4,10 +4,11 @@ import React from 'react';
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 
 // Tendencia Poblacional
-// const Graduados = React.lazy(() => import('./views/graduados/.js'))
+const Graduados = React.lazy(() => import('./views/poblacionestudiantil/Graduados.js'))
 const Matriculados = React.lazy(() => import('./views/poblacionestudiantil/Matriculados'))
-// const Inscritos = React.lazy(() => import('./views/inscritos/'))
-// const PrimerCurso = React.lazy(() => import('./views/primercurso/PrimerCurso.js'))
+const Inscritos = React.lazy(() => import('./views/poblacionestudiantil/Inscritos.js'))
+const PrimerCurso = React.lazy(() => import('./views/poblacionestudiantil/PrimerCurso.js'))
+const Cancelados = React.lazy(() => import('./views/poblacionestudiantil/Cancelados.js'))
 
 
 
@@ -31,10 +32,10 @@ const routes = [
   
   // TENDENCIA POBLACIONAL 
   { path: '/poblacionestudiantil/matriculados', name: 'Matriculados', component: Matriculados, exact: true },
-  // { path: '/tendencia/poblacionestudiantil/inscrito', name: 'Inscritos', component: InscritosPregrado, exact: true },
-  // { path: '/tendencia/poblacionestudiantil/graduado', name: 'Graduados', component: GraduadosPregrado, exact: true },
-  // { path: '/tendencia/poblacionestudiantil/primercurso', name: 'Primer Curso', component: PrimerCurso, exact: true},
-  // { path: '/tendencia/poblacionestudiantil/cancelados', name: 'Cancelados', component: Cancelados, exact: true},
+  { path: '/poblacionestudiantil/inscrito', name: 'Inscritos', component: Inscritos, exact: true },
+  { path: '/poblacionestudiantil/graduados', name: 'Graduados', component: Graduados, exact: true },
+  { path: '/poblacionestudiantil/primercurso', name: 'Primer Curso', component: PrimerCurso, exact: true},
+  { path: '/poblacionestudiantil/cancelados', name: 'Cancelados', component: Cancelados, exact: true},
 
 
   // DESERCIÓN

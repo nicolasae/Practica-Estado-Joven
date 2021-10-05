@@ -85,6 +85,32 @@ class TendenciaCountView(APIView):
                 'data': tendencia.aggregate(Sum('ESTUDIANTES'))
             },status=status.HTTP_200_OK)
 
+class TendenciaCountTotalView(APIView):
+    def get(self,request):
+        if not request.GET:
+            tendencia = Tendencia.objects.all()
+            if not tendencia:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': tendencia.aggregate(Sum('ESTUDIANTES'))
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in TENDENCIA_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            tendencia = Tendencia.objects.filter(**request.GET.dict())
+            if not tendencia:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': tendencia.aggregate(Sum('ESTUDIANTES'))
+            },status=status.HTTP_200_OK)
+
 # DESERCION INTERANUAL
 class DesercionInterAnualView(APIView):
     def get(self,request):

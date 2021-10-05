@@ -40,6 +40,7 @@ const Charts = () => {
               }
             }}
           />
+          
         </CCardBody>
       </CCard>
 

@@ -32,17 +32,17 @@ import '../../scss/_custom.scss'
   // hook personalizado
 const useSingleton = (callBack = () => { }) => { const hasBeenCalled = React.useRef(false);     if (hasBeenCalled.current) return;     callBack();     hasBeenCalled.current = true; }
 
-const Inscritos = () =>{
+const Cancelados = () =>{
     // constantes
     const actualYear = new Date().getFullYear()
     const [yearsData,setYearsData] = React.useState([])
-    // Constantes para inscritos general
+    // Constantes para cancelados general
     const [yearSelected, setYearSelected] = React.useState(new Date().getFullYear())
-    const [inscritosPrimer, setInscritosPrimer] = React.useState([])
-    const [collapseTablaInscritosPrimer, setCollapseTablaInscritosPrimer] = useState(false)
-    const fieldsInscritos = ['COD_PERIODO','ESTUDIANTES','ESTRATO','SEXO','TIPO_INSCRIPCION','TIPO_COLEGIO']
-    const [inscritosSegundo, setInscritosSegundo] = React.useState([])
-    const [collapseTablaInscritosSegundo, setCollapseTablaInscritosSegundo] = useState(false)
+    const [canceladosPrimer, setCanceladosPrimer] = React.useState([])
+    const [collapseTablaCanceladosPrimer, setCollapseTablaCanceladosPrimer] = useState(false)
+    const fieldsCancelados = ['COD_PERIODO','ESTUDIANTES','ESTRATO','SEXO','TIPO_INSCRIPCION','TIPO_COLEGIO']
+    const [canceladosSegundo, setCanceladosSegundo] = React.useState([])
+    const [collapseTablaCanceladosSegundo, setCollapseTablaCanceladosSegundo] = useState(false)
     
 
     // Funciones 
@@ -53,7 +53,7 @@ const Inscritos = () =>{
         setYearsData(yearsData)
     }
 
-    const getDataInscritosPrimerSemestre = async () => {
+    const getDataCanceladosPrimerSemestre = async () => {
         var axios = require('axios');
         var config = {
         method: 'get',
@@ -62,18 +62,18 @@ const Inscritos = () =>{
             'Content-Type': 'application/json'
         },
         };
-        const inscritosquery = await axios(config)    
+        const canceladosquery = await axios(config)    
         .then( response => response.data.data)
         .catch(function (error) {
             console.log(error);
             return error.response
         });
-        await setInscritosPrimer(inscritosquery)
-        console.log(inscritosPrimer)
+        await setCanceladosPrimer(canceladosquery)
+        console.log(canceladosPrimer)
 
     }
 
-    const getDataInscritosSegundoSemestre = async () => {
+    const getDataCanceladosSegundoSemestre = async () => {
         var axios = require('axios');
         var config = {
         method: 'get',
@@ -82,30 +82,30 @@ const Inscritos = () =>{
             'Content-Type': 'application/json'
         },
         };
-        const inscritosquery = await axios(config)    
+        const canceladosquery = await axios(config)    
         .then( response => response.data.data)
         .catch(function (error) {
             console.log(error);
             return error.response
         });
-        await setInscritosSegundo(inscritosquery)
+        await setCanceladosSegundo(canceladosquery)
         
 
     }
 
-    React.useEffect(async () => { await getDataInscritosPrimerSemestre()}, [yearSelected])
-    React.useEffect(async () => { await getDataInscritosSegundoSemestre()}, [yearSelected])
+    React.useEffect(async () => { await getDataCanceladosPrimerSemestre()}, [yearSelected])
+    React.useEffect(async () => { await getDataCanceladosSegundoSemestre()}, [yearSelected])
 
 
 
-    const toggleTablaInscritosPrimer = (e)=>{
-        setCollapseTablaInscritosPrimer(!collapseTablaInscritosPrimer);
-        setCollapseTablaInscritosSegundo(false);
+    const toggleTablaCanceladosPrimer = (e)=>{
+        setCollapseTablaCanceladosPrimer(!collapseTablaCanceladosPrimer);
+        setCollapseTablaCanceladosSegundo(false);
         e.preventDefault();
     }
-    const toggleTablaInscritosSegundo = (e)=>{
-        setCollapseTablaInscritosPrimer(false);
-        setCollapseTablaInscritosSegundo(!collapseTablaInscritosSegundo);
+    const toggleTablaCanceladosSegundo = (e)=>{
+        setCollapseTablaCanceladosPrimer(false);
+        setCollapseTablaCanceladosSegundo(!collapseTablaCanceladosSegundo);
         e.preventDefault();
     }
 
@@ -117,21 +117,21 @@ const Inscritos = () =>{
     // despues de definir las constantes 
     useSingleton(async () => {
         await getYears();    
-        await getDataInscritosPrimerSemestre()
-        await getDataInscritosSegundoSemestre()
+        await getDataCanceladosPrimerSemestre()
+        await getDataCanceladosSegundoSemestre()
 
     });
 
     return(
         <>
-        <h1 style={{textAlign: 'center', fontWeight:'bold'}}>Inscritos</h1>  
+        <h1 style={{textAlign: 'center', fontWeight:'bold'}}>Cancelados</h1>  
         <CCard>
             <CCardBody>
                 <p className="text-muted">
                 Para tener en cuenta:
                 </p>
                 <p className="muted">
-                    Los estudiantes de <b>inscritos</b> son .
+                    Los estudiantes de <b>cancelados</b> son .
                 </p>                
                 
             </CCardBody>
@@ -140,24 +140,24 @@ const Inscritos = () =>{
             <CCol xs="12" lg="12">
                 <CCard>
                     <h1 style={{textAlign: 'center', fontWeight:'bold'}}>
-                        Tabla de Estudiantes Inscritos General:
+                        Tabla de Estudiantes Cancelados General:
                     </h1>
-                    <CCollapse show={collapseTablaInscritosPrimer}>  
+                    <CCollapse show={collapseTablaCanceladosPrimer}>  
                         <CCardBody>
                             <CDataTable
-                                items={inscritosPrimer}
-                                fields={fieldsInscritos}
+                                items={canceladosPrimer}
+                                fields={fieldsCancelados}
                                 itemsPerPage={5}
                                 pagination
                                 columnFilter
                             />
                         </CCardBody>
                     </CCollapse>
-                    <CCollapse show={collapseTablaInscritosSegundo}>  
+                    <CCollapse show={collapseTablaCanceladosSegundo}>  
                         <CCardBody>
                             <CDataTable
-                                items={inscritosSegundo}
-                                fields={fieldsInscritos}
+                                items={canceladosSegundo}
+                                fields={fieldsCancelados}
                                 itemsPerPage={5}
                                 pagination
                                 columnFilter
@@ -177,13 +177,13 @@ const Inscritos = () =>{
                             <CCol md="2">
                                 <CButton
                                     color="outline-primary"
-                                    onClick={toggleTablaInscritosPrimer} 
+                                    onClick={toggleTablaCanceladosPrimer} 
                                     className={'mb-1'}
                                 >{yearSelected + '-1'}
                                 </CButton>
                                 <CButton
                                     color="outline-primary"
-                                    onClick={toggleTablaInscritosSegundo} 
+                                    onClick={toggleTablaCanceladosSegundo} 
                                     className={'mb-1'}
                                 >{yearSelected + '-2'}
                                 </CButton>
@@ -201,4 +201,4 @@ const Inscritos = () =>{
     )
 }
 
-export default Inscritos
+export default Cancelados
