@@ -50,7 +50,6 @@ class TendenciaView(APIView):
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
                 if value == 'None':
-                    print(query)
                     query[key] = None          
             tendencia = Tendencia.objects.filter(**query)
             if not tendencia:  
@@ -83,7 +82,6 @@ class TendenciaCountView(APIView):
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
                 if value == 'None':
-                    print(query)
                     query[key] = None
             print(query)
                 
