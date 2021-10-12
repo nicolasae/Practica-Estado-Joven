@@ -43,7 +43,12 @@ const Graduados = () =>{
     const fieldsGraduados = ['COD_PERIODO','ESTUDIANTES','ESTRATO','SEXO','TIPO_INSCRIPCION','TIPO_COLEGIO']
     const [graduadosSegundo, setGraduadosSegundo] = React.useState([])
     const [collapseTablaGraduadosSegundo, setCollapseTablaGraduadosSegundo] = useState(false)
-    
+    // Constantes Graduados sexo
+    const [yearSelectedSexo, setYearSelectedSexo] = React.useState(new Date().getFullYear())
+    const [graduadosSexoPrimerSemestre, setGraduadosSexoPrimerSemestre] = React.useState({masculino:0,femenino:0})
+    const [graduadosSexoSegundoSemestre, setGraduadosSexoSegundoSemestre] = React.useState({masculino:0,femenino:0})
+    const [collapsePieChartGraduadosSexoPrimer, setCollapsePieChartGraduadosSexoPrimer] = useState(false)
+    const [collapsePieChartGraduadosSexoSegundo, setCollapsePieChartGraduadosSexoSegundo] = useState(false)
 
     // Funciones 
     const getYears = async() => { 
@@ -77,7 +82,7 @@ const Graduados = () =>{
         var axios = require('axios');
         var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/tendencia?VAR=Primer curso&COD_PERIODO='+ yearSelected +'-2',
+        url: 'http://localhost:8000/api/tendencia?VAR=Graduado&COD_PERIODO='+ yearSelected +'-2',
         headers: { 
             'Content-Type': 'application/json'
         },
@@ -88,14 +93,78 @@ const Graduados = () =>{
             console.log(error);
             return error.response
         });
-        await setGraduadosSegundo(graduadosquery)
-        
+        await setGraduadosSegundo(graduadosquery) 
+    }
 
+    const getDataGraduadosSexoPrimerSemestre = async () => {
+        console.log(yearSelectedSexo)
+        var axios = require('axios');
+        var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/tendencia_count?VAR=Graduado&SEXO=Masculino&COD_PERIODO='+ yearSelectedSexo +'-1',
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        };
+        var config1 = {
+            method:'get',
+            url:'http://localhost:8000/api/tendencia_count?VAR=Graduado&SEXO=Femenino&COD_PERIODO='+ yearSelectedSexo +'-1',
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+        }
+        var graduadosquery = await axios(config)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
+        var graduadosquery1 = await axios(config1)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
+        await setGraduadosSexoPrimerSemestre({masculino:graduadosquery.ESTUDIANTES__sum,femenino:graduadosquery1.ESTUDIANTES__sum})
+        
+    }
+
+    const getDataGraduadosSexoSegundoSemestre = async () => {
+        var axios = require('axios');
+        var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/tendencia_count?VAR=Graduado&SEXO=Masculino&COD_PERIODO='+ yearSelectedSexo +'-2',
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        };
+        var config1 = {
+            method:'get',
+            url:'http://localhost:8000/api/tendencia_count?VAR=Graduado&SEXO=Femenino&COD_PERIODO='+ yearSelectedSexo +'-2',
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+        }
+        var graduadosquery = await axios(config)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
+        var graduadosquery1 = await axios(config1)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
+        await setGraduadosSexoSegundoSemestre({masculino:graduadosquery.ESTUDIANTES__sum,femenino:graduadosquery1.ESTUDIANTES__sum})
     }
 
     React.useEffect(async () => { await getDataGraduadosPrimerSemestre()}, [yearSelected])
     React.useEffect(async () => { await getDataGraduadosSegundoSemestre()}, [yearSelected])
 
+    React.useEffect(async () => { await getDataGraduadosSexoPrimerSemestre()},[yearSelectedSexo])
+    React.useEffect(async () => { await getDataGraduadosSexoSegundoSemestre()},[yearSelectedSexo])
 
 
     const toggleTablaGraduadosPrimer = (e)=>{
@@ -108,18 +177,30 @@ const Graduados = () =>{
         setCollapseTablaGraduadosSegundo(!collapseTablaGraduadosSegundo);
         e.preventDefault();
     }
+    const togglePieChartGraduadosSexoPrimer = (e)=>{
+        setCollapsePieChartGraduadosSexoPrimer(!collapsePieChartGraduadosSexoPrimer);
+        e.preventDefault();
+    }
+    const togglePieChartGraduadosSexoSegundo = (e)=>{
+        setCollapsePieChartGraduadosSexoSegundo(!collapsePieChartGraduadosSexoSegundo);
+        e.preventDefault();
+    }
 
     const handleChangeYear = async (event) =>  {
         setYearSelected(event.target.value);
-        console.log(yearSelected)
-
+    }
+    const handleChangeYearPieChartSexo = async (event) =>  {
+        setYearSelectedSexo(event.target.value);
+        setGraduadosSexoPrimerSemestre([])
+        setGraduadosSexoSegundoSemestre([])
     }
     // despues de definir las constantes 
     useSingleton(async () => {
         await getYears();    
         await getDataGraduadosPrimerSemestre()
         await getDataGraduadosSegundoSemestre()
-
+        await getDataGraduadosSexoPrimerSemestre()
+        await getDataGraduadosSexoSegundoSemestre()
     });
 
     return(
@@ -194,6 +275,94 @@ const Graduados = () =>{
                             </CCol>
                         </CFormGroup>
                     </CCardFooter>
+                </CCard>
+            </CCol>
+            <CCol xs="12" lg="12">
+                <CCard>
+                    <h1 style={{textAlign: 'center', fontWeight:'bold'}}>
+                        Graduados según sexo:
+                    </h1>
+                    <CCardHeader>
+                        <CLabel >Año:</CLabel>
+                        <CFormGroup row>
+                            <CCol md="3">
+                                <CSelect value={yearSelectedSexo} onChange={handleChangeYearPieChartSexo}>
+                                    {yearsData.map(item => {
+                                        return (<option key={item} value={item}>{item}</option>);
+                                    })}
+                                </CSelect>
+                            </CCol>
+                            <CCol md="3">
+                                <CButton
+                                    color="outline-primary"
+                                    onClick={togglePieChartGraduadosSexoPrimer}
+                                    className={'mb-1'}
+                                >{yearSelectedSexo + '-1'}
+                                </CButton>
+                                <CButton
+                                    color="outline-primary"
+                                    onClick={togglePieChartGraduadosSexoSegundo} 
+                                    className={'mb-1'}
+                                >{yearSelectedSexo + '-2'}
+                                </CButton>
+                            </CCol>
+                        </CFormGroup>
+                        <CFormGroup row>
+                            <CCol xs={6}>
+                            <CCollapse show={collapsePieChartGraduadosSexoPrimer}>  
+                                <CCard className="mt-3">
+                                <CCardBody>
+                                    <h2 style={{textAlign: 'center'}}>{yearSelectedSexo + '-1'}</h2>
+                                    <CChartPie
+                                    datasets={[
+                                    {
+                                        backgroundColor: [
+                                        '#E46651',
+                                        '#00D8FF',
+                                        ],
+                                        data: [graduadosSexoPrimerSemestre.masculino,graduadosSexoPrimerSemestre.femenino]
+                                    }
+                                    ]}
+                                    labels={['Masculino', 'Femenino']}
+                                    options={{
+                                    tooltips: {
+                                        enabled: true
+                                    }
+                                    }}
+                                    />
+
+                                </CCardBody>
+                                </CCard>
+                            </CCollapse>
+                        </CCol>
+                        <CCol xs={6}>
+                            <CCollapse show={collapsePieChartGraduadosSexoSegundo}>  
+                                <CCard className="mt-3">
+                                    <CCardBody>
+                                        <h2 style={{textAlign: 'center'}}>{yearSelectedSexo + '-2'}</h2>
+                                        <CChartPie
+                                        datasets={[
+                                        {
+                                            backgroundColor: [
+                                            '#E46651',
+                                            '#00D8FF',
+                                            ],
+                                            data: [graduadosSexoSegundoSemestre.masculino,graduadosSexoSegundoSemestre.femenino]
+                                        }
+                                        ]}
+                                        labels={['Masculino', 'Femenino']}
+                                        options={{
+                                        tooltips: {
+                                            enabled: true
+                                        }
+                                        }}
+                                        />
+                                    </CCardBody>
+                                </CCard>
+                            </CCollapse>
+                        </CCol>
+                        </CFormGroup>
+                    </CCardHeader>
                 </CCard>
             </CCol>
         </CRow>

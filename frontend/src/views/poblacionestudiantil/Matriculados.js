@@ -59,6 +59,8 @@ const Matriculados = () =>{
     const [matriculadosEstratoSegundoSemestre, setMatriculadosEstratoSegundoSemestre] = React.useState({estrato0:0,estrato1:0,estrato2:0,estrato3:0,estrato4:0,estrato5:0,estrato6:0})
     const [collapseBarChartMatriculadosEstratoPrimer, setCollapseBarChartMatriculadosEstratoPrimer] = useState(false)
     const [collapseBarChartMatriculadosEstratoSegundo, setCollapseBarChartMatriculadosEstratoSegundo] = useState(false)
+    //Constantes Matriculados tipos de inscripción
+
 
     // Funciones 
     const getYears = async() => { 
@@ -168,13 +170,13 @@ const Matriculados = () =>{
     }
     const getDataMatriculadosEstratoPrimerSemestre = async() =>{ 
         var axios = require('axios');
-        // var config = {
-        // method: 'get',
-        // url: 'http://localhost:8000/api/tendencia_count?VAR=Matriculado&ESTRATO=&COD_PERIODO='+ yearSelectedSexo +'-1',
-        // headers: { 
-        //     'Content-Type': 'application/json'
-        // },
-        // };
+        var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/tendencia_count?VAR=Matriculado&ESTRATO=None&COD_PERIODO='+ yearSelectedSexo +'-1',
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        };
         var config1 = {
             method: 'get',
             url: 'http://localhost:8000/api/tendencia_count?VAR=Matriculado&ESTRATO=I&COD_PERIODO='+ yearSelectedEstrato +'-1',
@@ -217,6 +219,12 @@ const Matriculados = () =>{
                 'Content-Type': 'application/json'
             },
             };
+        var matriculadosquery = await axios(config)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
         var matriculadosquery1 = await axios(config1)    
         .then( response => response.data.data)
         .catch(function (error) {
@@ -255,7 +263,7 @@ const Matriculados = () =>{
         });
         await setMatriculadosEstratoPrimerSemestre(
             {
-                estrato0:0,
+                estrato0:matriculadosquery.ESTUDIANTES__sum,
                 estrato1:matriculadosquery1.ESTUDIANTES__sum,
                 estrato2:matriculadosquery2.ESTUDIANTES__sum,
                 estrato3:matriculadosquery3.ESTUDIANTES__sum,
@@ -267,13 +275,13 @@ const Matriculados = () =>{
 
     const getDataMatriculadosEstratoSegundoSemestre = async() =>{ 
         var axios = require('axios');
-        // var config = {
-        // method: 'get',
-        // url: 'http://localhost:8000/api/tendencia_count?VAR=Matriculado&ESTRATO=&COD_PERIODO='+ yearSelectedSexo +'-2',
-        // headers: { 
-        //     'Content-Type': 'application/json'
-        // },
-        // };
+        var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/tendencia_count?VAR=Matriculado&ESTRATO=None&COD_PERIODO='+ yearSelectedSexo +'-2',
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        };
         var config1 = {
             method: 'get',
             url: 'http://localhost:8000/api/tendencia_count?VAR=Matriculado&ESTRATO=I&COD_PERIODO='+ yearSelectedEstrato +'-2',
@@ -316,6 +324,12 @@ const Matriculados = () =>{
                 'Content-Type': 'application/json'
             },
             };
+        var matriculadosquery = await axios(config)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
         var matriculadosquery1 = await axios(config1)    
         .then( response => response.data.data)
         .catch(function (error) {
@@ -354,7 +368,7 @@ const Matriculados = () =>{
         });
         await setMatriculadosEstratoSegundoSemestre(
             {
-                estrato0:0,
+                estrato0:matriculadosquery.ESTUDIANTES__sum,
                 estrato1:matriculadosquery1.ESTUDIANTES__sum,
                 estrato2:matriculadosquery2.ESTUDIANTES__sum,
                 estrato3:matriculadosquery3.ESTUDIANTES__sum,
@@ -537,10 +551,8 @@ const Matriculados = () =>{
                                 </CButton>
                             </CCol>
                         </CFormGroup>
-                    </CCardHeader>
-                </CCard>
-                    <CRow>
-                        <CCol xs={6}>
+                        <CFormGroup row>
+                            <CCol xs={6}>
                             <CCollapse show={collapsePieChartMatriculadosSexoPrimer}>  
                                 <CCard className="mt-3">
                                 <CCardBody>
@@ -594,10 +606,14 @@ const Matriculados = () =>{
                                 </CCard>
                             </CCollapse>
                         </CCol>
-                    </CRow>
+                        </CFormGroup>
+                    </CCardHeader>
+                
+                        
+                    </CCard>
                 </CCol>
             </CRow>
-            <CRow>
+            {/* <CRow>
                 <CCol xs="12" lg="12">
                     <CCard>
                         <h1 style={{textAlign: 'center', fontWeight:'bold'}}>
@@ -638,13 +654,13 @@ const Matriculados = () =>{
                                         label: 'Estudiantes Matriculados',
                                         backgroundColor: '#f87979',
                                         data: [
-                                            matriculadosEstratoPrimerSemestre.estrato0,
-                                            matriculadosEstratoPrimerSemestre.estrato1,
-                                            matriculadosEstratoPrimerSemestre.estrato2,
-                                            matriculadosEstratoPrimerSemestre.estrato3,
-                                            matriculadosEstratoPrimerSemestre.estrato4,
-                                            matriculadosEstratoPrimerSemestre.estrato5,
-                                            matriculadosEstratoPrimerSemestre.estrato6,
+                                            matriculadosEstratoSegundoSemestre.estrato0,
+                                            matriculadosEstratoSegundoSemestre.estrato1,
+                                            matriculadosEstratoSegundoSemestre.estrato2,
+                                            matriculadosEstratoSegundoSemestre.estrato3,
+                                            matriculadosEstratoSegundoSemestre.estrato4,
+                                            matriculadosEstratoSegundoSemestre.estrato5,
+                                            matriculadosEstratoSegundoSemestre.estrato6,
                                         ]
                                     }
                                     ]}
@@ -685,7 +701,39 @@ const Matriculados = () =>{
                             </CCardFooter>  
                     </CCard>
                 </CCol>
-            </CRow>
+            </CRow> */}
+            {/* <CRow>
+                <CCol xs="12" lg="12">
+                    <CCard>
+                        <h1 style={{textAlign: 'center', fontWeight:'bold'}}>
+                            Matriculados según tipo de colegio:
+                        </h1>
+                        <CCardBody>
+                            <CChartLine
+                                datasets={[
+                                {
+                                    label: 'Data One',
+                                    backgroundColor: 'rgb(228,102,81,0.9)',
+                                    data: [30, 39, 10, 50, 30, 70, 35]
+                                },
+                                {
+                                    label: 'Data Two',
+                                    backgroundColor: 'rgb(0,216,255,0.9)',
+                                    data: [39, 80, 40, 35, 40, 20, 45]
+                                }
+                                ]}
+                                options={{
+                                tooltips: {
+                                    enabled: true
+                                }
+                                }}
+                                labels= {yearsData}
+                            />
+                        </CCardBody>
+                    </CCard>
+
+                </CCol>
+            </CRow> */}
             
         </>
     )

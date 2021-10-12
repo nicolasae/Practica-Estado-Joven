@@ -43,12 +43,16 @@ class TendenciaView(APIView):
                 'data': TendenciaSerializer(tendencia,many=True).data
             },status=status.HTTP_200_OK)
         else:
-            for key,value in request.GET.items():
+            query = {**request.GET.dict()}
+            for key,value in query.items():
                 if key not in TENDENCIA_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            tendencia = Tendencia.objects.filter(**request.GET.dict())
+                if value == 'None':
+                    print(query)
+                    query[key] = None          
+            tendencia = Tendencia.objects.filter(**query)
             if not tendencia:  
                 return Response({
                     'data': 'No se encontraron los registros'
@@ -71,45 +75,35 @@ class TendenciaCountView(APIView):
                 'data': tendencia.aggregate(Sum('ESTUDIANTES'))
             },status=status.HTTP_200_OK)
         else:
+            query = {**request.GET.dict()}
+
             for key,value in request.GET.items():
                 if key not in TENDENCIA_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            tendencia = Tendencia.objects.filter(**request.GET.dict())
+                if value == 'None':
+                    print(query)
+                    query[key] = None
+            print(query)
+                
+            if query.get('COD_PERIODO'):
+                print(query)
+                if len(query.get('COD_PERIODO').split('-')) == 1:        
+                    year = query.pop('COD_PERIODO')
+                    query['COD_PERIODO__in'] = [f'{year}-1',f'{year}-2']
+                
+            tendencia = Tendencia.objects.filter(**query)
             if not tendencia:  
                 return Response({
-                    'data': 'No se encontraron los registros'
+                    'data': 'No se encontraron los registros',
+                    'body':query 
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
                 'data': tendencia.aggregate(Sum('ESTUDIANTES'))
             },status=status.HTTP_200_OK)
 
-class TendenciaCountTotalView(APIView):
-    def get(self,request):
-        if not request.GET:
-            tendencia = Tendencia.objects.all()
-            if not tendencia:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND)   
-            return Response({
-                'data': tendencia.aggregate(Sum('ESTUDIANTES'))
-            },status=status.HTTP_200_OK)
-        else:
-            for key,value in request.GET.items():
-                if key not in TENDENCIA_FIELDS:
-                    return Response({
-                        'data': f'El filtro {key} no está disponible'
-                    },status=status.HTTP_409_CONFLICT)
-            tendencia = Tendencia.objects.filter(**request.GET.dict())
-            if not tendencia:  
-                return Response({
-                    'data': 'No se encontraron los registros'
-                },status=status.HTTP_404_NOT_FOUND) 
-            return Response({
-                'data': tendencia.aggregate(Sum('ESTUDIANTES'))
-            },status=status.HTTP_200_OK)
+
 
 # DESERCION INTERANUAL
 class DesercionInterAnualView(APIView):
