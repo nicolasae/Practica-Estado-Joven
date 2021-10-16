@@ -53,8 +53,8 @@ const Inscritos = () =>{
     const [yearSelectedEstrato, setYearSelectedEstrato] = React.useState(new Date().getFullYear())
     const [collapseLineChartEstrato, setCollapseLineChartEstrato] = useState(false)
     const fieldsEstrato = ['Estrato 0','Estrato I','Estrato II','Estrato III','Estrato IV','Estrato V','Estrato VI']
-    const [inscritosEstratoPrimerSemestre, setInscritosEstratoPrimerSemestre] = React.useState({estrato0:0,estrato1:0,estrato2:0,estrato3:0,estrato4:0,estrato5:0,estrato6:0})
-    const [inscritosEstratoSegundoSemestre, setInscritosEstratoSegundoSemestre] = React.useState({estrato0:0,estrato1:0,estrato2:0,estrato3:0,estrato4:0,estrato5:0,estrato6:0})
+    const [inscritosEstratoPrimerSemestre, setInscritosEstratoPrimerSemestre] = React.useState({})
+    const [inscritosEstratoSegundoSemestre, setInscritosEstratoSegundoSemestre] = React.useState({})
 
 
     // Funciones 
@@ -101,7 +101,6 @@ const Inscritos = () =>{
         await setInscritosSegundo(inscritosquery)
     }
     const getDataInscritosSexoPrimerSemestre = async () => {
-        console.log(yearSelectedSexo)
         var axios = require('axios');
         var config = {
         method: 'get',
@@ -163,215 +162,85 @@ const Inscritos = () =>{
         await setInscritosSexoSegundoSemestre({masculino:inscritosquery.ESTUDIANTES__sum,femenino:inscritosquery1.ESTUDIANTES__sum})
     }
     const getDataInscritosEstratoPrimerSemestre = async() =>{ 
+        var estratos = ['None','I','II','III','IV','V','VI']
         var axios = require('axios');
-        var config = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=None&COD_PERIODO='+ yearSelectedSexo +'-1',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config1 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=I&COD_PERIODO='+ yearSelectedEstrato +'-1',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config2 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=II&COD_PERIODO='+ yearSelectedEstrato +'-1',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config3 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=III&COD_PERIODO='+ yearSelectedEstrato +'-1',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config4 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=IV&COD_PERIODO='+ yearSelectedEstrato +'-1',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config5 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=V&COD_PERIODO='+ yearSelectedEstrato +'-1',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config6 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=VI&COD_PERIODO='+ yearSelectedEstrato +'-1',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var inscritosquery = await axios(config) 
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery1 = await axios(config1)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery2 = await axios(config2)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery3 = await axios(config3)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery4 = await axios(config4)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery5 = await axios(config5)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery6 = await axios(config6)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        await setInscritosEstratoPrimerSemestre(
-            {
-                
-                estrato0:0,
-                estrato1:inscritosquery1.ESTUDIANTES__sum,
-                estrato2:inscritosquery2.ESTUDIANTES__sum,
-                estrato3:inscritosquery3.ESTUDIANTES__sum,
-                estrato4:inscritosquery4.ESTUDIANTES__sum,
-                estrato5:inscritosquery5.ESTUDIANTES__sum,
-                estrato6:inscritosquery6.ESTUDIANTES__sum,
-            })
         
+        for (var i = 0;i<7;i++){
+            // console.log(estratos[i]);
+            var config = {
+                method: 'get',
+                url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO='+estratos[i]+'&COD_PERIODO='+ yearSelectedEstrato +'-1',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+            };
+
+            let inscritosquery = await axios(config)    
+            .then( response => response.data.data)
+            .catch(function (error) {
+                console.log(error);
+                if(error.response.status === 404) {
+                    console.log('error')
+                    return 0
+
+                }
+                else {
+                    return error.response
+                }
+            });
+            console.log(inscritosquery);
+            // console.log('estrato'+i)
+            let aux = inscritosEstratoPrimerSemestre;
+            aux['estrato'+i] = inscritosquery.ESTUDIANTES__sum
+            console.log(aux)
+            await setInscritosEstratoPrimerSemestre(
+            
+                // aux
+                {...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
+                
+            )
+            
+        }
+        console.log(inscritosEstratoPrimerSemestre)
     }
 
     const getDataInscritosEstratoSegundoSemestre = async() =>{ 
-        var axios = require('axios');
-        var config = {
-        method: 'get',
-        url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=None&COD_PERIODO='+ yearSelectedSexo +'-2',
-        headers: { 
-            'Content-Type': 'application/json'
-        },
-        };
-        var config1 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=I&COD_PERIODO='+ yearSelectedEstrato +'-2',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config2 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=II&COD_PERIODO='+ yearSelectedEstrato +'-2',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config3 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=III&COD_PERIODO='+ yearSelectedEstrato +'-2',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config4 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=IV&COD_PERIODO='+ yearSelectedEstrato +'-2',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config5 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=V&COD_PERIODO='+ yearSelectedEstrato +'-2',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var config6 = {
-            method: 'get',
-            url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO=VI&COD_PERIODO='+ yearSelectedEstrato +'-2',
-            headers: { 
-                'Content-Type': 'application/json'
-            },
-            };
-        var inscritosquery = await axios(config)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery1 = await axios(config1)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery2 = await axios(config2)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery3 = await axios(config3)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery4 = await axios(config4)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery5 = await axios(config5)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        var inscritosquery6 = await axios(config6)    
-        .then( response => response.data.data)
-        .catch(function (error) {
-            console.log(error);
-            return error.response
-        });
-        await setInscritosEstratoSegundoSemestre(
-            {
-                estrato0:0,
-                estrato1:inscritosquery1.ESTUDIANTES__sum,
-                estrato2:inscritosquery2.ESTUDIANTES__sum,
-                estrato3:inscritosquery3.ESTUDIANTES__sum,
-                estrato4:inscritosquery4.ESTUDIANTES__sum,
-                estrato5:inscritosquery5.ESTUDIANTES__sum,
-                estrato6:inscritosquery6.ESTUDIANTES__sum,
-            })
+        var estratos = ['None','I','II','III','IV','V','VI']
+        var axios = require('axios'); 
+        console.log(yearSelectedSexo)       
+        for (var i = 1;i<7;i++){
+            // console.log(yearSelectedSexo)
+            var config = {
+                method: 'get',
+                url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO='+estratos[i]+'&COD_PERIODO='+ yearSelectedEstrato +'-2',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                };
+
+            var inscritosquery = await axios(config)    
+            .then( response => response.data.data)
+            .catch(function (error) {
+                console.log(error);
+                if(error.response.status === 404) {
+                    return 0
+                }
+                else {
+                    return error.response
+                }
+            });
+
+            let aux = inscritosEstratoSegundoSemestre;
+            aux['estrato'+i] = inscritosquery.ESTUDIANTES__sum
+            console.log(aux)
+            await setInscritosEstratoSegundoSemestre(
+            
+                aux
+                // ...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum,
+                
+            )
+        }
+        
     }
 
     React.useEffect(async () => { await getDataInscritosPrimerSemestre()}, [yearSelected])
@@ -417,8 +286,8 @@ const Inscritos = () =>{
     }
     const handleChangeYearLineChartEstrato = async (event) =>  {
         setYearSelectedEstrato(event.target.value);
-        setInscritosEstratoPrimerSemestre([])
-        setInscritosEstratoSegundoSemestre([])
+        // setInscritosEstratoPrimerSemestre([])
+        // setInscritosEstratoSegundoSemestre([])
     }
     // despues de definir las constantes 
     useSingleton(async () => {
