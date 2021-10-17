@@ -180,7 +180,6 @@ const Inscritos = () =>{
             .catch(function (error) {
                 console.log(error);
                 if(error.response.status === 404) {
-                    console.log('error')
                     return 0
 
                 }
@@ -188,16 +187,8 @@ const Inscritos = () =>{
                     return error.response
                 }
             });
-            console.log(inscritosquery);
-            // console.log('estrato'+i)
-            let aux = inscritosEstratoPrimerSemestre;
-            aux['estrato'+i] = inscritosquery.ESTUDIANTES__sum
-            console.log(aux)
             await setInscritosEstratoPrimerSemestre(
-            
-                // aux
-                {...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
-                
+                {...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}   
             )
             
         }
@@ -229,14 +220,8 @@ const Inscritos = () =>{
                     return error.response
                 }
             });
-
-            let aux = inscritosEstratoSegundoSemestre;
-            aux['estrato'+i] = inscritosquery.ESTUDIANTES__sum
-            console.log(aux)
             await setInscritosEstratoSegundoSemestre(
-            
-                aux
-                // ...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum,
+                {...inscritosEstratoSegundoSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
                 
             )
         }
