@@ -55,7 +55,10 @@ const Inscritos = () =>{
     const fieldsEstrato = ['Estrato 0','Estrato I','Estrato II','Estrato III','Estrato IV','Estrato V','Estrato VI']
     const [inscritosEstratoPrimerSemestre, setInscritosEstratoPrimerSemestre] = React.useState({})
     const [inscritosEstratoSegundoSemestre, setInscritosEstratoSegundoSemestre] = React.useState({})
-
+    const [loadingEstrato, setLoadingEstrato] = React.useState(false)
+    // Constantes segun colegio 
+    const [yearSelectedColegio, setYearSelectedColegio] = React.useState(new Date().getFullYear())
+    const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
 
     // Funciones 
     const getYears = async() => { 
@@ -164,9 +167,7 @@ const Inscritos = () =>{
     const getDataInscritosEstratoPrimerSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
         var axios = require('axios');
-        
         for (var i = 0;i<7;i++){
-            // console.log(estratos[i]);
             var config = {
                 method: 'get',
                 url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO='+estratos[i]+'&COD_PERIODO='+ yearSelectedEstrato +'-1',
@@ -174,47 +175,42 @@ const Inscritos = () =>{
                     'Content-Type': 'application/json'
                 },
             };
-
             let inscritosquery = await axios(config)    
             .then( response => response.data.data)
             .catch(function (error) {
-                console.log(error);
                 if(error.response.status === 404) {
-                    return 0
-
+                    
+                    return {ESTUDIANTES__sum:0}
                 }
                 else {
                     return error.response
                 }
             });
             await setInscritosEstratoPrimerSemestre(
-                {...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}   
+                {...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
             )
-            
         }
-        console.log(inscritosEstratoPrimerSemestre)
+
     }
 
     const getDataInscritosEstratoSegundoSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
         var axios = require('axios'); 
-        console.log(yearSelectedSexo)       
-        for (var i = 1;i<7;i++){
-            // console.log(yearSelectedSexo)
+        
+        for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
                 url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&ESTRATO='+estratos[i]+'&COD_PERIODO='+ yearSelectedEstrato +'-2',
                 headers: { 
                     'Content-Type': 'application/json'
                 },
-                };
-
+            };
+            
             var inscritosquery = await axios(config)    
             .then( response => response.data.data)
             .catch(function (error) {
-                console.log(error);
                 if(error.response.status === 404) {
-                    return 0
+                    return {ESTUDIANTES__sum:0}
                 }
                 else {
                     return error.response
@@ -222,11 +218,13 @@ const Inscritos = () =>{
             });
             await setInscritosEstratoSegundoSemestre(
                 {...inscritosEstratoSegundoSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
-                
             )
+          
         }
-        
+        setLoadingEstrato(false)
     }
+
+
 
     React.useEffect(async () => { await getDataInscritosPrimerSemestre()}, [yearSelected])
     React.useEffect(async () => { await getDataInscritosSegundoSemestre()}, [yearSelected])
@@ -234,8 +232,10 @@ const Inscritos = () =>{
     React.useEffect(async () => { await getDataInscritosSexoPrimerSemestre()},[yearSelectedSexo])
     React.useEffect(async () => { await getDataInscritosSexoSegundoSemestre()},[yearSelectedSexo])
 
-    React.useEffect(async () => { await getDataInscritosEstratoPrimerSemestre()},[yearSelectedEstrato])
-    React.useEffect(async () => { await getDataInscritosEstratoSegundoSemestre()},[yearSelectedEstrato])
+    React.useEffect(async () => { 
+        await getDataInscritosEstratoPrimerSemestre()
+        await getDataInscritosEstratoSegundoSemestre()
+    },[yearSelectedEstrato])
 
 
     const toggleTablaInscritosPrimer = (e)=>{
@@ -260,6 +260,10 @@ const Inscritos = () =>{
         setCollapseLineChartEstrato(!collapseLineChartEstrato);
         e.preventDefault();
     }
+    const toggleLineChartColegio = (e)=>{
+        setCollapseLineChartColegio(!collapseLineChartColegio);
+        e.preventDefault();
+    }
 
     const handleChangeYear = async (event) =>  {
         setYearSelected(event.target.value);
@@ -270,10 +274,13 @@ const Inscritos = () =>{
         setInscritosSexoSegundoSemestre([])
     }
     const handleChangeYearLineChartEstrato = async (event) =>  {
-        setYearSelectedEstrato(event.target.value);
-        // setInscritosEstratoPrimerSemestre([])
-        // setInscritosEstratoSegundoSemestre([])
+        await setYearSelectedEstrato(event.target.value);
+        await setLoadingEstrato(true);
     }
+    const handleChangeYearLineChartColegio = async (event) =>  {
+        setYearSelectedColegio(event.target.value);
+    }
+
     // despues de definir las constantes 
     useSingleton(async () => {
         await getYears();    
@@ -281,6 +288,7 @@ const Inscritos = () =>{
         await getDataInscritosSegundoSemestre()
         await getDataInscritosSexoPrimerSemestre()
         await getDataInscritosSexoSegundoSemestre()
+
         await getDataInscritosEstratoPrimerSemestre()
         await getDataInscritosEstratoSegundoSemestre()
     });
@@ -463,12 +471,15 @@ const Inscritos = () =>{
                                     color="outline-primary"
                                     onClick={toggleLineChartEstrato}
                                     className={'mb-1'}
-                                >Graficar
+                                >Mostrar Gráfico
                                 </CButton>
                             </CCol>
                         </CFormGroup>
                         <CCollapse show={collapseLineChartEstrato}>  
                             <CCardBody>
+                                {loadingEstrato? <div class="spinner-border text-info" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                    </div> :
                                 <CChartBar
                                     datasets={[
                                     {
@@ -506,12 +517,68 @@ const Inscritos = () =>{
                                     }}
                                     
                                 />
+                                }
                             </CCardBody>
                         </CCollapse>
                     </CCardHeader>
                 </CCard>
             </CCol>                            
-            
+            <CCol xs="12" lg="12">
+                <CCard>
+                    <h1 style={{textAlign: 'center', fontWeight:'bold'}}>
+                        Tendencia según colegio:
+                    </h1>
+                    <CCardHeader>
+                        <CLabel >Año:</CLabel>
+                        <CFormGroup row>
+                            <CCol md="3">
+                                <CSelect value={yearSelectedColegio} onChange={handleChangeYearLineChartColegio}>
+                                    {yearsData.map(item => {
+                                        return (<option key={item} value={item}>{item}</option>);
+                                    })}
+                                </CSelect>
+                            </CCol>
+                            <CCol md="3">
+                                <CButton
+                                    color="outline-primary"
+                                    onClick={toggleLineChartColegio}
+                                    className={'mb-1'}
+                                >Graficar
+                                </CButton>
+                            </CCol>
+                        </CFormGroup>
+                        <CCollapse show={collapseLineChartColegio}>  
+                            <CCardBody>
+                                <CChartLine
+                                    datasets={[
+                                    {
+                                        label: 'Na',
+                                        backgroundColor: 'rgb(228,102,81,0.9)',
+                                        data: [30, 39, 10, 50, 30, 70, 35]
+                                    },
+                                    {
+                                        label: 'Oficial',
+                                        backgroundColor: 'rgb(0,216,255,0.9)',
+                                        data: [39, 80, 40, 35, 40, 20, 45]
+                                    },
+                                    {
+                                        label: 'Privado',
+                                        backgroundColor: 'rgb(0,236,225)',
+                                        data: [39, 80, 40, 32, 49, 23, 45]
+                                    }
+                                    ]}
+                                    options={{
+                                    tooltips: {
+                                        enabled: true
+                                    }
+                                    }}
+                                    labels="months"
+                                />
+                            </CCardBody>
+                        </CCollapse>
+                    </CCardHeader>
+                </CCard>
+            </CCol> 
         </CRow>
         
 
