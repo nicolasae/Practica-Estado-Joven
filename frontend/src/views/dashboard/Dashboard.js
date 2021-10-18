@@ -38,6 +38,7 @@ const Dashboard = () => {
   const [yearSelected, setYearSelected] = React.useState(new Date().getFullYear());
   const [dataTotal, setDataTotal] = React.useState([]);
   const [dataSemestre,setDataSemestre] = React.useState([]);
+  const [collapseSemestre, setCollapseSemestre] = useState(false);
   const [collapseGeneral, setCollapseGeneral] = useState(false);
 
   // Funciones
@@ -104,8 +105,14 @@ const Dashboard = () => {
     await getDataTotal();
   });
 
+  const toggleSemestre = (e) => {
+    setCollapseSemestre(!collapseSemestre);
+    setCollapseGeneral(false)
+    e.preventDefault();
+  };
   const toggleGeneral = (e) => {
     setCollapseGeneral(!collapseGeneral);
+    setCollapseSemestre(false)
     e.preventDefault();
   };
 
@@ -125,8 +132,7 @@ const Dashboard = () => {
         Seleccione la información que desee
       </h1>
       <CFormGroup row>
-      <CCol md="3"></CCol>
-        <CCol md="3">
+        <CCol md="4">
           <CSelect value={yearSelected} onChange={handleChangeYear}>
             {yearsData.map((item) => {
               return (
@@ -137,17 +143,26 @@ const Dashboard = () => {
             })}
           </CSelect>
         </CCol>
-        <CCol md="6">
+        <CCol md="3">
           <CButton
             color="outline-primary"
-            onClick={toggleGeneral}
+            onClick={toggleSemestre}
             className={"mb-1"}
           >
             Mostrar información del año: {yearSelected}
           </CButton>
         </CCol>
+        <CCol md="3">
+          <CButton
+            color="outline-primary"
+            onClick={toggleGeneral}
+            className={"mb-1"}
+          >
+            Mostrar información general
+          </CButton>
+        </CCol>
       </CFormGroup>
-      <CCollapse show={collapseGeneral}>
+      <CCollapse show={collapseSemestre}>
         <CRow>
           <CCol lg="1"></CCol>
           <CCol sm="3" lg="2" xs="12">
@@ -243,6 +258,7 @@ const Dashboard = () => {
             </CCol>                            
           </CFormGroup>
       </CCollapse>
+      <CCollapse show={collapseGeneral}>
       <CCol xs="12" lg="12">
             <CCard>
               <CCardBody>
@@ -294,6 +310,7 @@ const Dashboard = () => {
               </CCardBody>
             </CCard>
           </CCol>
+        </CCollapse>
     </>
   );
 };
