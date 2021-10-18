@@ -5,15 +5,12 @@ import {
   CCard,
   CCardBody,
   CCardHeader,
-  CLink,
   CCol,
   CRow,
-  CTooltip,
   CDataTable,
   CCollapse,
   CCardFooter,
   CButton,
-  CButtonGroup,
   CFormGroup,
   CLabel,
   CSelect,
@@ -22,10 +19,7 @@ import {
 import {
     CChartBar,
     CChartLine,
-    CChartDoughnut,
-    CChartRadar,
     CChartPie,
-    CChartPolarArea
   } from '@coreui/react-chartjs'
 import '../../scss/_custom.scss'
 

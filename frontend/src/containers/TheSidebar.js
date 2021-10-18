@@ -12,7 +12,7 @@ import {
   CSidebarNavItem,
 } from '@coreui/react'
 import { MdAccountBalance } from "react-icons/md";
-
+import CIcon from '@coreui/icons-react'
 
 // sidebar nav config
 import navigation from './_nav'
@@ -28,9 +28,11 @@ const TheSidebar = () => {
     >
       <CSidebarBrand className="d-md-down-none" to="/">
         {/* Logos utilizados en la parte de slidebrand  */}
-        <div className="c-sidebar-brand-full" >
-          {/* <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-homepage-web-hosting-flatart-icons-outline-flatarticons.png"/> */}
-        </div>
+        <CIcon
+          className="c-sidebar-brand-full"
+          name="cil-home"
+          height={20}
+        />
         <MdAccountBalance className="c-sidebar-brand-minimized"/>
 
       </CSidebarBrand>

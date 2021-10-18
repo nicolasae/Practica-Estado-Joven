@@ -13,12 +13,9 @@ const Cancelados = React.lazy(() => import('./views/poblacionestudiantil/Cancela
 
 
 // Deserción
-// const Intersemestral = React.lazy(() => import('./views/historico/intersemestral/Intersemestral.js'));
-// const Interanual = React.lazy(() => import('./views/historico/interanual/Interanual.js'))
-// const Cohorte = React.lazy(() => import('./views/tablero/cohorte/Cohorte.js'))
-// const CohorteCambio = React.lazy(() => import('./views/tablero/cohortecambio/CohorteCambioPrograma.js'))
-// const CohorteCompleta = React.lazy(() => import('./views/tablero/cohortecompleta/CohorteCompleta.js'))
-// const GraduadosCohorte = React.lazy(() => import('./views/tablero/graduadoscohorte/GraduadosCohorte.js'))
+const Intersemestral = React.lazy(() => import('./views/desercion/DesercionIntersemestral'));
+const Interanual = React.lazy(() => import('./views/desercion/DesercionInteranual.js'))
+const AnalisisCohorte = React.lazy(() => import('./views/desercion/AnalisisCohortes.js'))
 
 
 
@@ -39,15 +36,11 @@ const routes = [
 
 
   // DESERCIÓN
-  // { path: '/desercion/historico', name: 'Deserción Histórica', component: Intersemestral, exact: true },
-  // { path: '/desercion/historico/intersemestral', name: 'Intersemestral', component: Intersemestral },
-  // { path: '/desercion/historico/interanual', name: 'Interanual', component: Interanual },
-  // { path: '/desercion/tablero', name: 'Tablero de Análisis', component: Intersemestral, exact: true },
-  // { path: '/desercion/tablero/cohorte', name: 'Cohortes', component: Cohorte },
-  // { path: '/desercion/tablero/cohortecambio', name: 'Cohorte con Cambios', component: CohorteCambio },
-  // { path: '/desercion/tablero/cohortecompleta', name: 'Cohortes Completas', component: CohorteCompleta },
-  // { path: '/desercion/tablero/graduadoscohorte', name: 'Graduados por Cohorte', component: GraduadosCohorte },
-  
+  { path: '/desercion/intersemestral', name: 'Intersemestral', component: Intersemestral },
+  { path: '/desercion/interanual', name: 'Interanual', component: Interanual },
+  { path: '/desercion/analisiscohorte', name: 'Análisis Cohorte', component: AnalisisCohorte },
+
+ 
 
 ];
 

@@ -1,6 +1,5 @@
 import React from 'react'
-import { CIcon } from '@coreui/icons-react';
-import { cifAU } from '@coreui/icons';
+
 
 const _nav =  [
   // MENU DE NAVEGACIÓN DASHBOARD
@@ -40,66 +39,43 @@ const _nav =  [
         _tag: 'CSidebarNavItem',
         name: 'Graduados',
         to: '/poblacionestudiantil/graduados',
-        icon:'cil-chart-pie'
+        // icon:'cil-chart-pie'
       },
     ],
   },
  
-  // // DESERCION
-  // {
-  //   _tag: 'CSidebarNavTitle',
-  //   _children: ['Deserción']
-  // },
-  // {
-  //   _tag: 'CSidebarNavDropdown',
-  //   name: 'Deserción Histórica',
-  //   route: '/desercion/historico',
-  //   icon: 'cil-puzzle',
-  //   _children: [
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Deserción Interanual',
-  //       to: '/desercion/historico/interanual',
-  //     },
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Deserción Intersemestral',
-  //       to: '/desercion/historico/intersemestral',
-  //     },
+  // DESERCION
+  {
+    _tag: 'CSidebarNavTitle',
+    _children: ['Deserción']
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Deserción',
+    route: '/desercion/historico',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Deserción Interanual',
+        to: '/desercion/interanual',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Deserción Intersemestral',
+        to: '/desercion/intersemestral',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Análisis Cohortes',
+        to: '/desercion/analisiscohorte',
+      },
 
-  //   ],
-  // },
-  // {
-  //   _tag: 'CSidebarNavDropdown',
-  //   name: 'Tableros de Análisis',
-  //   route: '/desercion/tablero',
-  //   icon: 'cil-star',
-  //   _children: [
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Cohortes',
-  //       to: '/desercion/tablero/cohorte',
-  //     },
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Cohortes con cambios',
-  //       to: '/desercion/tablero/cohortecambio',
-  //     },
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Cohortes completas',
-  //       to: '/desercion/tablero/cohortecompleta',
-  //     },
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Graduados por cohorte',
-  //       to: '/desercion/tablero/graduadoscohorte',
-  //     },
+    ],
+  },
+ 
 
-  //   ],
-  // },
 
-  
 
 ]
 
