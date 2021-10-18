@@ -186,9 +186,12 @@ const Inscritos = () =>{
                     return error.response
                 }
             });
+            let aux = inscritosEstratoPrimerSemestre
+            aux['estrato'+i]= inscritosquery.ESTUDIANTES__sum 
             await setInscritosEstratoPrimerSemestre(
-                {...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
-            )
+                // {...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
+                aux
+                )
         }
 
     }
@@ -216,9 +219,12 @@ const Inscritos = () =>{
                     return error.response
                 }
             });
+            let aux = inscritosEstratoSegundoSemestre
+            aux['estrato'+i]= inscritosquery.ESTUDIANTES__sum 
             await setInscritosEstratoSegundoSemestre(
-                {...inscritosEstratoSegundoSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
-            )
+                // {...inscritosEstratoSegundoSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
+                aux
+                )
           
         }
         setLoadingEstrato(false)
