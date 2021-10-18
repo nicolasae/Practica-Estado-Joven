@@ -79,7 +79,7 @@ const Inscritos = () =>{
         var axios = require('axios');
         var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/tendencia?VAR=Primer curso&COD_PERIODO='+ yearSelected +'-1',
+        url: 'http://localhost:8000/api/tendencia?VAR=Inscrito&COD_PERIODO='+ yearSelected +'-1',
         headers: { 
             'Content-Type': 'application/json'
         },
@@ -97,7 +97,7 @@ const Inscritos = () =>{
         var axios = require('axios');
         var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/tendencia?VAR=Primer curso&COD_PERIODO='+ yearSelected +'-2',
+        url: 'http://localhost:8000/api/tendencia?VAR=Inscrito&COD_PERIODO='+ yearSelected +'-2',
         headers: { 
             'Content-Type': 'application/json'
         },
