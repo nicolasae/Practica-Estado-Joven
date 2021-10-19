@@ -12,6 +12,10 @@ const TheFooter = () => {
         <span className="mr-1">Desarrollado por</span>
         <a href="https://github.com/nicolasae" target="_blank" rel="noopener noreferrer">Nicolás Aguirre Espinosa</a>
       </div>
+      <div className="mfs-auto">
+        <span className="mr-1">Dirigido por:</span>
+        <a href="#" target="_blank" rel="noopener noreferrer">Alexander Molina Cabrera</a>
+      </div>
     </CFooter>
   )
 }

@@ -41,6 +41,11 @@ const _nav =  [
         to: '/poblacionestudiantil/graduados',
         // icon:'cil-chart-pie'
       },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Análisis Cohortes',
+        to: '/poblacionestudiantil/analisiscohorte',
+      },
     ],
   },
  
@@ -65,11 +70,7 @@ const _nav =  [
         name: 'Deserción Intersemestral',
         to: '/desercion/intersemestral',
       },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Análisis Cohortes',
-        to: '/desercion/analisiscohorte',
-      },
+      
 
     ],
   },

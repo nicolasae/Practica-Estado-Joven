@@ -6,20 +6,15 @@ import {
   CRow,
   CCol,
   CCardHeader,
+  CInputCheckbox,
+  CLabel,
   CCard,
   CCardBody,
   CButton,
   CFormGroup,
-  CLabel,
   CSelect,
-  CButtonGroup,
-  CDropdown,
-  CDropdownDivider,
-  CDropdownHeader,
-  CDropdownItem,
-  CDropdownMenu,
-  CDropdownToggle,
   CCollapse,
+
 } from "@coreui/react";
 import { CChartBar, CChartLine, CChartPie } from "@coreui/react-chartjs";
 
@@ -42,12 +37,13 @@ const Dashboard = () => {
   const [collapseGeneral, setCollapseGeneral] = useState(false);
 
   // Funciones
-  const getYears = async () => {
-    for (var i = actualYear; i >= 2010; i--) {
-      yearsData.push(i);
+  const getYears = async() => { 
+    for (var i=2010;i<=actualYear; i++){
+        yearsData.push(i)
     }
-    setYearsData(yearsData);
-  };
+    setYearsData(yearsData)
+}
+
 
   const getDataTotal = async () => {
     var estados = ["Inscrito","Matriculado","Primer curso","Cancelado","Graduado"];
@@ -262,6 +258,31 @@ const Dashboard = () => {
       <CCol xs="12" lg="12">
             <CCard>
               <CCardBody>
+                <CFormGroup variant="custom-checkbox" inline>
+                  <CInputCheckbox 
+                    custom 
+                    id="inline-checkbox1" 
+                    name="inline-checkbox1" 
+                    value="option1" 
+                  />
+                  <CLabel variant="custom-checkbox" htmlFor="inline-checkbox1">Matriculados</CLabel>
+                </CFormGroup>
+                <CFormGroup variant="custom-checkbox" inline>
+                  <CInputCheckbox custom id="inline-checkbox2" name="inline-checkbox2" value="option2" />
+                  <CLabel variant="custom-checkbox" htmlFor="inline-checkbox2">Inscritos</CLabel>
+                </CFormGroup>
+                <CFormGroup variant="custom-checkbox" inline>
+                  <CInputCheckbox custom id="inline-checkbox3" name="inline-checkbox3" value="option3" />
+                  <CLabel variant="custom-checkbox" htmlFor="inline-checkbox3">Cancelados</CLabel>
+                </CFormGroup>
+                <CFormGroup variant="custom-checkbox" inline>
+                  <CInputCheckbox custom id="inline-checkbox4" name="inline-checkbox3" value="option3" />
+                  <CLabel variant="custom-checkbox" htmlFor="inline-checkbox4">Primer Curso</CLabel>
+                </CFormGroup>
+                <CFormGroup variant="custom-checkbox" inline>
+                  <CInputCheckbox custom id="inline-checkbox5" name="inline-checkbox5" value="option3" />
+                  <CLabel variant="custom-checkbox" htmlFor="inline-checkbox5">Graduados</CLabel>
+                </CFormGroup>
                 <CChartLine
                   datasets={[
                     {
