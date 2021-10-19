@@ -58,10 +58,11 @@ const PrimerCurso = () =>{
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
     const [primerCursoColegio, setPrimerCursoColegio] = React.useState({})
+    const [loadingColegio, setLoadingColegio] = React.useState(true)
 
     // Funciones 
     const getYears = async() => { 
-        for (var i=actualYear;i>= 2010; i--){
+        for (var i=2010;i<=actualYear; i++){
             yearsData.push(i)
         }
         setYearsData(yearsData)
@@ -231,7 +232,7 @@ const PrimerCurso = () =>{
         var axios = require('axios');
         let aux = primerCursoColegio
         for (var tipo = 0;tipo<3;tipo++){
-            for (var year = actualYear;year >= 2010;year--){
+            for (var year = 2010;year <= actualYear;year++){
                 var config = {
                     method: 'get',
                     url: 'http://localhost:8000/api/tendencia_count?VAR=Primer curso&TIPO_COLEGIO='+tiposColegio[tipo]+'&COD_PERIODO='+ year,
@@ -255,7 +256,7 @@ const PrimerCurso = () =>{
                 aux
                 )
         }
-        setLoadingEstrato(false)
+        setLoadingColegio(false)
     }
 
 
@@ -646,27 +647,30 @@ const PrimerCurso = () =>{
                             </CFormGroup>
                             <CCollapse show={collapseLineChartColegio}>  
                                 <CCardBody>
+                                    {loadingColegio? <div class="spinner-border text-info" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div> :
                                     <CChartLine
                                         datasets={[
                                         
-                                        {   
+                                       {   
                                             label: 'Na',
                                             fill:false,
                                             borderColor: 'Red',
                                             backgroundColor: 'Red',
                                             data: [
-                                                primerCursoColegio.Na2021,
-                                                primerCursoColegio.Na2020,
-                                                primerCursoColegio.Na2019,
-                                                primerCursoColegio.Na2018,
-                                                primerCursoColegio.Na2017,
-                                                primerCursoColegio.Na2016,
-                                                primerCursoColegio.Na2015,
-                                                primerCursoColegio.Na2014,
-                                                primerCursoColegio.Na2013,
-                                                primerCursoColegio.Na2012,
-                                                primerCursoColegio.Na2011,
                                                 primerCursoColegio.Na2010,
+                                                primerCursoColegio.Na2011,
+                                                primerCursoColegio.Na2012,
+                                                primerCursoColegio.Na2013,
+                                                primerCursoColegio.Na2014,
+                                                primerCursoColegio.Na2015,
+                                                primerCursoColegio.Na2016,
+                                                primerCursoColegio.Na2017,
+                                                primerCursoColegio.Na2018,
+                                                primerCursoColegio.Na2019,
+                                                primerCursoColegio.Na2020,
+                                                primerCursoColegio.Na2021,
                                             ]
                                         },
                                         {
@@ -675,18 +679,18 @@ const PrimerCurso = () =>{
                                             fill:false,
                                             borderColor: 'Green',
                                             data: [
-                                                primerCursoColegio.Oficial2021,
-                                                primerCursoColegio.Oficial2020,
-                                                primerCursoColegio.Oficial2019,
-                                                primerCursoColegio.Oficial2018,
-                                                primerCursoColegio.Oficial2017,
-                                                primerCursoColegio.Oficial2016,
-                                                primerCursoColegio.Oficial2015,
-                                                primerCursoColegio.Oficial2014,
-                                                primerCursoColegio.Oficial2013,
-                                                primerCursoColegio.Oficial2012,
-                                                primerCursoColegio.Oficial2011,
                                                 primerCursoColegio.Oficial2010,
+                                                primerCursoColegio.Oficial2011,
+                                                primerCursoColegio.Oficial2012,
+                                                primerCursoColegio.Oficial2013,
+                                                primerCursoColegio.Oficial2014,
+                                                primerCursoColegio.Oficial2015,
+                                                primerCursoColegio.Oficial2016,
+                                                primerCursoColegio.Oficial2017,
+                                                primerCursoColegio.Oficial2018,
+                                                primerCursoColegio.Oficial2019,
+                                                primerCursoColegio.Oficial2020,
+                                                primerCursoColegio.Oficial2021,
                                             ]
                                         },
                                         {
@@ -695,18 +699,18 @@ const PrimerCurso = () =>{
                                             borderColor: 'Blue',
                                             fill:false,
                                             data: [
-                                                primerCursoColegio.Privado2021,
-                                                primerCursoColegio.Privado2020,
-                                                primerCursoColegio.Privado2019,
-                                                primerCursoColegio.Privado2018,
-                                                primerCursoColegio.Privado2017,
-                                                primerCursoColegio.Privado2016,
-                                                primerCursoColegio.Privado2015,
-                                                primerCursoColegio.Privado2014,
-                                                primerCursoColegio.Privado2013,
-                                                primerCursoColegio.Privado2012,
-                                                primerCursoColegio.Privado2011,
                                                 primerCursoColegio.Privado2010,
+                                                primerCursoColegio.Privado2011,
+                                                primerCursoColegio.Privado2012,
+                                                primerCursoColegio.Privado2013,
+                                                primerCursoColegio.Privado2014,
+                                                primerCursoColegio.Privado2015,
+                                                primerCursoColegio.Privado2016,
+                                                primerCursoColegio.Privado2017,
+                                                primerCursoColegio.Privado2018,
+                                                primerCursoColegio.Privado2019,
+                                                primerCursoColegio.Privado2020,
+                                                primerCursoColegio.Privado2021,
                                             ]
                                         }
                                         ]}
@@ -716,9 +720,9 @@ const PrimerCurso = () =>{
                                         }
                                         
                                         }}
-                                        labels= {yearsData}
-                                        
+                                        labels= {yearsData} 
                                     />
+                                    }
                                 </CCardBody>
                             </CCollapse>
                         </CCardHeader>

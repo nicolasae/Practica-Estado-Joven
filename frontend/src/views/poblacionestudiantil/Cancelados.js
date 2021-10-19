@@ -58,12 +58,13 @@ const Cancelados = () =>{
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
     const [canceladosColegio, setCanceladosColegio] = React.useState({})
+    const [loadingColegio, setLoadingColegio] = React.useState(true)
 
 
 
     // Funciones 
     const getYears = async() => { 
-        for (var i=actualYear;i>= 2010; i--){
+        for (var i=2010;i<=actualYear; i++){
             yearsData.push(i)
         }
         setYearsData(yearsData)
@@ -233,7 +234,7 @@ const Cancelados = () =>{
         var axios = require('axios');
         let aux = canceladosColegio
         for (var tipo = 0;tipo<3;tipo++){
-            for (var year = actualYear;year >= 2010;year--){
+            for (var year = 2010;year <= actualYear;year++){
                 var config = {
                     method: 'get',
                     url: 'http://localhost:8000/api/tendencia_count?VAR=Cancelado&TIPO_COLEGIO='+tiposColegio[tipo]+'&COD_PERIODO='+ year,
@@ -257,7 +258,7 @@ const Cancelados = () =>{
                 aux
                 )
         }
-        setLoadingEstrato(false)
+        setLoadingColegio(false)
     }
 
 
@@ -648,27 +649,29 @@ const Cancelados = () =>{
                             </CFormGroup>
                             <CCollapse show={collapseLineChartColegio}>  
                                 <CCardBody>
+                                    {loadingColegio? <div class="spinner-border text-info" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div> :
                                     <CChartLine
                                         datasets={[
-                                        
                                         {   
                                             label: 'Na',
                                             fill:false,
                                             borderColor: 'Red',
                                             backgroundColor: 'Red',
                                             data: [
-                                                canceladosColegio.None2021,
-                                                canceladosColegio.None2020,
-                                                canceladosColegio.None2019,
-                                                canceladosColegio.None2018,
-                                                canceladosColegio.None2017,
-                                                canceladosColegio.None2016,
-                                                canceladosColegio.None2015,
-                                                canceladosColegio.None2014,
-                                                canceladosColegio.None2013,
-                                                canceladosColegio.None2012,
-                                                canceladosColegio.None2011,
                                                 canceladosColegio.None2010,
+                                                canceladosColegio.None2011,
+                                                canceladosColegio.None2012,
+                                                canceladosColegio.None2013,
+                                                canceladosColegio.None2014,
+                                                canceladosColegio.None2015,
+                                                canceladosColegio.None2016,
+                                                canceladosColegio.None2017,
+                                                canceladosColegio.None2018,
+                                                canceladosColegio.None2019,
+                                                canceladosColegio.None2020,
+                                                canceladosColegio.None2021,
                                             ]
                                         },
                                         {
@@ -677,18 +680,18 @@ const Cancelados = () =>{
                                             fill:false,
                                             borderColor: 'Green',
                                             data: [
-                                                canceladosColegio.Oficial2021,
-                                                canceladosColegio.Oficial2020,
-                                                canceladosColegio.Oficial2019,
-                                                canceladosColegio.Oficial2018,
-                                                canceladosColegio.Oficial2017,
-                                                canceladosColegio.Oficial2016,
-                                                canceladosColegio.Oficial2015,
-                                                canceladosColegio.Oficial2014,
-                                                canceladosColegio.Oficial2013,
-                                                canceladosColegio.Oficial2012,
-                                                canceladosColegio.Oficial2011,
                                                 canceladosColegio.Oficial2010,
+                                                canceladosColegio.Oficial2011,
+                                                canceladosColegio.Oficial2012,
+                                                canceladosColegio.Oficial2013,
+                                                canceladosColegio.Oficial2014,
+                                                canceladosColegio.Oficial2015,
+                                                canceladosColegio.Oficial2016,
+                                                canceladosColegio.Oficial2017,
+                                                canceladosColegio.Oficial2018,
+                                                canceladosColegio.Oficial2019,
+                                                canceladosColegio.Oficial2020,
+                                                canceladosColegio.Oficial2021,
                                             ]
                                         },
                                         {
@@ -697,18 +700,18 @@ const Cancelados = () =>{
                                             borderColor: 'Blue',
                                             fill:false,
                                             data: [
-                                                canceladosColegio.Privado2021,
-                                                canceladosColegio.Privado2020,
-                                                canceladosColegio.Privado2019,
-                                                canceladosColegio.Privado2018,
-                                                canceladosColegio.Privado2017,
-                                                canceladosColegio.Privado2016,
-                                                canceladosColegio.Privado2015,
-                                                canceladosColegio.Privado2014,
-                                                canceladosColegio.Privado2013,
-                                                canceladosColegio.Privado2012,
-                                                canceladosColegio.Privado2011,
                                                 canceladosColegio.Privado2010,
+                                                canceladosColegio.Privado2011,
+                                                canceladosColegio.Privado2012,
+                                                canceladosColegio.Privado2013,
+                                                canceladosColegio.Privado2014,
+                                                canceladosColegio.Privado2015,
+                                                canceladosColegio.Privado2016,
+                                                canceladosColegio.Privado2017,
+                                                canceladosColegio.Privado2018,
+                                                canceladosColegio.Privado2019,
+                                                canceladosColegio.Privado2020,
+                                                canceladosColegio.Privado2021,
                                             ]
                                         }
                                         ]}
@@ -721,6 +724,7 @@ const Cancelados = () =>{
                                         labels= {yearsData}
                                         
                                     />
+                                    }
                                 </CCardBody>
                             </CCollapse>
                         </CCardHeader>

@@ -58,12 +58,13 @@ const Inscritos = () =>{
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
     const [inscritosColegio, setInscritosColegio] = React.useState({})
+    const [loadingColegio, setLoadingColegio] = React.useState(true)
 
 
 
     // Funciones 
     const getYears = async() => { 
-        for (var i=actualYear;i>= 2010; i--){
+        for (var i=2010;i<=actualYear; i++){
             yearsData.push(i)
         }
         setYearsData(yearsData)
@@ -233,7 +234,7 @@ const Inscritos = () =>{
         var axios = require('axios');
         let aux = inscritosColegio
         for (var tipo = 0;tipo<3;tipo++){
-            for (var year = actualYear;year >= 2010;year--){
+            for (var year = 2010;year <= actualYear;year++){
                 var config = {
                     method: 'get',
                     url: 'http://localhost:8000/api/tendencia_count?VAR=Inscrito&TIPO_COLEGIO='+tiposColegio[tipo]+'&COD_PERIODO='+ year,
@@ -257,7 +258,7 @@ const Inscritos = () =>{
                 aux
                 )
         }
-        setLoadingEstrato(false)
+        setLoadingColegio(false)
     }
 
 
@@ -642,12 +643,16 @@ const Inscritos = () =>{
                                         color="outline-primary"
                                         onClick={toggleLineChartColegio}
                                         className={'mb-1'}
+                                        // setLoadingEstrato(true);
                                     >Mostrar Gráfico
                                     </CButton>
                                 </CCol>
                             </CFormGroup>
                             <CCollapse show={collapseLineChartColegio}>  
                                 <CCardBody>
+                                {loadingColegio? <div class="spinner-border text-info" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div> :
                                     <CChartLine
                                         datasets={[
                                         
@@ -657,18 +662,18 @@ const Inscritos = () =>{
                                             borderColor: 'Red',
                                             backgroundColor: 'Red',
                                             data: [
-                                                inscritosColegio.Na2021,
-                                                inscritosColegio.Na2020,
-                                                inscritosColegio.Na2019,
-                                                inscritosColegio.Na2018,
-                                                inscritosColegio.Na2017,
-                                                inscritosColegio.Na2016,
-                                                inscritosColegio.Na2015,
-                                                inscritosColegio.Na2014,
-                                                inscritosColegio.Na2013,
-                                                inscritosColegio.Na2012,
-                                                inscritosColegio.Na2011,
                                                 inscritosColegio.Na2010,
+                                                inscritosColegio.Na2011,
+                                                inscritosColegio.Na2012,
+                                                inscritosColegio.Na2013,
+                                                inscritosColegio.Na2014,
+                                                inscritosColegio.Na2015,
+                                                inscritosColegio.Na2016,
+                                                inscritosColegio.Na2017,
+                                                inscritosColegio.Na2018,
+                                                inscritosColegio.Na2019,
+                                                inscritosColegio.Na2020,
+                                                inscritosColegio.Na2021,
                                             ]
                                         },
                                         {
@@ -677,18 +682,18 @@ const Inscritos = () =>{
                                             fill:false,
                                             borderColor: 'Green',
                                             data: [
-                                                inscritosColegio.Oficial2021,
-                                                inscritosColegio.Oficial2020,
-                                                inscritosColegio.Oficial2019,
-                                                inscritosColegio.Oficial2018,
-                                                inscritosColegio.Oficial2017,
-                                                inscritosColegio.Oficial2016,
-                                                inscritosColegio.Oficial2015,
-                                                inscritosColegio.Oficial2014,
-                                                inscritosColegio.Oficial2013,
-                                                inscritosColegio.Oficial2012,
-                                                inscritosColegio.Oficial2011,
                                                 inscritosColegio.Oficial2010,
+                                                inscritosColegio.Oficial2011,
+                                                inscritosColegio.Oficial2012,
+                                                inscritosColegio.Oficial2013,
+                                                inscritosColegio.Oficial2014,
+                                                inscritosColegio.Oficial2015,
+                                                inscritosColegio.Oficial2016,
+                                                inscritosColegio.Oficial2017,
+                                                inscritosColegio.Oficial2018,
+                                                inscritosColegio.Oficial2019,
+                                                inscritosColegio.Oficial2020,
+                                                inscritosColegio.Oficial2021,
                                             ]
                                         },
                                         {
@@ -697,18 +702,18 @@ const Inscritos = () =>{
                                             borderColor: 'Blue',
                                             fill:false,
                                             data: [
-                                                inscritosColegio.Privado2021,
-                                                inscritosColegio.Privado2020,
-                                                inscritosColegio.Privado2019,
-                                                inscritosColegio.Privado2018,
-                                                inscritosColegio.Privado2017,
-                                                inscritosColegio.Privado2016,
-                                                inscritosColegio.Privado2015,
-                                                inscritosColegio.Privado2014,
-                                                inscritosColegio.Privado2013,
-                                                inscritosColegio.Privado2012,
-                                                inscritosColegio.Privado2011,
                                                 inscritosColegio.Privado2010,
+                                                inscritosColegio.Privado2011,
+                                                inscritosColegio.Privado2012,
+                                                inscritosColegio.Privado2013,
+                                                inscritosColegio.Privado2014,
+                                                inscritosColegio.Privado2015,
+                                                inscritosColegio.Privado2016,
+                                                inscritosColegio.Privado2017,
+                                                inscritosColegio.Privado2018,
+                                                inscritosColegio.Privado2019,
+                                                inscritosColegio.Privado2020,
+                                                inscritosColegio.Privado2021,
                                             ]
                                         }
                                         ]}
@@ -721,6 +726,7 @@ const Inscritos = () =>{
                                         labels= {yearsData}
                                         
                                     />
+                                }
                                 </CCardBody>
                             </CCollapse>
                         </CCardHeader>

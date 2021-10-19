@@ -58,12 +58,13 @@ const Matriculados = () =>{
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
     const [matriculadosColegio, setMatriculadosColegio] = React.useState({})
+    const [loadingColegio, setLoadingColegio] = React.useState(true)
 
 
 
     // Funciones 
     const getYears = async() => { 
-        for (var i=actualYear;i>= 2010; i--){
+        for (var i=2010;i<=actualYear; i++){
             yearsData.push(i)
         }
         setYearsData(yearsData)
@@ -232,7 +233,7 @@ const Matriculados = () =>{
         var axios = require('axios');
         let aux = matriculadosColegio
         for (var tipo = 0;tipo<3;tipo++){
-            for (var year = actualYear;year >= 2010;year--){
+            for (var year = 2010;year <= actualYear;year++){
                 var config = {
                     method: 'get',
                     url: 'http://localhost:8000/api/tendencia_count?VAR=Matriculado&TIPO_COLEGIO='+tiposColegio[tipo]+'&COD_PERIODO='+ year,
@@ -256,7 +257,7 @@ const Matriculados = () =>{
                 aux
                 )
         }
-        setLoadingEstrato(false)
+        setLoadingColegio(false)
     }
 
 
@@ -650,69 +651,71 @@ const Matriculados = () =>{
                             </CFormGroup>
                             <CCollapse show={collapseLineChartColegio}>  
                                 <CCardBody>
+                                    {loadingColegio? <div class="spinner-border text-info" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div> :
                                     <CChartLine
                                         datasets={[
-                                        
-                                        {   
-                                            label: 'Na',
-                                            fill:false,
-                                            borderColor: 'Red',
-                                            backgroundColor: 'Red',
-                                            data: [
-                                                matriculadosColegio.None2021,
-                                                matriculadosColegio.None2020,
-                                                matriculadosColegio.None2019,
-                                                matriculadosColegio.None2018,
-                                                matriculadosColegio.None2017,
-                                                matriculadosColegio.None2016,
-                                                matriculadosColegio.None2015,
-                                                matriculadosColegio.None2014,
-                                                matriculadosColegio.None2013,
-                                                matriculadosColegio.None2012,
-                                                matriculadosColegio.None2011,
-                                                matriculadosColegio.None2010,
-                                            ]
-                                        },
-                                        {
-                                            label: 'Oficial',
-                                            backgroundColor: 'Green',
-                                            fill:false,
-                                            borderColor: 'Green',
-                                            data: [
-                                                matriculadosColegio.Oficial2021,
-                                                matriculadosColegio.Oficial2020,
-                                                matriculadosColegio.Oficial2019,
-                                                matriculadosColegio.Oficial2018,
-                                                matriculadosColegio.Oficial2017,
-                                                matriculadosColegio.Oficial2016,
-                                                matriculadosColegio.Oficial2015,
-                                                matriculadosColegio.Oficial2014,
-                                                matriculadosColegio.Oficial2013,
-                                                matriculadosColegio.Oficial2012,
-                                                matriculadosColegio.Oficial2011,
-                                                matriculadosColegio.Oficial2010,
-                                            ]
-                                        },
-                                        {
-                                            label: 'Privado',
-                                            backgroundColor: 'Blue',
-                                            borderColor: 'Blue',
-                                            fill:false,
-                                            data: [
-                                                matriculadosColegio.Privado2021,
-                                                matriculadosColegio.Privado2020,
-                                                matriculadosColegio.Privado2019,
-                                                matriculadosColegio.Privado2018,
-                                                matriculadosColegio.Privado2017,
-                                                matriculadosColegio.Privado2016,
-                                                matriculadosColegio.Privado2015,
-                                                matriculadosColegio.Privado2014,
-                                                matriculadosColegio.Privado2013,
-                                                matriculadosColegio.Privado2012,
-                                                matriculadosColegio.Privado2011,
-                                                matriculadosColegio.Privado2010,
-                                            ]
-                                        }
+                                            {   
+                                                label: 'Na',
+                                                fill:false,
+                                                borderColor: 'Red',
+                                                backgroundColor: 'Red',
+                                                data: [
+                                                    matriculadosColegio.None2010,
+                                                    matriculadosColegio.None2011,
+                                                    matriculadosColegio.None2012,
+                                                    matriculadosColegio.None2013,
+                                                    matriculadosColegio.None2014,
+                                                    matriculadosColegio.None2015,
+                                                    matriculadosColegio.None2016,
+                                                    matriculadosColegio.None2017,
+                                                    matriculadosColegio.None2018,
+                                                    matriculadosColegio.None2019,
+                                                    matriculadosColegio.None2020,
+                                                    matriculadosColegio.None2021,
+                                                ]
+                                            },
+                                            {
+                                                label: 'Oficial',
+                                                backgroundColor: 'Green',
+                                                fill:false,
+                                                borderColor: 'Green',
+                                                data: [
+                                                    matriculadosColegio.Oficial2010,
+                                                    matriculadosColegio.Oficial2011,
+                                                    matriculadosColegio.Oficial2012,
+                                                    matriculadosColegio.Oficial2013,
+                                                    matriculadosColegio.Oficial2014,
+                                                    matriculadosColegio.Oficial2015,
+                                                    matriculadosColegio.Oficial2016,
+                                                    matriculadosColegio.Oficial2017,
+                                                    matriculadosColegio.Oficial2018,
+                                                    matriculadosColegio.Oficial2019,
+                                                    matriculadosColegio.Oficial2020,
+                                                    matriculadosColegio.Oficial2021,
+                                                ]
+                                            },
+                                            {
+                                                label: 'Privado',
+                                                backgroundColor: 'Blue',
+                                                borderColor: 'Blue',
+                                                fill:false,
+                                                data: [
+                                                    matriculadosColegio.Privado2010,
+                                                    matriculadosColegio.Privado2011,
+                                                    matriculadosColegio.Privado2012,
+                                                    matriculadosColegio.Privado2013,
+                                                    matriculadosColegio.Privado2014,
+                                                    matriculadosColegio.Privado2015,
+                                                    matriculadosColegio.Privado2016,
+                                                    matriculadosColegio.Privado2017,
+                                                    matriculadosColegio.Privado2018,
+                                                    matriculadosColegio.Privado2019,
+                                                    matriculadosColegio.Privado2020,
+                                                    matriculadosColegio.Privado2021,
+                                                ]
+                                            }
                                         ]}
                                         options={{
                                         tooltips: {
@@ -720,9 +723,9 @@ const Matriculados = () =>{
                                         }
                                         
                                         }}
-                                        labels= {yearsData}
-                                        
+                                        labels= {yearsData} 
                                     />
+                                    }
                                 </CCardBody>
                             </CCollapse>
                         </CCardHeader>

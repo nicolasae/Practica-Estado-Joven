@@ -58,12 +58,13 @@ const Graduados = () =>{
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
     const [graduadosColegio, setGraduadosColegio] = React.useState({})
+    const [loadingColegio, setLoadingColegio] = React.useState(true)
 
 
 
     // Funciones 
     const getYears = async() => { 
-        for (var i=actualYear;i>= 2010; i--){
+        for (var i=2010;i<=actualYear; i++){
             yearsData.push(i)
         }
         setYearsData(yearsData)
@@ -233,7 +234,7 @@ const Graduados = () =>{
         var axios = require('axios');
         let aux = graduadosColegio
         for (var tipo = 0;tipo<3;tipo++){
-            for (var year = actualYear;year >= 2010;year--){
+            for (var year = 2010;year <= actualYear;year++){
                 var config = {
                     method: 'get',
                     url: 'http://localhost:8000/api/tendencia_count?VAR=Graduado&TIPO_COLEGIO='+tiposColegio[tipo]+'&COD_PERIODO='+ year,
@@ -257,7 +258,7 @@ const Graduados = () =>{
                 aux
                 )
         }
-        setLoadingEstrato(false)
+        setLoadingColegio(false)
     }
 
 
@@ -652,6 +653,9 @@ const Graduados = () =>{
                             </CFormGroup>
                             <CCollapse show={collapseLineChartColegio}>  
                                 <CCardBody>
+                                    {loadingColegio? <div class="spinner-border text-info" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                        </div> :
                                     <CChartLine
                                         datasets={[
                                         
@@ -661,18 +665,18 @@ const Graduados = () =>{
                                             borderColor: 'Red',
                                             backgroundColor: 'Red',
                                             data: [
-                                                graduadosColegio.Na2021,
-                                                graduadosColegio.Na2020,
-                                                graduadosColegio.Na2019,
-                                                graduadosColegio.Na2018,
-                                                graduadosColegio.Na2017,
-                                                graduadosColegio.Na2016,
-                                                graduadosColegio.Na2015,
-                                                graduadosColegio.Na2014,
-                                                graduadosColegio.Na2013,
-                                                graduadosColegio.Na2012,
-                                                graduadosColegio.Na2011,
                                                 graduadosColegio.Na2010,
+                                                graduadosColegio.Na2011,
+                                                graduadosColegio.Na2012,
+                                                graduadosColegio.Na2013,
+                                                graduadosColegio.Na2014,
+                                                graduadosColegio.Na2015,
+                                                graduadosColegio.Na2016,
+                                                graduadosColegio.Na2017,
+                                                graduadosColegio.Na2018,
+                                                graduadosColegio.Na2019,
+                                                graduadosColegio.Na2020,
+                                                graduadosColegio.Na2021,
                                             ]
                                         },
                                         {
@@ -681,18 +685,18 @@ const Graduados = () =>{
                                             fill:false,
                                             borderColor: 'Green',
                                             data: [
-                                                graduadosColegio.Oficial2021,
-                                                graduadosColegio.Oficial2020,
-                                                graduadosColegio.Oficial2019,
-                                                graduadosColegio.Oficial2018,
-                                                graduadosColegio.Oficial2017,
-                                                graduadosColegio.Oficial2016,
-                                                graduadosColegio.Oficial2015,
-                                                graduadosColegio.Oficial2014,
-                                                graduadosColegio.Oficial2013,
-                                                graduadosColegio.Oficial2012,
-                                                graduadosColegio.Oficial2011,
                                                 graduadosColegio.Oficial2010,
+                                                graduadosColegio.Oficial2011,
+                                                graduadosColegio.Oficial2012,
+                                                graduadosColegio.Oficial2013,
+                                                graduadosColegio.Oficial2014,
+                                                graduadosColegio.Oficial2015,
+                                                graduadosColegio.Oficial2016,
+                                                graduadosColegio.Oficial2017,
+                                                graduadosColegio.Oficial2018,
+                                                graduadosColegio.Oficial2019,
+                                                graduadosColegio.Oficial2020,
+                                                graduadosColegio.Oficial2021,
                                             ]
                                         },
                                         {
@@ -701,18 +705,18 @@ const Graduados = () =>{
                                             borderColor: 'Blue',
                                             fill:false,
                                             data: [
-                                                graduadosColegio.Privado2021,
-                                                graduadosColegio.Privado2020,
-                                                graduadosColegio.Privado2019,
-                                                graduadosColegio.Privado2018,
-                                                graduadosColegio.Privado2017,
-                                                graduadosColegio.Privado2016,
-                                                graduadosColegio.Privado2015,
-                                                graduadosColegio.Privado2014,
-                                                graduadosColegio.Privado2013,
-                                                graduadosColegio.Privado2012,
-                                                graduadosColegio.Privado2011,
                                                 graduadosColegio.Privado2010,
+                                                graduadosColegio.Privado2011,
+                                                graduadosColegio.Privado2012,
+                                                graduadosColegio.Privado2013,
+                                                graduadosColegio.Privado2014,
+                                                graduadosColegio.Privado2015,
+                                                graduadosColegio.Privado2016,
+                                                graduadosColegio.Privado2017,
+                                                graduadosColegio.Privado2018,
+                                                graduadosColegio.Privado2019,
+                                                graduadosColegio.Privado2020,
+                                                graduadosColegio.Privado2021,
                                             ]
                                         }
                                         ]}
@@ -725,6 +729,7 @@ const Graduados = () =>{
                                         labels= {yearsData}
                                         
                                     />
+                                    }
                                 </CCardBody>
                             </CCollapse>
                         </CCardHeader>
