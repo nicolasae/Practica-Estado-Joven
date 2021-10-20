@@ -7,6 +7,77 @@ from ..models.tendencia import DesercionInterAnual
 from ..models.tendencia import DesercionInterSemestral
 from ..models.tendencia import AnalisisCohorte
 
+COHORTE_LIST = {
+    'DV':{
+        'NIVEL':'Posgrado',
+        'NOMBRE':'Doctorado en Ingeniería'
+    },
+    'AT':{
+        'NIVEL':'Posgrado',
+        'NOMBRE':'Especialización en Electrónica Digital'
+    },
+    'AZ':{
+        'NIVEL':'Posgrado',
+        'NOMBRE':'Especialización en Redes de Datos'
+    },
+    'AY':{
+        'NIVEL':'Posgrado',
+        'NOMBRE':'Maestría en Ingeniería de Sistemas y Computación'
+    },
+    '47':{
+        'NIVEL':'Posgrado',
+        'NOMBRE':'Maestría en Ingeniería Eléctrica'
+    },
+    '28':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería de Sistemas y Computación'
+    },
+    'FV28':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería de Sistemas y Computación (Básicos ingeniería)'
+    },
+    '28C':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería de Sistemas y Computación (Convenio Cuba)'
+    },
+    '37':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería de Sistemas y Computación (Nocturno)'
+    },
+    '12':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería Eléctrica'
+    },
+    'FV12':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería Eléctrica (Básicos ingeniería))'
+    },
+    'FI':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería Electrónica (Diurna)'
+    },
+    '36':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería Electrónica (Nocturno)'
+    },
+    '34':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería Física'
+    },
+    'FV34':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Ingeniería Física (Básicos ingenieria)'
+    },
+    'TS':{
+        'NIVEL':'Pregrado',
+        'NOMBRE':'Tecnología en Desarrollo de Software'
+    },
+    
+
+    
+    
+    
+}
 
 class TendenciaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,8 +95,38 @@ class DesercionInterSemestralSerializer(serializers.ModelSerializer):
         exclude = ['id']
 
 class AnalisisCohorteSerializer(serializers.ModelSerializer):
+    NOMBRE = serializers.SerializerMethodField('get_type_name')
+    NIVEL = serializers.SerializerMethodField('get_type_level')
+
     class Meta:
         model = AnalisisCohorte
         exclude = ['id']
+    
+    def get_type_name(self,obj):
+        return COHORTE_LIST.get(obj.COD_UTP, {}).get('NOMBRE')
+    
+    def get_type_level(self,obj):
+        return COHORTE_LIST.get(obj.COD_UTP, {}).get('NIVEL')
+        
+        
+
+# class AnalisisCohorteSerializer(serializers.ModelSerializer):
+#     NOMBRE = serializers.SerializerMethodField('get_type_name')
+#     NIVEL = serializers.SerializerMethodField('get_type_level')
+
+#     class Meta:
+#         model = AnalisisCohorte
+#         exclude = ['id']
+    
+#     def get_type_name(self,obj):
+        
+#         return COHORTE_LIST.get(obj.COD_UTP, {}).get('NOMBRE')
+    
+#     def get_type_level(self,obj):
+#         return COHORTE_LIST.get(obj.COD_UTP, {}).get('NIVEL')
+
+#     def sumar_dos_columnas(self, obj):
+#     return obj.col_1 + obj.con_2
+        
 
 

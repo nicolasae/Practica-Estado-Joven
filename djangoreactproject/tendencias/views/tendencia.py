@@ -82,11 +82,8 @@ class TendenciaCountView(APIView):
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
                 if value == 'None':
-                    query[key] = None
-            print(query)
-                
+                    query[key] = None               
             if query.get('COD_PERIODO'):
-                print(query)
                 if len(query.get('COD_PERIODO').split('-')) == 1:        
                     year = query.pop('COD_PERIODO')
                     query['COD_PERIODO__in'] = [f'{year}-1',f'{year}-2']
@@ -99,6 +96,54 @@ class TendenciaCountView(APIView):
                 },status=status.HTTP_404_NOT_FOUND) 
             return Response({
                 'data': tendencia.aggregate(Sum('ESTUDIANTES'))
+            },status=status.HTTP_200_OK)
+
+class TendenciaCountYearView(APIView):
+    def get(self,request):
+        if not request.GET:
+            tendencia = Tendencia.objects.all()
+            years = [periodo['COD_PERIODO'] for periodo in Tendencia.objects.order_by().values('COD_PERIODO').distinct()]
+            if not tendencia:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            data = []
+            for year in years:
+                data.append({
+                    'year':year,
+                    'count':Tendencia.objects.filter(COD_PERIODO = year).aggregate(Sum('ESTUDIANTES'))['ESTUDIANTES__sum']
+                })
+            return Response({
+                'data': data
+            },status=status.HTTP_200_OK)
+        else:
+            query = {**request.GET.dict()}
+            # Filtros
+            fields_list = [*TENDENCIA_FIELDS]
+            fields_list.remove('COD_PERIODO')
+            for key,value in request.GET.items():
+                if key not in fields_list:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+                if value == 'None':
+                    query[key] = None               
+            tendencia = Tendencia.objects.filter(**query)
+            if not tendencia:  
+                return Response({
+                    'data': 'No se encontraron los registros',
+                    'body':query 
+                },status=status.HTTP_404_NOT_FOUND) 
+            years = [periodo['COD_PERIODO'] for periodo in tendencia.values('COD_PERIODO').distinct()]
+            data = []
+            for year in years:
+                query['COD_PERIODO'] = year
+                data.append({
+                    'year':year,
+                    'count':tendencia.filter(COD_PERIODO = year).aggregate(Sum('ESTUDIANTES'))['ESTUDIANTES__sum']
+                })
+            return Response({
+                'data': data
             },status=status.HTTP_200_OK)
 
 
