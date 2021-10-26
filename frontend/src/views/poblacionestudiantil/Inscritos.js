@@ -86,6 +86,7 @@ const Inscritos = () =>{
             return error.response
         });
         await setInscritosPrimer(inscritosquery)
+        console.log(inscritosPrimer)
     }
 
     const getDataInscritosSegundoSemestre = async () => {

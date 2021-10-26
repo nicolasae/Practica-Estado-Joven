@@ -44,6 +44,8 @@ ANALISIS_COHORTE_FIELDS = [
     'IDPER',
     'COD_UTP',
     'ESTADO',
+    'NIVEL',
+    'NOMBRE',
 ]
 
 
@@ -98,7 +100,8 @@ class AnalisisCohorte(models.Model):
     IDPER = models.IntegerField('IDPER',null=True)
     COD_UTP = models.CharField('Código UTP',max_length=255,null=True)
     ESTADO = models.CharField('Estado',max_length=255,null=True)
-    
+    NIVEL = models.CharField('NIVEL',max_length=255,null=True)
+    NOMBRE = models.CharField('NOMBRE',max_length=255,null=True)    
 
     def __str__(self):
         return f'Semestre: {self.COD_PERIODO}-Codigo: {self.COD_UTP}- Estudiantes: {self.CANTIDAD}'

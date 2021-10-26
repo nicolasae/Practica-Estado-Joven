@@ -72,11 +72,6 @@ COHORTE_LIST = {
         'NIVEL':'Pregrado',
         'NOMBRE':'Tecnología en Desarrollo de Software'
     },
-    
-
-    
-    
-    
 }
 
 class TendenciaSerializer(serializers.ModelSerializer):
