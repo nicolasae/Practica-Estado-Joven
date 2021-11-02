@@ -30,6 +30,8 @@ const Dashboard = () => {
   // Constantes
   const actualYear = new Date().getFullYear();
   const [yearsData, setYearsData] = React.useState([]);
+  const [yearsDataGeneral, setYearsDataGeneral] = React.useState([]);
+
   const [yearSelected, setYearSelected] = React.useState(new Date().getFullYear());
   const [dataTotal, setDataTotal] = React.useState([]);
   const [dataSemestre,setDataSemestre] = React.useState([]);
@@ -55,6 +57,13 @@ const Dashboard = () => {
     }
     setYearsData(yearsData)
   }
+
+  const getYearsGeneral = async() => { 
+    for (var i=2010;i<=actualYear; i++){
+        yearsDataGeneral.push(i)
+    }
+    setYearsDataGeneral(yearsDataGeneral)
+}
 
 
   const getDataTotal = async () => {
@@ -177,6 +186,7 @@ const Dashboard = () => {
   // despues de definir las constantes
   useSingleton(async () => {
     await getYears();
+    await getYearsGeneral();
     await getDataTotal();
     await getDataYearsGeneral();
   });
@@ -189,7 +199,7 @@ const Dashboard = () => {
       <CFormGroup row>
         <CCol md="4">
           <CSelect value={yearSelected} onChange={handleChangeYear}>
-            {yearsData.map((item) => {
+            {yearsDataGeneral.map((item) => {
               return (
                 <option key={item} value={item}>
                   {item}

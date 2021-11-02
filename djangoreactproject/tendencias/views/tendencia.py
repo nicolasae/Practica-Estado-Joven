@@ -14,6 +14,12 @@ from ..models.tendencia import Tendencia
 from ..serializers.tendencia import DesercionInterAnualSerializer
 from ..models.tendencia import DESERCION_INTERANUAL_FIELDS
 from ..models.tendencia import DesercionInterAnual
+
+# DESERCION INTERANUAL ESTADOS 
+from ..serializers.tendencia import DesercionInterAnualEstadosSerializer
+from ..models.tendencia import DESERCION_INTERANUAL_ESTADOS_FIELDS
+from ..models.tendencia import DesercionInterAnualEstados
+
 # DESERCION SEMESTRAL
 from ..serializers.tendencia import DesercionInterSemestralSerializer
 from ..models.tendencia import DESERCION_INTERSEMESTRAL_FIELDS
@@ -26,8 +32,6 @@ from ..models.tendencia import AnalisisCohorte
 
 
 # ################################################################################################################################
-
-
 # --------------------------------------------------------------------------------
 # TENDENCIA
 class TendenciaView(APIView):
@@ -259,6 +263,33 @@ class DesercionInterAnualCountYearView(APIView):
                 'data': data
             },status=status.HTTP_200_OK)   
 
+class DesercionInterAnualEstadosView(APIView):
+    def get(self,request):
+        if not request.GET:
+            desercion = DesercionInterAnualEstados.objects.all()
+            if not desercion:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': DesercionInterAnualEstadosSerializer(desercion,many=True).data
+            },status=status.HTTP_200_OK)
+        else:
+            for key,value in request.GET.items():
+                if key not in DESERCION_INTERANUAL_ESTADOS_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+            desercion = DesercionInterAnualEstados.objects.filter(**request.GET.dict())
+            if not desercion:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': DesercionInterAnualEstadosSerializer(desercion,many=True).data
+            },status=status.HTTP_200_OK)
+
+
 # DESERCION INTERSEMESTRAL
 class DesercionInterSemestralView(APIView):
     def get(self,request):
@@ -299,12 +330,20 @@ class AnalisisCohorteView(APIView):
                 'data': AnalisisCohorteSerializer(analisis,many=True).data
             },status=status.HTTP_200_OK)
         else:
-            for key,value in request.GET.items():
+            query = {**request.GET.dict()}
+            extra_query = {}
+            for key,value in query.items():
                 if key not in ANALISIS_COHORTE_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            analisis = AnalisisCohorte.objects.filter(**request.GET.dict())
+                if value == 'None':
+                    query[key] = None 
+            if query.get('COD_PERIODO'):
+                if len(query.get('COD_PERIODO').split('-')) == 1:        
+                    year = query.pop('COD_PERIODO')
+                    query['COD_PERIODO__in'] = [f'{year}-1',f'{year}-2']
+            analisis = AnalisisCohorte.objects.filter(**query)
             if not analisis:  
                 return Response({
                     'data': 'No se encontraron los registros'
@@ -313,3 +352,158 @@ class AnalisisCohorteView(APIView):
                 'data': AnalisisCohorteSerializer(analisis,many=True).data
             },status=status.HTTP_200_OK)
 
+class AnalisisCohorteCountView(APIView):
+    def get(self,request):
+        if not request.GET:
+            analisis = AnalisisCohorte.objects.all()
+            if not analisis:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': analisis.aggregate(Sum('CANTIDAD'))
+            },status=status.HTTP_200_OK)
+        else:
+            query = {**request.GET.dict()}
+
+            for key,value in request.GET.items():
+                if key not in DESERCION_INTERANUAL_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+                if value == 'None':
+                    query[key] = None               
+            if query.get('COD_PERIODO'):
+                if len(query.get('COD_PERIODO').split('-')) == 1:        
+                    year = query.pop('COD_PERIODO')
+                    query['COD_PERIODO__in'] = [f'{year}-1',f'{year}-2']
+                
+            analisis = AnalisisCohorte.objects.filter(**query)
+            if not analisis:  
+                return Response({
+                    'data': 'No se encontraron los registros',
+                    'body':query 
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': analisis.aggregate(Sum('CANTIDAD'))
+            },status=status.HTTP_200_OK)
+        
+class AnalisisCohorteCountYearView(APIView):
+    def get(self,request):
+        if not request.GET:
+            analisisCohorte = AnalisisCohorte.objects.all()
+            years = [periodo['COD_PERIODO'] for periodo in AnalisisCohorte.objects.order_by().values('COD_PERIODO').distinct()]
+            if not analisisCohorte:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND) 
+            data = []
+            for year in years:
+                print(year)
+                data.append({
+                    'year':year,
+                    'count':AnalisisCohorte.objects.filter(COD_PERIODO = year).aggregate(Sum('CANTIDAD'))['CANTIDAD__sum']
+                })
+            return Response({
+                'data': data
+            },status=status.HTTP_200_OK)
+        else:
+            query = {**request.GET.dict()}
+            # Filtros
+            fields_list = [*TENDENCIA_FIELDS]
+            fields_list.remove('COD_PERIODO')
+            for key,value in request.GET.items():
+                if key not in fields_list:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+                if value == 'None':
+                    query[key] = None               
+            analisisCohorte = AnalisisCohorte.objects.filter(**query)
+            if not analisisCohorte:  
+                return Response({
+                    'data': 'No se encontraron los registros',
+                    'body':query 
+                },status=status.HTTP_404_NOT_FOUND) 
+            years = [periodo['COD_PERIODO'] for periodo in analisisCohorte.values('COD_PERIODO').distinct()]
+            data = []
+            for year in years:
+                query['COD_PERIODO'] = year
+                print(year)
+                data.append({
+                    'year':year,
+                    'count':analisisCohorte.filter(COD_PERIODO = year).aggregate(Sum('CANTIDAD'))['CANTIDAD__sum']
+                })
+            return Response({
+                'data': data
+            },status=status.HTTP_200_OK)
+
+# data = {
+#     "data": [
+#         {
+#             "NOMBRE":"Ingeniería de Sistemas y Computación",
+#             "NIVEL": "Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Ingeniería de Sistemas y Computación (Básicos ingeniería)",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Ingeniería de Sistemas y Computación (Convenio Cuba)",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Ingeniería de Sistemas y Computación (Nocturno)",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Ingeniería Eléctrica",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Ingeniería Eléctrica (Básicos ingeniería)",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Ingeniería Electrónica (Diurna)",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Ingeniería Electrónica (Nocturno)",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Ingeniería Física",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Ingeniería Física (Básicos ingenieria)",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Tecnología en Desarrollo de Software",
+#             "NIVEL":"Pregrado"
+#         },
+#         {
+#             "NOMBRE":"Doctorado en Ingeniería",
+#             "NIVEL":"Posgrado"
+#         },
+#         {
+#             "NOMBRE":"Especialización en Electrónica Digital",
+#             "NIVEL":"Posgrado"
+#         }
+#         {
+#             "NOMBRE":"Especialización en Redes de Datos",
+#             "NIVEL":"Posgrado"
+#         }
+#         {
+#             "NOMBRE":"Maestría en Ingeniería de Sistemas y Computación",
+#             "NIVEL":"Posgrado"
+#         }
+#         {
+#             "NOMBRE":"Maestría en Ingeniería Eléctrica",
+#             "NIVEL":"Posgrado"
+#         }
+        
+#     ]
+# }

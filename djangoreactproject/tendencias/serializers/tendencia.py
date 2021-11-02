@@ -6,6 +6,7 @@ from ..models.tendencia import Tendencia
 from ..models.tendencia import DesercionInterAnual
 from ..models.tendencia import DesercionInterSemestral
 from ..models.tendencia import AnalisisCohorte
+from ..models.tendencia import DesercionInterAnualEstados 
 
 COHORTE_LIST = {
     'DV':{
@@ -101,9 +102,23 @@ class AnalisisCohorteSerializer(serializers.ModelSerializer):
         return COHORTE_LIST.get(obj.COD_UTP, {}).get('NOMBRE')
     
     def get_type_level(self,obj):
-        return COHORTE_LIST.get(obj.COD_UTP, {}).get('NIVEL')
+        return COHORTE_LIST.get(obj.COD_UTP, {}).get('NIVEL')        
         
+class DesercionInterAnualEstadosSerializer(serializers.ModelSerializer):
+    COD_PERIODO = serializers.SerializerMethodField('get_type_cod_periodo')
+    PERIODOS = serializers.SerializerMethodField('get_type_periodos')
+    
+    class Meta:
+        model = DesercionInterAnualEstados
+        exclude = ['id']
+
+    def get_type_cod_periodo(self,obj):
+        pass
         
+
+    def get_type_periodos(self,obj):
+        pass
+
 
 # class AnalisisCohorteSerializer(serializers.ModelSerializer):
 #     NOMBRE = serializers.SerializerMethodField('get_type_name')

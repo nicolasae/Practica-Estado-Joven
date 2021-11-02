@@ -48,6 +48,20 @@ ANALISIS_COHORTE_FIELDS = [
     'NOMBRE',
 ]
 
+DESERCION_INTERANUAL_ESTADOS_FIELDS = [
+    'PERIODOS',
+    'COD_PERIODO',
+    'NOMBRE,NIVEL',
+    'NO_MATRICULADO',
+    'PERMANECE_PROGRAMA',
+    'CAMBIO_DE_PROGRAMA',
+    'GRADUADO',
+    'PORCENTAJE_NO_MATRICULADO',
+    'PORCENTAJE_PERMANECE_PROGRAMA',
+    'PORCENTAJE_CAMBIO_DE_PROGRAMA',
+    'PORCENTAJE_GRADUADO',
+    'TOTAL'
+]
 
 
 
@@ -100,10 +114,25 @@ class AnalisisCohorte(models.Model):
     IDPER = models.IntegerField('IDPER',null=True)
     COD_UTP = models.CharField('Código UTP',max_length=255,null=True)
     ESTADO = models.CharField('Estado',max_length=255,null=True)
-    NIVEL = models.CharField('NIVEL',max_length=255,null=True)
-    NOMBRE = models.CharField('NOMBRE',max_length=255,null=True)    
+ 
 
     def __str__(self):
         return f'Semestre: {self.COD_PERIODO}-Codigo: {self.COD_UTP}- Estudiantes: {self.CANTIDAD}'
 
+class DesercionInterAnualEstados(models.Model):
+    PERIODOS = models.CharField('Periodos',max_length=255,null=True)
+    COD_PERIODO = models.CharField('Semestre',max_length=255,null=True)
+    NOMBRE = models.CharField('Nombre',max_length=255,null=True)
+    NIVEL = models.CharField('Nivel',max_length=255,null=True)
+    NO_MATRICULADO = models.IntegerField('No matriculado',null=True)
+    PERMANECE_PROGRAMA = models.IntegerField('Permanece Programa',null=True)
+    CAMBIO_DE_PROGRAMA = models.IntegerField('Cambio de programa',null=True)
+    GRADUADO = models.IntegerField('Graduado',null=True)
+    PORCENTAJE_NO_MATRICULADO = models.FloatField('Porcentaje No matriculado',null=True)
+    PORCENTAJE_PERMANECE_PROGRAMA = models.FloatField('Porcentaje Permanece programa',null=True)
+    PORCENTAJE_CAMBIO_DE_PROGRAMA = models.FloatField('Porcentaje Cambio de programa',null=True)
+    PORCENTAJE_GRADUADO = models.FloatField('Porcentaje Graduado',null=True)
+    TOTAL = models.IntegerField('Total',null=True)   
 
+    def __str__(self):
+        return f'Semestre: {self.COD_PERIODO}- Nombre: {self.NOMBRE} - COD_PERIODO:{self.COD_PERIODO}'
