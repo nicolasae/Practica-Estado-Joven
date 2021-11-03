@@ -338,18 +338,27 @@ class AnalisisCohorteView(APIView):
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
                 if value == 'None':
-                    query[key] = None 
+                    query[key] = None                     
             if query.get('COD_PERIODO'):
                 if len(query.get('COD_PERIODO').split('-')) == 1:        
                     year = query.pop('COD_PERIODO')
                     query['COD_PERIODO__in'] = [f'{year}-1',f'{year}-2']
+            if query.get('NOMBRE'):
+                extra_query['NOMBRE'] = query.pop('NOMBRE')
+            if query.get('NIVEL'):
+                extra_query['NIVEL'] = query.pop('NIVEL')        
             analisis = AnalisisCohorte.objects.filter(**query)
             if not analisis:  
                 return Response({
                     'data': 'No se encontraron los registros'
                 },status=status.HTTP_404_NOT_FOUND) 
+            data = AnalisisCohorteSerializer(analisis,many=True).data
             return Response({
-                'data': AnalisisCohorteSerializer(analisis,many=True).data
+                'data': [
+                        value for value in data if 
+                        (value["NOMBRE"] in extra_query['NOMBRE'] if extra_query.get('NOMBRE') else True) and 
+                        (value["NIVEL"] in extra_query['NIVEL'] if extra_query.get('NIVEL') else True)
+                        ]
             },status=status.HTTP_200_OK)
 
 class AnalisisCohorteCountView(APIView):
