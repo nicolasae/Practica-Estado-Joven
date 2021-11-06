@@ -127,14 +127,10 @@ import {
     const [programaSelectedPregrado, setProgramaSelectedPregrado] = React.useState()
     const [collapsePregradoGraficoSemestral, setCollapsePregradoGraficoSemestral] = useState(false)
     const [yearSelectedSemestrePregrado, setYearSelectedSemestrePregrado] = React.useState(new Date().getFullYear())
+    const [dataPieChartPregrado,setDataPieChartPregrado] = React.useState()
 
 
-    // const pruebaItems = [{id: 0, name: 'John Doe', registered: '2018/01/01', role: 'Guest', status: 'Pending'},
-    // {id: 1, name: 'Samppa Nori', registered: '2018/01/01', role: 'Member', status: 'Active'},
-    // {id: 2, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned'},
-    // {id: 3, name: 'Chetan Mohamed', registered: '2018/02/01', role: 'Admin', status: 'Inactive'},
-    // {id: 4, name: 'Derick Maximinus', registered: '2018/03/01', role: 'Member', status: 'Pending'},]
-    // const pruebaFields = ['id','name','registered','role']
+    
     
     
     // Posgrado
@@ -158,23 +154,22 @@ import {
     const getProgramas = async() => { 
         const arrayPregrado = listPregrado.filter ( element => element.NIVEL === 'Pregrado');
         const arrayPosgrado = listPregrado.filter ( element => element.NIVEL === 'Posgrado');
-
         for (var i=0;i<arrayPregrado.length;i++){
             programasDataPregrado.push(arrayPregrado[i].NOMBRE)
         }
         for (var i=0;i<arrayPosgrado.length;i++){
             programasDataPosgrado.push(arrayPosgrado[i].NOMBRE)
         }
+        console.log(programasDataPregrado)
         await setProgramasDataPregrado(programasDataPregrado)
         await setProgramasDataPosgrado(programasDataPosgrado)
     }
 
     const getDataTablePregrado = async () => {
-    //    ARREGLAR QUE SEA SOLO PARA PREGRADO
         var axios = require('axios');
         var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/analisiscohorte?COD_PERIODO='+ yearSelectedPregrado,
+        url: 'http://localhost:8000/api/analisiscohorte?COD_PERIODO='+ yearSelectedPregrado + '&NIVEL=Pregrado',
         headers: { 
             'Content-Type': 'application/json'
         },
@@ -192,7 +187,7 @@ import {
             var axios = require('axios');
             var config = {
             method: 'get',
-            url: 'http://localhost:8000/api/analisiscohorte?COD_PERIODO='+ yearSelectedPosgrado,
+            url: 'http://localhost:8000/api/analisiscohorte?COD_PERIODO='+ yearSelectedPosgrado + '&NIVEL=Posgrado',
             headers: { 
                 'Content-Type': 'application/json'
             },
@@ -205,6 +200,25 @@ import {
             });
             await setDataTablePosgrado(inscritosquery)
         }
+    const getDataPieChartPregrado = async () => {
+        var axios = require('axios');
+        var estados = ['MATRICULADO','NO MATRICULADO','GRADUADO'];
+        console.log(yearSelectedSemestrePregrado)
+        // var config = {
+        // method: 'get',
+        // url: 'http://localhost:8000/api/analisiscohorte_count?COD_PERIODO='+ yearSelectedSemestrePregrado + '&NIVEL=Pregrado',
+        // headers: { 
+        //     'Content-Type': 'application/json'
+        // },
+        // };
+        // const inscritosquery = await axios(config)    
+        // .then( response => response.data.data)
+        // .catch(function (error) {
+        //     console.log(error);
+        //     return error.response
+        // });
+        // await setDataPieChartPregrado(inscritosquery)
+    }
 
     React.useEffect(async () => { 
         await getDataTablePregrado()
@@ -299,6 +313,7 @@ import {
         await getProgramas();  
         await getDataTablePregrado();
         await getDataTablePosgrado(); 
+        await getDataPieChartPregrado();
 
     });
 

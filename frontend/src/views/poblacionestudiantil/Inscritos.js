@@ -60,6 +60,7 @@ const Inscritos = () =>{
     const [inscritosColegio, setInscritosColegio] = React.useState({})
     const [loadingColegio, setLoadingColegio] = React.useState(true)
 
+    const prueba=[100,200,231,345]
 
 
     // Funciones 
@@ -86,7 +87,6 @@ const Inscritos = () =>{
             return error.response
         });
         await setInscritosPrimer(inscritosquery)
-        console.log(inscritosPrimer)
     }
 
     const getDataInscritosSegundoSemestre = async () => {
@@ -259,9 +259,21 @@ const Inscritos = () =>{
                 aux
                 )
         }
+       
         setLoadingColegio(false)
     }
 
+    const dataColegio = async() =>{ 
+        var aux = [];
+        var j 
+        var auxString 
+        for(var i=2010;i<=actualYear;i++){
+            j = i.toString();
+            auxString = 'Na'+j
+            console.log(inscritosColegio.auxString)
+            }
+        // console.log(inscritosColegio)
+    }
 
     React.useEffect(async () => { 
         await getDataInscritosPrimerSemestre()
@@ -363,6 +375,7 @@ const Inscritos = () =>{
         await getDataInscritosEstratoPrimerSemestre()
         await getDataInscritosEstratoSegundoSemestre()
         await getDataInscritosColegio()
+        await dataColegio();
     });
 
     return(
@@ -591,7 +604,8 @@ const Inscritos = () =>{
                                         {
                                             label: yearSelectedEstrato+'-1',
                                             backgroundColor: '#f87979',
-                                            data: [
+                                            data:
+                                             [
                                                 inscritosEstratoPrimerSemestre.estrato0,
                                                 inscritosEstratoPrimerSemestre.estrato1,
                                                 inscritosEstratoPrimerSemestre.estrato2,

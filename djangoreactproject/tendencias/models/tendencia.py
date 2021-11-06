@@ -122,6 +122,7 @@ class AnalisisCohorte(models.Model):
 class DesercionInterAnualEstados(models.Model):
     PERIODOS = models.CharField('Periodos',max_length=255,null=True)
     COD_PERIODO = models.CharField('Semestre',max_length=255,null=True)
+    COD_UTP = models.CharField('COD_UTP',max_length=255,null=True)
     NOMBRE = models.CharField('Nombre',max_length=255,null=True)
     NIVEL = models.CharField('Nivel',max_length=255,null=True)
     NO_MATRICULADO = models.IntegerField('No matriculado',null=True)

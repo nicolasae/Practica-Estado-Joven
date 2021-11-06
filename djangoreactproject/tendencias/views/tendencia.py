@@ -226,6 +226,7 @@ class DesercionInterAnualCountYearView(APIView):
                 },status=status.HTTP_404_NOT_FOUND) 
             data = []
             for year in years:
+                print(year)
                 data.append({
                     'year':year,
                     'count':DesercionInterAnual.objects.filter(COD_PERIODO = year).aggregate(Sum('CANTIDAD'))['CANTIDAD__sum']
@@ -253,15 +254,16 @@ class DesercionInterAnualCountYearView(APIView):
                 },status=status.HTTP_404_NOT_FOUND) 
             years = [periodo['COD_PERIODO'] for periodo in desercion.values('COD_PERIODO').distinct()]
             data = []
-            for year,level in years:
+            for year in years:
                 query['COD_PERIODO'] = year
+                print(year)
                 data.append({
                     'year':year,
                     'count':desercion.filter(COD_PERIODO = year).aggregate(Sum('CANTIDAD'))['CANTIDAD__sum']
                 })
             return Response({
                 'data': data
-            },status=status.HTTP_200_OK)   
+            },status=status.HTTP_200_OK)  
 
 class DesercionInterAnualEstadosView(APIView):
     def get(self,request):
@@ -447,72 +449,3 @@ class AnalisisCohorteCountYearView(APIView):
                 'data': data
             },status=status.HTTP_200_OK)
 
-# data = {
-#     "data": [
-#         {
-#             "NOMBRE":"Ingeniería de Sistemas y Computación",
-#             "NIVEL": "Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Ingeniería de Sistemas y Computación (Básicos ingeniería)",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Ingeniería de Sistemas y Computación (Convenio Cuba)",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Ingeniería de Sistemas y Computación (Nocturno)",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Ingeniería Eléctrica",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Ingeniería Eléctrica (Básicos ingeniería)",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Ingeniería Electrónica (Diurna)",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Ingeniería Electrónica (Nocturno)",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Ingeniería Física",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Ingeniería Física (Básicos ingenieria)",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Tecnología en Desarrollo de Software",
-#             "NIVEL":"Pregrado"
-#         },
-#         {
-#             "NOMBRE":"Doctorado en Ingeniería",
-#             "NIVEL":"Posgrado"
-#         },
-#         {
-#             "NOMBRE":"Especialización en Electrónica Digital",
-#             "NIVEL":"Posgrado"
-#         }
-#         {
-#             "NOMBRE":"Especialización en Redes de Datos",
-#             "NIVEL":"Posgrado"
-#         }
-#         {
-#             "NOMBRE":"Maestría en Ingeniería de Sistemas y Computación",
-#             "NIVEL":"Posgrado"
-#         }
-#         {
-#             "NOMBRE":"Maestría en Ingeniería Eléctrica",
-#             "NIVEL":"Posgrado"
-#         }
-        
-#     ]
-# }
