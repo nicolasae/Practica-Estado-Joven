@@ -21,6 +21,9 @@ import {
     CChartLine,
     CChartPie,
   } from '@coreui/react-chartjs'
+import Select from 'react-select'
+import makeAnimated from 'react-select/animated';
+
 import '../../scss/_custom.scss'
 
   // hook personalizado
@@ -59,8 +62,16 @@ const Inscritos = () =>{
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
     const [inscritosColegio, setInscritosColegio] = React.useState({})
     const [loadingColegio, setLoadingColegio] = React.useState(true)
-
-    const prueba=[100,200,231,345]
+    // Constantes segun tipo de inscripcion
+    const [collapseInscripcion, setCollapseInscripcion] = useState(false)
+    const [inscripcionList,setInscripcionList] = React.useState([])
+    const [inscripcionSelected,setInscripcionSelected] = React.useState()
+    const animatedComponents = makeAnimated()
+    // const inscripcionList = [
+    //     { value: "rojo", label: "rojo" },
+    //     { value: "azul", label: "azul" },
+    //     { value: "verde", label: "verde" }
+    //     ];
 
 
     // Funciones 
@@ -263,17 +274,41 @@ const Inscritos = () =>{
         setLoadingColegio(false)
     }
 
-    const dataColegio = async() =>{ 
-        var aux = [];
-        var j 
-        var auxString 
-        for(var i=2010;i<=actualYear;i++){
-            j = i.toString();
-            auxString = 'Na'+j
-            console.log(inscritosColegio.auxString)
+    const getDataInscritosList = async () => {
+        var axios = require('axios');
+        var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/tendencia?VAR=Inscrito',
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        };
+        const inscritosquery = await axios(config)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
+        var aux = []
+        for ( const i in inscritosquery){
+            if((inscritosquery[i]['TIPO_INSCRIPCION']!== null) ){
+                aux.push(inscritosquery[i]['TIPO_INSCRIPCION'])
             }
-        // console.log(inscritosColegio)
+        }
+        var array = new Set(aux);
+        var result = [...array];
+        console.log(result)
+        // var aux2 = {}
+        // for (const j in result){
+        //     console.log(j)
+        //     // aux2 = {
+        //     //     value: result[j],
+        //     //     label: result[j],
+        //     // }
+        // }       
+    //    console.log(aux2)
     }
+ 
 
     React.useEffect(async () => { 
         await getDataInscritosPrimerSemestre()
@@ -292,7 +327,7 @@ const Inscritos = () =>{
     },[yearSelectedEstrato])
 
     React.useEffect(async () => { await getDataInscritosColegio()})
-
+    React.useEffect(async () => { await getDataInscritosList()})
 
 
     const toggleGeneral = (e)=>{
@@ -300,6 +335,7 @@ const Inscritos = () =>{
         setCollapseSexo(false);
         setCollapseEstrato(false);
         setCollapseColegio(false);
+        setCollapseInscripcion(false);
         e.preventDefault();
     }
     const toggleSexo = (e)=>{
@@ -307,6 +343,7 @@ const Inscritos = () =>{
         setCollapseGeneral(false);
         setCollapseEstrato(false);
         setCollapseColegio(false);
+        setCollapseInscripcion(false);
         e.preventDefault();
     }
     const toggleEstrato = (e)=>{
@@ -314,6 +351,7 @@ const Inscritos = () =>{
         setCollapseGeneral(false);
         setCollapseSexo(false);
         setCollapseColegio(false);
+        setCollapseInscripcion(false);
         e.preventDefault();
     }
     const toggleColegio = (e)=>{
@@ -321,9 +359,17 @@ const Inscritos = () =>{
         setCollapseGeneral(false);
         setCollapseSexo(false);
         setCollapseEstrato(false);
+        setCollapseInscripcion(false);
         e.preventDefault();
     }
-
+    const toggleInscripcion = (e)=>{
+        setCollapseInscripcion(!collapseInscripcion);
+        setCollapseGeneral(false);
+        setCollapseSexo(false);
+        setCollapseEstrato(false);
+        setCollapseColegio(false);
+        e.preventDefault();
+    }
     const toggleTablaInscritosPrimer = (e)=>{
         setCollapseTablaInscritosPrimer(!collapseTablaInscritosPrimer);
         setCollapseTablaInscritosSegundo(false);
@@ -359,23 +405,30 @@ const Inscritos = () =>{
         setInscritosSexoPrimerSemestre([])
         setInscritosSexoSegundoSemestre([])
     }
-    const handleChangeYearLineChartEstrato = async (event) =>  {
-        await setYearSelectedEstrato(event.target.value);
-        await setLoadingEstrato(true);
+    const handleChangeYearLineChartEstrato = async (event) => { 
+        setYearSelectedEstrato(event.target.value);
+        setLoadingEstrato(true);
     }
+
+    const handleChangeInscripcion = value =>  {
+        if (value === null) {
+            value = [];
+          }
+        // setInscripcionSelected(value)
+        // console.log(value[0])
+    };   
     
 
     // despues de definir las constantes 
     useSingleton(async () => {
         await getYears();    
-        await getDataInscritosPrimerSemestre()
-        await getDataInscritosSegundoSemestre()
-        await getDataInscritosSexoPrimerSemestre()
-        await getDataInscritosSexoSegundoSemestre()
-        await getDataInscritosEstratoPrimerSemestre()
-        await getDataInscritosEstratoSegundoSemestre()
-        await getDataInscritosColegio()
-        await dataColegio();
+        await getDataInscritosPrimerSemestre();
+        await getDataInscritosSegundoSemestre();
+        await getDataInscritosSexoPrimerSemestre();
+        await getDataInscritosSexoSegundoSemestre();
+        await getDataInscritosEstratoPrimerSemestre();
+        await getDataInscritosEstratoSegundoSemestre();
+        await getDataInscritosColegio();
     });
 
     return(
@@ -413,9 +466,11 @@ const Inscritos = () =>{
                             >Según Colegio
                         </CButton>
                     </CCol>
-                    {/* <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-                    <CButton block variant="outline" color="info">Info</CButton>
-                    </CCol> */}
+                    <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+                        <CButton block variant="outline" color="info" onClick={toggleInscripcion}
+                            >Según Inscripción
+                        </CButton>
+                    </CCol>
                 </CRow>
             </CCardBody>
         </CCard>
@@ -596,8 +651,9 @@ const Inscritos = () =>{
                             </CFormGroup>
                             <CCollapse show={collapseLineChartEstrato}>  
                                 <CCardBody>
-                                    {loadingEstrato? <div class="spinner-border text-info" role="status">
-                                        <span class="sr-only">Loading...</span>
+                                    {loadingEstrato?
+                                        <div class="spinner-border text-info" role="status">
+                                            <span class="sr-only">Loading...</span>
                                         </div> :
                                     <CChartBar
                                         datasets={[
@@ -747,14 +803,28 @@ const Inscritos = () =>{
                         </CCardHeader>
                     </CCard>
                 </CCollapse>
+            </CCol>
+            <CCol xs="12" lg="12">
+                <CCollapse show={collapseInscripcion}>
+                    <CCard>
+                        <h1 style={{textAlign: 'center', fontWeight:'bold'}}>
+                            Tendencia según tipo de inscripción:
+                        </h1>
+                        {/* <Select 
+                            // onChange={handleChangeInscripcion}
+                            // // onChange={console.log}
+                            closeMenuOnSelect={false}
+                            components={animatedComponents}
+                            isMulti
+                            options={inscripcionList}
+                            
+                        /> */}
+                    </CCard>
+                </CCollapse>
             </CCol> 
 
 
-        </CRow>
-        
-
-
-       
+        </CRow>      
         </>
     )
 }
