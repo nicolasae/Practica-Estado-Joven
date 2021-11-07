@@ -52,8 +52,8 @@ const Cancelados = () =>{
     const [yearSelectedEstrato, setYearSelectedEstrato] = React.useState(new Date().getFullYear())
     const [collapseLineChartEstrato, setCollapseLineChartEstrato] = useState(false)
     const fieldsEstrato = ['Estrato 0','Estrato I','Estrato II','Estrato III','Estrato IV','Estrato V','Estrato VI']
-    const [canceladosEstratoPrimerSemestre, setCanceladosEstratoPrimerSemestre] = React.useState({})
-    const [canceladosEstratoSegundoSemestre, setCanceladosEstratoSegundoSemestre] = React.useState({})
+    const [canceladosEstratoPrimerSemestre, setCanceladosEstratoPrimerSemestre] = React.useState()
+    const [canceladosEstratoSegundoSemestre, setCanceladosEstratoSegundoSemestre] = React.useState()
     const [loadingEstrato, setLoadingEstrato] = React.useState(false)
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
@@ -169,6 +169,7 @@ const Cancelados = () =>{
     const getDataCanceladosEstratoPrimerSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
         var axios = require('axios');
+        var aux = []
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -188,18 +189,15 @@ const Cancelados = () =>{
                     return error.response
                 }
             });
-            let aux = canceladosEstratoPrimerSemestre
-            aux['estrato'+i]= canceladosquery.ESTUDIANTES__sum
-            await setCanceladosEstratoPrimerSemestre(
-                // {...canceladosEstratoPrimerSemestre,['estrato'+i]: canceladosquery.ESTUDIANTES__sum}
-                aux
-                )
+            aux.push(canceladosquery.ESTUDIANTES__sum)
         }
+        await setCanceladosEstratoPrimerSemestre(aux)
     }
 
     const getDataCanceladosEstratoSegundoSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
-        var axios = require('axios');         
+        var axios = require('axios');  
+        var aux = []       
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -219,20 +217,17 @@ const Cancelados = () =>{
                     return error.response
                 }
             });
-            let aux = canceladosEstratoSegundoSemestre
-            aux['estrato'+i]= canceladosquery.ESTUDIANTES__sum 
-            await setCanceladosEstratoSegundoSemestre(
-                aux
-                )
-            
+            aux.push(canceladosquery.ESTUDIANTES__sum)
         }
+        await setCanceladosEstratoSegundoSemestre(aux)
         setLoadingEstrato(false)
     }
 
     const getDataCanceladosColegio = async() =>{ 
         var tiposColegio= ['None','Oficial','Privado']
         var axios = require('axios');
-        let aux = canceladosColegio
+        var aux = {}
+        var aux2 = []
         for (var tipo = 0;tipo<3;tipo++){
             for (var year = 2010;year <= actualYear;year++){
                 var config = {
@@ -242,7 +237,7 @@ const Cancelados = () =>{
                         'Content-Type': 'application/json'
                     },
                 };
-                var canceladosquery = await axios(config)    
+                var canceladosQuery = await axios(config)    
                 .then( response => response.data.data)
                 .catch(function (error) {
                     if(error.response.status === 404) {
@@ -252,12 +247,12 @@ const Cancelados = () =>{
                         return error.response
                     }
                 });
-               aux[tiposColegio[tipo]+ year]= canceladosquery.ESTUDIANTES__sum 
+                aux2.push(canceladosQuery.ESTUDIANTES__sum)
             }
-            await setCanceladosColegio(
-                aux
-                )
+            aux[tiposColegio[tipo]] = aux2
+            aux2 = []
         }
+        await setCanceladosColegio(aux)
         setLoadingColegio(false)
     }
 
@@ -278,7 +273,6 @@ const Cancelados = () =>{
         await getDataCanceladosEstratoSegundoSemestre()
     },[yearSelectedEstrato])
 
-    React.useEffect(async () => { await getDataCanceladosColegio()})
 
 
 
@@ -518,7 +512,6 @@ const Cancelados = () =>{
                                         }
                                         }}
                                         />
-
                                     </CCardBody>
                                     </CCard>
                                 </CCollapse>
@@ -590,28 +583,12 @@ const Cancelados = () =>{
                                         {
                                             label: yearSelectedEstrato+'-1',
                                             backgroundColor: '#f87979',
-                                            data: [
-                                                canceladosEstratoPrimerSemestre.estrato0,
-                                                canceladosEstratoPrimerSemestre.estrato1,
-                                                canceladosEstratoPrimerSemestre.estrato2,
-                                                canceladosEstratoPrimerSemestre.estrato3,
-                                                canceladosEstratoPrimerSemestre.estrato4,
-                                                canceladosEstratoPrimerSemestre.estrato5,
-                                                canceladosEstratoPrimerSemestre.estrato6,
-                                            ]
+                                            data: canceladosEstratoPrimerSemestre                                        
                                         },
                                         {
                                             label: yearSelectedEstrato+'-2',
                                             backgroundColor: '#0096d2',
-                                            data: [
-                                                canceladosEstratoSegundoSemestre.estrato0,
-                                                canceladosEstratoSegundoSemestre.estrato1,
-                                                canceladosEstratoSegundoSemestre.estrato2,
-                                                canceladosEstratoSegundoSemestre.estrato3,
-                                                canceladosEstratoSegundoSemestre.estrato4,
-                                                canceladosEstratoSegundoSemestre.estrato5,
-                                                canceladosEstratoSegundoSemestre.estrato6,
-                                            ]
+                                            data: canceladosEstratoSegundoSemestre
                                         },
                                         ]}
                                         labels= {fieldsEstrato}
@@ -619,8 +596,7 @@ const Cancelados = () =>{
                                         tooltips: {
                                             enabled: true
                                         }
-                                        }}
-                                        
+                                        }}                                        
                                     />
                                     }
                                 </CCardBody>
@@ -659,60 +635,21 @@ const Cancelados = () =>{
                                             fill:false,
                                             borderColor: 'Red',
                                             backgroundColor: 'Red',
-                                            data: [
-                                                canceladosColegio.None2010,
-                                                canceladosColegio.None2011,
-                                                canceladosColegio.None2012,
-                                                canceladosColegio.None2013,
-                                                canceladosColegio.None2014,
-                                                canceladosColegio.None2015,
-                                                canceladosColegio.None2016,
-                                                canceladosColegio.None2017,
-                                                canceladosColegio.None2018,
-                                                canceladosColegio.None2019,
-                                                canceladosColegio.None2020,
-                                                canceladosColegio.None2021,
-                                            ]
+                                            data: canceladosColegio['None']
                                         },
                                         {
                                             label: 'Oficial',
                                             backgroundColor: 'Green',
                                             fill:false,
                                             borderColor: 'Green',
-                                            data: [
-                                                canceladosColegio.Oficial2010,
-                                                canceladosColegio.Oficial2011,
-                                                canceladosColegio.Oficial2012,
-                                                canceladosColegio.Oficial2013,
-                                                canceladosColegio.Oficial2014,
-                                                canceladosColegio.Oficial2015,
-                                                canceladosColegio.Oficial2016,
-                                                canceladosColegio.Oficial2017,
-                                                canceladosColegio.Oficial2018,
-                                                canceladosColegio.Oficial2019,
-                                                canceladosColegio.Oficial2020,
-                                                canceladosColegio.Oficial2021,
-                                            ]
+                                            data: canceladosColegio['Oficial']
                                         },
                                         {
                                             label: 'Privado',
                                             backgroundColor: 'Blue',
                                             borderColor: 'Blue',
                                             fill:false,
-                                            data: [
-                                                canceladosColegio.Privado2010,
-                                                canceladosColegio.Privado2011,
-                                                canceladosColegio.Privado2012,
-                                                canceladosColegio.Privado2013,
-                                                canceladosColegio.Privado2014,
-                                                canceladosColegio.Privado2015,
-                                                canceladosColegio.Privado2016,
-                                                canceladosColegio.Privado2017,
-                                                canceladosColegio.Privado2018,
-                                                canceladosColegio.Privado2019,
-                                                canceladosColegio.Privado2020,
-                                                canceladosColegio.Privado2021,
-                                            ]
+                                            data: canceladosColegio['Privado']
                                         }
                                         ]}
                                         options={{
@@ -721,8 +658,7 @@ const Cancelados = () =>{
                                         }
                                         
                                         }}
-                                        labels= {yearsData}
-                                        
+                                        labels= {yearsData}                                        
                                     />
                                     }
                                 </CCardBody>

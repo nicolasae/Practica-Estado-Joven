@@ -52,8 +52,8 @@ const Matriculados = () =>{
     const [yearSelectedEstrato, setYearSelectedEstrato] = React.useState(new Date().getFullYear())
     const [collapseLineChartEstrato, setCollapseLineChartEstrato] = useState(false)
     const fieldsEstrato = ['Estrato 0','Estrato I','Estrato II','Estrato III','Estrato IV','Estrato V','Estrato VI']
-    const [matriculadosEstratoPrimerSemestre, setMatriculadosEstratoPrimerSemestre] = React.useState({})
-    const [matriculadosEstratoSegundoSemestre, setMatriculadosEstratoSegundoSemestre] = React.useState({})
+    const [matriculadosEstratoPrimerSemestre, setMatriculadosEstratoPrimerSemestre] = React.useState()
+    const [matriculadosEstratoSegundoSemestre, setMatriculadosEstratoSegundoSemestre] = React.useState()
     const [loadingEstrato, setLoadingEstrato] = React.useState(false)
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
@@ -169,6 +169,7 @@ const Matriculados = () =>{
     const getDataMatriculadosEstratoPrimerSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
         var axios = require('axios');
+        var aux = []
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -177,7 +178,7 @@ const Matriculados = () =>{
                     'Content-Type': 'application/json'
                 },
             };
-            let matriculadosquery = await axios(config)    
+            let matriculadosQuery = await axios(config)    
             .then( response => response.data.data)
             .catch(function (error) {
                 if(error.response.status === 404) {
@@ -188,17 +189,15 @@ const Matriculados = () =>{
                     return error.response
                 }
             });
-            let aux = matriculadosEstratoPrimerSemestre
-            aux['estrato'+i]= matriculadosquery.ESTUDIANTES__sum
-            await setMatriculadosEstratoPrimerSemestre(
-                aux
-                )
+            aux.push(matriculadosQuery.ESTUDIANTES__sum)
         }
+        await setMatriculadosEstratoPrimerSemestre(aux)
     }
 
     const getDataMatriculadosEstratoSegundoSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
-        var axios = require('axios');         
+        var axios = require('axios');   
+        var aux = []      
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -208,7 +207,7 @@ const Matriculados = () =>{
                 },
             };
             
-            var matriculadosquery = await axios(config)    
+            var matriculadosQuery = await axios(config)    
             .then( response => response.data.data)
             .catch(function (error) {
                 if(error.response.status === 404) {
@@ -218,20 +217,17 @@ const Matriculados = () =>{
                     return error.response
                 }
             });
-            let aux = matriculadosEstratoSegundoSemestre
-            aux['estrato'+i]= matriculadosquery.ESTUDIANTES__sum 
-            await setMatriculadosEstratoSegundoSemestre(
-                aux
-                )
-            
+            aux.push(matriculadosQuery.ESTUDIANTES__sum)
         }
+        await setMatriculadosEstratoSegundoSemestre(aux)
         setLoadingEstrato(false)
     }
 
     const getDataMatriculadosColegio = async() =>{ 
         var tiposColegio= ['None','Oficial','Privado']
         var axios = require('axios');
-        let aux = matriculadosColegio
+        var aux = {}
+        var aux2 = []
         for (var tipo = 0;tipo<3;tipo++){
             for (var year = 2010;year <= actualYear;year++){
                 var config = {
@@ -241,7 +237,7 @@ const Matriculados = () =>{
                         'Content-Type': 'application/json'
                     },
                 };
-                var matriculadosquery = await axios(config)    
+                var matriculadosQuery = await axios(config)    
                 .then( response => response.data.data)
                 .catch(function (error) {
                     if(error.response.status === 404) {
@@ -251,12 +247,12 @@ const Matriculados = () =>{
                         return error.response
                     }
                 });
-               aux[tiposColegio[tipo]+ year]= matriculadosquery.ESTUDIANTES__sum 
+                aux2.push(matriculadosQuery.ESTUDIANTES__sum)
             }
-            await setMatriculadosColegio(
-                aux
-                )
+            aux[tiposColegio[tipo]] = aux2
+            aux2 = []
         }
+        await setMatriculadosColegio(aux)
         setLoadingColegio(false)
     }
 
@@ -277,7 +273,7 @@ const Matriculados = () =>{
         await getDataMatriculadosEstratoSegundoSemestre()
     },[yearSelectedEstrato])
 
-    React.useEffect(async () => { await getDataMatriculadosColegio()})
+    // React.useEffect(async () => { await getDataMatriculadosColegio()})
 
 
 
@@ -592,28 +588,12 @@ const Matriculados = () =>{
                                         {
                                             label: yearSelectedEstrato+'-1',
                                             backgroundColor: '#f87979',
-                                            data: [
-                                                matriculadosEstratoPrimerSemestre.estrato0,
-                                                matriculadosEstratoPrimerSemestre.estrato1,
-                                                matriculadosEstratoPrimerSemestre.estrato2,
-                                                matriculadosEstratoPrimerSemestre.estrato3,
-                                                matriculadosEstratoPrimerSemestre.estrato4,
-                                                matriculadosEstratoPrimerSemestre.estrato5,
-                                                matriculadosEstratoPrimerSemestre.estrato6,
-                                            ]
+                                            data: matriculadosEstratoPrimerSemestre
                                         },
                                         {
                                             label: yearSelectedEstrato+'-2',
                                             backgroundColor: '#0096d2',
-                                            data: [
-                                                matriculadosEstratoSegundoSemestre.estrato0,
-                                                matriculadosEstratoSegundoSemestre.estrato1,
-                                                matriculadosEstratoSegundoSemestre.estrato2,
-                                                matriculadosEstratoSegundoSemestre.estrato3,
-                                                matriculadosEstratoSegundoSemestre.estrato4,
-                                                matriculadosEstratoSegundoSemestre.estrato5,
-                                                matriculadosEstratoSegundoSemestre.estrato6,
-                                            ]
+                                            data: matriculadosEstratoSegundoSemestre                                           
                                         },
                                         ]}
                                         labels= {fieldsEstrato}
@@ -621,8 +601,7 @@ const Matriculados = () =>{
                                         tooltips: {
                                             enabled: true
                                         }
-                                        }}
-                                        
+                                        }}                                        
                                     />
                                     }
                                 </CCardBody>
@@ -661,60 +640,21 @@ const Matriculados = () =>{
                                                 fill:false,
                                                 borderColor: 'Red',
                                                 backgroundColor: 'Red',
-                                                data: [
-                                                    matriculadosColegio.None2010,
-                                                    matriculadosColegio.None2011,
-                                                    matriculadosColegio.None2012,
-                                                    matriculadosColegio.None2013,
-                                                    matriculadosColegio.None2014,
-                                                    matriculadosColegio.None2015,
-                                                    matriculadosColegio.None2016,
-                                                    matriculadosColegio.None2017,
-                                                    matriculadosColegio.None2018,
-                                                    matriculadosColegio.None2019,
-                                                    matriculadosColegio.None2020,
-                                                    matriculadosColegio.None2021,
-                                                ]
+                                                data: matriculadosColegio['None']
                                             },
                                             {
                                                 label: 'Oficial',
                                                 backgroundColor: 'Green',
                                                 fill:false,
                                                 borderColor: 'Green',
-                                                data: [
-                                                    matriculadosColegio.Oficial2010,
-                                                    matriculadosColegio.Oficial2011,
-                                                    matriculadosColegio.Oficial2012,
-                                                    matriculadosColegio.Oficial2013,
-                                                    matriculadosColegio.Oficial2014,
-                                                    matriculadosColegio.Oficial2015,
-                                                    matriculadosColegio.Oficial2016,
-                                                    matriculadosColegio.Oficial2017,
-                                                    matriculadosColegio.Oficial2018,
-                                                    matriculadosColegio.Oficial2019,
-                                                    matriculadosColegio.Oficial2020,
-                                                    matriculadosColegio.Oficial2021,
-                                                ]
+                                                data: matriculadosColegio['Oficial']                                               
                                             },
                                             {
                                                 label: 'Privado',
                                                 backgroundColor: 'Blue',
                                                 borderColor: 'Blue',
                                                 fill:false,
-                                                data: [
-                                                    matriculadosColegio.Privado2010,
-                                                    matriculadosColegio.Privado2011,
-                                                    matriculadosColegio.Privado2012,
-                                                    matriculadosColegio.Privado2013,
-                                                    matriculadosColegio.Privado2014,
-                                                    matriculadosColegio.Privado2015,
-                                                    matriculadosColegio.Privado2016,
-                                                    matriculadosColegio.Privado2017,
-                                                    matriculadosColegio.Privado2018,
-                                                    matriculadosColegio.Privado2019,
-                                                    matriculadosColegio.Privado2020,
-                                                    matriculadosColegio.Privado2021,
-                                                ]
+                                                data: matriculadosColegio['Privado']
                                             }
                                         ]}
                                         options={{

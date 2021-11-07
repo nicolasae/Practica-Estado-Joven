@@ -52,8 +52,8 @@ const PrimerCurso = () =>{
     const [yearSelectedEstrato, setYearSelectedEstrato] = React.useState(new Date().getFullYear())
     const [collapseLineChartEstrato, setCollapseLineChartEstrato] = useState(false)
     const fieldsEstrato = ['Estrato 0','Estrato I','Estrato II','Estrato III','Estrato IV','Estrato V','Estrato VI']
-    const [primerCursoEstratoPrimerSemestre, setPrimerCursoEstratoPrimerSemestre] = React.useState({})
-    const [primerCursoEstratoSegundoSemestre, setPrimerCursoEstratoSegundoSemestre] = React.useState({})
+    const [primerCursoEstratoPrimerSemestre, setPrimerCursoEstratoPrimerSemestre] = React.useState()
+    const [primerCursoEstratoSegundoSemestre, setPrimerCursoEstratoSegundoSemestre] = React.useState()
     const [loadingEstrato, setLoadingEstrato] = React.useState(false)
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
@@ -167,6 +167,7 @@ const PrimerCurso = () =>{
     const getDataPrimerCursoEstratoPrimerSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
         var axios = require('axios');
+        var aux = []
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -186,18 +187,16 @@ const PrimerCurso = () =>{
                     return error.response
                 }
             });
-            let aux = primerCursoEstratoPrimerSemestre
-            aux['estrato'+i]= primerCursoquery.ESTUDIANTES__sum
-            await setPrimerCursoEstratoPrimerSemestre(
-                // {...primerCursoEstratoPrimerSemestre,['estrato'+i]: primerCursoquery.ESTUDIANTES__sum}
-                aux
-                )
+            aux.push(primerCursoquery.ESTUDIANTES__sum)
+            
         }
+        await setPrimerCursoEstratoPrimerSemestre(aux)
     }
 
     const getDataPrimerCursoEstratoSegundoSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
-        var axios = require('axios');         
+        var axios = require('axios');
+        var aux = []         
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -217,20 +216,17 @@ const PrimerCurso = () =>{
                     return error.response
                 }
             });
-            let aux = primerCursoEstratoSegundoSemestre
-            aux['estrato'+i]= primerCursoquery.ESTUDIANTES__sum 
-            await setPrimerCursoEstratoSegundoSemestre(
-                aux
-                )
-            
+            aux.push(primerCursoquery.ESTUDIANTES__sum)            
         }
+        await setPrimerCursoEstratoSegundoSemestre(aux)
         setLoadingEstrato(false)
     }
 
     const getDataPrimerCursoColegio = async() =>{ 
         var tiposColegio= ['Na','Oficial','Privado']
         var axios = require('axios');
-        let aux = primerCursoColegio
+        var aux = {}
+        var aux2 = []
         for (var tipo = 0;tipo<3;tipo++){
             for (var year = 2010;year <= actualYear;year++){
                 var config = {
@@ -240,7 +236,7 @@ const PrimerCurso = () =>{
                         'Content-Type': 'application/json'
                     },
                 };
-                var primerCursoquery = await axios(config)    
+                var primerCursoQuery = await axios(config)    
                 .then( response => response.data.data)
                 .catch(function (error) {
                     if(error.response.status === 404) {
@@ -250,12 +246,12 @@ const PrimerCurso = () =>{
                         return error.response
                     }
                 });
-               aux[tiposColegio[tipo]+ year]= primerCursoquery.ESTUDIANTES__sum 
+                aux2.push(primerCursoQuery.ESTUDIANTES__sum)
             }
-            await setPrimerCursoColegio(
-                aux
-                )
+            aux[tiposColegio[tipo]] = aux2
+            aux2 = []
         }
+        await setPrimerCursoColegio(aux)
         setLoadingColegio(false)
     }
 
@@ -276,7 +272,6 @@ const PrimerCurso = () =>{
         await getDataPrimerCursoEstratoSegundoSemestre()
     },[yearSelectedEstrato])
 
-    React.useEffect(async () => { await getDataPrimerCursoColegio()})
 
 
 
@@ -588,28 +583,12 @@ const PrimerCurso = () =>{
                                         {
                                             label: yearSelectedEstrato+'-1',
                                             backgroundColor: '#f87979',
-                                            data: [
-                                                primerCursoEstratoPrimerSemestre.estrato0,
-                                                primerCursoEstratoPrimerSemestre.estrato1,
-                                                primerCursoEstratoPrimerSemestre.estrato2,
-                                                primerCursoEstratoPrimerSemestre.estrato3,
-                                                primerCursoEstratoPrimerSemestre.estrato4,
-                                                primerCursoEstratoPrimerSemestre.estrato5,
-                                                primerCursoEstratoPrimerSemestre.estrato6,
-                                            ]
+                                            data: primerCursoEstratoPrimerSemestre
                                         },
                                         {
                                             label: yearSelectedEstrato+'-2',
                                             backgroundColor: '#0096d2',
-                                            data: [
-                                                primerCursoEstratoSegundoSemestre.estrato0,
-                                                primerCursoEstratoSegundoSemestre.estrato1,
-                                                primerCursoEstratoSegundoSemestre.estrato2,
-                                                primerCursoEstratoSegundoSemestre.estrato3,
-                                                primerCursoEstratoSegundoSemestre.estrato4,
-                                                primerCursoEstratoSegundoSemestre.estrato5,
-                                                primerCursoEstratoSegundoSemestre.estrato6,
-                                            ]
+                                            data:  primerCursoEstratoSegundoSemestre
                                         },
                                         ]}
                                         labels= {fieldsEstrato}
@@ -617,8 +596,7 @@ const PrimerCurso = () =>{
                                         tooltips: {
                                             enabled: true
                                         }
-                                        }}
-                                        
+                                        }}                                        
                                     />
                                     }
                                 </CCardBody>
@@ -658,60 +636,21 @@ const PrimerCurso = () =>{
                                             fill:false,
                                             borderColor: 'Red',
                                             backgroundColor: 'Red',
-                                            data: [
-                                                primerCursoColegio.Na2010,
-                                                primerCursoColegio.Na2011,
-                                                primerCursoColegio.Na2012,
-                                                primerCursoColegio.Na2013,
-                                                primerCursoColegio.Na2014,
-                                                primerCursoColegio.Na2015,
-                                                primerCursoColegio.Na2016,
-                                                primerCursoColegio.Na2017,
-                                                primerCursoColegio.Na2018,
-                                                primerCursoColegio.Na2019,
-                                                primerCursoColegio.Na2020,
-                                                primerCursoColegio.Na2021,
-                                            ]
+                                            data: primerCursoColegio['Na']
                                         },
                                         {
                                             label: 'Oficial',
                                             backgroundColor: 'Green',
                                             fill:false,
                                             borderColor: 'Green',
-                                            data: [
-                                                primerCursoColegio.Oficial2010,
-                                                primerCursoColegio.Oficial2011,
-                                                primerCursoColegio.Oficial2012,
-                                                primerCursoColegio.Oficial2013,
-                                                primerCursoColegio.Oficial2014,
-                                                primerCursoColegio.Oficial2015,
-                                                primerCursoColegio.Oficial2016,
-                                                primerCursoColegio.Oficial2017,
-                                                primerCursoColegio.Oficial2018,
-                                                primerCursoColegio.Oficial2019,
-                                                primerCursoColegio.Oficial2020,
-                                                primerCursoColegio.Oficial2021,
-                                            ]
+                                            data: primerCursoColegio['Oficial']
                                         },
                                         {
                                             label: 'Privado',
                                             backgroundColor: 'Blue',
                                             borderColor: 'Blue',
                                             fill:false,
-                                            data: [
-                                                primerCursoColegio.Privado2010,
-                                                primerCursoColegio.Privado2011,
-                                                primerCursoColegio.Privado2012,
-                                                primerCursoColegio.Privado2013,
-                                                primerCursoColegio.Privado2014,
-                                                primerCursoColegio.Privado2015,
-                                                primerCursoColegio.Privado2016,
-                                                primerCursoColegio.Privado2017,
-                                                primerCursoColegio.Privado2018,
-                                                primerCursoColegio.Privado2019,
-                                                primerCursoColegio.Privado2020,
-                                                primerCursoColegio.Privado2021,
-                                            ]
+                                            data: primerCursoColegio['Privado']
                                         }
                                         ]}
                                         options={{

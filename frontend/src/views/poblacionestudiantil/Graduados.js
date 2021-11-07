@@ -52,8 +52,8 @@ const Graduados = () =>{
     const [yearSelectedEstrato, setYearSelectedEstrato] = React.useState(new Date().getFullYear())
     const [collapseLineChartEstrato, setCollapseLineChartEstrato] = useState(false)
     const fieldsEstrato = ['Estrato 0','Estrato I','Estrato II','Estrato III','Estrato IV','Estrato V','Estrato VI']
-    const [graduadosEstratoPrimerSemestre, setGraduadosEstratoPrimerSemestre] = React.useState({})
-    const [graduadosEstratoSegundoSemestre, setGraduadosEstratoSegundoSemestre] = React.useState({})
+    const [graduadosEstratoPrimerSemestre, setGraduadosEstratoPrimerSemestre] = React.useState()
+    const [graduadosEstratoSegundoSemestre, setGraduadosEstratoSegundoSemestre] = React.useState()
     const [loadingEstrato, setLoadingEstrato] = React.useState(false)
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
@@ -169,6 +169,7 @@ const Graduados = () =>{
     const getDataGraduadosEstratoPrimerSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
         var axios = require('axios');
+        var aux = []
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -188,18 +189,15 @@ const Graduados = () =>{
                     return error.response
                 }
             });
-            let aux = graduadosEstratoPrimerSemestre
-            aux['estrato'+i]= graduadosquery.ESTUDIANTES__sum
-            await setGraduadosEstratoPrimerSemestre(
-                // {...graduadosEstratoPrimerSemestre,['estrato'+i]: graduadosquery.ESTUDIANTES__sum}
-                aux
-                )
+            aux.push(graduadosquery.ESTUDIANTES__sum)
         }
+        await setGraduadosEstratoPrimerSemestre(aux)
     }
 
     const getDataGraduadosEstratoSegundoSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
         var axios = require('axios');         
+        var aux = []
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -207,8 +205,7 @@ const Graduados = () =>{
                 headers: { 
                     'Content-Type': 'application/json'
                 },
-            };
-            
+            };            
             var graduadosquery = await axios(config)    
             .then( response => response.data.data)
             .catch(function (error) {
@@ -219,20 +216,17 @@ const Graduados = () =>{
                     return error.response
                 }
             });
-            let aux = graduadosEstratoSegundoSemestre
-            aux['estrato'+i]= graduadosquery.ESTUDIANTES__sum 
-            await setGraduadosEstratoSegundoSemestre(
-                aux
-                )
-            
+            aux.push(graduadosquery.ESTUDIANTES__sum)
         }
+        await setGraduadosEstratoSegundoSemestre(aux)
         setLoadingEstrato(false)
     }
 
     const getDataGraduadosColegio = async() =>{ 
         var tiposColegio= ['Na','Oficial','Privado']
         var axios = require('axios');
-        let aux = graduadosColegio
+        var aux = {}
+        var aux2 = []
         for (var tipo = 0;tipo<3;tipo++){
             for (var year = 2010;year <= actualYear;year++){
                 var config = {
@@ -242,7 +236,7 @@ const Graduados = () =>{
                         'Content-Type': 'application/json'
                     },
                 };
-                var graduadosquery = await axios(config)    
+                var graduadosQuery = await axios(config)    
                 .then( response => response.data.data)
                 .catch(function (error) {
                     if(error.response.status === 404) {
@@ -252,12 +246,12 @@ const Graduados = () =>{
                         return error.response
                     }
                 });
-               aux[tiposColegio[tipo]+ year]= graduadosquery.ESTUDIANTES__sum 
+                aux2.push(graduadosQuery.ESTUDIANTES__sum)
             }
-            await setGraduadosColegio(
-                aux
-                )
+            aux[tiposColegio[tipo]] = aux2
+            aux2 = []
         }
+        await setGraduadosColegio(aux)
         setLoadingColegio(false)
     }
 
@@ -278,7 +272,6 @@ const Graduados = () =>{
         await getDataGraduadosEstratoSegundoSemestre()
     },[yearSelectedEstrato])
 
-    React.useEffect(async () => { await getDataGraduadosColegio()})
 
 
 
@@ -594,28 +587,12 @@ const Graduados = () =>{
                                         {
                                             label: yearSelectedEstrato+'-1',
                                             backgroundColor: '#f87979',
-                                            data: [
-                                                graduadosEstratoPrimerSemestre.estrato0,
-                                                graduadosEstratoPrimerSemestre.estrato1,
-                                                graduadosEstratoPrimerSemestre.estrato2,
-                                                graduadosEstratoPrimerSemestre.estrato3,
-                                                graduadosEstratoPrimerSemestre.estrato4,
-                                                graduadosEstratoPrimerSemestre.estrato5,
-                                                graduadosEstratoPrimerSemestre.estrato6,
-                                            ]
+                                            data: graduadosEstratoPrimerSemestre                                            
                                         },
                                         {
                                             label: yearSelectedEstrato+'-2',
                                             backgroundColor: '#0096d2',
-                                            data: [
-                                                graduadosEstratoSegundoSemestre.estrato0,
-                                                graduadosEstratoSegundoSemestre.estrato1,
-                                                graduadosEstratoSegundoSemestre.estrato2,
-                                                graduadosEstratoSegundoSemestre.estrato3,
-                                                graduadosEstratoSegundoSemestre.estrato4,
-                                                graduadosEstratoSegundoSemestre.estrato5,
-                                                graduadosEstratoSegundoSemestre.estrato6,
-                                            ]
+                                            data:  graduadosEstratoSegundoSemestre
                                         },
                                         ]}
                                         labels= {fieldsEstrato}
@@ -623,8 +600,7 @@ const Graduados = () =>{
                                         tooltips: {
                                             enabled: true
                                         }
-                                        }}
-                                        
+                                        }}                                        
                                     />
                                     }
                                 </CCardBody>
@@ -664,60 +640,21 @@ const Graduados = () =>{
                                             fill:false,
                                             borderColor: 'Red',
                                             backgroundColor: 'Red',
-                                            data: [
-                                                graduadosColegio.Na2010,
-                                                graduadosColegio.Na2011,
-                                                graduadosColegio.Na2012,
-                                                graduadosColegio.Na2013,
-                                                graduadosColegio.Na2014,
-                                                graduadosColegio.Na2015,
-                                                graduadosColegio.Na2016,
-                                                graduadosColegio.Na2017,
-                                                graduadosColegio.Na2018,
-                                                graduadosColegio.Na2019,
-                                                graduadosColegio.Na2020,
-                                                graduadosColegio.Na2021,
-                                            ]
+                                            data: graduadosColegio['Na']
                                         },
                                         {
                                             label: 'Oficial',
                                             backgroundColor: 'Green',
                                             fill:false,
                                             borderColor: 'Green',
-                                            data: [
-                                                graduadosColegio.Oficial2010,
-                                                graduadosColegio.Oficial2011,
-                                                graduadosColegio.Oficial2012,
-                                                graduadosColegio.Oficial2013,
-                                                graduadosColegio.Oficial2014,
-                                                graduadosColegio.Oficial2015,
-                                                graduadosColegio.Oficial2016,
-                                                graduadosColegio.Oficial2017,
-                                                graduadosColegio.Oficial2018,
-                                                graduadosColegio.Oficial2019,
-                                                graduadosColegio.Oficial2020,
-                                                graduadosColegio.Oficial2021,
-                                            ]
+                                            data: graduadosColegio['Oficial']
                                         },
                                         {
                                             label: 'Privado',
                                             backgroundColor: 'Blue',
                                             borderColor: 'Blue',
                                             fill:false,
-                                            data: [
-                                                graduadosColegio.Privado2010,
-                                                graduadosColegio.Privado2011,
-                                                graduadosColegio.Privado2012,
-                                                graduadosColegio.Privado2013,
-                                                graduadosColegio.Privado2014,
-                                                graduadosColegio.Privado2015,
-                                                graduadosColegio.Privado2016,
-                                                graduadosColegio.Privado2017,
-                                                graduadosColegio.Privado2018,
-                                                graduadosColegio.Privado2019,
-                                                graduadosColegio.Privado2020,
-                                                graduadosColegio.Privado2021,
-                                            ]
+                                            data: graduadosColegio['Privado']
                                         }
                                         ]}
                                         options={{
@@ -726,8 +663,7 @@ const Graduados = () =>{
                                         }
                                         
                                         }}
-                                        labels= {yearsData}
-                                        
+                                        labels= {yearsData}                                        
                                     />
                                     }
                                 </CCardBody>

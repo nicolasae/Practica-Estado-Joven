@@ -55,8 +55,8 @@ const Inscritos = () =>{
     const [yearSelectedEstrato, setYearSelectedEstrato] = React.useState(new Date().getFullYear())
     const [collapseLineChartEstrato, setCollapseLineChartEstrato] = useState(false)
     const fieldsEstrato = ['Estrato 0','Estrato I','Estrato II','Estrato III','Estrato IV','Estrato V','Estrato VI']
-    const [inscritosEstratoPrimerSemestre, setInscritosEstratoPrimerSemestre] = React.useState({})
-    const [inscritosEstratoSegundoSemestre, setInscritosEstratoSegundoSemestre] = React.useState({})
+    const [inscritosEstratoPrimerSemestre, setInscritosEstratoPrimerSemestre] = React.useState()
+    const [inscritosEstratoSegundoSemestre, setInscritosEstratoSegundoSemestre] = React.useState()
     const [loadingEstrato, setLoadingEstrato] = React.useState(false)
     // Constantes segun colegio 
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
@@ -181,6 +181,7 @@ const Inscritos = () =>{
     const getDataInscritosEstratoPrimerSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
         var axios = require('axios');
+        var aux = []
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -189,7 +190,7 @@ const Inscritos = () =>{
                     'Content-Type': 'application/json'
                 },
             };
-            let inscritosquery = await axios(config)    
+            var inscritosQuery = await axios(config)    
             .then( response => response.data.data)
             .catch(function (error) {
                 if(error.response.status === 404) {
@@ -200,18 +201,15 @@ const Inscritos = () =>{
                     return error.response
                 }
             });
-            let aux = inscritosEstratoPrimerSemestre
-            aux['estrato'+i]= inscritosquery.ESTUDIANTES__sum
-            await setInscritosEstratoPrimerSemestre(
-                // {...inscritosEstratoPrimerSemestre,['estrato'+i]: inscritosquery.ESTUDIANTES__sum}
-                aux
-                )
+            aux.push(inscritosQuery.ESTUDIANTES__sum)
         }
+        await setInscritosEstratoPrimerSemestre(aux)
     }
 
     const getDataInscritosEstratoSegundoSemestre = async() =>{ 
         var estratos = ['None','I','II','III','IV','V','VI']
-        var axios = require('axios');         
+        var axios = require('axios');   
+        var aux = []      
         for (var i = 0;i<7;i++){
             var config = {
                 method: 'get',
@@ -231,20 +229,17 @@ const Inscritos = () =>{
                     return error.response
                 }
             });
-            let aux = inscritosEstratoSegundoSemestre
-            aux['estrato'+i]= inscritosquery.ESTUDIANTES__sum 
-            await setInscritosEstratoSegundoSemestre(
-                aux
-                )
-            
+            aux.push(inscritosquery.ESTUDIANTES__sum)     
         }
+        await setInscritosEstratoSegundoSemestre(aux)
         setLoadingEstrato(false)
     }
 
     const getDataInscritosColegio = async() =>{ 
         var tiposColegio= ['Na','Oficial','Privado']
         var axios = require('axios');
-        let aux = inscritosColegio
+        var aux = {}
+        var aux2 = []
         for (var tipo = 0;tipo<3;tipo++){
             for (var year = 2010;year <= actualYear;year++){
                 var config = {
@@ -254,7 +249,7 @@ const Inscritos = () =>{
                         'Content-Type': 'application/json'
                     },
                 };
-                var inscritosquery = await axios(config)    
+                var inscritosQuery = await axios(config)    
                 .then( response => response.data.data)
                 .catch(function (error) {
                     if(error.response.status === 404) {
@@ -264,12 +259,12 @@ const Inscritos = () =>{
                         return error.response
                     }
                 });
-               aux[tiposColegio[tipo]+ year]= inscritosquery.ESTUDIANTES__sum 
+                aux2.push(inscritosQuery.ESTUDIANTES__sum)
             }
-            await setInscritosColegio(
-                aux
-                )
+            aux[tiposColegio[tipo]] = aux2
+            aux2 = []
         }
+        await setInscritosColegio(aux)
        
         setLoadingColegio(false)
     }
@@ -297,7 +292,7 @@ const Inscritos = () =>{
         }
         var array = new Set(aux);
         var result = [...array];
-        console.log(result)
+        // console.log(result)
         // var aux2 = {}
         // for (const j in result){
         //     console.log(j)
@@ -326,7 +321,6 @@ const Inscritos = () =>{
         await getDataInscritosEstratoSegundoSemestre()
     },[yearSelectedEstrato])
 
-    React.useEffect(async () => { await getDataInscritosColegio()})
     React.useEffect(async () => { await getDataInscritosList()})
 
 
@@ -660,29 +654,12 @@ const Inscritos = () =>{
                                         {
                                             label: yearSelectedEstrato+'-1',
                                             backgroundColor: '#f87979',
-                                            data:
-                                             [
-                                                inscritosEstratoPrimerSemestre.estrato0,
-                                                inscritosEstratoPrimerSemestre.estrato1,
-                                                inscritosEstratoPrimerSemestre.estrato2,
-                                                inscritosEstratoPrimerSemestre.estrato3,
-                                                inscritosEstratoPrimerSemestre.estrato4,
-                                                inscritosEstratoPrimerSemestre.estrato5,
-                                                inscritosEstratoPrimerSemestre.estrato6,
-                                            ]
+                                            data: inscritosEstratoPrimerSemestre
                                         },
                                         {
                                             label: yearSelectedEstrato+'-2',
                                             backgroundColor: '#0096d2',
-                                            data: [
-                                                inscritosEstratoSegundoSemestre.estrato0,
-                                                inscritosEstratoSegundoSemestre.estrato1,
-                                                inscritosEstratoSegundoSemestre.estrato2,
-                                                inscritosEstratoSegundoSemestre.estrato3,
-                                                inscritosEstratoSegundoSemestre.estrato4,
-                                                inscritosEstratoSegundoSemestre.estrato5,
-                                                inscritosEstratoSegundoSemestre.estrato6,
-                                            ]
+                                            data:inscritosEstratoSegundoSemestre
                                         },
                                         ]}
                                         labels= {fieldsEstrato}
@@ -691,7 +668,6 @@ const Inscritos = () =>{
                                             enabled: true
                                         }
                                         }}
-                                        
                                     />
                                     }
                                 </CCardBody>
@@ -725,67 +701,27 @@ const Inscritos = () =>{
                                         <span class="sr-only">Loading...</span>
                                         </div> :
                                     <CChartLine
-                                        datasets={[
-                                        
+                                        datasets={[                                        
                                         {   
                                             label: 'Na',
                                             fill:false,
                                             borderColor: 'Red',
                                             backgroundColor: 'Red',
-                                            data: [
-                                                inscritosColegio.Na2010,
-                                                inscritosColegio.Na2011,
-                                                inscritosColegio.Na2012,
-                                                inscritosColegio.Na2013,
-                                                inscritosColegio.Na2014,
-                                                inscritosColegio.Na2015,
-                                                inscritosColegio.Na2016,
-                                                inscritosColegio.Na2017,
-                                                inscritosColegio.Na2018,
-                                                inscritosColegio.Na2019,
-                                                inscritosColegio.Na2020,
-                                                inscritosColegio.Na2021,
-                                            ]
+                                            data: inscritosColegio['Na']                                            
                                         },
                                         {
                                             label: 'Oficial',
                                             backgroundColor: 'Green',
                                             fill:false,
                                             borderColor: 'Green',
-                                            data: [
-                                                inscritosColegio.Oficial2010,
-                                                inscritosColegio.Oficial2011,
-                                                inscritosColegio.Oficial2012,
-                                                inscritosColegio.Oficial2013,
-                                                inscritosColegio.Oficial2014,
-                                                inscritosColegio.Oficial2015,
-                                                inscritosColegio.Oficial2016,
-                                                inscritosColegio.Oficial2017,
-                                                inscritosColegio.Oficial2018,
-                                                inscritosColegio.Oficial2019,
-                                                inscritosColegio.Oficial2020,
-                                                inscritosColegio.Oficial2021,
-                                            ]
+                                            data: inscritosColegio['Oficial'] 
                                         },
                                         {
                                             label: 'Privado',
                                             backgroundColor: 'Blue',
                                             borderColor: 'Blue',
                                             fill:false,
-                                            data: [
-                                                inscritosColegio.Privado2010,
-                                                inscritosColegio.Privado2011,
-                                                inscritosColegio.Privado2012,
-                                                inscritosColegio.Privado2013,
-                                                inscritosColegio.Privado2014,
-                                                inscritosColegio.Privado2015,
-                                                inscritosColegio.Privado2016,
-                                                inscritosColegio.Privado2017,
-                                                inscritosColegio.Privado2018,
-                                                inscritosColegio.Privado2019,
-                                                inscritosColegio.Privado2020,
-                                                inscritosColegio.Privado2021,
-                                            ]
+                                            data: inscritosColegio['Privado'] 
                                         }
                                         ]}
                                         options={{
@@ -794,8 +730,7 @@ const Inscritos = () =>{
                                         }
                                         
                                         }}
-                                        labels= {yearsData}
-                                        
+                                        labels= {yearsData}                                        
                                     />
                                 }
                                 </CCardBody>
