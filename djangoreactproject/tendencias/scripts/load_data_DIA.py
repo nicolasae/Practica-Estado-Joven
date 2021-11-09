@@ -32,10 +32,10 @@ def run():
                     PERMANECE_PROGRAMA = Permanece_programa,
                     CAMBIO_DE_PROGRAMA = Cambio_de_programa,
                     GRADUADO = Graduado,
-                    PORCENTAJE_NO_MATRICULADO = No_matriculado/Total,
-                    PORCENTAJE_PERMANECE_PROGRAMA = Permanece_programa/Total,
-                    PORCENTAJE_CAMBIO_DE_PROGRAMA = Cambio_de_programa/Total,
-                    PORCENTAJE_GRADUADO = Graduado/Total,
+                    PORCENTAJE_NO_MATRICULADO = "{:.2f}".format(No_matriculado/Total),
+                    PORCENTAJE_PERMANECE_PROGRAMA = "{:.2f}".format(Permanece_programa/Total),
+                    PORCENTAJE_CAMBIO_DE_PROGRAMA = "{:.2f}".format(Cambio_de_programa/Total),
+                    PORCENTAJE_GRADUADO = "{:.2f}".format(Graduado/Total),
                     TOTAL = Total,
                 )
 

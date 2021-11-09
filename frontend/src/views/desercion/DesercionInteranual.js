@@ -7,11 +7,11 @@ import {
     CRow,
     CDataTable,
     CCollapse,
-    CCardFooter,
     CButton,
     CFormGroup,
     CLabel,
     CSelect,
+    CWidgetDropdown,
   } from "@coreui/react";
   
   import {
@@ -28,7 +28,8 @@ import {
     const actualYear = new Date().getFullYear()
     const [yearsData,setYearsData] = React.useState([])
     const [nivelData,setNivelData] = React.useState(['Pregrado','Posgrado'])
-    const [yearSelected, setYearSelected] = React.useState(new Date().getFullYear());
+    const [yearSelected, setYearSelected] = React.useState((new Date().getFullYear()-1)+'-2');
+    const [yearSelectedNext, setYearSelectedNext] = React.useState()
     const [nivelSelected, setNivelSelected] = React.useState('Pregrado');
     const [collapseGeneral, setCollapseGeneral] = useState(false);
     const [dataTablaDIA, setDataTablaDIA] = useState([])
@@ -37,13 +38,13 @@ import {
     const [loadingProgramasDIA, setLoadingProgramasDIA] = React.useState(false)
     const [dataYearsGeneral, setDataYearsGeneral] = React.useState({})
     const [loadingYearsGeneral, setLoadingYearsGeneral] = React.useState(true)
-    // const fieldsTablaDIA = ['Periodo','NoMatriculado','PermanecePrograma','CambiodePrograma','Graduado']
-    const [pruebaDIA,setPruebaDIA] = React.useState([])
     const [loadingGeneralDIA, setLoadingGeneralDIA] = React.useState(false)
+    const [dataYearsWidget, setDataYearsWidget] = React.useState([]);
+
 
     // Funciones
     const getYears = async() => { 
-        for (var i=2010;i<=actualYear; i++){
+        for (var i=2010;i<=actualYear-1; i++){
             yearsData.push(i+'-1')
             yearsData.push(i+'-2')
         }
@@ -74,7 +75,7 @@ import {
         var estados= ['Graduado','No matriculado','Cambio de programa','Permanece programa']
         var axios = require('axios');
         let aux = dataYearsGeneral
-        for (var estado = 0;estado<4;estado++){
+        for (var estado = 0;estado<estados.length;estado++){
             var config = {
                 method: 'get',
                 url: 'http://localhost:8000/api/desercionDIA_count_year?ESTADO='+estados[estado],
@@ -102,13 +103,51 @@ import {
             }
             aux[estados[estado]] = aux2
         }
-
         await setDataYearsGeneral(aux)
-        console.log(dataYearsGeneral)    
         setLoadingYearsGeneral(false)
     }
 
+    const getDataYearWidget = async () => {
+        var axios = require('axios');
+        var estados = ['Graduado','Cambio de programa','Permanece programa','No matriculado']
+ 
+        let aux = dataYearsWidget
+        for (var estado=0; estado < estados.length; estado++) {
+            console.log('entro')
+            var config = {
+            method: 'get',
+            url: 'http://localhost:8000/api/desercionDIA_count?NIVEL='+ nivelSelected+'&COD_PERIODO='+yearSelected+'&ESTADO='+estados[estado],
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            };
+            const query = await axios(config)    
+            .then( response => response.data.data)
+            .catch(function (error) {
+                console.log(error);
+                return error.response
+            });
+            console.log(query.CANTIDAD__sum)
+            aux[estados[estado]] = query.CANTIDAD__sum;
 
+        }
+        console.log(aux)
+    }
+
+    const yearNext = async() => {
+        var aux = yearSelected.split("-");
+        var year 
+        var aux2
+        if (aux[1]==='1'){
+            year = aux[0]+'-2';
+        }
+        if (aux[1]==='2'){
+            aux2 = Number(aux[0])
+            year = aux2+'-1';
+        }
+        // console.log(aux2)
+        await setYearSelectedNext(year)
+    }
 
     
 
@@ -116,9 +155,15 @@ import {
         await getDataTablaDIA()
     },[nivelSelected])
 
+    React.useEffect(async () => { 
+        await getDataYearsGeneral()
+        await getDataYearWidget()
+    },[yearSelected],[yearSelectedNext])
+
     const handleChangeYear = async (event) => {
         setYearSelected(event.target.value);
-      };
+        yearNext();
+    };
     
     const handleChangeNivel = async (event) => {
         setNivelSelected(event.target.value);
@@ -127,10 +172,12 @@ import {
 
     const toggleGeneral = (e)=>{
         setCollapseGeneral(!collapseGeneral);
+        setCollapseProgramas(false);
         e.preventDefault();
     }
     const toggleProgramas = (e)=>{
         setCollapseProgramas(!collapseProgramas);
+        setCollapseGeneral(false);
         e.preventDefault();
     }
     
@@ -139,6 +186,7 @@ import {
         await getYears();
         await getDataTablaDIA();
         await getDataYearsGeneral();
+        await getDataYearWidget();
 
     });
 
@@ -227,45 +275,44 @@ import {
                 </CCardBody>
             </CCardBody>
         </CCard>
-        <CCard>
-            <CRow row style={{paddingTop:'2%'}}>
-                <CCol md="2">
-                    <h4 style={{marginLeft: '10px'}}>Seleccione nivel:</h4>
-                </CCol>
-                <CCol md="2">
+        <CCard> 
+        <div className="container ">
+            <div className="row row-cols-5"  style={{ margin: "3%"}}>
+                <div className="col">
+                    <h4 style={{marginLeft: '2%'}}>Seleccione:</h4>
+                </div>
+                <div className="col">
                     <CSelect value={nivelSelected} onChange={handleChangeNivel}>
                         {nivelData.map(item => {
                             return (<option key={item} value={item}>{item}</option>);
                         })}
-                    </CSelect>
-                </CCol>
-                <CCol md="2">
+                    </CSelect> 
+                </div>
+                <div className="col">
                     <CButton
                         color="outline-primary"
                         onClick={toggleGeneral} 
                         className={'mb-1'}
-                    >Mostrar Información
-                    </CButton>
-                </CCol>
-                <CCol md="2">
-                    <h4 style={{marginLeft: '10px'}}>Seleccione el período :</h4>
-                </CCol>
-                <CCol md="2">
+                    >Mostrar 
+                    </CButton>   
+                </div>
+                <div className="col">
                     <CSelect value={yearSelected} onChange={handleChangeYear}>
                         {yearsData.map(item => {
                             return (<option key={item} value={item}>{item}</option>);
                         })}
-                    </CSelect>
-                </CCol>
-                <CCol md="2">
+                    </CSelect>    
+                </div>
+                <div className="col">
                     <CButton
                         color="outline-success"
                         onClick={toggleProgramas} 
                         className={'mb-1'}
                     >Mostrar
-                    </CButton>
-                </CCol>
-            </CRow>
+                    </CButton>    
+                </div>
+            </div>
+        </div>
             <CCollapse show={collapseGeneral}>
                 {loadingGeneralDIA?
                     <div class="spinner-border text-info" role="status">
@@ -273,7 +320,7 @@ import {
                     </div> :
                     <CCardBody>
                         <h3 style={{paddingTop:'2%',textAlign: 'center', fontWeight:'bold'}}>
-                            Cantidad de Estudiantes según Estado Interanual por perido de Analisis
+                            Tabla general de estudiantes por estado(cambio de progama,graduado,permanece programa,no matriculado).
                         </h3>
                         <CDataTable
                             items={dataTablaDIA}
@@ -285,8 +332,7 @@ import {
                             color='primary'
                             borderColor="dark"
                             bordered={true}
-                        >
-                            
+                        >  
                         </CDataTable>
                     </CCardBody>
                 }
@@ -297,12 +343,52 @@ import {
                         <span class="sr-only">Loading...</span>
                     </div> : */}
                     <CCardBody>
-                        <h1>
-                            Desercion Interanual por Programa Académico {yearSelected}
+                        <h1 style={{marginTop:'3%',textAlign: 'center'}}>
+                            Desercion Interanual por Facultad de Ingeniería 
                         </h1>
-                        <h5 style={{paddingTop:'2%'}}>
-                        A continuación se presenta la figura resumen de la deserción de los programas académicos de la Facultad seleccionada.                     
-                        </h5>
+                        <h2 style={{color: '#2eb85c',textAlign: 'center'}}>{nivelSelected}</h2>
+                        <h1 style={{marginTop:'1%',textAlign: 'center'}}>
+                            Desercion Período {yearSelected} a {yearSelectedNext}
+                        </h1>
+                        <CRow>
+                            <CCol lg="1"></CCol>
+                            <CCol sm="3" lg="2" >
+                                <CWidgetDropdown
+                                color="gradient-primary"
+                                header={14}
+                                text="Permanece en programa"
+                                ></CWidgetDropdown>
+                            </CCol>
+                            <CCol sm="3" lg="2">
+                                <CWidgetDropdown
+                                color="gradient-success"
+                                header={30}
+                                text="Cambia de programa"
+                                ></CWidgetDropdown>
+                            </CCol>
+                            <CCol sm="3" lg="2" >
+                                <CWidgetDropdown
+                                color="gradient-warning"
+                                header={50}
+                                text="Graduado"
+                                ></CWidgetDropdown>
+                            </CCol>
+                            <CCol sm="3" lg="2">
+                                <CWidgetDropdown
+                                color="gradient-danger"
+                                header={60}
+                                text="No Matriculado"
+                                ></CWidgetDropdown>
+                            </CCol>
+                            <CCol sm="3" lg="2">
+                                <CWidgetDropdown
+                                color="gradient-dark"
+                                header={60}
+                                text="Total"
+                                ></CWidgetDropdown>
+                            </CCol>
+                        </CRow>
+                        
                     </CCardBody>
                 {/* } */}
             </CCollapse>
