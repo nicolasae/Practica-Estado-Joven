@@ -109,36 +109,6 @@ import {
     }
 
 
-    // const getDataTablaDIA = async () => {
-    //     var estados = ['No matriculado','Permanece programa','Cambio de programa','Graduado']
-    //     var aux = dataDIA
-    //     var axios = require('axios');
-    //     for (var estado=0;estado<4;estado++){
-    //         for (var i=0;i<yearsData.length-2;i++){
-    //             var config = {
-    //             method: 'get',
-    //             url: 'http://localhost:8000/api/desercionDIA?NIVEL='+ nivelSelected+'&COD_PERIODO='+yearsData[i]+'&ESTADO='+estados[estado] ,
-    //             headers: { 
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             };
-    //             const dataquery = await axios(config)    
-    //             .then( response => response.data.data)
-    //             .catch(function (error) {
-    //                 if(error.response.status === 404) {
-    //                     return {CANTIDAD__sum:0}
-    //                 }
-    //                 else {
-    //                     return error.response
-    //                 }
-    //             });
-    //             aux[estados[estado]+ yearsData[i]]= dataquery.CANTIDAD__sum 
-    //         }
-    //         await setDataDIA(aux)
-    //     }
-    //     await setLoadingGeneralDIA(false);
-        
-    // }
 
     
 

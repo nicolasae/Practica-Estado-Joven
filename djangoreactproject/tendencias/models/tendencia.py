@@ -120,7 +120,6 @@ class AnalisisCohorte(models.Model):
         return f'Semestre: {self.COD_PERIODO}-Codigo: {self.COD_UTP}- Estudiantes: {self.CANTIDAD}'
 
 class DesercionInterAnualEstados(models.Model):
-    PERIODOS = models.CharField('Periodos',max_length=255,null=True)
     COD_PERIODO = models.CharField('Semestre',max_length=255,null=True)
     COD_UTP = models.CharField('COD_UTP',max_length=255,null=True)
     NOMBRE = models.CharField('Nombre',max_length=255,null=True)
