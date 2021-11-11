@@ -60,7 +60,7 @@ import {
         var axios = require('axios');
         var config = {
         method: 'get',
-        url: 'http://localhost:8000/api/desercionDIA?NIVEL='+ nivelSelected,
+        url: 'http://localhost:8000/api/desercionDIA',
         headers: { 
             'Content-Type': 'application/json'
         },
@@ -171,7 +171,20 @@ import {
         aux['suma']= suma
         await setDataYearsWidget(aux)
         await yearNext()
-        await setPorcentajeSemestre();
+
+        let total = dataYearsWidget['suma']
+        let permanece = (dataYearsWidget['Permanece programa'])/total;
+        let cambio = (dataYearsWidget['Cambio de programa'])/total;
+        let graduado = (dataYearsWidget['Graduado'])/total;
+        let no_matriculado = (dataYearsWidget['No matriculado'])/total;
+        var porcentajes_list = {}
+        porcentajes_list = {
+            permanece_porcentaje:(permanece.toFixed(3))*100,
+            cambio_porcentaje:(cambio.toFixed(3))*100,
+            graduado_porcentaje:(graduado.toFixed(3))*100,
+            no_matriculado_porcentaje:(no_matriculado.toFixed(3))*100,
+        }
+        setDataPorcentajeYearsWidget(porcentajes_list)
         setLoadingYearsGeneral(false)
        
     }
@@ -191,30 +204,9 @@ import {
         
     }
 
-    const setPorcentajeSemestre= async () => {
-        var permanece = dataYearsWidget['Permanece programa'];
-        var cambio = dataYearsWidget['Cambio de programa'];
-        var graduado = dataYearsWidget['Graduado'];
-        var no_matriculado = dataYearsWidget['No matriculado'];
-        var total = dataYearsWidget['suma']
-        var aux = {}
-        aux = {
-            permanece_porcentaje:((permanece/total).toFixed(3))*100,
-            cambio_porcentaje:((cambio/total).toFixed(3))*100,
-            graduado_porcentaje:((graduado/total).toFixed(3))*100,
-            no_matriculado_porcentaje:((no_matriculado/total).toFixed(3))*100,
-        }
-        console.log(cambio)
-        setDataPorcentajeYearsWidget(aux)
-
-    }
-
     
 
-    React.useEffect(async () => { 
-        await getDataTablaDIA()
-    },[nivelSelected])
-
+  
     React.useEffect(async () => { 
         await getDataYearsGeneral()
         await getDataYearWidget()
@@ -286,12 +278,63 @@ import {
                     <b>No matriculado: </b>Estudiantes que estaba matriculado en <b>n </b> y no aparece con
                     estado Graduado o Permanece programa o Cambio programa.
                 </p>
+            </CCardBody>
+        </CCard>
 
-                <h3 style={{paddingTop:'2%',textAlign: 'left', fontWeight:'bold'}}>
-                    Linea de tendencia en el tiempo por cada estado: 
-                </h3>
-                <CCardBody>
-                    <CChartLine
+        <CCard> 
+            <div className="container">
+                <h3 style={{textAlign: 'center', fontWeight:'bold'}}> Seleccione una de las siguientes opciones:</h3>           
+                <div className="row " style={{marginTop:'2%',marginBottom:'2%'}} >                                                          
+                    <div className="col justify-content-center" >
+                        <CButton
+                            color="outline-primary"
+                            onClick={toggleGeneral} 
+                            style={{marginLeft:'5%',marginRight:'3%'}}
+                        >Mostrar Información Histórica
+                        </CButton>  
+                        <CButton
+                            color="outline-success"
+                            onClick={toggleProgramas} 
+                            style={{marginLeft:'5%',marginRight:'3%'}}
+                        >Mostrar Información Anual
+                        </CButton>  
+                        <CButton
+                            color="outline-info"
+                            onClick={toggleProgramas} 
+                            style={{marginLeft:'5%',marginRight:'3%'}}
+                        >Mostrar Información por Programa
+                        </CButton>
+                    </div>                                          
+                </div>
+            </div>
+        </CCard>
+        <CCard>
+            <CCollapse show={collapseGeneral}>
+                {loadingGeneralDIA?
+                    <div class="spinner-border text-info" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div> :
+                    <CCardBody>
+                        <h3 style={{textAlign: 'center', fontWeight:'bold'}}>
+                            Tabla histórica de estudiantes por estado:
+                        </h3>
+                        <CDataTable
+                            items={dataTablaDIA}
+                            fields={fieldsTablaDIA}
+                            itemsPerPage={6}
+                            pagination
+                            columnFilter
+                            align='middle'
+                            color='primary'
+                            borderColor="dark"
+                            bordered={true}
+                        >  
+                        </CDataTable>
+                        <h3 style={{textAlign: 'center', fontWeight:'bold'}}>
+                            Histórico deserción interanual : 
+                        </h3>
+                    <CCardBody>
+                        <CChartLine
                         datasets={[
                         
                         {   
@@ -322,95 +365,62 @@ import {
                             fill:false,
                             data: dataYearsGeneral['Permanece programa']
                         },
-
                         ]}
                         options={{
                         tooltips: {
                             enabled: true
-                        }
-                        
+                        }                        
                         }}
-                        labels= {yearsData}
-                        
+                        labels= {yearsData}                        
                     />
+                    </CCardBody>                    
                 </CCardBody>
-            </CCardBody>
-        </CCard>
-        <CCard> 
-        <div className="container ">
-            <div className="row row-cols-5"  style={{ margin: "3%"}}>
-                <div className="col">
-                    <h4 style={{marginLeft: '2%'}}>Seleccione:</h4>
-                </div>
-                <div className="col">
-                    <CSelect value={nivelSelected} onChange={handleChangeNivel}>
-                        {nivelData.map(item => {
-                            return (<option key={item} value={item}>{item}</option>);
-                        })}
-                    </CSelect> 
-                </div>
-                <div className="col">
-                    <CButton
-                        color="outline-primary"
-                        onClick={toggleGeneral} 
-                        className={'mb-1'}
-                    >Mostrar 
-                    </CButton>   
-                </div>
-                <div className="col">
-                    <CSelect value={yearSelected} onChange={handleChangeYear}>
-                        {yearsDataSemestre.map(item => {
-                            return (<option key={item} value={item}>{item}</option>);
-                        })}
-                    </CSelect>    
-                </div>
-                <div className="col">
-                    <CButton
-                        color="outline-success"
-                        onClick={toggleProgramas} 
-                        className={'mb-1'}
-                    >Mostrar
-                    </CButton>    
-                </div>
-            </div>
-        </div>
-            <CCollapse show={collapseGeneral}>
-                {loadingGeneralDIA?
-                    <div class="spinner-border text-info" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div> :
-                    <CCardBody>
-                        <h3 style={{paddingTop:'2%',textAlign: 'center', fontWeight:'bold'}}>
-                            Tabla general de estudiantes por estado(cambio de progama,graduado,permanece programa,no matriculado).
-                        </h3>
-                        <CDataTable
-                            items={dataTablaDIA}
-                            fields={fieldsTablaDIA}
-                            itemsPerPage={6}
-                            pagination
-                            columnFilter
-                            align='middle'
-                            color='primary'
-                            borderColor="dark"
-                            bordered={true}
-                        >  
-                        </CDataTable>
-                    </CCardBody>
                 }
             </CCollapse>
+        </CCard>
+        <CCard>
             <CCollapse show={collapseProgramas}>
                 {loadingYearsGeneral? 
                     <div class="spinner-border text-info" role="status">
                         <span class="sr-only">Loading...</span>
                     </div> : 
-                    <CCardBody>
-                        <h1 style={{marginTop:'3%',textAlign: 'center'}}>
-                            Desercion Interanual por Facultad de Ingeniería 
-                        </h1>
+                    <CCardBody>                       
+                        <div className="container">
+                        <h1 style={{marginTop:'3%',textAlign: 'center',color: '#2eb85c'}}>
+                            Desercion Interanual Facultad de Ingenierías
+                        </h1> 
+                            <div className="row">
+                                <div className="col">
+                                    <CSelect value={yearSelected} onChange={handleChangeYear}>
+                                        {yearsDataSemestre.map(item => {
+                                            return (<option key={item} value={item}>{item}</option>);
+                                        })}
+                                    </CSelect>    
+                                </div>
+                                <div className="col">
+                                    <CSelect value={nivelSelected} onChange={handleChangeNivel}>
+                                        {nivelData.map(item => {
+                                            return (<option key={item} value={item}>{item}</option>);
+                                        })}
+                                    </CSelect> 
+                                </div>
+                                <div className="col">
+                                    <CButton
+                                        color="outline-info"
+                                        onClick={toggleProgramas} 
+                                        style={{marginLeft:'5%',marginRight:'3%'}}
+                                        >Graficar
+                                    </CButton>
+                                </div>   
+                            </div>
+                        </div>
+                        <h2 style={{marginTop:'3%',textAlign: 'center'}}>
+                            Nivel elegido: 
+                        </h2>                           
                         <h2 style={{color: '#2eb85c',textAlign: 'center'}}>{nivelSelected}</h2>
-                        <h1 style={{marginTop:'1%',textAlign: 'center'}}>
+                        <h2 style={{marginTop:'1%',textAlign: 'center'}}>
                             Desercion Período {yearSelected} a {yearSelectedNext}
-                        </h1>
+                        </h2>
                         <CRow>
                             <CCol lg="1"></CCol>
                             <CCol sm="3" lg="2" >
@@ -448,8 +458,7 @@ import {
                                 text="Total Estudiantes"
                                 ></CWidgetDropdown>
                             </CCol>
-                        </CRow>
-                        
+                        </CRow>                        
                             <CChartPie
                                 datasets={[
                                 {
@@ -473,15 +482,27 @@ import {
                                     enabled: true
                                 }
                                 }}
-                                />
-                        
+                            />                        
                     </CCardBody>
                 }
             </CCollapse>
-        </CCard>  
-        <CCard>
-
         </CCard>
+        
+        {/* <CCard>
+            <CCollapse show={collapseProgramas}>
+                {loadingYearsGeneral? 
+                    <div class="spinner-border text-info" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div> : 
+                    <CCardBody>
+                        <h1 style={{marginTop:'3%',textAlign: 'center'}}>
+                            Desercion Interanual por Programa Académico
+                        </h1> 
+                    </CCardBody>
+                }
+            </CCollapse>
+        </CCard> */}
+            
                 
         </> 
     )    
