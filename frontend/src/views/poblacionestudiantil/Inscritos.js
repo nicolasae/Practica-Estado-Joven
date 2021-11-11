@@ -343,30 +343,6 @@ const Inscritos = () =>{
         setLoadingTipoInscripcion(false)
     }
 
-    const multiSelectTipoInscripcion = () =>  {
-        return 
-        (
-            <CChartLine
-                datasets={[                                        
-                {   
-                    label: 'Na',
-                    fill:false,
-                    borderColor: 'Red',
-                    backgroundColor: 'Red',
-                    data: inscritosColegio['Na']                                            
-                }
-                ]}
-                options={{
-                tooltips: {
-                    enabled: true
-                }
-                
-                }}
-                labels= {yearsDataSemestre} 
-            />
-        )
-    }
-
 
     React.useEffect(async () => { 
         await getDataInscritosPrimerSemestre()

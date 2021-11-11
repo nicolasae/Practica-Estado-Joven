@@ -26,6 +26,7 @@ import {
  const DesercionInteranual = () =>{
     // constantes
     const actualYear = new Date().getFullYear()
+    const [yearsDataSemestre,setYearsDataSemestre] = React.useState([])
     const [yearsData,setYearsData] = React.useState([])
     const [nivelData,setNivelData] = React.useState(['Pregrado','Posgrado'])
     const [yearSelected, setYearSelected] = React.useState((new Date().getFullYear()-1)+'-2');
@@ -38,17 +39,21 @@ import {
     const [loadingProgramasDIA, setLoadingProgramasDIA] = React.useState(false)
     const [dataYearsGeneral, setDataYearsGeneral] = React.useState({})
     const [loadingYearsGeneral, setLoadingYearsGeneral] = React.useState(true)
-    const [loadingGeneralDIA, setLoadingGeneralDIA] = React.useState(false)
+    const [loadingGeneralDIA, setLoadingGeneralDIA] = React.useState(true)
     const [dataYearsWidget, setDataYearsWidget] = React.useState([]);
+    const [dataPorcentajeYearsWidget, setDataPorcentajeYearsWidget] = React.useState();
+
 
 
     // Funciones
     const getYears = async() => { 
         for (var i=2010;i<=actualYear-1; i++){
-            yearsData.push(i+'-1')
-            yearsData.push(i+'-2')
+            yearsDataSemestre.push(i+'-1')
+            yearsDataSemestre.push(i+'-2')
+            yearsData.push(i)
         }
         setYearsData(yearsData)
+        setYearsDataSemestre(yearsDataSemestre)
     }
 
     const getDataTablaDIA = async () => {
@@ -74,46 +79,79 @@ import {
     const getDataYearsGeneral = async() =>{ 
         var estados= ['Graduado','No matriculado','Cambio de programa','Permanece programa']
         var axios = require('axios');
-        let aux = dataYearsGeneral
+        var aux = {}
+        var aux2 = []
+        
         for (var estado = 0;estado<estados.length;estado++){
-            var config = {
+            for (var year = 2010;year <= actualYear;year++){
+                var config = {
                 method: 'get',
-                url: 'http://localhost:8000/api/desercionDIA_count_year?ESTADO='+estados[estado],
+                url: 'http://localhost:8000/api/desercionDIA_count?&COD_PERIODO='+year+'&ESTADO='+estados[estado],
                 headers: { 
                     'Content-Type': 'application/json'
                 },
-            };
-            var query = await axios(config)    
-            .then( response => response.data.data)
-            .catch(function (error) {
-                if(error.response.status === 404) {
-                    return {count:0}
-                }
-                else {
-                    return error.response
-                }
-            });
-            var aux2 = []
-            for (const j in yearsData ){
-                for (const k in query){
-                    if (yearsData[j] === query[k].year){
-                        aux2.push(query[k].count)
+                };
+                const dataQuery = await axios(config)    
+                .then( response => response.data.data)
+                .catch(function (error) {
+                    if(error.response.status === 404) {
+                        return {CANTIDAD__sum:0}
                     }
-                }
+                    else {
+                        return error.response
+                    }
+                });
+                aux2.push(dataQuery.CANTIDAD__sum)
             }
             aux[estados[estado]] = aux2
+            aux2 = []
         }
         await setDataYearsGeneral(aux)
-        setLoadingYearsGeneral(false)
     }
+
+
+    // const getDataYearsGeneral = async() =>{ 
+    //     var estados= ['Graduado','No matriculado','Cambio de programa','Permanece programa']
+    //     var axios = require('axios');
+    //     let aux = dataYearsGeneral
+    //     for (var estado = 0;estado<estados.length;estado++){
+    //         var config = {
+    //             method: 'get',
+    //             url: 'http://localhost:8000/api/desercionDIA_count_year?ESTADO='+estados[estado],
+    //             headers: { 
+    //                 'Content-Type': 'application/json'
+    //             },
+    //         };
+    //         var query = await axios(config)    
+    //         .then( response => response.data.data)
+    //         .catch(function (error) {
+    //             if(error.response.status === 404) {
+    //                 return {count:0}
+    //             }
+    //             else {
+    //                 return error.response
+    //             }
+    //         });
+    //         var aux2 = []
+    //         for (const j in yearsDataSemestre ){
+    //             for (const k in query){
+    //                 if (yearsDataSemestre[j] === query[k].year){
+    //                     aux2.push(query[k].count)
+    //                 }
+    //             }
+    //         }
+    //         aux[estados[estado]] = aux2
+    //     }
+    //     await setDataYearsGeneral(aux)
+    //     setLoadingYearsGeneral(false)
+    // }
 
     const getDataYearWidget = async () => {
         var axios = require('axios');
         var estados = ['Graduado','Cambio de programa','Permanece programa','No matriculado']
- 
-        let aux = dataYearsWidget
+        var aux = []
+        var suma = 0
         for (var estado=0; estado < estados.length; estado++) {
-            console.log('entro')
             var config = {
             method: 'get',
             url: 'http://localhost:8000/api/desercionDIA_count?NIVEL='+ nivelSelected+'&COD_PERIODO='+yearSelected+'&ESTADO='+estados[estado],
@@ -127,11 +165,15 @@ import {
                 console.log(error);
                 return error.response
             });
-            console.log(query.CANTIDAD__sum)
             aux[estados[estado]] = query.CANTIDAD__sum;
-
+            suma += query.CANTIDAD__sum
         }
-        console.log(aux)
+        aux['suma']= suma
+        await setDataYearsWidget(aux)
+        await yearNext()
+        await setPorcentajeSemestre();
+        setLoadingYearsGeneral(false)
+       
     }
 
     const yearNext = async() => {
@@ -142,11 +184,29 @@ import {
             year = aux[0]+'-2';
         }
         if (aux[1]==='2'){
-            aux2 = Number(aux[0])
+            aux2 = Number(aux[0])+1
             year = aux2+'-1';
         }
-        // console.log(aux2)
-        await setYearSelectedNext(year)
+        setYearSelectedNext(year)
+        
+    }
+
+    const setPorcentajeSemestre= async () => {
+        var permanece = dataYearsWidget['Permanece programa'];
+        var cambio = dataYearsWidget['Cambio de programa'];
+        var graduado = dataYearsWidget['Graduado'];
+        var no_matriculado = dataYearsWidget['No matriculado'];
+        var total = dataYearsWidget['suma']
+        var aux = {}
+        aux = {
+            permanece_porcentaje:((permanece/total).toFixed(3))*100,
+            cambio_porcentaje:((cambio/total).toFixed(3))*100,
+            graduado_porcentaje:((graduado/total).toFixed(3))*100,
+            no_matriculado_porcentaje:((no_matriculado/total).toFixed(3))*100,
+        }
+        console.log(cambio)
+        setDataPorcentajeYearsWidget(aux)
+
     }
 
     
@@ -187,6 +247,7 @@ import {
         await getDataTablaDIA();
         await getDataYearsGeneral();
         await getDataYearWidget();
+        
 
     });
 
@@ -298,7 +359,7 @@ import {
                 </div>
                 <div className="col">
                     <CSelect value={yearSelected} onChange={handleChangeYear}>
-                        {yearsData.map(item => {
+                        {yearsDataSemestre.map(item => {
                             return (<option key={item} value={item}>{item}</option>);
                         })}
                     </CSelect>    
@@ -338,10 +399,10 @@ import {
                 }
             </CCollapse>
             <CCollapse show={collapseProgramas}>
-                {/* {loadingGeneralDIA? */}
-                    {/* <div class="spinner-border text-info" role="status">
+                {loadingYearsGeneral? 
+                    <div class="spinner-border text-info" role="status">
                         <span class="sr-only">Loading...</span>
-                    </div> : */}
+                    </div> : 
                     <CCardBody>
                         <h1 style={{marginTop:'3%',textAlign: 'center'}}>
                             Desercion Interanual por Facultad de Ingeniería 
@@ -355,42 +416,67 @@ import {
                             <CCol sm="3" lg="2" >
                                 <CWidgetDropdown
                                 color="gradient-primary"
-                                header={14}
+                                header={dataPorcentajeYearsWidget['permanece_porcentaje']+'%'}
                                 text="Permanece en programa"
                                 ></CWidgetDropdown>
                             </CCol>
                             <CCol sm="3" lg="2">
                                 <CWidgetDropdown
                                 color="gradient-success"
-                                header={30}
+                                header={dataPorcentajeYearsWidget['cambio_porcentaje']+'%'}
                                 text="Cambia de programa"
                                 ></CWidgetDropdown>
                             </CCol>
                             <CCol sm="3" lg="2" >
                                 <CWidgetDropdown
                                 color="gradient-warning"
-                                header={50}
+                                header={dataPorcentajeYearsWidget['graduado_porcentaje']+'%'}
                                 text="Graduado"
                                 ></CWidgetDropdown>
                             </CCol>
                             <CCol sm="3" lg="2">
                                 <CWidgetDropdown
                                 color="gradient-danger"
-                                header={60}
+                                header={dataPorcentajeYearsWidget['no_matriculado_porcentaje']+'%'}
                                 text="No Matriculado"
                                 ></CWidgetDropdown>
                             </CCol>
                             <CCol sm="3" lg="2">
                                 <CWidgetDropdown
                                 color="gradient-dark"
-                                header={60}
-                                text="Total"
+                                header={dataYearsWidget['suma']}
+                                text="Total Estudiantes"
                                 ></CWidgetDropdown>
                             </CCol>
                         </CRow>
                         
+                            <CChartPie
+                                datasets={[
+                                {
+                                    backgroundColor: [
+                                    '#321fbd',
+                                    '#39f',
+                                    '#f9b115',
+                                    '#e55353',
+                                    ],
+                                    data: [
+                                        dataYearsWidget['Permanece programa'],
+                                        dataYearsWidget['Cambio de programa'],
+                                        dataYearsWidget['Graduado'],
+                                        dataYearsWidget['No matriculado']
+                                    ]
+                                }
+                                ]}
+                                labels={['Permanece en programa','Cambia de programa','Graduado','No matriculado']}
+                                options={{
+                                tooltips: {
+                                    enabled: true
+                                }
+                                }}
+                                />
+                        
                     </CCardBody>
-                {/* } */}
+                }
             </CCollapse>
         </CCard>  
         <CCard>

@@ -277,12 +277,20 @@ class DesercionInterAnualEstadosView(APIView):
                 'data': DesercionInterAnualEstadosSerializer(desercion,many=True).data
             },status=status.HTTP_200_OK)
         else:
+            query = {**request.GET.dict()}
             for key,value in request.GET.items():
                 if key not in DESERCION_INTERANUAL_ESTADOS_FIELDS:
                     return Response({
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
-            desercion = DesercionInterAnualEstados.objects.filter(**request.GET.dict())
+                if value == 'None':
+                    query[key] = None
+            if query.get('COD_PERIODO'):
+                if len(query.get('COD_PERIODO').split('-')) == 1:        
+                    year = query.pop('COD_PERIODO')
+                    query['COD_PERIODO__in'] = [f'{year}-1',f'{year}-2']
+
+            desercion = DesercionInterAnualEstados.objects.filter(**query)
             if not desercion:  
                 return Response({
                     'data': 'No se encontraron los registros'
@@ -291,6 +299,39 @@ class DesercionInterAnualEstadosView(APIView):
                 'data': DesercionInterAnualEstadosSerializer(desercion,many=True).data
             },status=status.HTTP_200_OK)
 
+class DesercionInterAnualEstadosCountView(APIView):
+    def get(self,request):
+        if not request.GET:
+            desercion = DesercionInterAnualEstados.objects.all()
+            if not desercion:  
+                return Response({
+                    'data': 'No se encontraron los registros'
+                },status=status.HTTP_404_NOT_FOUND)   
+            return Response({
+                'data': desercion.aggregate(Sum('TOTAL'))
+            },status=status.HTTP_200_OK)
+        else:
+            query = {**request.GET.dict()}
+            for key,value in request.GET.items():
+                if key not in DESERCION_INTERANUAL_ESTADOS_FIELDS:
+                    return Response({
+                        'data': f'El filtro {key} no está disponible'
+                    },status=status.HTTP_409_CONFLICT)
+                if value == 'None':
+                    query[key] = None               
+            if query.get('COD_PERIODO'):
+                if len(query.get('COD_PERIODO').split('-')) == 1:        
+                    year = query.pop('COD_PERIODO')
+                    query['COD_PERIODO__in'] = [f'{year}-1',f'{year}-2']                
+            desercion = DesercionInterAnualEstados.objects.filter(**query)
+            if not desercion:  
+                return Response({
+                    'data': 'No se encontraron los registros',
+                    'body':query 
+                },status=status.HTTP_404_NOT_FOUND) 
+            return Response({
+                'data': desercion.aggregate(Sum('TOTAL'))
+            },status=status.HTTP_200_OK)
 
 # DESERCION INTERSEMESTRAL
 class DesercionInterSemestralView(APIView):

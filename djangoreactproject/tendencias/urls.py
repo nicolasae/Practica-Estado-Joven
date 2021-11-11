@@ -10,8 +10,9 @@ from .views.tendencia import DesercionInterSemestralView
 from .views.tendencia import AnalisisCohorteView
 from .views.tendencia import AnalisisCohorteCountView 
 from .views.tendencia import AnalisisCohorteCountYearView 
-
 from .views.tendencia import DesercionInterAnualEstadosView
+from .views.tendencia import DesercionInterAnualEstadosCountView
+
 
 urlpatterns = [
     # MATRICULADOS 
@@ -25,7 +26,7 @@ urlpatterns = [
     path('analisiscohorte', AnalisisCohorteView.as_view()),
     path('analisiscohorte_count', AnalisisCohorteCountView.as_view()),
     path('analisiscohorte_count_year', AnalisisCohorteCountYearView.as_view()),
-
     path('desercionDIA_estados',DesercionInterAnualEstadosView.as_view()),
+    path('desercionDIA_estados_count',DesercionInterAnualEstadosCountView.as_view()),
 
 ]
