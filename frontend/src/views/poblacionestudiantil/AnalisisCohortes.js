@@ -129,8 +129,6 @@ import {
     const [yearSelectedSemestrePregrado, setYearSelectedSemestrePregrado] = React.useState(new Date().getFullYear())
     const [dataPieChartPregrado,setDataPieChartPregrado] = React.useState()
 
-
-    
     
     
     // Posgrado
