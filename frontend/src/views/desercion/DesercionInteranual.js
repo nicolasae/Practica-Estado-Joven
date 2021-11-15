@@ -56,6 +56,12 @@ import {
     ]
     const [tablaProgramasPregrado,setTablaProgramasPregrado] = React.useState([]);
     const [tablaProgramasPosgrado,setTablaProgramasPosgrado] = React.useState([]);
+    const [listProgramasPregrado,setListProgramasPregrado] = React.useState([]);
+    const [listProgramasPosgrado,setListProgramasPosgrado] = React.useState([]);
+    const [programaSelectedPregrado, setProgramaSelectedPregrado] = React.useState('Ingeniería de Sistemas y Computación');
+    const [programaSelectedPosgrado, setProgramaSelectedPosgrado] = React.useState('Doctorado en Ingeniería');
+    const [collapsePregradoGrafico,setCollapsePregradoGrafico] = useState(false);
+    const [collapsePosgradoGrafico,setCollapsePosgradoGrafico] = useState(false);
 
     // Funciones
     const getYears = async() => { 
@@ -217,6 +223,7 @@ import {
             return error.response
         });
         await setTablaProgramasPregrado(dataQuery)
+
     }
     const getDataTablaProgramasPosgrado = async () => {
         var axios = require('axios');
@@ -234,9 +241,50 @@ import {
             return error.response
         });
         await setTablaProgramasPosgrado(dataQuery)
+        
     }
 
-
+    const getListProgramas = async () => {
+        var axios = require('axios');
+        var config = {
+            method: 'get',
+            url: 'http://localhost:8000/api/desercionDIA_estados?NIVEL=Pregrado',
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+        };
+        var config1 = {
+            method: 'get',
+            url: 'http://localhost:8000/api/desercionDIA_estados?NIVEL=Posgrado',
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+        };
+        const dataQueryPregrado = await axios(config)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
+        const dataQueryPosgrado = await axios(config1)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
+        var aux = []
+        var aux2 = []
+        for (var pos in dataQueryPregrado) {
+            aux.push(dataQueryPregrado[pos].NOMBRE)
+        }
+        for (var pos2 in dataQueryPosgrado) {
+            aux2.push(dataQueryPosgrado[pos2].NOMBRE)
+        }
+        var listPregrado = ([...new Set(aux)])
+        var listPosgrado = ([...new Set(aux2)])
+        setListProgramasPregrado(listPregrado)
+        setListProgramasPosgrado(listPosgrado)
+    }
     
 
   
@@ -247,8 +295,13 @@ import {
     const handleChangeYear = async (event) => {
         setYearSelected(event.target.value);
         setLoadingYearsGeneral(true)
-
-    };     
+    };
+    const handleChangeProgramaPregrado = async (event) => {
+        setProgramaSelectedPregrado(event.target.value);
+    };   
+    const handleChangeProgramaPosgrado = async (event) => {
+        setProgramaSelectedPosgrado(event.target.value);
+    };    
 
     const toggleGeneral = (e)=>{
         setCollapseGeneral(!collapseGeneral);
@@ -292,6 +345,15 @@ import {
         e.preventDefault();
     }
 
+    const togglePregradoGrafico = (e)=>{
+        setCollapsePregradoGrafico(!collapsePregradoGrafico);
+        setCollapsePosgradoGrafico(false)
+    }
+    const togglePosgradoGrafico = (e)=>{
+        setCollapsePosgradoGrafico(!collapsePosgradoGrafico);
+        setCollapsePregradoGrafico(false)
+    }
+
     // despues de definir las constantes
     useSingleton(async () => {
         await getYears();
@@ -299,7 +361,8 @@ import {
         await getDataYearsGeneral();
         await getDataYearWidgetPregrado(); 
         await getDataTablaProgramasPregrado();      
-        await getDataTablaProgramasPosgrado();      
+        await getDataTablaProgramasPosgrado(); 
+        await getListProgramas();     
 
     });
 
@@ -668,7 +731,29 @@ import {
                         color='primary'
                         borderColor="dark"
                         bordered={true}
-                    />  
+                    /> 
+                    <div className="row" >
+                        <div className="col-4">
+                            <CSelect 
+                                value={programaSelectedPregrado} 
+                                onChange={handleChangeProgramaPregrado}>
+                                {listProgramasPregrado.map(item => {
+                                    return (<option key={item} value={item}>{item}</option>);
+                                })}
+                            </CSelect>    
+                        </div>
+                        <div>
+                            <CButton block variant="outline" color="info" 
+                                onClick={togglePregradoGrafico}
+                                >Graficar
+                            </CButton> 
+                        </div>
+                    </div>
+                    <CCollapse show={collapsePregradoGrafico}>
+                        <h1>
+                            {programaSelectedPregrado}
+                        </h1>
+                    </CCollapse>      
                 </CCollapse>
                 <CCollapse show={collapseProgramasPosgrado}>
                     <CDataTable
@@ -682,8 +767,31 @@ import {
                         borderColor="dark"
                         bordered={true}
                     />
-
+                    <div className="row" >
+                        <div className="col-4">
+                            <CSelect 
+                                value={programaSelectedPosgrado} 
+                                onChange={handleChangeProgramaPosgrado}>
+                                {listProgramasPosgrado.map(item => {
+                                    return (<option key={item} value={item}>{item}</option>);
+                                })}
+                            </CSelect>    
+                        </div>
+                        <div>
+                            <CButton block variant="outline" color="info" 
+                                onClick={togglePosgradoGrafico }
+                                >Graficar
+                            </CButton> 
+                        </div>
+                    </div>
+                    <CCollapse show={collapsePosgradoGrafico}>
+                        <h1>
+                            {programaSelectedPosgrado}
+                        </h1>
+                    </CCollapse>
+                    
                 </CCollapse>
+
             </CCollapse>
         </CCard>
         

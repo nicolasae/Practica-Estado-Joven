@@ -309,7 +309,7 @@ const Inscritos = () =>{
         console.log(opcionesMultiSelect)
         var axios = require('axios');
         var aux = yearsDataSemestre;
-        for (var opcion = 0;opcion< opcionesMultiSelect.length ;opcion++){
+        for (var opcion = 0;opcion< opcionesMultiSelect.length;opcion++){
             var config = {
                 method: 'get',
                 url: 'http://localhost:8000/api/tendencia_count_year?VAR=Inscrito&TIPO_INSCRIPCION='+ opcionesMultiSelect[opcion],
