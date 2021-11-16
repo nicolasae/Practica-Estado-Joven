@@ -22,6 +22,7 @@ import {
     CChartPie,
   } from '@coreui/react-chartjs'
 import '../../scss/_custom.scss'
+import { MultiSelect } from "react-multi-select-component";
 
   // hook personalizado
 const useSingleton = (callBack = () => { }) => { const hasBeenCalled = React.useRef(false);     if (hasBeenCalled.current) return;     callBack();     hasBeenCalled.current = true; }
@@ -30,11 +31,11 @@ const Graduados = () =>{
     // constantes
     const actualYear = new Date().getFullYear()
     const [yearsData,setYearsData] = React.useState([])
+    const [yearsDataSemestre,setYearsDataSemestre] = React.useState([])
     const [collapseGeneral, setCollapseGeneral] = useState(false)
     const [collapseSexo, setCollapseSexo] = useState(false)
     const [collapseEstrato, setCollapseEstrato] = useState(false)
     const [collapseColegio, setCollapseColegio] = useState(false)
-
     // Constantes general
     const [yearSelected, setYearSelected] = React.useState(new Date().getFullYear())
     const [graduadosPrimer, setGraduadosPrimer] = React.useState([])
@@ -59,15 +60,28 @@ const Graduados = () =>{
     const [collapseLineChartColegio, setCollapseLineChartColegio] = useState(false)
     const [graduadosColegio, setGraduadosColegio] = React.useState({})
     const [loadingColegio, setLoadingColegio] = React.useState(true)
-
+    // Constantes segun tipo de inscripcion
+    const [collapseInscripcion, setCollapseInscripcion] = useState(false)
+    const[inscripcionFields,setInscripcionFields] = React.useState()
+    const [inscripcionList,setInscripcionList] = React.useState()
+    const [inscripcionSelected,setInscripcionSelected] = useState([])
+    const [loadingInscripcion, setLoadingInscripcion] = React.useState(true)
+    const [dataTipoInscripcion,setDataTipoInscripcion] = React.useState()
+    const [loadingTipoInscripcion, setLoadingTipoInscripcion] = React.useState(true)
+    const [collapseTipoInscripcion, setCollapseTipoInscripcion] = useState(false)
+    const [opcionesMultiSelect,setOpcionesMultiSelect] =  React.useState([])
+    const [dataSetTipoInscripcion,setDataSetTipoInscripcion] = React.useState([])
 
 
     // Funciones 
     const getYears = async() => { 
         for (var i=2010;i<=actualYear; i++){
             yearsData.push(i)
+            yearsDataSemestre.push(i+'-1')
+            yearsDataSemestre.push(i+'-2')
         }
         setYearsData(yearsData)
+        setYearsDataSemestre(yearsDataSemestre)
     }
 
     const getDataGraduadosPrimerSemestre = async () => {
@@ -255,6 +269,102 @@ const Graduados = () =>{
         setLoadingColegio(false)
     }
 
+    const getDataMatriculadosList = async () => {
+        var axios = require('axios');
+        var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/tendencia?VAR=Graduado',
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        };
+        const graduadosquery = await axios(config)    
+        .then( response => response.data.data)
+        .catch(function (error) {
+            console.log(error);
+            return error.response
+        });
+        var aux = []
+        for ( const i in graduadosquery){
+            if((graduadosquery[i]['TIPO_INSCRIPCION']!== null) ){
+                aux.push(graduadosquery[i]['TIPO_INSCRIPCION'])
+            }
+        }
+        var array = new Set(aux);
+        var result = [...array];
+        await setInscripcionFields(result);
+        let aux2 = [];
+        for (const j in result){ 
+            aux2.push(
+                {
+                    label: result[j],
+                    value: result[j],
+                }
+            )
+        }
+        await setInscripcionList(aux2);
+        await setLoadingInscripcion(false)
+    }
+    const getDataTipoInscripcion= async () => {
+        for (const i in inscripcionSelected){
+            opcionesMultiSelect.push(inscripcionSelected[i].value)
+        }
+        setOpcionesMultiSelect(opcionesMultiSelect)
+        setOpcionesMultiSelect([])
+        var axios = require('axios');
+        let aux = yearsDataSemestre;
+        for (var opcion = 0;opcion< opcionesMultiSelect.length;opcion++){
+            var config = {
+                method: 'get',
+                url: 'http://localhost:8000/api/tendencia_count_year?VAR=Graduado&TIPO_INSCRIPCION='+ opcionesMultiSelect[opcion],
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+            };
+            var query = await axios(config)    
+            .then( response => response.data.data)
+            .catch(function (error) {
+                if(error.response.status === 404) {
+                    return {count:0}
+                }
+                else {
+                    return error.response
+                }
+            });
+            let aux2 = []
+            for (const j in yearsDataSemestre ){
+                for (const k in query){
+                    if (yearsDataSemestre[j] === query[k].year){
+                        aux2[j] = query[k].count
+                    }
+                }
+            }
+            for (const k in yearsDataSemestre){
+                if(!aux2[k]){
+                    aux2[k] = 0;
+                }
+            }
+            aux[opcionesMultiSelect[opcion]] = aux2
+            aux2 = []
+        }
+        await setDataTipoInscripcion(aux)
+        await setLoadingTipoInscripcion(false)        
+        let dataSet  = []
+        for (const i in opcionesMultiSelect){
+            let color = Math.random()*255
+            let color1 = Math.random()*255
+            let color2 = Math.random()*255
+            dataSet.push({
+                label: opcionesMultiSelect[i],
+                fill:false,
+                borderColor: "rgba("+color+","+color1+","+color2+")",
+                backgroundColor: "rgba("+color+","+color1+","+color2+")",
+                data: aux[opcionesMultiSelect[i]]
+            })
+        }
+        setDataSetTipoInscripcion(dataSet)
+    }
+
 
     React.useEffect(async () => { 
         await getDataGraduadosPrimerSemestre()
@@ -303,7 +413,14 @@ const Graduados = () =>{
         setCollapseEstrato(false);
         e.preventDefault();
     }
-
+    const toggleInscripcion = (e)=>{
+        setCollapseInscripcion(!collapseInscripcion);
+        setCollapseGeneral(false);
+        setCollapseSexo(false);
+        setCollapseEstrato(false);
+        setCollapseColegio(false);
+        e.preventDefault();
+    }
     const toggleTablaGraduadosPrimer = (e)=>{
         setCollapseTablaGraduadosPrimer(!collapseTablaGraduadosPrimer);
         setCollapseTablaGraduadosSegundo(false);
@@ -344,6 +461,11 @@ const Graduados = () =>{
         await setLoadingEstrato(true);
     }
     
+    const toggleTipoInscripcion = (e)=>{
+        setCollapseTipoInscripcion(!collapseTipoInscripcion);
+        getDataTipoInscripcion();
+        e.preventDefault();
+    }
 
     // despues de definir las constantes 
     useSingleton(async () => {
@@ -355,6 +477,8 @@ const Graduados = () =>{
         await getDataGraduadosEstratoPrimerSemestre()
         await getDataGraduadosEstratoSegundoSemestre()
         await getDataGraduadosColegio()
+        await getDataMatriculadosList();
+
     });
 
     return(
@@ -396,9 +520,11 @@ const Graduados = () =>{
                             >Según Colegio
                         </CButton>
                     </CCol>
-                    {/* <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-                    <CButton block variant="outline" color="info">Info</CButton>
-                    </CCol> */}
+                    <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+                        <CButton block variant="outline" color="info" onClick={toggleInscripcion}
+                            >Según Inscripción
+                        </CButton>
+                    </CCol>
                 </CRow>
             </CCardBody>
         </CCard>
@@ -672,13 +798,58 @@ const Graduados = () =>{
                     </CCard>
                 </CCollapse>
             </CCol> 
-
-
+            <CCol xs="12" lg="12">
+                <CCollapse show={collapseInscripcion}>
+                    <CCard>
+                        <h1 style={{textAlign: 'center', fontWeight:'bold'}}>
+                            Tendencia según tipo de inscripción:
+                        </h1>
+                        {loadingInscripcion?
+                            <div class="spinner-border text-info" role="status" style={{align: 'center'}}>
+                                <span class="sr-only">Loading...</span>
+                            </div> :
+                            <CFormGroup row>
+                                <CCol md="3"></CCol>
+                                <CCol md="4">
+                                    <MultiSelect
+                                        options={inscripcionList}
+                                        value={inscripcionSelected}
+                                        onChange={setInscripcionSelected}
+                                    />
+                                </CCol>
+                                <CCol md="3">
+                                    <CButton
+                                        color="outline-info"
+                                        onClick={toggleTipoInscripcion}
+                                        className={'mb-1'}
+                                    >Graficar
+                                    </CButton>
+                                </CCol>                                
+                            </CFormGroup>
+                        }
+                        <CCollapse show={collapseTipoInscripcion}>  
+                            <CCardBody>
+                                {loadingTipoInscripcion? <div class="spinner-border text-info" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                    </div> :
+                                    
+                                    <CChartLine
+                                        datasets={dataSetTipoInscripcion}
+                                        options={{
+                                        tooltips: {
+                                            enabled: true
+                                        }
+                                        
+                                        }}
+                                        labels= {yearsDataSemestre} 
+                                    />
+                                }
+                            </CCardBody>
+                        </CCollapse>
+                    </CCard>
+                </CCollapse>
+            </CCol> 
         </CRow>
-        
-
-
-       
         </>
     )
 }

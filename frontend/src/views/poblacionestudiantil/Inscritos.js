@@ -300,13 +300,13 @@ const Inscritos = () =>{
         await setInscripcionList(aux2);
         setLoadingInscripcion(false)
     }
-    const getDataTipoInscripcion= async () => {
-        setOpcionesMultiSelect([])
+
+    const getDataTipoInscripcion= async () => {       
         for (const i in inscripcionSelected){
             opcionesMultiSelect.push(inscripcionSelected[i].value)
         }
         setOpcionesMultiSelect(opcionesMultiSelect)
-        console.log(opcionesMultiSelect)
+        setOpcionesMultiSelect([])
         var axios = require('axios');
         var aux = yearsDataSemestre;
         for (var opcion = 0;opcion< opcionesMultiSelect.length;opcion++){
@@ -327,21 +327,25 @@ const Inscritos = () =>{
                     return error.response
                 }
             });
-            var aux2 = []
+            let aux2 = []
             for (const j in yearsDataSemestre ){
                 for (const k in query){
                     if (yearsDataSemestre[j] === query[k].year){
-                        aux2.push(query[k].count)
+                        aux2[j] = query[k].count
                     }
                 }
             }
+            for (const k in yearsDataSemestre){
+                if(!aux2[k]){
+                    aux2[k] = 0;
+                }
+            }
             aux[opcionesMultiSelect[opcion]] = aux2
+            aux2 = []
         }
-        console.log(aux)
         await setDataTipoInscripcion(aux)
         await setLoadingTipoInscripcion(false)        
         let dataSet  = []
-        
         for (const i in opcionesMultiSelect){
             let color = Math.random()*255
             let color1 = Math.random()*255
@@ -354,7 +358,6 @@ const Inscritos = () =>{
                 data: aux[opcionesMultiSelect[i]]
             })
         }
-        console.log(dataSet)
         setDataSetTipoInscripcion(dataSet)
     }
 
