@@ -108,8 +108,6 @@ import {
         setLoadingYearsGeneral(false)
     }
 
-    
-
     React.useEffect(async () => { 
         await getDataTablaDIS()
     },[nivelSelected])

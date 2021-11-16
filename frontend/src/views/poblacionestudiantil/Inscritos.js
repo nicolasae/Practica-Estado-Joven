@@ -35,7 +35,6 @@ const Inscritos = () =>{
     const [collapseSexo, setCollapseSexo] = useState(false)
     const [collapseEstrato, setCollapseEstrato] = useState(false)
     const [collapseColegio, setCollapseColegio] = useState(false)
-
     // Constantes general
     const [yearSelected, setYearSelected] = React.useState(new Date().getFullYear())
     const [inscritosPrimer, setInscritosPrimer] = React.useState([])
@@ -70,7 +69,7 @@ const Inscritos = () =>{
     const [loadingTipoInscripcion, setLoadingTipoInscripcion] = React.useState(true)
     const [collapseTipoInscripcion, setCollapseTipoInscripcion] = useState(false)
     const [opcionesMultiSelect,setOpcionesMultiSelect] =  React.useState([])
-
+    const [dataSetTipoInscripcion,setDataSetTipoInscripcion] = React.useState([])
 
     // Funciones 
     const getYears = async() => { 
@@ -302,6 +301,7 @@ const Inscritos = () =>{
         setLoadingInscripcion(false)
     }
     const getDataTipoInscripcion= async () => {
+        setOpcionesMultiSelect([])
         for (const i in inscripcionSelected){
             opcionesMultiSelect.push(inscripcionSelected[i].value)
         }
@@ -339,9 +339,26 @@ const Inscritos = () =>{
         }
         console.log(aux)
         await setDataTipoInscripcion(aux)
-        // console.log(dataTipoInscripcion)
-        setLoadingTipoInscripcion(false)
+        await setLoadingTipoInscripcion(false)        
+        let dataSet  = []
+        
+        for (const i in opcionesMultiSelect){
+            let color = Math.random()*255
+            let color1 = Math.random()*255
+            let color2 = Math.random()*255
+            dataSet.push({
+                label: opcionesMultiSelect[i],
+                fill:false,
+                borderColor: "rgba("+color+","+color1+","+color2+")",
+                backgroundColor: "rgba("+color+","+color1+","+color2+")",
+                data: aux[opcionesMultiSelect[i]]
+            })
+        }
+        console.log(dataSet)
+        setDataSetTipoInscripcion(dataSet)
     }
+
+
 
 
     React.useEffect(async () => { 
@@ -819,15 +836,7 @@ const Inscritos = () =>{
                                     </div> :
                                     
                                     <CChartLine
-                                        datasets={[                                        
-                                        {   
-                                            label: opcionesMultiSelect,
-                                            fill:false,
-                                            borderColor: 'Red',
-                                            backgroundColor: 'Red',
-                                            data: inscritosColegio['Na']                                            
-                                        }
-                                        ]}
+                                        datasets={dataSetTipoInscripcion}
                                         options={{
                                         tooltips: {
                                             enabled: true

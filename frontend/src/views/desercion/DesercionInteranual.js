@@ -27,13 +27,13 @@ import {
     const actualYear = new Date().getFullYear()
     const [yearsDataSemestre,setYearsDataSemestre] = React.useState([])
     const [yearsData,setYearsData] = React.useState([])
-    const [yearSelected, setYearSelected] = React.useState((new Date().getFullYear()-1));
+    const [yearSelected, setYearSelected] = React.useState(2019);
     const [collapseGeneral, setCollapseGeneral] = useState(false);
     const [dataTablaDIA, setDataTablaDIA] = useState([])
     const fieldsTablaDIA = ['COD_PERIODO','NOMBRE','DURACION_SEMESTRES','ESTADO','CANTIDAD']
     const [collapseProgramas, setCollapseProgramas] = useState(false);
     const [dataYearsGeneral, setDataYearsGeneral] = React.useState({})
-    const [loadingYearsGeneral, setLoadingYearsGeneral] = React.useState(false)
+    const [loadingYearsGeneral, setLoadingYearsGeneral] = useState(true)
     const [dataYearsWidget, setDataYearsWidget] = React.useState([])
     const [dataPorcentajeYearsWidget, setDataPorcentajeYearsWidget] = React.useState([]);
     const [collapseDIAAnual,setCollapseDIAAnual] = useState(false);
@@ -62,6 +62,12 @@ import {
     const [programaSelectedPosgrado, setProgramaSelectedPosgrado] = React.useState('Doctorado en Ingeniería');
     const [collapsePregradoGrafico,setCollapsePregradoGrafico] = useState(false);
     const [collapsePosgradoGrafico,setCollapsePosgradoGrafico] = useState(false);
+    const [dataYearsPregrado, setDataYearsPregrado] = React.useState({})
+    const [loadingYearsPregrado, setLoadingYearsPregrado] = React.useState(true)
+    const [dataYearsPosgrado, setDataYearsPosgrado] = React.useState({})
+    const [loadingYearsPosgrado, setLoadingYearsPosgrado] = React.useState(true)
+
+
 
     // Funciones
     const getYears = async() => { 
@@ -98,7 +104,7 @@ import {
         var aux = {}
         var aux2 = []        
         for (var estado = 0;estado<estados.length;estado++){
-            for (var year = 2010;year <= actualYear;year++){
+            for (var year = 2010;year <= actualYear-1;year++){
                 var config = {
                 method: 'get',
                 url: 'http://localhost:8000/api/desercionDIA_count?&COD_PERIODO='+year+'&ESTADO='+estados[estado],
@@ -124,43 +130,6 @@ import {
         await setDataYearsGeneral(aux)
     }
 
-
-    // const getDataYearsGeneral = async() =>{ 
-    //     var estados= ['Graduado','No matriculado','Cambio de programa','Permanece programa']
-    //     var axios = require('axios');
-    //     let aux = dataYearsGeneral
-    //     for (var estado = 0;estado<estados.length;estado++){
-    //         var config = {
-    //             method: 'get',
-    //             url: 'http://localhost:8000/api/desercionDIA_count_year?ESTADO='+estados[estado],
-    //             headers: { 
-    //                 'Content-Type': 'application/json'
-    //             },
-    //         };
-    //         var query = await axios(config)    
-    //         .then( response => response.data.data)
-    //         .catch(function (error) {
-    //             if(error.response.status === 404) {
-    //                 return {count:0}
-    //             }
-    //             else {
-    //                 return error.response
-    //             }
-    //         });
-    //         var aux2 = []
-    //         for (const j in yearsDataSemestre ){
-    //             for (const k in query){
-    //                 if (yearsDataSemestre[j] === query[k].year){
-    //                     aux2.push(query[k].count)
-    //                 }
-    //             }
-    //         }
-    //         aux[estados[estado]] = aux2
-    //     }
-    //     await setDataYearsGeneral(aux)
-    //     setLoadingYearsGeneral(false)
-    // }
-
     const getDataYearWidgetPregrado = async () => {
         var axios = require('axios');
         var estados = ['Graduado','Cambio de programa','Permanece programa','No matriculado']
@@ -180,32 +149,31 @@ import {
                 console.log(error);
                 return error.response
             });
-            aux[estados[estado]] = query.CANTIDAD__sum;
+            aux[estados[estado]] = Number(query.CANTIDAD__sum);
             suma += query.CANTIDAD__sum
         }
-        aux['suma']= suma      
+        aux['suma']= suma   
         await setDataYearsWidget(aux)
         await widgetPregrado();
     }
 
     const widgetPregrado= async () => {
-        let total = dataYearsWidget['suma']
+        let total = Number(dataYearsWidget['suma'])
         let permanece = ((dataYearsWidget['Permanece programa'])/total).toFixed(3);
         let cambio = ((dataYearsWidget['Cambio de programa'])/total).toFixed(3);
         let graduado = ((dataYearsWidget['Graduado'])/total).toFixed(3);
         let no_matriculado = ((dataYearsWidget['No matriculado'])/total).toFixed(3);
         // console.log(cambio,permanece,graduado,no_matriculado)
-        var porcentajes_list = {}
+        let porcentajes_list = {}
         porcentajes_list = {
-            permanece_porcentaje:permanece*100,
+            permanece_porcentaje:Number(permanece*100),
             cambio_porcentaje:cambio*100,
             graduado_porcentaje:graduado*100,
             no_matriculado_porcentaje:no_matriculado*100,
         }
         await setDataPorcentajeYearsWidget(porcentajes_list)
-        setLoadingYearsGeneral(false)      
+        await setLoadingYearsGeneral(false)      
     }
-
 
     const getDataTablaProgramasPregrado = async () => {
         var axios = require('axios');
@@ -240,8 +208,7 @@ import {
             console.log(error);
             return error.response
         });
-        await setTablaProgramasPosgrado(dataQuery)
-        
+        await setTablaProgramasPosgrado(dataQuery)        
     }
 
     const getListProgramas = async () => {
@@ -286,21 +253,110 @@ import {
         setListProgramasPosgrado(listPosgrado)
     }
     
+    const getDataPorProgramaPregrado = async() =>{
+        var axios = require('axios');
+        let aux =  yearsData
+        var estados= ['Graduado','No matriculado','Cambio de programa','Permanece programa']
+        for (var estado in estados){
+            var config = {
+            method: 'get',
+            url: 'http://localhost:8000/api/desercionDIA_count_year?NIVEL=Pregrado&NOMBRE='+programaSelectedPregrado+'&ESTADO='+estados[estado],
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            };
+            const query = await axios(config)    
+            .then( response => response.data.data)
+            .catch(function (error) {
+                if(error.response.status === 404) {
+                    return {count:0}
+                }
+                else {
+                    return error.response
+                }
+            });
+            let aux2 = []
+            for (const j in yearsDataSemestre ){
+                for (const k in query){
+                    if (yearsDataSemestre[j] === query[k].year){
+                        aux2.push(query[k].count)
+                    }                                  
+                }
+                if (aux2.length < j){
+                    aux2.push(0)
+                }
+            }
+            aux[estados[estado]] = aux2
+            aux2 = []
+        }
+        // console.log(aux)
+        await setDataYearsPregrado(aux)
+        await setLoadingYearsPregrado(false)
+    }
+    const getDataPorProgramaPosgrado = async() =>{
+        var axios = require('axios');
+        let aux =  yearsData
+        var estados= ['Graduado','No matriculado','Cambio de programa','Permanece programa']
+        for (var estado = 0;estado<estados.length;estado++){
+            var config = {
+            method: 'get',
+            url: 'http://localhost:8000/api/desercionDIA_count_year?NIVEL=Posgrado&NOMBRE='+programaSelectedPosgrado+'&ESTADO='+estados[estado],
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            };
+            const query = await axios(config)    
+            .then( response => response.data.data)
+            .catch(function (error) {
+                if(error.response.status === 404) {
+                    return {count:0}
+                }
+                else {
+                    return error.response
+                }
+            });
+            var aux2 = []
+            // console.log(query)
+            for (const j in yearsDataSemestre ){
+                for (const k in query){
+                    if (yearsDataSemestre[j] === query[k].year){
+                        aux2.push(query[k].count)
+                    }
 
+                }
+            }
+            // console.log(aux2)
+            aux[estados[estado]] = aux2
+        }
+        // console.log(aux)
+        await setDataYearsPosgrado(aux)
+        await setLoadingYearsPosgrado(false)
+    }
   
     React.useEffect(async () => { 
         await getDataYearWidgetPregrado()
     },[yearSelected])
 
+    React.useEffect(async () => {
+        await getDataPorProgramaPregrado()
+    },[programaSelectedPregrado])
+
+    React.useEffect(async () => {
+        await getDataPorProgramaPosgrado()
+    },[programaSelectedPosgrado])
+
     const handleChangeYear = async (event) => {
         setYearSelected(event.target.value);
-        setLoadingYearsGeneral(true)
+        await setLoadingYearsGeneral(true)
     };
     const handleChangeProgramaPregrado = async (event) => {
         setProgramaSelectedPregrado(event.target.value);
+        await setLoadingYearsPregrado(true);
+
     };   
     const handleChangeProgramaPosgrado = async (event) => {
         setProgramaSelectedPosgrado(event.target.value);
+        await setLoadingYearsPosgrado(true)
     };    
 
     const toggleGeneral = (e)=>{
@@ -360,9 +416,13 @@ import {
         await getDataTablaDIA();
         await getDataYearsGeneral();
         await getDataYearWidgetPregrado(); 
+        await setYearSelected(2020)   
         await getDataTablaProgramasPregrado();      
         await getDataTablaProgramasPosgrado(); 
-        await getListProgramas();     
+        await getListProgramas();
+        await getDataPorProgramaPregrado();   
+        await getDataPorProgramaPosgrado();  
+  
 
     });
 
@@ -548,9 +608,9 @@ import {
                                             <CCol lg="1"></CCol>
                                             <CCol sm="3" lg="2" >
                                                 <CWidgetDropdown
-                                                color="gradient-primary"
-                                                header={dataPorcentajeYearsWidget['permanece_porcentaje']+'%'}
-                                                text="Permanece en programa"
+                                                    color="gradient-primary"
+                                                    header={dataPorcentajeYearsWidget['permanece_porcentaje']+'%'}
+                                                    text="Permanece en programa"
                                                 ></CWidgetDropdown>
                                             </CCol>
                                             <CCol sm="3" lg="2">
@@ -731,30 +791,81 @@ import {
                         color='primary'
                         borderColor="dark"
                         bordered={true}
-                    /> 
-                    <div className="row" >
-                        <div className="col-4">
-                            <CSelect 
-                                value={programaSelectedPregrado} 
-                                onChange={handleChangeProgramaPregrado}>
-                                {listProgramasPregrado.map(item => {
-                                    return (<option key={item} value={item}>{item}</option>);
-                                })}
-                            </CSelect>    
-                        </div>
-                        <div>
-                            <CButton block variant="outline" color="info" 
-                                onClick={togglePregradoGrafico}
-                                >Graficar
-                            </CButton> 
-                        </div>
-                    </div>
-                    <CCollapse show={collapsePregradoGrafico}>
-                        <h1>
-                            {programaSelectedPregrado}
-                        </h1>
-                    </CCollapse>      
+                    />
+                    <CCardBody style={{marginTop:'2%'}}>
+                        <CRow  >
+                            <CCol col="6" sm="4" md="2" className="mb-3 mb">
+                                <CSelect 
+                                    value={programaSelectedPregrado} 
+                                    onChange={handleChangeProgramaPregrado}>
+                                    {listProgramasPregrado.map(item => {
+                                        return (<option key={item} value={item}>{item}</option>);
+                                    })}
+                                </CSelect>
+                            </CCol>
+                            <CCol col="6" sm="4" md="2"  className="mb-2 mb">
+                                <CButton block variant="outline" color="info" 
+                                    onClick={togglePregradoGrafico}
+                                    >Graficar
+                                </CButton> 
+                            </CCol>
+                        </CRow>  
+
+
+                        <CCollapse show={collapsePregradoGrafico}>
+                            <CCardBody>
+                                <h3 style={{textAlign: 'center', fontWeight:'bold',marginTop:'3%'}}>
+                                    {programaSelectedPregrado}
+                                </h3>
+                                {loadingYearsPregrado?
+                                <div class="spinner-border text-info" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>:               
+                                <CChartLine
+                                    datasets={[
+                                    {
+                                        label: "Cambio de programa",
+                                        fill: false,
+                                        borderColor: "#321fdb",
+                                        backgroundColor: "#321fdb",
+                                        data: dataYearsPregrado['Cambio de programa'],
+                                    },
+                                    {
+                                        label: "Graduado",
+                                        fill: false,
+                                        borderColor: "#2eb85c",
+                                        backgroundColor: "#2eb85c",
+                                        data: dataYearsPregrado['Graduado'],
+                                    },
+                                    {
+                                        label: "No matriculado",
+                                        fill: false,
+                                        borderColor: "#e55353",
+                                        backgroundColor: "#e55353",
+                                        data: dataYearsPregrado['No matriculado'],
+                                    },
+                                    {
+                                        label: "Permanece programa",
+                                        fill: false,
+                                        borderColor: "#f9b115",
+                                        backgroundColor: "#f9b115",
+                                        data: dataYearsPregrado['Permanece programa'],
+                                    },
+                                    ]}
+                                    options={{
+                                    tooltips: {
+                                        enabled: true,
+                                    },
+                                    }}
+                                    labels={yearsDataSemestre}
+                                />
+                            }
+                            </CCardBody>
+                        </CCollapse> 
+                    </CCardBody> 
                 </CCollapse>
+
+
                 <CCollapse show={collapseProgramasPosgrado}>
                     <CDataTable
                         items={tablaProgramasPosgrado}
@@ -767,28 +878,76 @@ import {
                         borderColor="dark"
                         bordered={true}
                     />
-                    <div className="row" >
-                        <div className="col-4">
-                            <CSelect 
-                                value={programaSelectedPosgrado} 
-                                onChange={handleChangeProgramaPosgrado}>
-                                {listProgramasPosgrado.map(item => {
-                                    return (<option key={item} value={item}>{item}</option>);
-                                })}
-                            </CSelect>    
-                        </div>
-                        <div>
-                            <CButton block variant="outline" color="info" 
-                                onClick={togglePosgradoGrafico }
-                                >Graficar
-                            </CButton> 
-                        </div>
-                    </div>
-                    <CCollapse show={collapsePosgradoGrafico}>
-                        <h1>
-                            {programaSelectedPosgrado}
-                        </h1>
-                    </CCollapse>
+                    <CCardBody style={{marginTop:'2%'}}>
+                        <CRow>
+                            <CCol col="6" sm="4" md="2" className="mb-2 mb">
+                                <CSelect 
+                                    value={programaSelectedPosgrado} 
+                                    onChange={handleChangeProgramaPosgrado}>
+                                    {listProgramasPosgrado.map(item => {
+                                        return (<option key={item} value={item}>{item}</option>);
+                                    })}
+                                    
+                                </CSelect>
+                            </CCol>
+                            <CCol col="6" sm="4" md="2"  className="mb-2 mb">
+                                <CButton block variant="outline" color="info" 
+                                    onClick={togglePosgradoGrafico }
+                                    >Graficar
+                                </CButton> 
+                            </CCol>
+                        </CRow>  
+                        <CCollapse show={collapsePosgradoGrafico}>
+                            <h3 style={{textAlign: 'left', fontWeight:'bold',marginTop:'3%'}}>
+                                {programaSelectedPosgrado} 
+                            </h3>
+                            <CCardBody>
+                                {loadingYearsPosgrado?
+                                <div class="spinner-border text-info" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>:               
+                                <CChartLine
+                                    datasets={[
+                                    {
+                                        label: "Cambio de programa",
+                                        fill: false,
+                                        borderColor: "#321fdb",
+                                        backgroundColor: "#321fdb",
+                                        data: dataYearsPosgrado['Cambio de programa'],
+                                    },
+                                    {
+                                        label: "Graduado",
+                                        fill: false,
+                                        borderColor: "#2eb85c",
+                                        backgroundColor: "#2eb85c",
+                                        data: dataYearsPosgrado['Graduado'],
+                                    },
+                                    {
+                                        label: "No matriculado",
+                                        fill: false,
+                                        borderColor: "#e55353",
+                                        backgroundColor: "#e55353",
+                                        data: dataYearsPosgrado['No matriculado'],
+                                    },
+                                    {
+                                        label: "Permanece programa",
+                                        fill: false,
+                                        borderColor: "#f9b115",
+                                        backgroundColor: "#f9b115",
+                                        data: dataYearsPosgrado['Permanece programa'],
+                                    },
+                                    ]}
+                                    options={{
+                                    tooltips: {
+                                        enabled: true,
+                                    },
+                                    }}
+                                    labels={yearsDataSemestre}
+                                />
+                            }
+                            </CCardBody>
+                        </CCollapse>
+                    </CCardBody>
                     
                 </CCollapse>
 
