@@ -33,9 +33,13 @@ import {
     const fieldsTablaDIA = ['COD_PERIODO','NOMBRE','DURACION_SEMESTRES','ESTADO','CANTIDAD']
     const [collapseProgramas, setCollapseProgramas] = useState(false);
     const [dataYearsGeneral, setDataYearsGeneral] = React.useState({})
-    const [loadingYearsGeneral, setLoadingYearsGeneral] = useState(true)
-    const [dataYearsWidget, setDataYearsWidget] = React.useState([])
-    const [dataPorcentajeYearsWidget, setDataPorcentajeYearsWidget] = React.useState([]);
+    
+    const [dataYearsWidgetPregrado, setDataYearsWidgetPregrado] = React.useState([])
+    const [dataPorcentajeYearsWidgetPregrado, setDataPorcentajeYearsWidgetPregrado] = React.useState([]);
+    const [dataYearsWidgetPosgrado, setDataYearsWidgetPosgrado] = React.useState([])
+    const [dataPorcentajeYearsWidgetPosgrado, setDataPorcentajeYearsWidgetPosgrado] = React.useState([]);
+    const [loadingPorcentajePregrado, setLoadingPorcentajePregrado] = useState(true)
+    const [loadingPorcentajePosgrado, setLoadingPorcentajePosgrado] = useState(true)
     const [collapseDIAAnual,setCollapseDIAAnual] = useState(false);
     const [collapseGrafAnualPregrado,setCollapseGrafAnualPregrado] = useState(false);
     const [collapseGrafAnualPosgrado,setCollapseGrafAnualPosgrado] = useState(false);
@@ -62,9 +66,9 @@ import {
     const [programaSelectedPosgrado, setProgramaSelectedPosgrado] = React.useState('Doctorado en Ingeniería');
     const [collapsePregradoGrafico,setCollapsePregradoGrafico] = useState(false);
     const [collapsePosgradoGrafico,setCollapsePosgradoGrafico] = useState(false);
-    const [dataYearsPregrado, setDataYearsPregrado] = React.useState({})
+    const [dataYearsPregrado, setDataYearsPregrado] = React.useState()
     const [loadingYearsPregrado, setLoadingYearsPregrado] = React.useState(true)
-    const [dataYearsPosgrado, setDataYearsPosgrado] = React.useState({})
+    const [dataYearsPosgrado, setDataYearsPosgrado] = React.useState()
     const [loadingYearsPosgrado, setLoadingYearsPosgrado] = React.useState(true)
 
 
@@ -146,33 +150,86 @@ import {
             const query = await axios(config)    
             .then( response => response.data.data)
             .catch(function (error) {
-                console.log(error);
-                return error.response
+                if(error.response.status === 404) {
+                    
+                    return {CANTIDAD__sum:0}
+                }
+                else {
+                    return error.response
+                }
             });
             aux[estados[estado]] = Number(query.CANTIDAD__sum);
             suma += query.CANTIDAD__sum
         }
         aux['suma']= suma   
-        await setDataYearsWidget(aux)
+        await setDataYearsWidgetPregrado(aux)
         await widgetPregrado();
     }
 
+    const getDataYearWidgetPosgrado = async () => {
+        var axios = require('axios');
+        var estados = ['Graduado','Cambio de programa','Permanece programa','No matriculado']
+        var aux = []
+        var suma = 0
+        for (var estado=0; estado < estados.length; estado++) {
+            var config = {
+            method: 'get',
+            url: 'http://localhost:8000/api/desercionDIA_count?NIVEL=Posgrado&COD_PERIODO='+yearSelected+'&ESTADO='+estados[estado],
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            };
+            const query = await axios(config)    
+            .then( response => response.data.data)
+            .catch(function (error) {
+                if(error.response.status === 404) {
+                    
+                    return {CANTIDAD__sum:0}
+                }
+                else {
+                    return error.response
+                }
+            });
+            aux[estados[estado]] = Number(query.CANTIDAD__sum);
+            suma += query.CANTIDAD__sum
+        }
+        aux['suma']= suma   
+        await setDataYearsWidgetPosgrado(aux)
+        await widgetPosgrado();
+    }
+
     const widgetPregrado= async () => {
-        let total = Number(dataYearsWidget['suma'])
-        let permanece = ((dataYearsWidget['Permanece programa'])/total).toFixed(3);
-        let cambio = ((dataYearsWidget['Cambio de programa'])/total).toFixed(3);
-        let graduado = ((dataYearsWidget['Graduado'])/total).toFixed(3);
-        let no_matriculado = ((dataYearsWidget['No matriculado'])/total).toFixed(3);
-        // console.log(cambio,permanece,graduado,no_matriculado)
+        let total = Number(dataYearsWidgetPregrado['suma'])
+        let permanece = ((dataYearsWidgetPregrado['Permanece programa'])/total).toFixed(3);
+        let cambio = ((dataYearsWidgetPregrado['Cambio de programa'])/total).toFixed(3);
+        let graduado = ((dataYearsWidgetPregrado['Graduado'])/total).toFixed(3);
+        let no_matriculado = ((dataYearsWidgetPregrado['No matriculado'])/total).toFixed(3);
         let porcentajes_list = {}
         porcentajes_list = {
-            permanece_porcentaje:Number(permanece*100),
-            cambio_porcentaje:cambio*100,
-            graduado_porcentaje:graduado*100,
-            no_matriculado_porcentaje:no_matriculado*100,
+            permanece_porcentaje:(permanece*100).toFixed(1),
+            cambio_porcentaje:(cambio*100).toFixed(1),
+            graduado_porcentaje:(graduado*100).toFixed(1),
+            no_matriculado_porcentaje:(no_matriculado*100).toFixed(1),
         }
-        await setDataPorcentajeYearsWidget(porcentajes_list)
-        await setLoadingYearsGeneral(false)      
+        await setDataPorcentajeYearsWidgetPregrado(porcentajes_list)
+        await setLoadingPorcentajePregrado(false)      
+    }
+
+    const widgetPosgrado= async () => {
+        let total = Number(dataYearsWidgetPosgrado['suma'])
+        let permanece = ((dataYearsWidgetPosgrado['Permanece programa'])/total).toFixed(3);
+        let cambio = ((dataYearsWidgetPosgrado['Cambio de programa'])/total).toFixed(3);
+        let graduado = ((dataYearsWidgetPosgrado['Graduado'])/total).toFixed(3);
+        let no_matriculado = ((dataYearsWidgetPosgrado['No matriculado'])/total).toFixed(3);
+        let porcentajes_list = {}
+        porcentajes_list = {
+            permanece_porcentaje:(permanece*100).toFixed(1),
+            cambio_porcentaje:(cambio*100).toFixed(1),
+            graduado_porcentaje:(graduado*100).toFixed(1),
+            no_matriculado_porcentaje:(no_matriculado*100).toFixed(1),
+        }
+        await setDataPorcentajeYearsWidgetPosgrado(porcentajes_list)
+        await setLoadingPorcentajePosgrado(false)      
     }
 
     const getDataTablaProgramasPregrado = async () => {
@@ -282,7 +339,7 @@ import {
                         aux2.push(query[k].count)
                     }                                  
                 }
-                if (aux2.length < j){
+                if (aux2.length <= j){
                     aux2.push(0)
                 }
             }
@@ -315,26 +372,28 @@ import {
                     return error.response
                 }
             });
-            var aux2 = []
-            // console.log(query)
+            let aux2 = []
             for (const j in yearsDataSemestre ){
                 for (const k in query){
                     if (yearsDataSemestre[j] === query[k].year){
                         aux2.push(query[k].count)
-                    }
-
+                    }                                  
+                }
+                if (aux2.length <= j){
+                    aux2.push(0)
                 }
             }
-            // console.log(aux2)
             aux[estados[estado]] = aux2
+            aux2 = []
         }
-        // console.log(aux)
+        console.log(aux)
         await setDataYearsPosgrado(aux)
         await setLoadingYearsPosgrado(false)
     }
   
     React.useEffect(async () => { 
         await getDataYearWidgetPregrado()
+        await getDataYearWidgetPosgrado()
     },[yearSelected])
 
     React.useEffect(async () => {
@@ -347,7 +406,8 @@ import {
 
     const handleChangeYear = async (event) => {
         setYearSelected(event.target.value);
-        await setLoadingYearsGeneral(true)
+        await setLoadingPorcentajePregrado(true)
+        await setLoadingPorcentajePosgrado(true)
     };
     const handleChangeProgramaPregrado = async (event) => {
         setProgramaSelectedPregrado(event.target.value);
@@ -403,11 +463,13 @@ import {
 
     const togglePregradoGrafico = (e)=>{
         setCollapsePregradoGrafico(!collapsePregradoGrafico);
-        setCollapsePosgradoGrafico(false)
+        setCollapsePosgradoGrafico(false);
+        e.preventDefault();
     }
     const togglePosgradoGrafico = (e)=>{
         setCollapsePosgradoGrafico(!collapsePosgradoGrafico);
         setCollapsePregradoGrafico(false)
+        e.preventDefault();
     }
 
     // despues de definir las constantes
@@ -420,9 +482,7 @@ import {
         await getDataTablaProgramasPregrado();      
         await getDataTablaProgramasPosgrado(); 
         await getListProgramas();
-        await getDataPorProgramaPregrado();   
         await getDataPorProgramaPosgrado();  
-  
 
     });
 
@@ -590,7 +650,7 @@ import {
                         </CCardBody>
                         <CCollapse show={collapseGrafAnualPregrado}>
                             <CCardBody>
-                                {loadingYearsGeneral? 
+                                {loadingPorcentajePregrado? 
                                     <div class="spinner-border text-info" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div> :
@@ -609,35 +669,35 @@ import {
                                             <CCol sm="3" lg="2" >
                                                 <CWidgetDropdown
                                                     color="gradient-primary"
-                                                    header={dataPorcentajeYearsWidget['permanece_porcentaje']+'%'}
+                                                    header={dataPorcentajeYearsWidgetPregrado['permanece_porcentaje']+'%'}
                                                     text="Permanece en programa"
                                                 ></CWidgetDropdown>
                                             </CCol>
                                             <CCol sm="3" lg="2">
                                                 <CWidgetDropdown
                                                 color="gradient-success"
-                                                header={dataPorcentajeYearsWidget['cambio_porcentaje']+'%'}
+                                                header={dataPorcentajeYearsWidgetPregrado['cambio_porcentaje']+'%'}
                                                 text="Cambia de programa"
                                                 ></CWidgetDropdown>
                                             </CCol>
                                             <CCol sm="3" lg="2" >
                                                 <CWidgetDropdown
                                                 color="gradient-warning"
-                                                header={dataPorcentajeYearsWidget['graduado_porcentaje']+'%'}
+                                                header={dataPorcentajeYearsWidgetPregrado['graduado_porcentaje']+'%'}
                                                 text="Graduado"
                                                 ></CWidgetDropdown>
                                             </CCol>
                                             <CCol sm="3" lg="2">
                                                 <CWidgetDropdown
                                                 color="gradient-danger"
-                                                header={dataPorcentajeYearsWidget['no_matriculado_porcentaje']+'%'}
+                                                header={dataPorcentajeYearsWidgetPregrado['no_matriculado_porcentaje']+'%'}
                                                 text="No Matriculado"
                                                 ></CWidgetDropdown>
                                             </CCol>
                                             <CCol sm="3" lg="2">
                                                 <CWidgetDropdown
                                                 color="gradient-dark"
-                                                header={dataYearsWidget['suma']}
+                                                header={dataYearsWidgetPregrado['suma']}
                                                 text="Total Estudiantes"
                                                 ></CWidgetDropdown>
                                             </CCol>
@@ -652,10 +712,10 @@ import {
                                                 '#e55353',
                                                 ],
                                                 data: [
-                                                    dataYearsWidget['Permanece programa'],
-                                                    dataYearsWidget['Cambio de programa'],
-                                                    dataYearsWidget['Graduado'],
-                                                    dataYearsWidget['No matriculado'],
+                                                    dataYearsWidgetPregrado['Permanece programa'],
+                                                    dataYearsWidgetPregrado['Cambio de programa'],
+                                                    dataYearsWidgetPregrado['Graduado'],
+                                                    dataYearsWidgetPregrado['No matriculado'],
                                                 ]
                                             }
                                             ]}
@@ -673,7 +733,7 @@ import {
                         </CCollapse>
                         <CCollapse show={collapseGrafAnualPosgrado}>
                             <CCardBody>
-                                {loadingYearsGeneral? 
+                                {loadingPorcentajePosgrado? 
                                     <div class="spinner-border text-info" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div> :
@@ -692,35 +752,35 @@ import {
                                             <CCol sm="3" lg="2" >
                                                 <CWidgetDropdown
                                                 color="gradient-primary"
-                                                header={dataPorcentajeYearsWidget['permanece_porcentaje']+'%'}
+                                                header={dataPorcentajeYearsWidgetPosgrado['permanece_porcentaje']+'%'}
                                                 text="Permanece en programa"
                                                 ></CWidgetDropdown>
                                             </CCol>
                                             <CCol sm="3" lg="2">
                                                 <CWidgetDropdown
                                                 color="gradient-success"
-                                                header={dataPorcentajeYearsWidget['cambio_porcentaje']+'%'}
+                                                header={dataPorcentajeYearsWidgetPosgrado['cambio_porcentaje']+'%'}
                                                 text="Cambia de programa"
                                                 ></CWidgetDropdown>
                                             </CCol>
                                             <CCol sm="3" lg="2" >
                                                 <CWidgetDropdown
                                                 color="gradient-warning"
-                                                header={dataPorcentajeYearsWidget['graduado_porcentaje']+'%'}
+                                                header={dataPorcentajeYearsWidgetPosgrado['graduado_porcentaje']+'%'}
                                                 text="Graduado"
                                                 ></CWidgetDropdown>
                                             </CCol>
                                             <CCol sm="3" lg="2">
                                                 <CWidgetDropdown
                                                 color="gradient-danger"
-                                                header={dataPorcentajeYearsWidget['no_matriculado_porcentaje']+'%'}
+                                                header={dataPorcentajeYearsWidgetPosgrado['no_matriculado_porcentaje']+'%'}
                                                 text="No Matriculado"
                                                 ></CWidgetDropdown>
                                             </CCol>
                                             <CCol sm="3" lg="2">
                                                 <CWidgetDropdown
                                                 color="gradient-dark"
-                                                header={dataYearsWidget['suma']}
+                                                header={dataYearsWidgetPosgrado['suma']}
                                                 text="Total Estudiantes"
                                                 ></CWidgetDropdown>
                                             </CCol>
@@ -735,10 +795,10 @@ import {
                                                 '#e55353',
                                                 ],
                                                 data: [
-                                                    dataYearsWidget['Permanece programa'],
-                                                    dataYearsWidget['Cambio de programa'],
-                                                    dataYearsWidget['Graduado'],
-                                                    dataYearsWidget['No matriculado'],
+                                                    dataYearsWidgetPosgrado['Permanece programa'],
+                                                    dataYearsWidgetPosgrado['Cambio de programa'],
+                                                    dataYearsWidgetPosgrado['Graduado'],
+                                                    dataYearsWidgetPosgrado['No matriculado'],
                                                 ]
                                             }
                                             ]}
@@ -773,7 +833,7 @@ import {
                                 </CCol>
                                 <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
                                     <CButton block variant="outline" color="info" 
-                                        onClick={toggleProgramasPosgrado }
+                                        onClick={toggleProgramasPosgrado}
                                         >Posgrado
                                     </CButton>
                                 </CCol>
@@ -810,8 +870,6 @@ import {
                                 </CButton> 
                             </CCol>
                         </CRow>  
-
-
                         <CCollapse show={collapsePregradoGrafico}>
                             <CCardBody>
                                 <h3 style={{textAlign: 'center', fontWeight:'bold',marginTop:'3%'}}>
@@ -898,7 +956,7 @@ import {
                             </CCol>
                         </CRow>  
                         <CCollapse show={collapsePosgradoGrafico}>
-                            <h3 style={{textAlign: 'left', fontWeight:'bold',marginTop:'3%'}}>
+                            <h3 style={{textAlign: 'center', fontWeight:'bold',marginTop:'3%'}}>
                                 {programaSelectedPosgrado} 
                             </h3>
                             <CCardBody>
