@@ -7,14 +7,11 @@ import {
     CDataTable,
     CCollapse,
     CButton,
-    CFormGroup,
-    CLabel,
     CSelect,
     CWidgetDropdown,
   } from "@coreui/react";
   
   import {
-      CChartBar,
       CChartLine,
       CChartPie,
     } from '@coreui/react-chartjs'
@@ -27,24 +24,25 @@ import {
     const actualYear = new Date().getFullYear()
     const [yearsDataSemestre,setYearsDataSemestre] = React.useState([])
     const [yearsData,setYearsData] = React.useState([])
-    const [yearSelected, setYearSelected] = React.useState(2019);
-    const [collapseGeneral, setCollapseGeneral] = useState(false);
+    // Información Histórica constantes 
     const [dataTablaDIA, setDataTablaDIA] = useState([])
     const fieldsTablaDIA = ['COD_PERIODO','NOMBRE','DURACION_SEMESTRES','ESTADO','CANTIDAD']
-    const [collapseProgramas, setCollapseProgramas] = useState(false);
     const [dataYearsGeneral, setDataYearsGeneral] = React.useState({})
-    
+    // Información semestral
+    const [yearSelected, setYearSelected] = React.useState(2020);
     const [dataYearsWidgetPregrado, setDataYearsWidgetPregrado] = React.useState([])
-    const [dataPorcentajeYearsWidgetPregrado, setDataPorcentajeYearsWidgetPregrado] = React.useState([]);
     const [dataYearsWidgetPosgrado, setDataYearsWidgetPosgrado] = React.useState([])
+    const [dataPorcentajeYearsWidgetPregrado, setDataPorcentajeYearsWidgetPregrado] = React.useState([]);
     const [dataPorcentajeYearsWidgetPosgrado, setDataPorcentajeYearsWidgetPosgrado] = React.useState([]);
-    const [loadingPorcentajePregrado, setLoadingPorcentajePregrado] = useState(true)
-    const [loadingPorcentajePosgrado, setLoadingPorcentajePosgrado] = useState(true)
-    const [collapseDIAAnual,setCollapseDIAAnual] = useState(false);
-    const [collapseGrafAnualPregrado,setCollapseGrafAnualPregrado] = useState(false);
-    const [collapseGrafAnualPosgrado,setCollapseGrafAnualPosgrado] = useState(false);
-    const [collapseProgramasPregrado,setCollapseProgramasPregrado] = useState(false);
-    const [collapseProgramasPosgrado,setCollapseProgramasPosgrado] = useState(false);
+    const [listProgramasPregrado,setListProgramasPregrado] = React.useState([]);
+    const [listProgramasPosgrado,setListProgramasPosgrado] = React.useState([]);
+    // Información por programa 
+    const [tablaProgramasPregrado,setTablaProgramasPregrado] = React.useState([]);
+    const [tablaProgramasPosgrado,setTablaProgramasPosgrado] = React.useState([]);
+    const [programaSelectedPregrado, setProgramaSelectedPregrado] = React.useState('Ingeniería de Sistemas y Computación');
+    const [programaSelectedPosgrado, setProgramaSelectedPosgrado] = React.useState('Doctorado en Ingeniería');
+    const [dataYearsPregrado, setDataYearsPregrado] = React.useState()
+    const [dataYearsPosgrado, setDataYearsPosgrado] = React.useState()
     const fieldsTablaProgramas = [
         'COD_PERIODO',
         'NOMBRE',
@@ -58,20 +56,21 @@ import {
         'PORCENTAJE_GRADUADO',
         'TOTAL'
     ]
-    const [tablaProgramasPregrado,setTablaProgramasPregrado] = React.useState([]);
-    const [tablaProgramasPosgrado,setTablaProgramasPosgrado] = React.useState([]);
-    const [listProgramasPregrado,setListProgramasPregrado] = React.useState([]);
-    const [listProgramasPosgrado,setListProgramasPosgrado] = React.useState([]);
-    const [programaSelectedPregrado, setProgramaSelectedPregrado] = React.useState('Ingeniería de Sistemas y Computación');
-    const [programaSelectedPosgrado, setProgramaSelectedPosgrado] = React.useState('Doctorado en Ingeniería');
+    // Collapses constantes 
+    const [collapseGeneral, setCollapseGeneral] = useState(false);
+    const [collapseProgramas, setCollapseProgramas] = useState(false);
+    const [collapseDIAAnual,setCollapseDIAAnual] = useState(false);
+    const [collapseGrafAnualPregrado,setCollapseGrafAnualPregrado] = useState(false);
+    const [collapseGrafAnualPosgrado,setCollapseGrafAnualPosgrado] = useState(false);
+    const [collapseProgramasPregrado,setCollapseProgramasPregrado] = useState(false);
+    const [collapseProgramasPosgrado,setCollapseProgramasPosgrado] = useState(false);
     const [collapsePregradoGrafico,setCollapsePregradoGrafico] = useState(false);
     const [collapsePosgradoGrafico,setCollapsePosgradoGrafico] = useState(false);
-    const [dataYearsPregrado, setDataYearsPregrado] = React.useState()
+    // Loading Constantes 
+    const [loadingPorcentajePregrado, setLoadingPorcentajePregrado] = useState(true)
+    const [loadingPorcentajePosgrado, setLoadingPorcentajePosgrado] = useState(true)
     const [loadingYearsPregrado, setLoadingYearsPregrado] = React.useState(true)
-    const [dataYearsPosgrado, setDataYearsPosgrado] = React.useState()
     const [loadingYearsPosgrado, setLoadingYearsPosgrado] = React.useState(true)
-
-
 
     // Funciones
     const getYears = async() => { 
@@ -200,10 +199,10 @@ import {
 
     const widgetPregrado= async () => {
         let total = Number(dataYearsWidgetPregrado['suma'])
-        let permanece = ((dataYearsWidgetPregrado['Permanece programa'])/total).toFixed(3);
-        let cambio = ((dataYearsWidgetPregrado['Cambio de programa'])/total).toFixed(3);
-        let graduado = ((dataYearsWidgetPregrado['Graduado'])/total).toFixed(3);
-        let no_matriculado = ((dataYearsWidgetPregrado['No matriculado'])/total).toFixed(3);
+        let permanece = ((dataYearsWidgetPregrado['Permanece programa'])/total).toFixed(4);
+        let cambio = ((dataYearsWidgetPregrado['Cambio de programa'])/total).toFixed(4);
+        let graduado = ((dataYearsWidgetPregrado['Graduado'])/total).toFixed(4);
+        let no_matriculado = ((dataYearsWidgetPregrado['No matriculado'])/total).toFixed(4);
         let porcentajes_list = {}
         porcentajes_list = {
             permanece_porcentaje:(permanece*100).toFixed(1),
@@ -312,7 +311,7 @@ import {
     
     const getDataPorProgramaPregrado = async() =>{
         var axios = require('axios');
-        let aux =  yearsData
+        let aux =  []
         var estados= ['Graduado','No matriculado','Cambio de programa','Permanece programa']
         for (var estado in estados){
             var config = {
@@ -346,13 +345,12 @@ import {
             aux[estados[estado]] = aux2
             aux2 = []
         }
-        // console.log(aux)
         await setDataYearsPregrado(aux)
         await setLoadingYearsPregrado(false)
     }
     const getDataPorProgramaPosgrado = async() =>{
         var axios = require('axios');
-        let aux =  yearsData
+        let aux =  []
         var estados= ['Graduado','No matriculado','Cambio de programa','Permanece programa']
         for (var estado = 0;estado<estados.length;estado++){
             var config = {
@@ -386,7 +384,6 @@ import {
             aux[estados[estado]] = aux2
             aux2 = []
         }
-        console.log(aux)
         await setDataYearsPosgrado(aux)
         await setLoadingYearsPosgrado(false)
     }
@@ -403,7 +400,8 @@ import {
     React.useEffect(async () => {
         await getDataPorProgramaPosgrado()
     },[programaSelectedPosgrado])
-
+    
+    //HandleChanges  
     const handleChangeYear = async (event) => {
         setYearSelected(event.target.value);
         await setLoadingPorcentajePregrado(true)
@@ -412,13 +410,12 @@ import {
     const handleChangeProgramaPregrado = async (event) => {
         setProgramaSelectedPregrado(event.target.value);
         await setLoadingYearsPregrado(true);
-
     };   
     const handleChangeProgramaPosgrado = async (event) => {
         setProgramaSelectedPosgrado(event.target.value);
         await setLoadingYearsPosgrado(true)
     };    
-
+    // Toggles
     const toggleGeneral = (e)=>{
         setCollapseGeneral(!collapseGeneral);
         setCollapseProgramas(false);
@@ -431,14 +428,12 @@ import {
         setCollapseDIAAnual(false);
         e.preventDefault();
     }
-    
     const toggleAnual = (e)=>{
         setCollapseDIAAnual(!collapseDIAAnual);
         setCollapseGeneral(false);
         setCollapseProgramas(false);
         e.preventDefault();
     }
-
     const toggleGraficoAnualPregrado= (e)=>{
         setCollapseGrafAnualPregrado(!collapseGrafAnualPregrado);
         setCollapseGrafAnualPosgrado(false);
@@ -449,7 +444,6 @@ import {
         setCollapseGrafAnualPregrado(false);
         e.preventDefault();
     }
-
     const toggleProgramasPregrado= (e)=>{
         setCollapseProgramasPregrado(!collapseProgramasPregrado);
         setCollapseProgramasPosgrado(false);
@@ -460,7 +454,6 @@ import {
         setCollapseProgramasPregrado(false);
         e.preventDefault();
     }
-
     const togglePregradoGrafico = (e)=>{
         setCollapsePregradoGrafico(!collapsePregradoGrafico);
         setCollapsePosgradoGrafico(false);
@@ -482,8 +475,8 @@ import {
         await getDataTablaProgramasPregrado();      
         await getDataTablaProgramasPosgrado(); 
         await getListProgramas();
+        await getDataPorProgramaPregrado();  
         await getDataPorProgramaPosgrado();  
-
     });
 
     return(
@@ -551,9 +544,9 @@ import {
                 </div>
             </div>
         </CCard>
+        
         <CCard>
             <CCollapse show={collapseGeneral}>
-                
                     <CCardBody>
                         <h3 style={{textAlign: 'center', fontWeight:'bold'}}>
                             Tabla histórica de estudiantes por estado:
@@ -616,6 +609,7 @@ import {
                     </CCardBody>                    
                 </CCardBody>
             </CCollapse>
+
             <CCollapse show={collapseDIAAnual}>               
                     <CCardBody>                       
                         <div className="container">
@@ -815,6 +809,8 @@ import {
                             </CCardBody>
                         </CCollapse>                
             </CCollapse>
+
+            
             <CCollapse show={collapseProgramas}>
                     <CCardBody>
                         <h1 style={{marginTop:'1%',textAlign: 'center'}}>

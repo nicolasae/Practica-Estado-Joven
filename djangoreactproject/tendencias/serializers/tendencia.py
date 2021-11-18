@@ -105,10 +105,15 @@ class AnalisisCohorteSerializer(serializers.ModelSerializer):
         return COHORTE_LIST.get(obj.COD_UTP, {}).get('NIVEL')        
         
 class DesercionInterAnualEstadosSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = DesercionInterAnualEstados
         exclude = ['id']
+
+class DesercionInterSemestralEstadosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DesercionInterAnualEstados
+        exclude = ['id']
+
 
 # class AnalisisCohorteSerializer(serializers.ModelSerializer):
 #     NOMBRE = serializers.SerializerMethodField('get_type_name')
