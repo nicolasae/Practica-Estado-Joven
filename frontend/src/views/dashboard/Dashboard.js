@@ -42,19 +42,33 @@ const Dashboard = () => {
   // Deserción
   const [programasList,setProgramasList] = React.useState()
   const [programasDIASelected,setProgramasDIASelected] = useState([])
-  const [estadoDIASelected,setEstadoDIASelected] = React.useState('Permanece programa')
+  const [estadoDIASelected,setEstadoDIASelected] = React.useState('Graduado')
   const [estadosDIA,setEstadosDIA] = React.useState(['Permanece programa','Graduado','Cambio de programa','No matriculado'])
+  const [opcionesMultiSelectDIA,setOpcionesMultiSelectDIA] =  React.useState([])
+  const [dataSetDIA,setDataSetDIA] = React.useState([])
+  const [programasDISSelected,setProgramasDISSelected] = useState([])
+  const [estadoDISSelected,setEstadoDISSelected] = React.useState('Graduado')
+  const [estadosDIS,setEstadosDIS] = React.useState(['Permanece programa','Graduado','Cambio de programa','No matriculado'])
+  const [opcionesMultiSelectDIS,setOpcionesMultiSelectDIS] =  React.useState([])
+  const [dataSetDIS,setDataSetDIS] = React.useState([])
 
   //Loading
   const [loadingSemestre, setLoadingSemestre] = React.useState(true)
   const [loadingYearsGeneral, setLoadingYearsGeneral] = React.useState(true)
   const [loadingDIA, setLoadingDIA] = React.useState(true)
+  const [loadingGraficoDIA, setLoadingGraficoDIA] = React.useState(true)
+  const [loadingDIS, setLoadingDIS] = React.useState(true)
+  const [loadingGraficoDIS, setLoadingGraficoDIS] = React.useState(true)
+
 
   // Collapses constantes
   const [collapseSemestre, setCollapseSemestre] = useState(false);
   const [collapseGeneral, setCollapseGeneral] = useState(false);
   const [collapseGeneralDesercion,setCollapseGeneralDesercion] = useState(false);
   const [collapseDIA,setCollapseDIA] = useState(false);
+  const [collapseDIS,setCollapseDIS] = useState(false);
+
+  
 
 
   // Funciones
@@ -195,12 +209,146 @@ const Dashboard = () => {
     }
     await setProgramasList(aux2);
     await setLoadingDIA(false);
+    await setLoadingDIS(false);
 }
 
+const getDataProgramasDIA = async () => {
+  for (const i in programasDIASelected){
+    opcionesMultiSelectDIA.push(programasDIASelected[i].value)
+  }
+  console.log(opcionesMultiSelectDIA)
+  setOpcionesMultiSelectDIA(opcionesMultiSelectDIA)
+  setOpcionesMultiSelectDIA([])
+  var axios = require('axios');
+  var aux = yearsData;
+  for (var opcion = 0;opcion< opcionesMultiSelectDIA.length;opcion++){
+    var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/desercionDIA_count_year?ESTADO='+estadoDIASelected+'&NOMBRE='+ opcionesMultiSelectDIA[opcion],
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+    };
+      var query = await axios(config)    
+      .then( response => response.data.data)
+      .catch(function (error) {
+          if(error.response.status === 404) {
+              return {count:0}
+          }
+          else {
+              return error.response
+          }
+      });
+      let aux2 = []
+      for (const j in yearsData ){
+          for (const k in query){
+              if (yearsData[j] === query[k].year){
+                  aux2[j] = query[k].count
+              }
+          }
+      }
+      for (const k in yearsData){
+          if(!aux2[k]){
+              aux2[k] = 0;
+          }
+      }
+      aux[opcionesMultiSelectDIA[opcion]] = aux2
+      aux2 = []
+  }
+  await setLoadingGraficoDIA(false)        
+  let dataSet  = []
+  console.log(opcionesMultiSelectDIA)
+  for (const i in opcionesMultiSelectDIA){
+      let color = Math.random()*255
+      let color1 = Math.random()*255
+      let color2 = Math.random()*255
+      dataSet.push({
+          label: opcionesMultiSelectDIA[i],
+          fill:false,
+          borderColor: "rgba("+color+","+color1+","+color2+")",
+          backgroundColor: "rgba("+color+","+color1+","+color2+")",
+          data: aux[opcionesMultiSelectDIA[i]]
+      })
+  }
+  console.log(dataSet)
+  setDataSetDIA(dataSet)
+}
+
+
+const getDataProgramasDIS = async () => {
+  for (const i in programasDISSelected){
+    opcionesMultiSelectDIS.push(programasDISSelected[i].value)
+  }
+  console.log(opcionesMultiSelectDIS)
+  setOpcionesMultiSelectDIS(opcionesMultiSelectDIS)
+  setOpcionesMultiSelectDIS([])
+  var axios = require('axios');
+  var aux = yearsData;
+  for (var opcion = 0;opcion< opcionesMultiSelectDIS.length;opcion++){
+    var config = {
+        method: 'get',
+        url: 'http://localhost:8000/api/desercionDIS_count_year?ESTADO='+estadoDISSelected+'&NOMBRE='+ opcionesMultiSelectDIS[opcion],
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+    };
+      var query = await axios(config)    
+      .then( response => response.data.data)
+      .catch(function (error) {
+          if(error.response.status === 404) {
+              return {count:0}
+          }
+          else {
+              return error.response
+          }
+      });
+      let aux2 = []
+      for (const j in yearsData ){
+          for (const k in query){
+              if (yearsData[j] === query[k].year){
+                  aux2[j] = query[k].count
+              }
+          }
+      }
+      for (const k in yearsData){
+          if(!aux2[k]){
+              aux2[k] = 0;
+          }
+      }
+      aux[opcionesMultiSelectDIS[opcion]] = aux2
+      aux2 = []
+  }
+  await setLoadingGraficoDIS(false)        
+  let dataSet  = []
+  console.log(opcionesMultiSelectDIS)
+  for (const i in opcionesMultiSelectDIS){
+      let color = Math.random()*255
+      let color1 = Math.random()*255
+      let color2 = Math.random()*255
+      dataSet.push({
+          label: opcionesMultiSelectDIS[i],
+          fill:false,
+          borderColor: "rgba("+color+","+color1+","+color2+")",
+          backgroundColor: "rgba("+color+","+color1+","+color2+")",
+          data: aux[opcionesMultiSelectDIS[i]]
+      })
+  }
+  console.log(dataSet)
+  setDataSetDIS(dataSet)
+}
 
   React.useEffect(async () => {
     await getDataTotal();
   },[yearSelected]);
+
+  React.useEffect(async () => {
+    await getDataProgramasDIA();
+  },[estadoDIASelected]);
+
+  React.useEffect(async () => {
+    await getDataProgramasDIS();
+  },[estadoDISSelected]);
+
 
   const toggleSemestre = (e) => {
     setCollapseSemestre(!collapseSemestre);
@@ -221,6 +369,16 @@ const Dashboard = () => {
     setCollapseSemestre(false)
     e.preventDefault();
   }
+  const toggleDesercionDIA = (e) => {
+    setCollapseDIA(!collapseDIA);
+    getDataProgramasDIA();
+    e.preventDefault();
+  }
+  const toggleDesercionDIS = (e) => {
+    setCollapseDIS(!collapseDIS);
+    getDataProgramasDIS();
+    e.preventDefault();
+  }
 
   // HandleChange
   const handleChangeYear = async (event) => {
@@ -230,7 +388,13 @@ const Dashboard = () => {
 
   const handleChangeEstadoDIA = async (event) =>  {
     setEstadoDIASelected(event.target.value);
-}
+    setCollapseDIA(false);
+  }
+
+  const handleChangeEstadoDIS = async (event) =>  {
+    setEstadoDISSelected(event.target.value);
+    setCollapseDIS(false);
+  }
 
   
 
@@ -482,48 +646,115 @@ const Dashboard = () => {
         </CCollapse>
 
         <CCollapse show={collapseGeneralDesercion}>          
-            <CCard>
-                <h3 style={{textAlign: 'center', fontWeight:'bold'}}>
-                  Deserción InterAnual
-                </h3>
-                {loadingDIA?
-                    <div class="spinner-border text-info" role="status" style={{align: 'center'}}>
-                        <span class="sr-only">Loading...</span>
-                    </div> :
-                    <CFormGroup row>
-                        <CCol md="1"></CCol>
-                        <CCol md="3">
-                          <CSelect value={estadoDIASelected} onChange={handleChangeEstadoDIA}>
-                                {estadosDIA.map(item => {
-                                    return (<option key={item} value={item}>{item}</option>);
-                                })}
-                          </CSelect>
-                        </CCol>
-                        <CCol md="4">
-                            <MultiSelect
-                                options={programasList}
-                                value={programasDIASelected}
-                                onChange={setProgramasDIASelected}
-                            />
-                        </CCol>
-                        <CCol md="3">
-                            <CButton
-                                color="outline-info"
-                                // onClick={toggleTipoInscripcion}
-                                className={'mb-1'}
-                            >Graficar
-                            </CButton>
-                        </CCol>                                
-                    </CFormGroup>
-                }
-              </CCard>
-            </CCollapse>
+          <CCard>
+            <h3 style={{textAlign: 'center', fontWeight:'bold',color:'#f9b115'}}>
+              Deserción InterAnual
+            </h3>
+            {loadingDIA?
+              <div class="spinner-border text-info" role="status" style={{align: 'center'}}>
+                  <span class="sr-only">Loading...</span>
+              </div> :
+              <CFormGroup row>
+                  <CCol md="1"></CCol>
+                  <CCol md="3">
+                    <CSelect value={estadoDIASelected} onChange={handleChangeEstadoDIA}>
+                          {estadosDIA.map(item => {
+                              return (<option key={item} value={item}>{item}</option>);
+                          })}
+                    </CSelect>
+                  </CCol>
+                  <CCol md="4">
+                      <MultiSelect
+                          options={programasList}
+                          value={programasDIASelected}
+                          onChange={setProgramasDIASelected}
+                      />
+                  </CCol>
+                  <CCol md="3">
+                      <CButton
+                          color="outline-warning"
+                          onClick={toggleDesercionDIA}
+                          className={'mb-1'}
+                      >Graficar
+                      </CButton>
+                  </CCol>                                
+              </CFormGroup>
+            }
+          </CCard>
+          <CCollapse show={collapseDIA}>
+            {loadingGraficoDIA? 
+              <div class="spinner-border text-info" role="status">
+                <span class="sr-only">Loading...</span>
+              </div> : 
+              <CCardBody>
+                <CChartLine
+                  datasets={dataSetDIA}
+                  options={{
+                  tooltips: {
+                      enabled: true
+                  }                                        
+                  }}
+                  labels= {yearsData} 
+                />
+              </CCardBody>
+            }
+          </CCollapse>
+
+
+            <h3 style={{textAlign: 'center', fontWeight:'bold',color:'red'}}>
+              Deserción Intersemestral
+            </h3>
+            {loadingDIS?
+              <div class="spinner-border text-info" role="status" style={{align: 'center'}}>
+                  <span class="sr-only">Loading...</span>
+              </div> :
+              <CFormGroup row>
+                  <CCol md="1"></CCol>
+                  <CCol md="3">
+                    <CSelect value={estadoDISSelected} onChange={handleChangeEstadoDIS}>
+                          {estadosDIS.map(item => {
+                              return (<option key={item} value={item}>{item}</option>);
+                          })}
+                    </CSelect>
+                  </CCol>
+                  <CCol md="4">
+                      <MultiSelect
+                          options={programasList}
+                          value={programasDISSelected}
+                          onChange={setProgramasDISSelected}
+                      />
+                  </CCol>
+                  <CCol md="3">
+                      <CButton
+                          color="outline-danger"
+                          onClick={toggleDesercionDIS}
+                          className={'mb-1'}
+                      >Graficar
+                      </CButton>
+                  </CCol>                                
+              </CFormGroup>
+            }
+            <CCollapse show={collapseDIS}>
+              {loadingGraficoDIS? 
+                <div class="spinner-border text-info" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div> : 
+                <CCardBody>
+                  <CChartLine
+                    datasets={dataSetDIS}
+                    options={{
+                    tooltips: {
+                        enabled: true
+                    }                                        
+                    }}
+                    labels= {yearsData} 
+                  />
+                </CCardBody>
+              }
+          </CCollapse>
+        </CCollapse>
       </CCard>                
       
-
-
-
-
     </>
   );
 };

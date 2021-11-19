@@ -452,7 +452,6 @@ const Inscritos = () =>{
         e.preventDefault();
     }
 
-
     const handleChangeYear = async (event) =>  {
         setYearSelected(event.target.value);
     }

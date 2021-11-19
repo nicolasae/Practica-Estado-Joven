@@ -656,7 +656,6 @@ class AnalisisCohorteCountYearView(APIView):
                         (value["NIVEL"] in extra_query['NIVEL'] if extra_query.get('NIVEL') else True)
                         ]
                 total = 0
-                print(valor)
                 for value in valor:
                     total += value["CANTIDAD"]
                 data.append(
