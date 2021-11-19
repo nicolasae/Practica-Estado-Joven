@@ -361,9 +361,6 @@ const Inscritos = () =>{
         setDataSetTipoInscripcion(dataSet)
     }
 
-
-
-
     React.useEffect(async () => { 
         await getDataInscritosPrimerSemestre()
         await getDataInscritosSegundoSemestre()

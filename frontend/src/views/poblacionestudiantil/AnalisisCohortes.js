@@ -127,7 +127,9 @@ import {
     const [programaSelectedPregrado, setProgramaSelectedPregrado] = React.useState()
     const [collapsePregradoGraficoSemestral, setCollapsePregradoGraficoSemestral] = useState(false)
     const [yearSelectedSemestrePregrado, setYearSelectedSemestrePregrado] = React.useState(new Date().getFullYear())
-    const [dataPieChartPregrado,setDataPieChartPregrado] = React.useState()
+    const [dataPieChartPregrado,setDataPieChartPregrado] = React.useState([])
+    const [dataPieChartPregradoPrimer,setDataPieChartPregradoPrimer] = React.useState([])
+    const [dataPieChartPregradoSegundo,setDataPieChartPregradoSegundo] = React.useState({})
     
     // Posgrado
     const [collapseGeneralPosgrado, setCollapseGeneralPosgrado] = useState(false)
@@ -139,6 +141,17 @@ import {
     const [dataTablePosgrado,setDataTablePosgrado]= useState([])
     const [collapseTablePosgrado,setCollapseTablePosgrado]= useState(false)
     const [programaSelectedPosgrado, setProgramaSelectedPosgrado] = React.useState()
+    const [collapsePosgradoGraficoSemestral, setCollapsePosgradoGraficoSemestral] = useState(false)
+    const [yearSelectedSemestrePosgrado, setYearSelectedSemestrePosgrado] = React.useState(new Date().getFullYear())
+    const [dataPieChartPosgrado,setDataPieChartPosgrado] = React.useState([])
+    const [dataPieChartPosgradoPrimer,setDataPieChartPosgradoPrimer] = React.useState([])
+    const [dataPieChartPosgradoSegundo,setDataPieChartPosgradoSegundo] = React.useState({})
+
+    // Loading 
+    const [loadingSemestrePregrado, setLoadingSemestrePregrado] = useState(true)
+    const [loadingSemestrePosgrado, setLoadingSemestrePosgrado] = useState(true)
+
+
 
     // Funciones 
     const getYears = async() => { 
@@ -153,10 +166,9 @@ import {
         for (var i=0;i<arrayPregrado.length;i++){
             programasDataPregrado.push(arrayPregrado[i].NOMBRE)
         }
-        for (var i=0;i<arrayPosgrado.length;i++){
-            programasDataPosgrado.push(arrayPosgrado[i].NOMBRE)
+        for (var j=0;j<arrayPosgrado.length;j++){
+            programasDataPosgrado.push(arrayPosgrado[j].NOMBRE)
         }
-        console.log(programasDataPregrado)
         await setProgramasDataPregrado(programasDataPregrado)
         await setProgramasDataPosgrado(programasDataPosgrado)
     }
@@ -199,27 +211,155 @@ import {
     const getDataPieChartPregrado = async () => {
         var axios = require('axios');
         var estados = ['MATRICULADO','NO MATRICULADO','GRADUADO'];
+        let aux = [];
+        let aux2 = [];
+        let aux3 = [];
         console.log(yearSelectedSemestrePregrado)
-        // var config = {
-        // method: 'get',
-        // url: 'http://localhost:8000/api/analisiscohorte_count?COD_PERIODO='+ yearSelectedSemestrePregrado + '&NIVEL=Pregrado',
-        // headers: { 
-        //     'Content-Type': 'application/json'
-        // },
-        // };
-        // const inscritosquery = await axios(config)    
-        // .then( response => response.data.data)
-        // .catch(function (error) {
-        //     console.log(error);
-        //     return error.response
-        // });
-        // await setDataPieChartPregrado(inscritosquery)
+        for (const i in estados){
+            var config = {
+            method: 'get',
+            url: 'http://localhost:8000/api/analisiscohorte_count?COD_PERIODO='+ yearSelectedSemestrePregrado + '&NIVEL=Pregrado&ESTADO='+ estados[i] ,
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            };
+            const query = await axios(config)    
+            .then( response => response.data.data)
+            .catch(function (error) {
+                if(error.response.status === 404) {
+                    return {CANTIDAD__sum:0}
+                }
+                else {
+                    return error.response
+                }
+            });
+            var configPrimer = {
+                method: 'get',
+                url: 'http://localhost:8000/api/analisiscohorte_count?COD_PERIODO='+ yearSelectedSemestrePregrado + '-1&NIVEL=Pregrado&ESTADO='+ estados[i] ,
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                };
+                const queryPrimer = await axios(configPrimer)    
+                .then( response => response.data.data)
+                .catch(function (error) {
+                    if(error.response.status === 404) {
+                        return {CANTIDAD__sum:0}
+                    }
+                    else {
+                        return error.response
+                    }
+            });
+            var configSegundo = {
+                method: 'get',
+                url: 'http://localhost:8000/api/analisiscohorte_count?COD_PERIODO='+ yearSelectedSemestrePregrado+'-2&NIVEL=Pregrado&ESTADO='+ estados[i] ,
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                };
+                const querySegundo = await axios(configSegundo)    
+                .then( response => response.data.data)
+                .catch(function (error) {
+                    if(error.response.status === 404) {
+                        return {CANTIDAD__sum:0}
+                    }
+                    else {
+                        return error.response
+                    }
+            });
+            aux[estados[i]] = query.CANTIDAD__sum
+            aux2[estados[i]] = queryPrimer.CANTIDAD__sum
+            aux3[estados[i]] = querySegundo.CANTIDAD__sum
+
+        }
+        await setDataPieChartPregrado(aux)
+        await setDataPieChartPregradoPrimer(aux2)
+        await setDataPieChartPregradoSegundo(aux3)
+        await setLoadingSemestrePregrado(false)
+    }
+
+    const getDataPieChartPosgrado = async () => {
+        var axios = require('axios');
+        var estados = ['MATRICULADO','NO MATRICULADO','GRADUADO'];
+        let aux = [];
+        let aux2 = [];
+        let aux3 = [];
+        console.log(yearSelectedSemestrePosgrado)
+        for (const i in estados){
+            var config = {
+            method: 'get',
+            url: 'http://localhost:8000/api/analisiscohorte_count?COD_PERIODO='+ yearSelectedSemestrePosgrado + '&NIVEL=Posgrado&ESTADO='+ estados[i] ,
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            };
+            const query = await axios(config)    
+            .then( response => response.data.data)
+            .catch(function (error) {
+                if(error.response.status === 404) {
+                    return {CANTIDAD__sum:0}
+                }
+                else {
+                    return error.response
+                }
+            });
+            var configPrimer = {
+                method: 'get',
+                url: 'http://localhost:8000/api/analisiscohorte_count?COD_PERIODO='+ yearSelectedSemestrePosgrado + '-1&NIVEL=Posgrado&ESTADO='+ estados[i] ,
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                };
+                const queryPrimer = await axios(configPrimer)    
+                .then( response => response.data.data)
+                .catch(function (error) {
+                    if(error.response.status === 404) {
+                        return {CANTIDAD__sum:0}
+                    }
+                    else {
+                        return error.response
+                    }
+            });
+            var configSegundo = {
+                method: 'get',
+                url: 'http://localhost:8000/api/analisiscohorte_count?COD_PERIODO='+ yearSelectedSemestrePosgrado+'-2&NIVEL=Posgrado&ESTADO='+ estados[i] ,
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                };
+                const querySegundo = await axios(configSegundo)    
+                .then( response => response.data.data)
+                .catch(function (error) {
+                    if(error.response.status === 404) {
+                        return {CANTIDAD__sum:0}
+                    }
+                    else {
+                        return error.response
+                    }
+            });
+            aux[estados[i]] = query.CANTIDAD__sum
+            aux2[estados[i]] = queryPrimer.CANTIDAD__sum
+            aux3[estados[i]] = querySegundo.CANTIDAD__sum
+
+        }
+        await setDataPieChartPosgrado(aux)
+        await setDataPieChartPosgradoPrimer(aux2)
+        await setDataPieChartPosgradoSegundo(aux3)
+        await setLoadingSemestrePosgrado(false)
     }
 
     React.useEffect(async () => { 
         await getDataTablePregrado()
     }, [yearSelectedPregrado])
 
+    React.useEffect(async () => { 
+        await getDataPieChartPregrado()
+    }, [yearSelectedSemestrePregrado])
+    
+    React.useEffect(async () => { 
+        await getDataPieChartPosgrado()
+    }, [yearSelectedSemestrePosgrado])
+    
     React.useEffect(async () => { 
         await getDataTablePosgrado()
     }, [yearSelectedPosgrado])
@@ -270,6 +410,11 @@ import {
         setCollapsePregradoGraficoSemestral(!collapsePregradoGraficoSemestral);
         e.preventDefault();
     }
+
+    const toggleGraficoSemestralPosgrado = (e)=>{
+        setCollapsePosgradoGraficoSemestral(!collapsePosgradoGraficoSemestral);
+        e.preventDefault();
+    }
     const togglePosgradoAnual = (e)=>{
         setCollapsePosgradoAnual(!collapsePosgradoAnual);
         setCollapsePosgradoSegundoSemestre(false);
@@ -304,6 +449,12 @@ import {
     }
     const handleChangeYearSemestrePregrado = async (event) =>  {
         setYearSelectedSemestrePregrado(event.target.value);
+        await setLoadingSemestrePregrado(true)
+    }
+
+    const handleChangeYearSemestrePosgrado = async (event) =>  {
+        setYearSelectedSemestrePosgrado(event.target.value);
+        await setLoadingSemestrePosgrado(true)
     }
 
  // despues de definir las constantes 
@@ -313,6 +464,8 @@ import {
         await getDataTablePregrado();
         await getDataTablePosgrado(); 
         await getDataPieChartPregrado();
+        await getDataPieChartPosgrado();
+
 
     });
 
@@ -325,12 +478,12 @@ import {
                     Elegir nivel de formación:
                 </p>
                 <CRow className="align-items-center">
-                    <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+                    <CCol >
                         <CButton block variant="outline" color="primary" onClick={toggleGeneralPregrado}
                             > Pregrado
                         </CButton>
                     </CCol>
-                    <CCol col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+                    <CCol >
                         <CButton block variant="outline" color="primary" onClick={toggleGeneralPosgrado }
                             >Posgrado
                         </CButton>
@@ -349,7 +502,7 @@ import {
                             <div className="row">
                                 <div className="col-3"></div>
                                 <div className="col-3">
-                                    <CSelect style={{marginLeft:'5%'}}value={yearSelectedPregrado} onChange={handleChangeYearPregrado}>
+                                    <CSelect style={{marginLeft:'5%'}}value={yearSelectedSemestrePregrado} onChange={handleChangeYearSemestrePregrado}>
                                         {yearsData.map(item => {
                                             return (<option key={item} value={item}>{item}</option>);
                                         })}
@@ -361,19 +514,19 @@ import {
                                             color="outline-info"
                                             onClick={togglePregradoAnual} 
                                             className={'mb-1'}
-                                        >{yearSelectedPregrado }
+                                        >{yearSelectedSemestrePregrado }
                                         </CButton>
                                         <CButton
                                             color="outline-info"
                                             onClick={togglePregradoPrimerSemestre} 
                                             className={'mb-1'}
-                                        >{yearSelectedPregrado + '-1'}
+                                        >{yearSelectedSemestrePregrado + '-1'}
                                         </CButton>
                                         <CButton
                                             color="outline-info"
                                             onClick={togglePregradoSegundoSemestre} 
                                             className={'mb-1'}
-                                        >{yearSelectedPregrado + '-2'}
+                                        >{yearSelectedSemestrePregrado + '-2'}
                                         </CButton>
                                         <CButton
                                             color="outline-info"
@@ -387,81 +540,101 @@ import {
                         </div>       
                         <div className="container b-1">
                             <CCollapse show={collapsePregradoAnual}>
-                                <div className="row ">
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                            color="gradient-primary"
-                                            header={99}
-                                            text="Matriculados"
-                                        ></CWidgetDropdown>
+                                {loadingSemestrePregrado? 
+                                    <div class="spinner-border text-info" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div> :
+                                    <div>
+                                        <h2 style={{textAlign: 'center', fontWeight:'bold'}}>
+                                            {yearSelectedSemestrePregrado}
+                                        </h2>
+                                        <div className="row ">
+                                            <div className="col">
+                                                <CWidgetDropdown
+                                                    color="gradient-primary"
+                                                    header={dataPieChartPregrado['MATRICULADO']}
+                                                    text="Matriculados"
+                                                ></CWidgetDropdown>
+                                            </div>
+                                            <div className="col">
+                                                    <CWidgetDropdown
+                                                    color="gradient-success"
+                                                    header={dataPieChartPregrado['NO MATRICULADO']}
+                                                    text="No matriculados"
+                                                    ></CWidgetDropdown>
+                                            </div>
+                                            <div className="col">
+                                                <CWidgetDropdown
+                                                color="gradient-warning"
+                                                header={dataPieChartPregrado['GRADUADO']}
+                                                text="Graduados"
+                                                ></CWidgetDropdown>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="col">
-                                            <CWidgetDropdown
-                                            color="gradient-success"
-                                            header={110}
-                                            text="No matriculados"
-                                            ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                        color="gradient-warning"
-                                        header={20}
-                                        text="Graduados"
-                                        ></CWidgetDropdown>
-                                    </div>
-                                </div>
+                                }
                             </CCollapse>
                         </div>
                         <div className="container b-1">
                             <CCollapse show={collapsePregradoPrimerSemestre}>
-                                <div className="row">
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                            color="gradient-primary"
-                                            header={99}
-                                            text="Matriculados"
-                                        ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
+                                <div>
+                                    <h2 style={{textAlign: 'center', fontWeight:'bold'}}>
+                                        {yearSelectedSemestrePregrado}-1
+                                    </h2>
+                                    <div className="row">
+                                        <div className="col">
                                             <CWidgetDropdown
-                                            color="gradient-success"
-                                            header={110}
-                                            text="No matriculados"
+                                                color="gradient-primary"
+                                                header={dataPieChartPregradoPrimer['MATRICULADO']}
+                                                text="Matriculados"
                                             ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                        color="gradient-warning"
-                                        header={20}
-                                        text="Graduados"
-                                        ></CWidgetDropdown>
+                                        </div>
+                                        <div className="col">
+                                                <CWidgetDropdown
+                                                color="gradient-success"
+                                                header={dataPieChartPregradoPrimer['NO MATRICULADO']}
+                                                text="No matriculados"
+                                                ></CWidgetDropdown>
+                                        </div>
+                                        <div className="col">
+                                            <CWidgetDropdown
+                                            color="gradient-warning"
+                                            header={dataPieChartPregradoPrimer['GRADUADO']}
+                                            text="Graduados"
+                                            ></CWidgetDropdown>
+                                        </div>
                                     </div>
                                 </div>
                             </CCollapse>
                         </div>
                         <div className="container b-1">
                             <CCollapse show={collapsePregradoSegundoSemestre}>
-                                <div className="row">
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                            color="gradient-primary"
-                                            header={99}
-                                            text="Matriculados"
-                                        ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
+                                <div>
+                                    <h2 style={{textAlign: 'center', fontWeight:'bold'}}>
+                                        {yearSelectedSemestrePregrado}-2
+                                    </h2>
+                                    <div className="row">
+                                        <div className="col">
                                             <CWidgetDropdown
-                                            color="gradient-success"
-                                            header={110}
-                                            text="No matriculados"
+                                                color="gradient-primary"
+                                                header={dataPieChartPregradoSegundo['MATRICULADO']}
+                                                text="Matriculados"
                                             ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                        color="gradient-warning"
-                                        header={20}
-                                        text="Graduados"
-                                        ></CWidgetDropdown>
+                                        </div>
+                                        <div className="col">
+                                                <CWidgetDropdown
+                                                color="gradient-success"
+                                                header={dataPieChartPregradoSegundo['NO MATRICULADO']}
+                                                text="No matriculados"
+                                                ></CWidgetDropdown>
+                                        </div>
+                                        <div className="col">
+                                            <CWidgetDropdown
+                                            color="gradient-warning"
+                                            header={dataPieChartPregradoSegundo['GRADUADO']}
+                                            text="Graduados"
+                                            ></CWidgetDropdown>
+                                        </div>
                                     </div>
                                 </div>
                             </CCollapse>
@@ -622,44 +795,48 @@ import {
                     </CCard>
                 </CCollapse>
             </CCol>
+
+
+
+
             <CCol xs="12" lg="12">
                 <CCollapse show={collapseGeneralPosgrado}>
                     <CCard>
-                        <h1 style={{textAlign: 'center', fontWeight:'bold'}}>
+                        <h1 className="text-center" style={{fontWeight:'bold'}}>
                             Información General Posgrado:
                         </h1>
                         <div className="container mb-3">
                             <div className="row">
                                 <div className="col-3"></div>
                                 <div className="col-3">
-                                    <CSelect style={{marginLeft:'5%'}}value={yearSelectedPosgrado} onChange={handleChangeYearPosgrado}>
+                                    <CSelect style={{marginLeft:'5%'}}value={yearSelectedSemestrePosgrado} onChange={handleChangeYearSemestrePosgrado}>
                                         {yearsData.map(item => {
                                             return (<option key={item} value={item}>{item}</option>);
                                         })}
                                     </CSelect>
                                 </div>
-                                <div className="col">
+                                <div className="col-6">
                                     <CButtonGroup className="mr-2 align-items-center">
                                         <CButton
-                                            color="outline-primary"
+                                            color="outline-info"
                                             onClick={togglePosgradoAnual} 
                                             className={'mb-1'}
-                                        >{yearSelectedPosgrado }
+                                        >{yearSelectedSemestrePosgrado }
                                         </CButton>
                                         <CButton
-                                            color="outline-primary"
+                                            color="outline-info"
                                             onClick={togglePosgradoPrimerSemestre} 
                                             className={'mb-1'}
-                                        >{yearSelectedPosgrado + '-1'}
+                                        >{yearSelectedSemestrePosgrado + '-1'}
                                         </CButton>
                                         <CButton
-                                            color="outline-primary"
+                                            color="outline-info"
                                             onClick={togglePosgradoSegundoSemestre} 
                                             className={'mb-1'}
-                                        >{yearSelectedPosgrado + '-2'}
+                                        >{yearSelectedSemestrePosgrado + '-2'}
                                         </CButton>
                                         <CButton
-                                            color="outline-primary"
+                                            color="outline-info"
                                             onClick={toggleTablePosgrado} 
                                             className={'mb-1'}
                                         >Tabla
@@ -670,81 +847,101 @@ import {
                         </div>       
                         <div className="container b-1">
                             <CCollapse show={collapsePosgradoAnual}>
-                                <div className="row ">
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                            color="gradient-primary"
-                                            header={99}
-                                            text="Matriculados"
-                                        ></CWidgetDropdown>
+                                {loadingSemestrePosgrado? 
+                                    <div class="spinner-border text-info" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div> :
+                                    <div>
+                                        <h2 style={{textAlign: 'center', fontWeight:'bold'}}>
+                                            {yearSelectedSemestrePosgrado}
+                                        </h2>
+                                        <div className="row ">
+                                            <div className="col">
+                                                <CWidgetDropdown
+                                                    color="gradient-primary"
+                                                    header={dataPieChartPosgrado['MATRICULADO']}
+                                                    text="Matriculados"
+                                                ></CWidgetDropdown>
+                                            </div>
+                                            <div className="col">
+                                                    <CWidgetDropdown
+                                                    color="gradient-success"
+                                                    header={dataPieChartPosgrado['NO MATRICULADO']}
+                                                    text="No matriculados"
+                                                    ></CWidgetDropdown>
+                                            </div>
+                                            <div className="col">
+                                                <CWidgetDropdown
+                                                color="gradient-warning"
+                                                header={dataPieChartPosgrado['GRADUADO']}
+                                                text="Graduados"
+                                                ></CWidgetDropdown>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="col">
-                                            <CWidgetDropdown
-                                            color="gradient-success"
-                                            header={110}
-                                            text="No matriculados"
-                                            ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                        color="gradient-warning"
-                                        header={20}
-                                        text="Graduados"
-                                        ></CWidgetDropdown>
-                                    </div>
-                                </div>
+                                }
                             </CCollapse>
                         </div>
                         <div className="container b-1">
                             <CCollapse show={collapsePosgradoPrimerSemestre}>
-                                <div className="row ">
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                            color="gradient-primary"
-                                            header={99}
-                                            text="Matriculados"
-                                        ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
+                                <div>
+                                    <h2 style={{textAlign: 'center', fontWeight:'bold'}}>
+                                        {yearSelectedSemestrePosgrado}-1
+                                    </h2>
+                                    <div className="row">
+                                        <div className="col">
                                             <CWidgetDropdown
-                                            color="gradient-success"
-                                            header={110}
-                                            text="No matriculados"
+                                                color="gradient-primary"
+                                                header={dataPieChartPosgradoPrimer['MATRICULADO']}
+                                                text="Matriculados"
                                             ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                        color="gradient-warning"
-                                        header={20}
-                                        text="Graduados"
-                                        ></CWidgetDropdown>
+                                        </div>
+                                        <div className="col">
+                                                <CWidgetDropdown
+                                                color="gradient-success"
+                                                header={dataPieChartPosgradoPrimer['NO MATRICULADO']}
+                                                text="No matriculados"
+                                                ></CWidgetDropdown>
+                                        </div>
+                                        <div className="col">
+                                            <CWidgetDropdown
+                                            color="gradient-warning"
+                                            header={dataPieChartPosgradoPrimer['GRADUADO']}
+                                            text="Graduados"
+                                            ></CWidgetDropdown>
+                                        </div>
                                     </div>
                                 </div>
                             </CCollapse>
                         </div>
                         <div className="container b-1">
                             <CCollapse show={collapsePosgradoSegundoSemestre}>
-                                <div className="row ">
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                            color="gradient-primary"
-                                            header={99}
-                                            text="Matriculados"
-                                        ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
+                                <div>
+                                    <h2 style={{textAlign: 'center', fontWeight:'bold'}}>
+                                        {yearSelectedSemestrePosgrado}-2
+                                    </h2>
+                                    <div className="row">
+                                        <div className="col">
                                             <CWidgetDropdown
-                                            color="gradient-success"
-                                            header={110}
-                                            text="No matriculados"
+                                                color="gradient-primary"
+                                                header={dataPieChartPosgradoSegundo['MATRICULADO']}
+                                                text="Matriculados"
                                             ></CWidgetDropdown>
-                                    </div>
-                                    <div className="col">
-                                        <CWidgetDropdown
-                                        color="gradient-warning"
-                                        header={20}
-                                        text="Graduados"
-                                        ></CWidgetDropdown>
+                                        </div>
+                                        <div className="col">
+                                                <CWidgetDropdown
+                                                color="gradient-success"
+                                                header={dataPieChartPosgradoSegundo['NO MATRICULADO']}
+                                                text="No matriculados"
+                                                ></CWidgetDropdown>
+                                        </div>
+                                        <div className="col">
+                                            <CWidgetDropdown
+                                            color="gradient-warning"
+                                            header={dataPieChartPosgradoSegundo['GRADUADO']}
+                                            text="Graduados"
+                                            ></CWidgetDropdown>
+                                        </div>
                                     </div>
                                 </div>
                             </CCollapse>
@@ -778,15 +975,15 @@ import {
                                         </CSelect>
                                     </div>
                                     <div className="col">
-                                        <CButtonGroup className="mr-3 align-items-center">
+                                        <CButtonGroup className="mr-2 align-items-center">
                                             <CButton
-                                                color="outline-primary"
-                                                // onClick={togglePosgradoAnual} 
+                                                color="outline-success"
+                                                onClick={toggleGraficoSemestralPosgrado} 
                                                 className={'mb-1'}
                                             >Gráfico Semestral
                                             </CButton>
                                             <CButton
-                                                color="outline-primary"
+                                                color="outline-success"
                                                 // onClick={togglePosgradoAnual} 
                                                 className={'mb-1'}
                                             >Gráfico Anual
@@ -794,6 +991,112 @@ import {
                                         </CButtonGroup>
                                     </div>
                                 </div>
+                            </div>
+                            <div>   
+                                <CCollapse show={collapsePosgradoGraficoSemestral}>
+                                    <div className="container mb-3">
+                                        <div className="row">
+                                            <div className="col-4"></div>
+                                            <div className="col-3">
+                                                <CSelect value={yearSelectedSemestrePosgrado} onChange={handleChangeYearSemestrePosgrado}>
+                                                {yearsData.map(item => {
+                                                    return (<option key={item} value={item}>{item}</option>);
+                                                })}
+                                                </CSelect>
+                                            </div>
+                                                <div className="col">
+                                                    <CButtonGroup className="mr-2 align-items-center">
+                                                        <CButton
+                                                            color="success"
+                                                            // onClick={togglePieChartInscritosSexoPrimer}
+                                                            className={'mb-1'}
+                                                        >Graficar
+                                                        </CButton>
+                                                    </CButtonGroup>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <CFormGroup row>
+                                            <CCol xs={4}>
+                                                <CCard className="mt-3">
+                                                <CCardBody>
+                                                    <h2 style={{textAlign: 'center',fontWeight:'bold'}}>{yearSelectedSemestrePosgrado}</h2>
+                                                    <CChartPie
+                                                    datasets={[
+                                                    {
+                                                        backgroundColor: [
+                                                        '#FFC300',
+                                                        '#DB5858',
+                                                        '#00ADEE',
+                                                        ],
+                                                        data: [100,230,32]
+                                                    }
+                                                    ]}
+                                                    labels={['Matriculado','No Matriculado','Graduado']}
+                                                    options={{
+                                                    tooltips: {
+                                                        enabled: true
+                                                    }
+                                                    }}
+                                                    />
+
+                                                </CCardBody>
+                                                </CCard>
+                                            </CCol>
+                                            <CCol xs={4}>
+                                                <CCard className="mt-3">
+                                                    <CCardBody>
+                                                        <h2 style={{textAlign: 'center',fontWeight:'bold'}}>{yearSelectedSemestrePosgrado + '-1'}</h2>
+                                                        <CChartPie
+                                                        datasets={[
+                                                        {
+                                                            backgroundColor: [
+                                                            '#FFC300',
+                                                            '#DB5858',
+                                                            '#00ADEE',
+                                                            ],
+                                                            data: [100,230,32]
+                                                        }
+                                                        ]}
+                                                        labels={['Matriculado','No Matriculado','Graduado']}
+                                                        options={{
+                                                        tooltips: {
+                                                            enabled: true
+                                                        }
+                                                        }}
+                                                        />
+
+                                                    </CCardBody>
+                                                </CCard>
+                                            </CCol>
+                                            <CCol xs={4}>
+                                                <CCard className="mt-3">
+                                                    <CCardBody>
+                                                        <h2 style={{textAlign: 'center',fontWeight:'bold'}}>{yearSelectedSemestrePosgrado + '-2'}</h2>
+                                                        <CChartPie
+                                                        datasets={[
+                                                        {
+                                                            backgroundColor: [
+                                                            '#FFC300',
+                                                            '#DB5858',
+                                                            '#00ADEE',
+                                                            ],
+                                                            data: [100,230,32]
+                                                        }
+                                                        ]}
+                                                        labels={['Matriculado','No Matriculado','Graduado']}
+                                                        options={{
+                                                        tooltips: {
+                                                            enabled: true
+                                                        }
+                                                        }}
+                                                        />
+
+                                                    </CCardBody>
+                                                </CCard>
+                                            </CCol>
+                                        </CFormGroup>
+                                </CCollapse>
                             </div>
                         </CCol>
                     </CCard>
