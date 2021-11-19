@@ -10,17 +10,10 @@ const Inscritos = React.lazy(() => import('./views/poblacionestudiantil/Inscrito
 const PrimerCurso = React.lazy(() => import('./views/poblacionestudiantil/PrimerCurso.js'))
 const Cancelados = React.lazy(() => import('./views/poblacionestudiantil/Cancelados.js'))
 
-
-
 // Deserción
 const Intersemestral = React.lazy(() => import('./views/desercion/DesercionIntersemestral'));
 const Interanual = React.lazy(() => import('./views/desercion/DesercionInteranual.js'))
 const AnalisisCohorte = React.lazy(() => import('./views/poblacionestudiantil/AnalisisCohortes.js'))
-
-
-
-
-
 
 const routes = [
   // Routes for dashboard 
@@ -35,13 +28,10 @@ const routes = [
   { path: '/poblacionestudiantil/cancelados', name: 'Cancelados', component: Cancelados, exact: true},
   { path: '/poblacionestudiantil/analisiscohorte', name: 'Análisis Cohorte', component: AnalisisCohorte },
 
-
   // DESERCIÓN
   { path: '/desercion/intersemestral', name: 'Intersemestral', component: Intersemestral },
   { path: '/desercion/interanual', name: 'Interanual', component: Interanual },
-
  
-
 ];
 
 export default routes;

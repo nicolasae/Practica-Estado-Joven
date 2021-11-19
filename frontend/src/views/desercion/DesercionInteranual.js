@@ -471,7 +471,7 @@ import {
         await getDataTablaDIA();
         await getDataYearsGeneral();
         await getDataYearWidgetPregrado(); 
-        await setYearSelected(2020)   
+        await setYearSelected(2019)   
         await getDataTablaProgramasPregrado();      
         await getDataTablaProgramasPosgrado(); 
         await getListProgramas();

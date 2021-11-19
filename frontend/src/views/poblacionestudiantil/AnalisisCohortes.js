@@ -128,8 +128,6 @@ import {
     const [collapsePregradoGraficoSemestral, setCollapsePregradoGraficoSemestral] = useState(false)
     const [yearSelectedSemestrePregrado, setYearSelectedSemestrePregrado] = React.useState(new Date().getFullYear())
     const [dataPieChartPregrado,setDataPieChartPregrado] = React.useState()
-
-    
     
     // Posgrado
     const [collapseGeneralPosgrado, setCollapseGeneralPosgrado] = useState(false)
@@ -221,6 +219,7 @@ import {
     React.useEffect(async () => { 
         await getDataTablePregrado()
     }, [yearSelectedPregrado])
+
     React.useEffect(async () => { 
         await getDataTablePosgrado()
     }, [yearSelectedPosgrado])
@@ -232,6 +231,7 @@ import {
         e.preventDefault();
     }
     
+    // Toggle
     const toggleGeneralPosgrado = (e)=>{
         setCollapseGeneralPosgrado(!collapseGeneralPosgrado);
         setCollapseGeneralPregrado(false);
@@ -289,6 +289,7 @@ import {
         e.preventDefault();
     }
 
+    // HandleChanges
     const handleChangeYearPregrado = async (event) =>  {
         setYearSelectedPregrado(event.target.value);
     }
@@ -409,7 +410,6 @@ import {
                                         ></CWidgetDropdown>
                                     </div>
                                 </div>
-                                
                             </CCollapse>
                         </div>
                         <div className="container b-1">
@@ -516,12 +516,13 @@ import {
                                 <CCollapse show={collapsePregradoGraficoSemestral}>
                                     <div className="container mb-3">
                                         <div className="row">
-                                            <div className="col-2">
-                                            <CSelect value={yearSelectedSemestrePregrado} onChange={handleChangeYearSemestrePregrado}>
-                                            {yearsData.map(item => {
-                                                return (<option key={item} value={item}>{item}</option>);
-                                            })}
-                                            </CSelect>
+                                            <div className="col-4"></div>
+                                            <div className="col-3">
+                                                <CSelect value={yearSelectedSemestrePregrado} onChange={handleChangeYearSemestrePregrado}>
+                                                {yearsData.map(item => {
+                                                    return (<option key={item} value={item}>{item}</option>);
+                                                })}
+                                                </CSelect>
                                             </div>
                                                 <div className="col">
                                                     <CButtonGroup className="mr-2 align-items-center">

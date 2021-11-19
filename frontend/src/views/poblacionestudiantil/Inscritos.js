@@ -380,11 +380,6 @@ const Inscritos = () =>{
         await getDataInscritosEstratoSegundoSemestre()
     },[yearSelectedEstrato])
 
-    // React.useEffect(async () => { await getDataInscritosList()})
-    // React.useEffect(async () => { 
-    //     await getDataTipoInscripcion()
-    // },[inscripcionSelected])
-
     const toggleGeneral = (e)=>{
         setCollapseGeneral(!collapseGeneral);
         setCollapseSexo(false);
@@ -471,10 +466,6 @@ const Inscritos = () =>{
         setLoadingEstrato(true);
     }
 
-    // const handleChangeInscripcion = async() =>  {
-        
-    // };   
-    
 
     // despues de definir las constantes 
     useSingleton(async () => {
@@ -754,7 +745,6 @@ const Inscritos = () =>{
                                         color="outline-primary"
                                         onClick={toggleLineChartColegio}
                                         className={'mb-1'}
-                                        // setLoadingEstrato(true);
                                     >Mostrar Gráfico
                                     </CButton>
                                 </CCol>
@@ -836,15 +826,13 @@ const Inscritos = () =>{
                             <CCardBody>
                                 {loadingTipoInscripcion? <div class="spinner-border text-info" role="status">
                                     <span class="sr-only">Loading...</span>
-                                    </div> :
-                                    
+                                    </div> :                                    
                                     <CChartLine
                                         datasets={dataSetTipoInscripcion}
                                         options={{
                                         tooltips: {
                                             enabled: true
-                                        }
-                                        
+                                        }                                        
                                         }}
                                         labels= {yearsDataSemestre} 
                                     />
@@ -854,8 +842,6 @@ const Inscritos = () =>{
                     </CCard>
                 </CCollapse>
             </CCol> 
-
-
         </CRow>      
         </>
     )

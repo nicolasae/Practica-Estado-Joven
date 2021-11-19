@@ -307,12 +307,10 @@ const Cancelados = () =>{
         await setLoadingInscripcion(false)
     }
     const getDataTipoInscripcion= async () => {
-       
         for (const i in inscripcionSelected){
             opcionesMultiSelect.push(inscripcionSelected[i].value)
         }
         setOpcionesMultiSelect(opcionesMultiSelect)
-        console.log(opcionesMultiSelect)
         setOpcionesMultiSelect([])
         var axios = require('axios');
         var aux = yearsDataSemestre;
@@ -350,7 +348,6 @@ const Cancelados = () =>{
             aux[opcionesMultiSelect[opcion]] = aux2
             aux2 = []
         }
-        console.log(aux)
         await setDataTipoInscripcion(aux)
         await setLoadingTipoInscripcion(false)        
         let dataSet  = []

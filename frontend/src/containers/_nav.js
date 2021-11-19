@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const _nav =  [
   // MENU DE NAVEGACIÓN DASHBOARD
 
@@ -69,9 +68,7 @@ const _nav =  [
         _tag: 'CSidebarNavItem',
         name: 'Deserción Intersemestral',
         to: '/desercion/intersemestral',
-      },
-      
-
+      },      
     ],
   },
  

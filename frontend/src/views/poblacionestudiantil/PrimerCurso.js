@@ -202,8 +202,7 @@ const PrimerCurso = () =>{
                     return error.response
                 }
             });
-            aux.push(primerCursoquery.ESTUDIANTES__sum)
-            
+            aux.push(primerCursoquery.ESTUDIANTES__sum)            
         }
         await setPrimerCursoEstratoPrimerSemestre(aux)
     }
@@ -219,8 +218,7 @@ const PrimerCurso = () =>{
                 headers: { 
                     'Content-Type': 'application/json'
                 },
-            };
-            
+            };            
             var primerCursoquery = await axios(config)    
             .then( response => response.data.data)
             .catch(function (error) {
@@ -312,7 +310,6 @@ const PrimerCurso = () =>{
             opcionesMultiSelect.push(inscripcionSelected[i].value)
         }
         setOpcionesMultiSelect(opcionesMultiSelect)
-        console.log(opcionesMultiSelect)
         setOpcionesMultiSelect([])
         var axios = require('axios');
         var aux = yearsDataSemestre;
@@ -350,7 +347,6 @@ const PrimerCurso = () =>{
             aux[opcionesMultiSelect[opcion]] = aux2
             aux2 = []
         }
-        console.log(aux)
         await setDataTipoInscripcion(aux)
         await setLoadingTipoInscripcion(false)        
         let dataSet  = []
@@ -384,9 +380,6 @@ const PrimerCurso = () =>{
         await getDataPrimerCursoEstratoPrimerSemestre()
         await getDataPrimerCursoEstratoSegundoSemestre()
     },[yearSelectedEstrato])
-
-
-
 
     const toggleGeneral = (e)=>{
         setCollapseGeneral(!collapseGeneral);
@@ -472,7 +465,6 @@ const PrimerCurso = () =>{
         e.preventDefault();
     }
     
-
     // despues de definir las constantes 
     useSingleton(async () => {
         await getYears();    

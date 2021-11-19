@@ -570,7 +570,7 @@ class AnalisisCohorteCountView(APIView):
             },status=status.HTTP_200_OK)
         else:
             query = {**request.GET.dict()}
-
+            extra_query = {}
             for key,value in request.GET.items():
                 if key not in DESERCION_INTERANUAL_FIELDS:
                     return Response({
@@ -582,15 +582,27 @@ class AnalisisCohorteCountView(APIView):
                 if len(query.get('COD_PERIODO').split('-')) == 1:        
                     year = query.pop('COD_PERIODO')
                     query['COD_PERIODO__in'] = [f'{year}-1',f'{year}-2']
-                
+            if query.get('NOMBRE'):
+                extra_query['NOMBRE'] = query.pop('NOMBRE')
+            if query.get('NIVEL'):
+                extra_query['NIVEL'] = query.pop('NIVEL')                 
             analisis = AnalisisCohorte.objects.filter(**query)
             if not analisis:  
                 return Response({
                     'data': 'No se encontraron los registros',
                     'body':query 
-                },status=status.HTTP_404_NOT_FOUND) 
+                },status=status.HTTP_404_NOT_FOUND)
+            data = AnalisisCohorteSerializer(analisis,many=True).data 
+            valor = [
+                    value for value in data if 
+                    (value["NOMBRE"] in extra_query['NOMBRE'] if extra_query.get('NOMBRE') else True) and 
+                    (value["NIVEL"] in extra_query['NIVEL'] if extra_query.get('NIVEL') else True)
+                    ]
+            total = 0
+            for value in valor:
+                total += value["CANTIDAD"]
             return Response({
-                'data': analisis.aggregate(Sum('CANTIDAD'))
+                'data': {"CANTIDAD__sum": total}
             },status=status.HTTP_200_OK)
         
 class AnalisisCohorteCountYearView(APIView):
@@ -613,8 +625,9 @@ class AnalisisCohorteCountYearView(APIView):
             },status=status.HTTP_200_OK)
         else:
             query = {**request.GET.dict()}
+            extra_query = {}
             # Filtros
-            fields_list = [*TENDENCIA_FIELDS]
+            fields_list = [*ANALISIS_COHORTE_FIELDS]
             fields_list.remove('COD_PERIODO')
             for key,value in request.GET.items():
                 if key not in fields_list:
@@ -622,7 +635,11 @@ class AnalisisCohorteCountYearView(APIView):
                         'data': f'El filtro {key} no está disponible'
                     },status=status.HTTP_409_CONFLICT)
                 if value == 'None':
-                    query[key] = None               
+                    query[key] = None
+            if query.get('NOMBRE'):
+                extra_query['NOMBRE'] = query.pop('NOMBRE')
+            if query.get('NIVEL'):
+                extra_query['NIVEL'] = query.pop('NIVEL')               
             analisisCohorte = AnalisisCohorte.objects.filter(**query)
             if not analisisCohorte:  
                 return Response({
@@ -632,11 +649,20 @@ class AnalisisCohorteCountYearView(APIView):
             years = [periodo['COD_PERIODO'] for periodo in analisisCohorte.values('COD_PERIODO').distinct()]
             data = []
             for year in years:
-                query['COD_PERIODO'] = year
-                data.append({
-                    'year':year,
-                    'count':analisisCohorte.filter(COD_PERIODO = year).aggregate(Sum('CANTIDAD'))['CANTIDAD__sum']
-                })
+                aux = AnalisisCohorteSerializer(analisisCohorte.filter(COD_PERIODO = year),many=True).data 
+                valor = [
+                        value for value in aux if 
+                        (value["NOMBRE"] in extra_query['NOMBRE'] if extra_query.get('NOMBRE') else True) and 
+                        (value["NIVEL"] in extra_query['NIVEL'] if extra_query.get('NIVEL') else True)
+                        ]
+                total = 0
+                print(valor)
+                for value in valor:
+                    total += value["CANTIDAD"]
+                data.append(
+                    {"year":year,
+                     "CANTIDAD_Sum": total
+                     })
             return Response({
                 'data': data
             },status=status.HTTP_200_OK)
